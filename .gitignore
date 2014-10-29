@@ -1,0 +1,6 @@
+elpa/
+.mc-lists.el
+
+*.local~
+
+*.el~
