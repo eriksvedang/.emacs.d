@@ -1,3 +1,4 @@
+
 ;; Packages
 (setq package-enable-at-startup nil)
  
@@ -6,18 +7,6 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
-
-(defvar my-packages '(clojure-mode
-		      rainbow-delimiters
-                      nrepl
-		      haskell-mode
-		      rust-mode
-		      solarized-theme
-		      multiple-cursors))
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
 
 ;; Startup
 (setq inhibit-splash-screen t)
