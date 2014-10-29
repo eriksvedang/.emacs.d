@@ -11,6 +11,7 @@
 		      rainbow-delimiters
                       nrepl
 		      haskell-mode
+		      rust-mode
 		      solarized-theme
 		      multiple-cursors))
 
@@ -25,26 +26,17 @@
 ;; Paths
 (add-to-list 'exec-path "~/bin")
 
-;; Ido
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;; Theme and font
+(load-theme 'dichromacy)
+(set-face-attribute 'default nil :height 160)
+(when (member "Monaco" (font-family-list))
+  (set-face-attribute 'default nil :font "Monaco"))
 
-;; Modes
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(linum-mode 0)
-(rainbow-delimiters-mode 1)
-
-;; Nifty keyboard shortcuts
-(global-set-key (kbd "C-o") 'ido-switch-buffer)
-(global-set-key "\C-x\C-b" 'ibuffer)
-(global-set-key (kbd "RET") 'newline-and-indent)
-
-;; Fix meta
-(setq mac-option-key-is-meta 0)
-(setq mac-option-modifier nil)
-;(emulate-mac-finnish-keyboard-mode)
+;; Window size and position
+(setq-default left-margin-width 0 right-margin-width 0)
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(set-frame-position (selected-frame) 0 0)
 
 ;; Cursor
 (setq cursor-type 'bar)
@@ -55,12 +47,9 @@
 (global-linum-mode 1)
 (setq linum-format " %d  ")
 
-;; Theme and font
-(load-theme 'dichromacy)
-(setq-default left-margin-width 0 right-margin-width 0)
-(set-face-attribute 'default nil :height 160)
-(when (member "Monaco" (font-family-list))
-  (set-face-attribute 'default nil :font "Monaco"))
+;; Rainbow parens
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
@@ -106,27 +95,40 @@
 (global-set-key [\C-\s-down] 'move-text-down)
 
 ;; Home/End keyboard shortcuts
+(global-set-key [s-up] 'scroll-down-command)
+(global-set-key [s-down] 'scroll-up-command)
 (global-set-key [s-left] 'beginning-of-line)
 (global-set-key [s-right] 'end-of-line)
-(global-set-key [s-down] 'scroll-up-command)
-(global-set-key [s-up] 'scroll-down-command)
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 
-;; Fix emacs strangeness
+;; Little modes and fixes
 (delete-selection-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(set-fringe-mode 0) 
+(set-fringe-mode 0)
 (setq ring-bell-function 'ignore)
+
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
 
-;; Rainbow parens
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(setq initial-scratch-message "")
+
+;; Ido
+(ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+
+;; Fix meta
+(setq mac-option-key-is-meta 0)
+(setq mac-option-modifier nil)
+
+;; Better keyboard shortcuts
+(global-set-key (kbd "C-o") 'ido-switch-buffer)
+(global-set-key (kbd "C-b") 'ibuffer)
+(global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
