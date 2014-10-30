@@ -4,3 +4,4 @@ elpa/
 *.local~
 
 *.el~
+/.#init.el
