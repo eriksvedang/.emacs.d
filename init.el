@@ -27,6 +27,7 @@
 
 ;; Paths
 (add-to-list 'exec-path "~/bin")
+(add-to-list 'exec-path "/Users/Erik/bin/")
 
 ;; Theme and font
 (load-theme 'dichromacy)
@@ -131,6 +132,7 @@
 (global-set-key (kbd "C-o") 'ido-switch-buffer)
 (global-set-key (kbd "C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 
 ;; Magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
@@ -163,3 +165,11 @@
 ; C+p       Prev line
 ; C+h k     Describe keyboard shortcut
 ; q         close "pane" (what's the real word?)
+
+;; Magit
+;; s to stage files
+;; c c to commit (type the message then C-c C-c to actually commit)
+;; b b to switch to another branch
+;; Other handy keys:
+;; P P to do a git push
+;; F F to do a git pull
