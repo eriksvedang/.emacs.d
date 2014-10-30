@@ -8,6 +8,20 @@
 
 (package-initialize)
 
+;; Auto install packages
+(defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not"
+  (mapcar
+   (lambda (package)
+     (if (package-installed-p package)
+         nil
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package)
+         package)))
+   packages))
+
+(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider)
+
 ;; Startup
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
