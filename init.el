@@ -1,4 +1,3 @@
-
 ;; Packages
 (setq package-enable-at-startup nil)
  
@@ -132,6 +131,9 @@
 (global-set-key (kbd "C-o") 'ido-switch-buffer)
 (global-set-key (kbd "C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
+
+;; Magit
+(global-set-key (kbd "C-c C-g") 'magit-status)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
