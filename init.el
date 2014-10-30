@@ -19,7 +19,7 @@
          package)))
    packages))
 
-(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider)
+(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider 'org)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -98,8 +98,8 @@
 (global-set-key [\C-\s-down] 'move-text-down)
 
 ;; Home/End keyboard shortcuts
-(global-set-key [s-up] 'beginning-of-buffer);; 'scroll-down-command)
-(global-set-key [s-down] 'end-of-buffer);; 'scroll-up-command)
+(global-set-key [s-up] 'beginning-of-buffer)
+(global-set-key [s-down] 'end-of-buffer)
 (global-set-key [s-left] 'beginning-of-line)
 (global-set-key [s-right] 'end-of-line)
 (define-key global-map [home] 'beginning-of-line)
