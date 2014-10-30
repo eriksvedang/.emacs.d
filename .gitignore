@@ -5,3 +5,4 @@ elpa/
 
 *.el~
 /.#init.el
+/#init.el#
