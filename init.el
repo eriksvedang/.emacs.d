@@ -105,6 +105,9 @@
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 
+;(define-key global-map [] 'forward-word)
+;(define-key global-map [] 'backward-word)
+
 ;; Little modes and fixes
 (delete-selection-mode 1)
 (menu-bar-mode -1)
