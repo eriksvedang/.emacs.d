@@ -29,7 +29,14 @@
          package)))
    packages))
 
-(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider 'org 'rainbow-mode)
+(ensure-package-installed 'rainbow-delimiters
+			  'magit
+			  'multiple-cursors
+			  'rust-mode
+			  'cider
+			  'org
+			  'rainbow-mode
+			  'smartparens)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -159,6 +166,17 @@
 
 ;; Magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
+
+;; Cider
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(global-set-key (kbd "<s-return>") 'cider-eval-buffer)
+
+;; Smart parens
+(global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
+(global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
+(global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
+(global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "C-S-d") 'sp-kill-sexp)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
