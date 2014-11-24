@@ -19,7 +19,7 @@
          package)))
    packages))
 
-(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider 'org)
+(ensure-package-installed 'rainbow-delimiters 'magit 'multiple-cursors 'rust-mode 'cider 'org 'rainbow-mode)
 
 ;; Startup
 (setq inhibit-splash-screen t)
