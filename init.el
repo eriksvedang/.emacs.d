@@ -176,7 +176,11 @@
 (global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
 (global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
 (global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "C-S-a") 'sp-join-sexp)
+(global-set-key (kbd "C-S-s") 'sp-split-sexp)
 (global-set-key (kbd "C-S-d") 'sp-kill-sexp)
+(global-set-key (kbd "C-S-f") 'sp-splice-sexp)
+(smartparens-mode 1)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
