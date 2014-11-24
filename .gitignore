@@ -6,3 +6,5 @@ elpa/
 *.el~
 /.#init.el
 /#init.el#
+
+ac-comphist.dat

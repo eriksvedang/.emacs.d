@@ -5,7 +5,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes (quote ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default)))
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(smartparens-global-mode t))
 ;; Packages
 
 ;; Package manager
@@ -36,7 +37,9 @@
 			  'cider
 			  'org
 			  'rainbow-mode
-			  'smartparens)
+			  'smartparens
+			  'auto-complete
+			  'ac-nrepl)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -142,6 +145,7 @@
 (scroll-bar-mode -1)
 (set-fringe-mode 0)
 (setq ring-bell-function 'ignore)
+(show-paren-mode 0)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
@@ -153,6 +157,19 @@
 (ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+
+;; Auto complete
+(require 'auto-complete-config)
+(setq ac-delay 0.0)
+(setq ac-quick-help-delay 0.5)
+(ac-config-default)
+
+;; Auto complete nrepl
+(require 'ac-nrepl)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+(add-to-list 'ac-modes 'cider-mode)
+(add-to-list 'ac-modes 'cider-repl-mode)
 
 ;; Fix meta
 (setq mac-option-key-is-meta 0)
@@ -180,7 +197,6 @@
 (global-set-key (kbd "C-S-s") 'sp-split-sexp)
 (global-set-key (kbd "C-S-d") 'sp-kill-sexp)
 (global-set-key (kbd "C-S-f") 'sp-splice-sexp)
-(smartparens-mode 1)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
