@@ -1,4 +1,14 @@
+;; Custom set variables. Your init file should contain only one such instance.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("c774bb7501fb752232b4ba7028694bfa960f7355b4df164a93eaec00add57512" "a19da0ca63b696a566374c4c7281fb555ba019455d7f87c257e118b97f40f3ef" "1bca0832cbd11a86a907f778c4c1f972011105c19f988d58bbed2dcc249b4c7e" "1554426e5bece4d0ccb0d449d02970ad2734e7510cbad14883215f60b2fefba0" "6d659a43c0bb767f4ae98294211aa07e3477b399ca8fc941e30f501102f3520f" default)))
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 ;; Packages
+
+;; Package manager
 (setq package-enable-at-startup nil)
  
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -30,15 +40,13 @@
 (add-to-list 'exec-path "/Users/Erik/bin/")
 
 ;; Theme and font
-(load-theme 'dichromacy)
+(load-theme 'Striptease)
 (set-face-attribute 'default nil :height 160)
 (when (member "Monaco" (font-family-list))
   (set-face-attribute 'default nil :font "Monaco"))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (set-frame-position (selected-frame) 0 0)
 
 ;; Cursor
@@ -176,3 +184,13 @@
 ;; Other handy keys:
 ;; P P to do a git push
 ;; F F to do a git pull
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#ff3f60"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#3fAA90"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#000000")))))
