@@ -45,6 +45,14 @@
 (when (member "Monaco" (font-family-list))
   (set-face-attribute 'default nil :font "Monaco"))
 
+;; Rainbow parenthesis colors
+(custom-set-faces
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#000000"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#3fAA90"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#ff3f60"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#EE9933")))))
+
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
 (set-frame-position (selected-frame) 0 0)
@@ -184,13 +192,4 @@
 ;; Other handy keys:
 ;; P P to do a git push
 ;; F F to do a git pull
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#ff3f60"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#3fAA90"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#000000")))))
+
