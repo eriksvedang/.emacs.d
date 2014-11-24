@@ -133,7 +133,7 @@
 
 ;; Better keyboard shortcuts
 (global-set-key (kbd "C-o") 'ido-switch-buffer)
-(global-set-key (kbd "C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 
