@@ -46,7 +46,7 @@
 
 ;; Theme and font
 (load-theme 'Striptease)
-(set-face-attribute 'default nil :height 165)
+(set-face-attribute 'default nil :height 160)
 (when (member "Monaco" (font-family-list))
   (set-face-attribute 'default nil :font "Monaco"))
 
@@ -182,7 +182,7 @@
 
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
-(powerline-default-theme)
+(powerline-center-theme)
 (setq powerline-arrow-shape 'arrow)
 (set-face-attribute 'mode-line nil :foreground "#fff" :background "#0072b2" :box nil)
 (set-face-attribute 'mode-line-inactive nil :foreground "#999" :background "#050000" :box nil)
