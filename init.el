@@ -39,13 +39,14 @@
 ;; Startup
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
+(set-frame-parameter nil 'fullscreen 'fullboth)
 
 ;; Paths
 (add-to-list 'exec-path "~/bin")
 
 ;; Theme and font
 (load-theme 'Striptease)
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 165)
 (when (member "Monaco" (font-family-list))
   (set-face-attribute 'default nil :font "Monaco"))
 
@@ -62,7 +63,7 @@
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
-(set-frame-position (selected-frame) 0 0)
+;(set-frame-position (selected-frame) 0 0)
 
 ;; Cursor
 (setq cursor-type 'bar)
@@ -183,9 +184,7 @@
 (require 'powerline)
 (powerline-default-theme)
 (setq powerline-arrow-shape 'arrow)
-(setq powerline-color1 "#65fb83")
-(setq powerline-color2 "#ff94f6")
-(set-face-attribute 'mode-line nil :foreground "#fff" :background "#5f74b8" :box nil)
+(set-face-attribute 'mode-line nil :foreground "#fff" :background "#0072b2" :box nil)
 (set-face-attribute 'mode-line-inactive nil :foreground "#999" :background "#050000" :box nil)
 
 ;; Smartparens
