@@ -1,21 +1,15 @@
-;; Custom set variables. Your init file should contain only one such instance.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default)))
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(smartparens-global-mode t))
-;; Packages
+ '(custom-safe-themes (quote ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
 
 ;; Package manager
 (setq package-enable-at-startup nil)
- 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-
 (package-initialize)
 
 ;; Auto install packages
@@ -39,7 +33,8 @@
 			  'rainbow-mode
 			  'smartparens
 			  'auto-complete
-			  'ac-nrepl)
+			  'ac-nrepl
+			  'nyan-mode)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -47,7 +42,6 @@
 
 ;; Paths
 (add-to-list 'exec-path "~/bin")
-(add-to-list 'exec-path "/Users/Erik/bin/")
 
 ;; Theme and font
 (load-theme 'Striptease)
@@ -55,7 +49,6 @@
 (when (member "Monaco" (font-family-list))
   (set-face-attribute 'default nil :font "Monaco"))
 
-;; Rainbow parenthesis colors
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -135,9 +128,6 @@
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 
-;(define-key global-map [] 'forward-word)
-;(define-key global-map [] 'backward-word)
-
 ;; Little modes and fixes
 (delete-selection-mode 1)
 (menu-bar-mode -1)
@@ -188,7 +178,11 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (global-set-key (kbd "<s-return>") 'cider-eval-buffer)
 
-;; Smart parens
+;; Cat
+(nyan-mode 0)
+
+;; Smartparens
+(add-hook 'prog-mode-hook 'smartparens-mode)
 (global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
 (global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
 (global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
