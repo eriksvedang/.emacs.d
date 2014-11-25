@@ -34,7 +34,7 @@
 			  'smartparens
 			  'auto-complete
 			  'ac-nrepl
-			  'nyan-mode)
+			  'powerline)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -54,7 +54,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#ff3f60"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#FF3F60"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#3fAA90"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
@@ -136,12 +136,12 @@
 (set-fringe-mode 0)
 (setq ring-bell-function 'ignore)
 (show-paren-mode 0)
+(add-hook 'prog-mode-hook 'rainbow-mode)
+(setq initial-scratch-message "")
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
-
-(setq initial-scratch-message "")
 
 ;; Ido
 (ido-mode 1)
@@ -170,6 +170,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C--") 'pop-global-mark)
 
 ;; Magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
@@ -178,8 +179,14 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (global-set-key (kbd "<s-return>") 'cider-eval-buffer)
 
-;; Cat
-(nyan-mode 0)
+;; Powerline (customize the 'mode line')
+(require 'powerline)
+(powerline-default-theme)
+(setq powerline-arrow-shape 'arrow)
+(setq powerline-color1 "#65fb83")
+(setq powerline-color2 "#ff94f6")
+(set-face-attribute 'mode-line nil :foreground "#fff" :background "#5f74b8" :box nil)
+(set-face-attribute 'mode-line-inactive nil :foreground "#999" :background "#050000" :box nil)
 
 ;; Smartparens
 (add-hook 'prog-mode-hook 'smartparens-mode)
@@ -207,12 +214,12 @@
 ; C+x C+e   Evaluate form
 ; C+x k     Kill buffer
 ; C+x 1     Close other buffer
-; C+x 2     Split up/down
-; C+x 3     Split left/right
+; C+x 2     Split window up/down
+; C+x 3     Split window left/right
 ; C+x 0     Close current buffer
 ; C+x b     Open another buffer
 ; M+x       Run command
-; C+s       Interactive search
+; C+s /C+r  Interactive search
 ; i         Mark for installation
 ; u         Unmark
 ; x         Install selected (execute)
