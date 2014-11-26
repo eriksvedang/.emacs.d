@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f5bd8485ec9ba65551bf9b9fcaa6af6bcbaebaa4591c0f30d3e512b1d77b3481" default))))
+    ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
 
 ;; Package manager
 (setq package-enable-at-startup nil)
@@ -198,6 +198,8 @@
 (global-set-key (kbd "C-S-s") 'sp-split-sexp)
 (global-set-key (kbd "C-S-d") 'sp-kill-sexp)
 (global-set-key (kbd "C-S-f") 'sp-splice-sexp)
+(global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
+(global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
