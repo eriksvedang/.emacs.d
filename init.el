@@ -3,7 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
+ '(custom-safe-themes
+   (quote
+    ("f5bd8485ec9ba65551bf9b9fcaa6af6bcbaebaa4591c0f30d3e512b1d77b3481" default))))
 
 ;; Package manager
 (setq package-enable-at-startup nil)
@@ -182,10 +184,9 @@
 
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
-(powerline-center-theme)
-(setq powerline-arrow-shape 'arrow)
+(powerline-default-theme)
 (set-face-attribute 'mode-line nil :foreground "#fff" :background "#0072b2" :box nil)
-(set-face-attribute 'mode-line-inactive nil :foreground "#999" :background "#050000" :box nil)
+(set-face-attribute 'mode-line-inactive nil :foreground "#666" :background "#050000" :box nil)
 
 ;; Smartparens
 (add-hook 'prog-mode-hook 'smartparens-mode)
