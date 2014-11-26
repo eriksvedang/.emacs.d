@@ -61,7 +61,10 @@
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#3fAA90"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#000000")))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#FF3F60"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#EE9933"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#3fAA90"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#3399EE")))))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
@@ -141,6 +144,7 @@
 (show-paren-mode 0)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (setq initial-scratch-message "")
+(setq undo-limit 3600)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
