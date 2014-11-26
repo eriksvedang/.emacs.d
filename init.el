@@ -39,7 +39,7 @@
 ;; Startup
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
-(set-frame-parameter nil 'fullscreen 'fullboth)
+;(set-frame-parameter nil 'fullscreen 'fullboth)
 
 ;; Paths
 (add-to-list 'exec-path "~/bin")
