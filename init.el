@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" "c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
+    ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
 ;; Package manager
 (setq package-enable-at-startup nil)
@@ -30,6 +30,8 @@
 			  'magit
 			  'multiple-cursors
 			  'rust-mode
+			  'haskell-mode
+			  'yasnippet
 			  'cider
 			  'org
 			  'rainbow-mode
@@ -187,6 +189,10 @@
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (global-set-key (kbd "<s-return>") 'cider-eval-buffer)
+
+;; Yasnippets
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas-global-mode 1)
 
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
