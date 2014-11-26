@@ -11,7 +11,7 @@
  '(minibuffer-prompt ((t (:foreground "#0072b2" :weight bold))))
  '(highlight ((t (:background "#e5e5e5" :foreground "#0072b2"))))
  '(region ((t (:background "#a0eeee"))))
- '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "grey50")) (((class color grayscale) (min-colors 88) (background dark)) (:foreground "grey70")) (((class color) (min-colors 8) (background light)) (:foreground "green")) (((class color) (min-colors 8) (background dark)) (:foreground "yellow"))))
+ '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "grey80")) (((class color grayscale) (min-colors 88) (background dark)) (:foreground "grey70")) (((class color) (min-colors 8) (background light)) (:foreground "green")) (((class color) (min-colors 8) (background dark)) (:foreground "yellow"))))
  '(secondary-selection ((t (:background "#e5e5e5"))))
  '(trailing-whitespace ((t (:background "#d55e00"))))
  '(font-lock-builtin-face ((t (:weight bold :foreground "#0072b2"))))

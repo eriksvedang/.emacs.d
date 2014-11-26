@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
+    ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" "c41249f25008f77029af98acb737ac0589b7bf300bba6552c9dd5b2ffaafd313" default))))
 
 ;; Package manager
 (setq package-enable-at-startup nil)
@@ -48,11 +48,11 @@
 
 ;; Theme and font
 (load-theme 'Striptease)
-(set-face-attribute 'default nil :height 170)
-;; (when (member "Monaco" (font-family-list))
-;;   (set-face-attribute 'default nil :font "Monaco"))
-(when (member "Menlo" (font-family-list))
-  (set-face-attribute 'default nil :font "Menlo"))
+(set-face-attribute 'default nil :height 160)
+;; Good fonts: Monaco, Menlo
+(let ((font "Monaco"))
+  (when (member font (font-family-list))
+    (set-face-attribute 'default nil :font font)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
