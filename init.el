@@ -7,6 +7,11 @@
    (quote
     ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
+;; UTF-8
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 ;; Package manager
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -38,7 +43,8 @@
 			  'smartparens
 			  'auto-complete
 			  'ac-nrepl
-			  'powerline)
+			  'powerline
+			  'zencoding-mode)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -149,6 +155,8 @@
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (setq initial-scratch-message "")
 (setq undo-limit 3600)
+(setq compilation-ask-about-save nil)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
@@ -274,6 +282,9 @@
 (global-set-key (kbd "C-S-f") 'sp-splice-sexp)
 (global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
 (global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
+
+;; Zencoding
+(global-set-key (kbd "C-s-e") 'zencoding-expand-line)
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
