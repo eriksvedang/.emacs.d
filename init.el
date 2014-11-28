@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" "31e6e4c2a439e8d4184c825b9d9cb5aef712b5318f618e2ef5b26028519804f7" "fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
+    ("0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" default))))
 
 ;; Damnit, path!
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
@@ -45,6 +45,7 @@
 			  'magit
 			  'multiple-cursors
 			  'rust-mode
+			  'flycheck-rust
 			  'haskell-mode
 			  'ghc
 			  'yasnippet
@@ -247,12 +248,12 @@
 	      (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
-;; Add a star after buffers that has been modified (also add some spacing in the front to make it "centered")
+;; Add text after buffers that has been modified (also add some spacing in the front to make it "centered")
 (defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
   (setq ad-return-value
     (if (buffer-modified-p (tabbar-tab-value tab))
-      (concat "  " (concat ad-return-value "*"))
-      (concat "  " (concat ad-return-value " ")))))
+      (concat " " (concat ad-return-value "*"))
+      (concat " " (concat ad-return-value " ")))))
 
 (defun on-saving-buffer ()
   (tabbar-set-template tabbar-current-tabset nil)
@@ -436,12 +437,28 @@
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
+;; Rust
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+(defun rust-save-compile-and-run ()
+  (interactive)
+  (save-buffer)
+  (if (locate-dominating-file (buffer-file-name) "Cargo.toml")
+      (compile "cargo run")
+    (compile
+     (format "rustc %s ; %s"
+	     (buffer-file-name)
+	     (file-name-sans-extension (buffer-file-name))))))
+
+(add-hook 'rust-mode-hook
+      (lambda ()
+        (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)))
+
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (require 'multiple-cursors)
 (define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
 (define-key my-keys-minor-mode-map (kbd "C-c C-l") 'mc/edit-lines)
-(define-key my-keys-minor-mode-map (kbd "s-r") 'compile)
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   t " my-keys" 'my-keys-minor-mode-map) 
