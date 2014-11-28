@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("31e6e4c2a439e8d4184c825b9d9cb5aef712b5318f618e2ef5b26028519804f7" "fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
+    ("0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" "31e6e4c2a439e8d4184c825b9d9cb5aef712b5318f618e2ef5b26028519804f7" "fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
 ;; Damnit, path!
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
@@ -87,6 +87,15 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "#EE9933"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "#3fAA90"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "#3399EE")))))
+
+;; :background "#FEF"
+;; :background "#FFE"
+;; :background "#EFE"
+;; :background "#EFF"
+;; :background "#FEF"
+;; :background "#FFE"
+;; :background "#EFE"
+;; :background "#EFF"
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
