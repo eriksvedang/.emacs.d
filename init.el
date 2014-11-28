@@ -7,8 +7,15 @@
    (quote
     ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
-;; Please path, work with me
-(setq exec-path (cons "~/bin" exec-path))
+;; Damnit, path!
+(let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
+                     '("bin" ".cabal/bin"))))
+  (setenv "PATH" (apply 'concat
+                        (append (mapcar (lambda (i) (concat i ":")) paths)
+                                (list (getenv "PATH")))))
+  (dolist (path paths) (when (file-directory-p path)
+                         (add-to-list 'exec-path path))))
+(getenv "PATH")
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
@@ -47,7 +54,8 @@
 			  'auto-complete
 			  'ac-nrepl
 			  'powerline
-			  'zencoding-mode)
+			  'zencoding-mode
+			  'tabbar)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -186,9 +194,6 @@
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C--") 'pop-global-mark)
 
-(global-set-key (kbd "<C-s-left>") 'previous-buffer)
-(global-set-key (kbd "<C-s-right>") 'next-buffer)
-
 ;; Home/End keyboard shortcuts
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
@@ -207,6 +212,104 @@
 ;; Yasnippets
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas-global-mode 1)
+
+;; Tabbar
+(require 'tabbar)
+(tabbar-mode 1)
+
+(defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
+  (setq ad-return-value
+    (if (buffer-modified-p (tabbar-tab-value tab))
+      (concat " " (concat ad-return-value "*"))
+      (concat " " (concat ad-return-value "")))))
+ 
+(defun on-saving-buffer ()
+  (tabbar-set-template tabbar-current-tabset nil)
+  (tabbar-display-update))
+(defun on-modifying-buffer ()
+  (set-buffer-modified-p (buffer-modified-p))
+  (tabbar-set-template tabbar-current-tabset nil)
+  (tabbar-display-update))
+(defun after-modifying-buffer (begin end length)
+  (set-buffer-modified-p (buffer-modified-p))
+  (tabbar-set-template tabbar-current-tabset nil)
+  (tabbar-display-update))
+(add-hook 'after-save-hook 'on-saving-buffer)
+(add-hook 'first-change-hook 'on-modifying-buffer)
+ 
+(set-face-attribute
+ 'tabbar-default nil
+ :background "white"
+ :family "Menlo"
+ :height 150)
+
+(set-face-attribute
+ 'tabbar-modified nil
+ :background "#CCC"
+ :foreground "#888"
+ :box '(:line-width 5 :color "#CCC" :style nil))
+
+(set-face-attribute
+ 'tabbar-selected nil
+ :background "white"
+ :foreground "black"
+ :box '(:line-width 5 :color "white" :style nil))
+
+(set-face-attribute
+ 'tabbar-unselected nil
+ :background "#DDD"
+ :foreground "#888"
+ :box '(:line-width 5 :color "#DDD" :style nil))
+ 
+(set-face-attribute
+ 'tabbar-button nil
+ :box '(:line-width 5 :color "white" :style nil))
+
+(set-face-attribute
+ 'tabbar-separator nil
+ :height 1.0
+ :background "#DDD")
+
+;; (defface tabbar-selected-modified
+;;   '((t
+;;      :inherit tabbar-selected
+;;      :foreground "#FF0"
+;;      :weight bold))
+;;    "Face used for selected tabs."
+;;   :group 'tabbar)
+ 
+;; (defface tabbar-unselected-modified
+;;   '((t
+;;      :inherit tabbar-unselected
+;;      :foreground "DarkOrange3"
+;;      :weight bold))
+;;    "Face used for unselected tabs."
+;;   :group 'tabbar) 
+
+(setq tabbar-background-color "#FF3F60")
+(setq tabbar-separator '(0.0))
+
+(global-set-key (kbd "<C-s-left>") 'tabbar-backward-tab)
+(global-set-key (kbd "<C-s-right>") 'tabbar-forward-tab)
+
+(defun switch-tabbar (num)
+  (let* ((tabs (tabbar-tabs
+                (tabbar-current-tabset)))
+         (tab (nth
+               (if (> num 0) (- num 1) (+ (length tabs) num))
+               tabs)))
+    (if tab (switch-to-buffer (car tab)))))
+ 
+(global-set-key (kbd "s-1") (lambda () (interactive) (switch-tabbar 1)))
+(global-set-key (kbd "s-2") (lambda () (interactive) (switch-tabbar 2)))
+(global-set-key (kbd "s-3") (lambda () (interactive) (switch-tabbar 3)))
+(global-set-key (kbd "s-4") (lambda () (interactive) (switch-tabbar 4)))
+(global-set-key (kbd "s-5") (lambda () (interactive) (switch-tabbar 5)))
+(global-set-key (kbd "s-6") (lambda () (interactive) (switch-tabbar 6)))
+(global-set-key (kbd "s-7") (lambda () (interactive) (switch-tabbar 7)))
+(global-set-key (kbd "s-8") (lambda () (interactive) (switch-tabbar 8)))
+(global-set-key (kbd "s-9") (lambda () (interactive) (switch-tabbar 9)))
+(global-set-key (kbd "s-0") (lambda () (interactive) (switch-tabbar -1)))
 
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
@@ -296,6 +399,7 @@
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (require 'multiple-cursors)
 (define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
+(define-key my-keys-minor-mode-map (kbd "C-c C-l") 'mc/edit-lines)
 (define-key my-keys-minor-mode-map (kbd "s-r") 'compile)
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
@@ -303,25 +407,29 @@
 (my-keys-minor-mode 1)
 
 ;; Notes
-; C+g       Cancel
-; C+x C+e   Evaluate form
-; C+x k     Kill buffer
-; C+x 1     Close other buffer
-; C+x 2     Split window up/down
-; C+x 3     Split window left/right
-; C+x 0     Close current buffer
-; C+x b     Open another buffer
-; C+x C+b   Open fancy buffer menu
-; M+x       Run command
-; C+s /C+r  Interactive search
-; i         Mark for installation
-; u         Unmark
-; x         Install selected (execute)
-; C+n       Next line
-; C+p       Prev line
-; C+h k     Describe keyboard shortcut
-; C+h a     Search for a word and get help for it
-; q         close "pane" (what's the real word?)
+;; C+g       Cancel
+;; C+x C+e   Evaluate form
+;; C+x k     Kill buffer
+;; C+x 1     Close other buffer
+;; C+x 2     Split window up/down
+;; C+x 3     Split window left/right
+;; C+x 0     Close current buffer
+;; C+x b     Open another buffer
+;; C+x C+b   Open fancy buffer menu
+;; M+x       Run command
+;; C+s /C+r  Interactive search
+;; i         Mark for installation
+;; u         Unmark
+;; x         Install selected (execute)
+;; C+n       Next line
+;; C+p       Prev line
+;; C+h k     Describe keyboard shortcut
+;; C+h a     Search for a word and get help for it
+;; q         close "pane" (what's the real word?)
+
+;; Commands (run with M-x)
+;; eww           Web browser!
+;; eval-buffer   Evaluate the current buffer
 
 ;; Magit
 ;; s to stage files
@@ -331,5 +439,5 @@
 ;; F F to do a git pull
 
 ;; Questions
-; How to not go back to beginning of line with home key (only beginning of statement)
+;; How to not go back to beginning of line with home key (only beginning of statement)
 
