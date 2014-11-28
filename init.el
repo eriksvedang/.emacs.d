@@ -7,6 +7,9 @@
    (quote
     ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
+;; Please path, work with me
+(setq exec-path (cons "~/bin" exec-path))
+
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -136,14 +139,6 @@
 (global-set-key [\C-\s-up] 'move-text-up)
 (global-set-key [\C-\s-down] 'move-text-down)
 
-;; Home/End keyboard shortcuts
-(global-set-key [s-up] 'beginning-of-buffer)
-(global-set-key [s-down] 'end-of-buffer)
-(global-set-key [s-left] 'beginning-of-line)
-(global-set-key [s-right] 'end-of-line)
-(define-key global-map [home] 'beginning-of-line)
-(define-key global-map [end] 'end-of-line)
-
 ;; Little modes and fixes
 (delete-selection-mode 1)
 (menu-bar-mode -1)
@@ -184,12 +179,23 @@
 (setq mac-option-key-is-meta 0)
 (setq mac-option-modifier nil)
 
-;; Better keyboard shortcuts
+;; Misc keyboard shortcuts
 (global-set-key (kbd "C-o") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C--") 'pop-global-mark)
+
+(global-set-key (kbd "<C-s-left>") 'previous-buffer)
+(global-set-key (kbd "<C-s-right>") 'next-buffer)
+
+;; Home/End keyboard shortcuts
+(global-set-key [s-up] 'beginning-of-buffer)
+(global-set-key [s-down] 'end-of-buffer)
+(global-set-key [s-left] 'beginning-of-line)
+(global-set-key [s-right] 'end-of-line)
+(define-key global-map [home] 'beginning-of-line)
+(define-key global-map [end] 'end-of-line)
 
 ;; Magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
@@ -305,6 +311,7 @@
 ; C+x 3     Split window left/right
 ; C+x 0     Close current buffer
 ; C+x b     Open another buffer
+; C+x C+b   Open fancy buffer menu
 ; M+x       Run command
 ; C+s /C+r  Interactive search
 ; i         Mark for installation
@@ -313,13 +320,16 @@
 ; C+n       Next line
 ; C+p       Prev line
 ; C+h k     Describe keyboard shortcut
+; C+h a     Search for a word and get help for it
 ; q         close "pane" (what's the real word?)
 
 ;; Magit
 ;; s to stage files
 ;; c c to commit (type the message then C-c C-c to actually commit)
 ;; b b to switch to another branch
-;; Other handy keys:
 ;; P P to do a git push
 ;; F F to do a git pull
+
+;; Questions
+; How to not go back to beginning of line with home key (only beginning of statement)
 
