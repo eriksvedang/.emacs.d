@@ -195,12 +195,24 @@
 (global-set-key (kbd "C--") 'pop-global-mark)
 
 ;; Home/End keyboard shortcuts
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+   Move point to the first non-whitespace character on this line.
+   If point was already at that position, move point to beginning of line."
+  (interactive "^") ; Use (interactive "^") in Emacs 23 to make shift-select work
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+
+(global-set-key [s-left] 'smart-beginning-of-line)
+(global-set-key [home] 'smart-beginning-of-line)
+
+(global-set-key [s-right] 'end-of-line)
+(define-key global-map [end] 'end-of-line)
+
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
-(global-set-key [s-left] 'beginning-of-line)
-(global-set-key [s-right] 'end-of-line)
-(define-key global-map [home] 'beginning-of-line)
-(define-key global-map [end] 'end-of-line)
 
 ;; Magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
@@ -246,7 +258,7 @@
   (tabbar-display-update))
 (add-hook 'after-save-hook 'on-saving-buffer)
 (add-hook 'first-change-hook 'on-modifying-buffer)
- 
+
 (set-face-attribute
  'tabbar-default nil
  :background "white"
@@ -255,9 +267,9 @@
 
 (set-face-attribute
  'tabbar-modified nil
- :background "#CCC"
+ :background "#AAA"
  :foreground "#888"
- :box '(:line-width 5 :color "#CCC" :style nil))
+ :box '(:line-width 5 :color "#AAA" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
@@ -273,6 +285,8 @@
  
 (set-face-attribute
  'tabbar-button nil
+ :background "#FFF"
+ :foreground "#000"
  :box '(:line-width 5 :color "white" :style nil))
 
 (set-face-attribute
@@ -281,11 +295,17 @@
  :background "#FFF")
 (setq tabbar-separator '(0.2))
 
+(setq tabbar-use-images -1)
 (setq tabbar-background-color "#DDD")
-;(setq )
+
+(setq
+ tabbar-buffer-home-button (quote (("") ""))
+ tabbar-scroll-left-button (quote (("") ""))  
+ tabbar-scroll-right-button (quote (("") "")))
 
 (global-set-key (kbd "<C-s-left>") 'tabbar-backward-tab)
 (global-set-key (kbd "<C-s-right>") 'tabbar-forward-tab)
+
 
 (defun switch-tabbar (num)
   (let* ((tabs (tabbar-tabs
