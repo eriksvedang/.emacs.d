@@ -243,8 +243,8 @@
 (defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
   (setq ad-return-value
     (if (buffer-modified-p (tabbar-tab-value tab))
-      (concat " " (concat ad-return-value "*"))
-      (concat " " (concat ad-return-value " ")))))
+      (concat "  " (concat ad-return-value "*"))
+      (concat "  " (concat ad-return-value " ")))))
 
 (defun on-saving-buffer ()
   (tabbar-set-template tabbar-current-tabset nil)
