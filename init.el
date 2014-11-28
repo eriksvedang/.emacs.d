@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
+    ("31e6e4c2a439e8d4184c825b9d9cb5aef712b5318f618e2ef5b26028519804f7" "fcb22adae5636136184233fab651d361c9cb39a6c219f40827853af84dcdb0cf" default))))
 
 ;; Damnit, path!
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
@@ -232,14 +232,13 @@
 
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
   "Returns the name of the tab group names the current buffer belongs to.
- There are two groups: Emacs buffers (those whose name starts with '*', plus
- dired buffers), and the rest.  This works at least with Emacs v24.2 using
- tabbar.el v1.7."
+ There are two groups: Emacs buffers (those whose name starts with '*', plus dired buffers), and the rest."
   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
 	      ((eq major-mode 'dired-mode) "emacs")
 	      (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
+;; Add a star after buffers that has been modified (also add some spacing in the front to make it "centered")
 (defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
   (setq ad-return-value
     (if (buffer-modified-p (tabbar-tab-value tab))
@@ -249,14 +248,17 @@
 (defun on-saving-buffer ()
   (tabbar-set-template tabbar-current-tabset nil)
   (tabbar-display-update))
+
 (defun on-modifying-buffer ()
   (set-buffer-modified-p (buffer-modified-p))
   (tabbar-set-template tabbar-current-tabset nil)
   (tabbar-display-update))
+
 (defun after-modifying-buffer (begin end length)
   (set-buffer-modified-p (buffer-modified-p))
   (tabbar-set-template tabbar-current-tabset nil)
   (tabbar-display-update))
+
 (add-hook 'after-save-hook 'on-saving-buffer)
 (add-hook 'first-change-hook 'on-modifying-buffer)
 
