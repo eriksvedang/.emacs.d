@@ -217,11 +217,21 @@
 (require 'tabbar)
 (tabbar-mode 1)
 
+(defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
+  "Returns the name of the tab group names the current buffer belongs to.
+ There are two groups: Emacs buffers (those whose name starts with '*', plus
+ dired buffers), and the rest.  This works at least with Emacs v24.2 using
+ tabbar.el v1.7."
+  (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+	      ((eq major-mode 'dired-mode) "emacs")
+	      (t "user"))))
+(setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
 (defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
   (setq ad-return-value
     (if (buffer-modified-p (tabbar-tab-value tab))
       (concat " " (concat ad-return-value "*"))
-      (concat " " (concat ad-return-value "")))))
+      (concat " " (concat ad-return-value " ")))))
  
 (defun on-saving-buffer ()
   (tabbar-set-template tabbar-current-tabset nil)
@@ -268,26 +278,11 @@
 (set-face-attribute
  'tabbar-separator nil
  :height 1.0
- :background "#DDD")
+ :background "#FFF")
+(setq tabbar-separator '(0.2))
 
-;; (defface tabbar-selected-modified
-;;   '((t
-;;      :inherit tabbar-selected
-;;      :foreground "#FF0"
-;;      :weight bold))
-;;    "Face used for selected tabs."
-;;   :group 'tabbar)
- 
-;; (defface tabbar-unselected-modified
-;;   '((t
-;;      :inherit tabbar-unselected
-;;      :foreground "DarkOrange3"
-;;      :weight bold))
-;;    "Face used for unselected tabs."
-;;   :group 'tabbar) 
-
-(setq tabbar-background-color "#FF3F60")
-(setq tabbar-separator '(0.0))
+(setq tabbar-background-color "#DDD")
+;(setq )
 
 (global-set-key (kbd "<C-s-left>") 'tabbar-backward-tab)
 (global-set-key (kbd "<C-s-right>") 'tabbar-forward-tab)
@@ -299,7 +294,8 @@
                (if (> num 0) (- num 1) (+ (length tabs) num))
                tabs)))
     (if tab (switch-to-buffer (car tab)))))
- 
+
+(global-set-key (kbd "s-§") 'tabbar-forward-group)
 (global-set-key (kbd "s-1") (lambda () (interactive) (switch-tabbar 1)))
 (global-set-key (kbd "s-2") (lambda () (interactive) (switch-tabbar 2)))
 (global-set-key (kbd "s-3") (lambda () (interactive) (switch-tabbar 3)))
@@ -310,6 +306,10 @@
 (global-set-key (kbd "s-8") (lambda () (interactive) (switch-tabbar 8)))
 (global-set-key (kbd "s-9") (lambda () (interactive) (switch-tabbar 9)))
 (global-set-key (kbd "s-0") (lambda () (interactive) (switch-tabbar -1)))
+
+(global-set-key (kbd "s-w") (lambda ()
+                              (interactive)
+                              (kill-buffer (buffer-name))))
 
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
