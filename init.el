@@ -270,31 +270,31 @@
  'tabbar-modified nil
  :background "#DDD"
  :foreground "#09F" 
- :box '(:line-width 5 :color "#DDD" :style nil))
+ :box '(:line-width 7 :color "#DDD" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
  :foreground "black"
- :box '(:line-width 5 :color "white" :style nil))
+ :box '(:line-width 7 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-unselected nil
  :background "#DDD"
  :foreground "#888"
- :box '(:line-width 5 :color "#DDD" :style nil))
+ :box '(:line-width 7 :color "#DDD" :style nil))
  
 (set-face-attribute
  'tabbar-button nil
  :background "#FFF"
  :foreground "#000"
- :box '(:line-width 5 :color "white" :style nil))
+ :box '(:line-width 7 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-separator nil
  :height 1.0
  :background "#FFF")
-(setq tabbar-separator '(0.2))
+(setq tabbar-separator '(0.1))
 
 (setq tabbar-use-images -1)
 (setq tabbar-background-color "#DDD")
@@ -415,6 +415,9 @@
 
 ;; Zencoding
 (global-set-key (kbd "C-s-e") 'zencoding-expand-line)
+
+;; Sgml (html mode)
+(global-set-key (kbd "C-s-.") 'sgml-close-tag)
 
 ;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
