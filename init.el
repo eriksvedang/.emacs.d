@@ -46,6 +46,7 @@
 			  'multiple-cursors
 			  'rust-mode
 			  'haskell-mode
+			  'ghc
 			  'yasnippet
 			  'cider
 			  'org
@@ -244,7 +245,7 @@
     (if (buffer-modified-p (tabbar-tab-value tab))
       (concat " " (concat ad-return-value "*"))
       (concat " " (concat ad-return-value " ")))))
- 
+
 (defun on-saving-buffer ()
   (tabbar-set-template tabbar-current-tabset nil)
   (tabbar-display-update))
@@ -267,9 +268,9 @@
 
 (set-face-attribute
  'tabbar-modified nil
- :background "#AAA"
- :foreground "#888"
- :box '(:line-width 5 :color "#AAA" :style nil))
+ :background "#DDD"
+ :foreground "#09F" 
+ :box '(:line-width 5 :color "#DDD" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
@@ -415,6 +416,12 @@
 ;; Zencoding
 (global-set-key (kbd "C-s-e") 'zencoding-expand-line)
 
+;; Haskell
+(add-hook 'haskell-mode-hook 'turn-on-hi2)
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (require 'multiple-cursors)
@@ -448,8 +455,9 @@
 ;; q         close "pane" (what's the real word?)
 
 ;; Commands (run with M-x)
-;; eww           Web browser!
-;; eval-buffer   Evaluate the current buffer
+;; package-list-packages  Lists packages
+;; eval-buffer            Evaluate the current buffer
+;; eww                    Web browser!
 
 ;; Magit
 ;; s to stage files
