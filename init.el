@@ -53,8 +53,7 @@
 			  'org
 			  'rainbow-mode
 			  'smartparens
-			  'auto-complete
-			  'ac-nrepl
+			  'company
 			  'powerline
 			  'zencoding-mode
 			  'tabbar)
@@ -182,17 +181,8 @@
 (setq ido-everywhere t)
 
 ;; Auto complete
-(require 'auto-complete-config)
-(setq ac-delay 0.0)
-(setq ac-quick-help-delay 0.5)
-(ac-config-default)
-
-;; Auto complete nrepl
-(require 'ac-nrepl)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-to-list 'ac-modes 'cider-mode)
-(add-to-list 'ac-modes 'cider-repl-mode)
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; Fix meta
 (setq mac-option-key-is-meta 0)
