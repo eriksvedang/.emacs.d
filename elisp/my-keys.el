@@ -1,0 +1,71 @@
+;; Move lines up and down
+(require 'movelines)
+(global-set-key (kbd "C-s-<down>") 'move-lines-down)
+(global-set-key (kbd "C-s-<up>") 'move-lines-up)
+
+;; Fix meta
+;; (setq mac-option-key-is-meta 0)
+;; (setq mac-option-modifier nil)
+
+;; Let me write these characters, plx
+(global-set-key (kbd "M-8") "[")
+(global-set-key (kbd "M-9") "]")
+(global-set-key (kbd "M-(") "{")
+(global-set-key (kbd "M-)") "}")
+
+;; Misc keyboard shortcuts
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C--") 'pop-global-mark)
+(global-set-key (kbd "s-i") 'imenu)
+
+;; Home/End keyboard shortcuts
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+   Move point to the first non-whitespace character on this line.
+   If point was already at that position, move point to beginning of line."
+  (interactive "^") ; Use (interactive "^") in Emacs 23 to make shift-select work
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+
+(global-set-key [s-left] 'smart-beginning-of-line)
+(global-set-key [home] 'smart-beginning-of-line)
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
+
+(global-set-key [s-right] 'end-of-line)
+(define-key global-map [end] 'end-of-line)
+(global-set-key (kbd "C-e") 'end-of-line)
+
+(global-set-key [s-up] 'beginning-of-buffer)
+(global-set-key [s-down] 'end-of-buffer)
+
+;; Smartparens
+(add-hook 'prog-mode-hook 'smartparens-mode)
+(global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
+(global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
+(global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
+(global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "C-S-a") 'sp-join-sexp)
+(global-set-key (kbd "C-S-s") 'sp-split-sexp)
+(global-set-key (kbd "C-S-d") 'sp-kill-sexp)
+(global-set-key (kbd "C-S-f") 'sp-splice-sexp)
+(global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
+(global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; Minor mode to ensure key map
+(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
+(require 'multiple-cursors)
+(define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
+(define-key my-keys-minor-mode-map (kbd "C-c C-l") 'mc/edit-lines)
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " my-keys" 'my-keys-minor-mode-map) 
+(my-keys-minor-mode 1)
+
+(provide 'my-keys)
