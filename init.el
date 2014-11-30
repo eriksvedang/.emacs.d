@@ -3,9 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" default))))
+ '(custom-safe-themes (quote ("ae5b2ccf83a69e804052f6315f300ff6e0d968194abcfe5fcdd326a8807f14e2" "0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" default))))
 
 ;; Damnit, path!
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
@@ -69,7 +67,6 @@
 ;; Theme and font
 (load-theme 'Striptease)
 (set-face-attribute 'default nil :height 160)
-;; Good fonts: Monaco, Menlo
 (let ((font "Monaco"))
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
@@ -87,15 +84,6 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "#EE9933"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "#3fAA90"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "#3399EE")))))
-
-;; :background "#FEF"
-;; :background "#FFE"
-;; :background "#EFE"
-;; :background "#EFF"
-;; :background "#FEF"
-;; :background "#FFE"
-;; :background "#EFE"
-;; :background "#EFF"
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
@@ -115,10 +103,10 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Mouse wheel
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
+(setq scroll-step 10) ;; keyboard scroll one line at a time
 
 ;; Move lines up and down
 (defun move-text-internal (arg)
@@ -154,8 +142,8 @@
    (interactive "*p")
    (move-text-internal (- arg)))
  
-(global-set-key [\C-\s-up] 'move-text-up)
-(global-set-key [\C-\s-down] 'move-text-down)
+(global-set-key (kbd "C-s-<up>") 'move-text-up)
+(global-set-key (kbd "C-s-<down>") 'move-text-down)
 
 ;; Little modes and fixes
 (delete-selection-mode 1)
@@ -170,6 +158,7 @@
 (setq undo-limit 3600)
 (setq compilation-ask-about-save nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
+(hl-line-mode 0)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
@@ -185,11 +174,15 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Fix meta
-(setq mac-option-key-is-meta 0)
-(setq mac-option-modifier nil)
+;(setq mac-option-key-is-meta 0)
+;(setq mac-option-modifier nil)
+(global-set-key (kbd "M-8") "[")
+(global-set-key (kbd "M-9") "]")
+(global-set-key (kbd "M-(") "{")
+(global-set-key (kbd "M-)") "}")
 
 ;; Misc keyboard shortcuts
-(global-set-key (kbd "C-o") 'ido-switch-buffer)
+;(global-set-key (kbd "C-o") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
@@ -216,7 +209,7 @@
 (global-set-key [s-down] 'end-of-buffer)
 
 ;; Magit
-(global-set-key (kbd "C-c C-g") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -272,25 +265,25 @@
  'tabbar-modified nil
  :background "#DDD"
  :foreground "#09F" 
- :box '(:line-width 7 :color "#DDD" :style nil))
+ :box '(:line-width 6 :color "#DDD" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
  :foreground "black"
- :box '(:line-width 7 :color "white" :style nil))
+ :box '(:line-width 6 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-unselected nil
  :background "#DDD"
  :foreground "#888"
- :box '(:line-width 7 :color "#DDD" :style nil))
+ :box '(:line-width 6 :color "#DDD" :style nil))
  
 (set-face-attribute
  'tabbar-button nil
  :background "#FFF"
  :foreground "#000"
- :box '(:line-width 7 :color "white" :style nil))
+ :box '(:line-width 6 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-separator nil
@@ -306,9 +299,8 @@
  tabbar-scroll-left-button (quote (("") ""))  
  tabbar-scroll-right-button (quote (("") "")))
 
-(global-set-key (kbd "<C-s-left>") 'tabbar-backward-tab)
-(global-set-key (kbd "<C-s-right>") 'tabbar-forward-tab)
-
+(global-set-key (kbd "<M-s-left>") 'tabbar-backward-tab)
+(global-set-key (kbd "<M-s-right>") 'tabbar-forward-tab)
 
 (defun switch-tabbar (num)
   (let* ((tabs (tabbar-tabs

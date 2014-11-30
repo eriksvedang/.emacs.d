@@ -26,7 +26,7 @@
  '(escape-glyph ((t (:foreground "#f00"))))
  
  '(minibuffer-prompt ((t (:foreground "#0072b2" :weight bold))))
- '(highlight ((t (:background "#e5e5e5" :foreground "#0072b2"))))
+ '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
  
