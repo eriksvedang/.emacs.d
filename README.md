@@ -1,8 +1,6 @@
 .emacs.d
 ========
 
-My new emacs setup!
-
 Notes
 =====
 * C-g       Cancel
