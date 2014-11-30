@@ -29,6 +29,7 @@
  '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
+ '(idle-highlight ((t (:background "#faffff" :weight bold))))
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)

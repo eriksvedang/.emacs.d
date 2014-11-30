@@ -58,7 +58,9 @@
 			  'zencoding-mode
 			  'tabbar
 			  'smex
-			  'undo-tree)
+			  'undo-tree
+			  'idle-highlight-mode
+			  'find-file-in-project)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -91,6 +93,9 @@
 ;; Rainbow parens
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; Highlight instances of the same symbol
+(idle-highlight-mode 1)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
@@ -184,6 +189,15 @@
 (global-set-key (kbd "M-9") "]")
 (global-set-key (kbd "M-(") "{")
 (global-set-key (kbd "M-)") "}")
+
+;; Find file in project (git repo)
+(require 'find-file-in-project)
+(global-set-key (kbd "s-p") 'find-file-in-project)
+(setq ffip-patterns
+      '("*.html" "*.org" "*.txt" "*.md" "*.el"
+	"*.clj" "*.py" "*.rb" "*.js" "*.pl"
+	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
+	"*.c" "*.cpp" "*.cs" "*.m"))
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
