@@ -60,7 +60,9 @@
 			  'smex
 			  'undo-tree
 			  'idle-highlight-mode
-			  'find-file-in-project)
+			  'find-file-in-project
+			  'restclient
+			  'ido-ubiquitous)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -161,6 +163,7 @@
 
 ;; Ido
 (ido-mode 1)
+(ido-ubiquitous 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
@@ -195,7 +198,7 @@
 (global-set-key (kbd "s-p") 'find-file-in-project)
 (setq ffip-patterns
       '("*.html" "*.org" "*.txt" "*.md" "*.el"
-	"*.clj" "*.py" "*.rb" "*.js" "*.pl"
+	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
 	"*.c" "*.cpp" "*.cs" "*.m"))
 
@@ -204,6 +207,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C--") 'pop-global-mark)
+(global-set-key (kbd "C-i") 'imenu)
 
 ;; Home/End keyboard shortcuts
 (defun smart-beginning-of-line ()
@@ -240,7 +244,7 @@
 
 ;; Tabbar
 (require 'tabbar)
-(tabbar-mode 1)
+(tabbar-mode 0)
 
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
   "Returns the name of the tab group names the current buffer belongs to.
