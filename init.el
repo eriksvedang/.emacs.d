@@ -2,8 +2,10 @@
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("ae5b2ccf83a69e804052f6315f300ff6e0d968194abcfe5fcdd326a8807f14e2" "0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" default))))
+	 ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("f464b02a2186c72fcfd1571eb055e3692436d4674de0aec803e4d63978279106" "0a59878fb9407845f4cbc8548aa693e61897989f8a375c501a215efe5d762f22" "ae5b2ccf83a69e804052f6315f300ff6e0d968194abcfe5fcdd326a8807f14e2" "0c5b28806af5b07fc93a64b9a089a57646ff6f2b58f5b53852c12c394433d1de" default))))
 
 ;; Damnit, path!
 (let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
@@ -54,7 +56,9 @@
 			  'company
 			  'powerline
 			  'zencoding-mode
-			  'tabbar)
+			  'tabbar
+			  'smex
+			  'undo-tree)
 
 ;; Startup
 (setq inhibit-splash-screen t)
@@ -70,20 +74,6 @@
 (let ((font "Monaco"))
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#FF3F60"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#3fAA90"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#3399EE"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#FF3F60"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#EE9933"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#3fAA90"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "#3399EE")))))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
@@ -169,20 +159,33 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
+;; Smex (Ido completition for M-x menu)
+(global-set-key (kbd "M-x") (lambda ()
+                             (interactive)
+                             (or (boundp 'smex-cache)
+                                 (smex-initialize))
+                             (global-set-key [(meta x)] 'smex)
+                             (smex)))
+
+;; Undo Tree
+(undo-tree-mode 1)
+(global-set-key (kbd "C-x C-z") 'undo-tree-visualize)
+
 ;; Auto complete
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Fix meta
-;(setq mac-option-key-is-meta 0)
-;(setq mac-option-modifier nil)
+;; (setq mac-option-key-is-meta 0)
+;; (setq mac-option-modifier nil)
+
+;; Let me write these characters, plx
 (global-set-key (kbd "M-8") "[")
 (global-set-key (kbd "M-9") "]")
 (global-set-key (kbd "M-(") "{")
 (global-set-key (kbd "M-)") "}")
 
 ;; Misc keyboard shortcuts
-;(global-set-key (kbd "C-o") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
@@ -201,9 +204,11 @@
 
 (global-set-key [s-left] 'smart-beginning-of-line)
 (global-set-key [home] 'smart-beginning-of-line)
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
 (global-set-key [s-right] 'end-of-line)
 (define-key global-map [end] 'end-of-line)
+(global-set-key (kbd "C-e") 'end-of-line)
 
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
@@ -482,3 +487,9 @@
 ;; Questions
 ;; How to not go back to beginning of line with home key (only beginning of statement)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
