@@ -45,7 +45,6 @@
 			  'magit
 			  'multiple-cursors
 			  'rust-mode
-			  'flycheck-rust
 			  'haskell-mode
 			  'ghc
 			  'yasnippet
@@ -447,8 +446,6 @@
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 ;; Rust
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-
 (defun rust-save-compile-and-run ()
   (interactive)
   (save-buffer)
