@@ -41,6 +41,7 @@
 (ido-ubiquitous 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(setq ido-case-fold  t)
 
 ;; Smex (Ido completition for M-x menu)
 (global-set-key (kbd "M-x") (lambda ()

@@ -28,6 +28,7 @@
 (setq compilation-ask-about-save nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (hl-line-mode 0)
+(setq make-backup-files nil)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
