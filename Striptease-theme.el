@@ -55,6 +55,8 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "#3399EE"))))
 
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
+
+ '(show-paren-match ((t (:background "#fff" :underline t :weight bold))))
  
  '(secondary-selection ((t (:background "#e5e5e5"))))
  '(trailing-whitespace ((t (:background "#d55e00"))))

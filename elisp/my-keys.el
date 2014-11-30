@@ -12,6 +12,8 @@
 (global-set-key (kbd "M-9") "]")
 (global-set-key (kbd "M-(") "{")
 (global-set-key (kbd "M-)") "}")
+(global-set-key (kbd "M-7") "|")
+(global-set-key (kbd "M-/") "\\")
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)

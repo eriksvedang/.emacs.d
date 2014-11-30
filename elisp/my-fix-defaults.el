@@ -6,7 +6,7 @@
                                 (list (getenv "PATH")))))
   (dolist (path paths) (when (file-directory-p path)
                          (add-to-list 'exec-path path))))
-(getenv "PATH")
+
 (add-to-list 'exec-path "~/bin")
 
 ;; UTF-8
@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 (set-fringe-mode 0)
 (setq ring-bell-function 'ignore)
-(show-paren-mode 0)
+(show-paren-mode 1)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (setq initial-scratch-message "")
 (setq undo-limit 3600)
@@ -38,4 +38,4 @@
 (setq inhibit-startup-message t)
 ;(set-frame-parameter nil 'fullscreen 'fullboth)
 
-(provide 'fix-defaults)
+(provide 'my-fix-defaults)
