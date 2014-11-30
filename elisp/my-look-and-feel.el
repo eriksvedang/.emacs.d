@@ -7,7 +7,7 @@
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
-;(set-frame-position (selected-frame) 0 0)
+;; (set-frame-position (selected-frame) 0 0)
 
 ;; Cursor
 (setq cursor-type 'bar)
@@ -32,9 +32,13 @@
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 10) ;; keyboard scroll one line at a time
 
-(provide 'look-and-feel)
+;; Scroll
+(setq redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 10
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 ;; Ido
 (ido-mode 1)
@@ -50,6 +54,9 @@
                                  (smex-initialize))
                              (global-set-key [(meta x)] 'smex)
                              (smex)))
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Undo Tree
 (undo-tree-mode 1)

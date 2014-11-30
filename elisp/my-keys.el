@@ -57,9 +57,6 @@
 (global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
 (global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
 
-;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (require 'multiple-cursors)
