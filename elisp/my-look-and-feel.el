@@ -34,11 +34,11 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
 ;; Scroll
-(setq redisplay-dont-pause t
-      scroll-margin 1
-      scroll-step 10
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
+;; (setq redisplay-dont-pause t
+;;       scroll-margin 1
+;;       scroll-step 10
+;;       scroll-conservatively 10000
+;;       scroll-preserve-screen-position 1)
 
 ;; Ido
 (ido-mode 1)
