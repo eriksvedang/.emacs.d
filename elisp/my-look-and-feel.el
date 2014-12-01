@@ -18,6 +18,9 @@
 (global-linum-mode 1)
 (setq linum-format " %d  ")
 
+;; Prettify (replace 'lambda' with the greek symbol, etc)
+(global-prettify-symbols-mode 1)
+
 ;; Show matching paren
 (show-paren-mode 0)
 
