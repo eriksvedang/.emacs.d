@@ -29,7 +29,7 @@
  '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
- '(idle-highlight ((t (:background "#faffff" :weight bold))))
+ '(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)

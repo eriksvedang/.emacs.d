@@ -14,6 +14,11 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; Startup
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+;; (set-frame-parameter nil 'fullscreen 'fullboth)
+
 ;; Little modes and fixes
 (delete-selection-mode 1)
 (menu-bar-mode -1)
@@ -21,8 +26,6 @@
 (scroll-bar-mode -1)
 (set-fringe-mode 0)
 (setq ring-bell-function 'ignore)
-(show-paren-mode 1)
-(add-hook 'prog-mode-hook 'rainbow-mode)
 (setq initial-scratch-message "")
 (setq undo-limit 3600)
 (setq compilation-ask-about-save nil)
@@ -33,10 +36,5 @@
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
-
-;; Startup
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-;(set-frame-parameter nil 'fullscreen 'fullboth)
 
 (provide 'my-fix-defaults)

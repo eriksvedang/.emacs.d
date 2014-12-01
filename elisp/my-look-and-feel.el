@@ -18,15 +18,22 @@
 (global-linum-mode 1)
 (setq linum-format " %d  ")
 
+;; Show matching paren
+(show-paren-mode 0)
+
 ;; Rainbow parens
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+;; Show the color of hex colors inline
+(add-hook 'prog-mode-hook 'rainbow-mode)
+
 ;; Highlight instances of the same symbol
-(idle-highlight-mode 1)
+;; (idle-highlight-mode 1)
 
 ;; Ace jump!
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "s-j") 'ace-jump-mode)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
