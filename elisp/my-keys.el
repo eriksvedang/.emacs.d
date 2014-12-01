@@ -45,22 +45,6 @@
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
 
-;; Smartparens
-(add-hook 'prog-mode-hook 'smartparens-mode)
-(global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
-(global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
-(global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
-(global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
-(global-set-key (kbd "C-S-a") 'sp-join-sexp)
-(global-set-key (kbd "C-S-s") 'sp-split-sexp)
-(global-set-key (kbd "C-S-d") 'sp-kill-sexp)
-(global-set-key (kbd "C-S-f") 'sp-splice-sexp)
-(global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
-(global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
-
-;; Don't make the single quote open a pair (smart parens do that by default)
-(sp-pair "'" nil :actions :rem)
-
 ;; Multiple cursors
 (require 'multiple-cursors)
 

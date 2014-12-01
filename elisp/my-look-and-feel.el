@@ -100,4 +100,22 @@
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
 	"*.c" "*.cpp" "*.cs" "*.m"))
 
+;; Smartparens
+(add-hook 'prog-mode-hook 'smartparens-mode)
+(add-hook 'html-mode-hook 'smartparens-mode)
+(add-hook 'sgml-mode-hook 'smartparens-mode)
+
+(global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
+(global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
+(global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
+(global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "C-S-a") 'sp-join-sexp)
+(global-set-key (kbd "C-S-s") 'sp-split-sexp)
+(global-set-key (kbd "C-S-d") 'sp-kill-sexp)
+(global-set-key (kbd "C-S-f") 'sp-splice-sexp)
+(global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
+(global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
+
+(sp-pair "'" nil :actions :rem) ; Don't make the single quote open a pair (smart parens do that by default)
+
 (provide 'my-look-and-feel)
