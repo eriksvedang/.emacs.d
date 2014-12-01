@@ -58,6 +58,9 @@
 (global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
 (global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
 
+;; Don't make the single quote open a pair (smart parens do that by default)
+(sp-pair "'" nil :actions :rem)
+
 ;; Multiple cursors
 (require 'multiple-cursors)
 
