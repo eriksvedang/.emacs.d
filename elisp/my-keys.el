@@ -57,9 +57,13 @@
 (global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
 (global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
 
+;; Multiple cursors
+(require 'multiple-cursors)
+
+(global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
+
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
-(require 'multiple-cursors)
 (define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
 (define-key my-keys-minor-mode-map (kbd "C-c C-l") 'mc/edit-lines)
 (define-minor-mode my-keys-minor-mode
