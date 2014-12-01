@@ -16,7 +16,9 @@
 ;; Line numbers
 (require 'linum)
 (global-linum-mode 1)
-(setq linum-format " %d  ")
+;; (setq linum-format " %d  ")
+;; (setq linum-format 'dynamic)
+(setq linum-format (quote "%4d  "))
 
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
 (global-prettify-symbols-mode 1)
