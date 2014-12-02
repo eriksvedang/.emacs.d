@@ -96,7 +96,7 @@
       '("*.html" "*.org" "*.txt" "*.md" "*.el"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
-	"*.c" "*.cpp" "*.cs" "*.m"))
+	"*.c" "*.cpp" "*.cs" "*.m" "*.rs"))
 
 ;; Smartparens
 (require 'smartparens)

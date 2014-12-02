@@ -88,7 +88,8 @@
  '(font-lock-string-face ((t (:foreground "#00CF5F"))))
 
  ;; #1199B9
- '(font-lock-type-face ((t (:foreground "#FA3" :weight bold))))
+ ;; #FA3
+ '(font-lock-type-face ((t (:foreground "#F93" :weight bold))))
 
  ;; #FF3F60
  '(font-lock-function-name-face ((t (:foreground "#FF3F60"))))
