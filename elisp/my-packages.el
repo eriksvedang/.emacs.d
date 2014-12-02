@@ -24,7 +24,6 @@
 			  'ghc
 			  'yasnippet
 			  'cider
-			  'org
 			  'rainbow-mode
 			  'smartparens
 			  'company
@@ -33,12 +32,11 @@
 			  'tabbar
 			  'smex
 			  'undo-tree
-			  'idle-highlight-mode
 			  'find-file-in-project
 			  'restclient
 			  'ido-ubiquitous
 			  'ace-jump-mode
 			  'circe
-			  'helm)
+			  )
 
 (provide 'my-packages)

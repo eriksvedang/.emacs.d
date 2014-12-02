@@ -1,11 +1,13 @@
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
-(add-hook 'cider-mode-hook
+(add-hook 'cider-repl-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "<s-return>") 'cider-eval-buffer)
 	     (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
 	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
+
+(setq cider-repl-use-clojure-font-lock t)
 
 ;; Yasnippets
 (require 'yasnippet) ;; not yasnippet-bundle

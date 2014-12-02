@@ -16,8 +16,6 @@
 ;; Line numbers
 (require 'linum)
 (global-linum-mode 1)
-;; (setq linum-format " %d  ")
-;; (setq linum-format 'dynamic)
 (setq linum-format (quote "%4d  "))
 
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
@@ -36,15 +34,9 @@
 ;; Show the color of hex colors inline
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
-;; Highlight instances of the same symbol
-;; (idle-highlight-mode 1)
-
 ;; Ace jump!
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "s-j") 'ace-jump-mode)
-
-;; C-n adds new line if necessary
-;; (setq next-line-add-newlines 1)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
@@ -57,11 +49,6 @@
 ;;       scroll-step 10
 ;;       scroll-conservatively 10000
 ;;       scroll-preserve-screen-position 1)
-
-;; Helm
-;(require 'helm-config)
-;(helm-mode 1)
-;(global-set-key (kbd "M-RET") 'helm-M-x)
 
 ;; Ido
 (ido-mode 1)
@@ -142,17 +129,6 @@
 (define-key sp-keymap (kbd "C-M-t") 'sp-transpose-sexp)
 (define-key sp-keymap (kbd "C-M-j") 'sp-join-sexp)
 (define-key sp-keymap (kbd "C-M-s") 'sp-split-sexp)
-
-;; (global-set-key (kbd "C-S-h") 'sp-backward-slurp-sexp)
-;; (global-set-key (kbd "C-S-j") 'sp-backward-barf-sexp)
-;; (global-set-key (kbd "C-S-k") 'sp-forward-barf-sexp)
-;; (global-set-key (kbd "C-S-l") 'sp-forward-slurp-sexp)
-;; (global-set-key (kbd "C-S-a") 'sp-join-sexp)
-;; (global-set-key (kbd "C-S-s") 'sp-split-sexp)
-;; (global-set-key (kbd "C-S-d") 'sp-kill-sexp)
-;; (global-set-key (kbd "C-S-f") 'sp-splice-sexp)
-;; (global-set-key (kbd "C-S-n") 'sp-beginning-of-sexp)
-;; (global-set-key (kbd "C-S-m") 'sp-end-of-sexp)
 
 (sp-pair "'" nil :actions :rem) ; Don't make the single quote open a pair (smart parens do that by default)
 
