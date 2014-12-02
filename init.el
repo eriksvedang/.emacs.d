@@ -10,5 +10,6 @@
 (require 'my-tabbar)
 (require 'my-keys)
 (require 'my-powerline)
+(require 'my-circe)
 (require 'my-programming-modes)
 

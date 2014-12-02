@@ -37,6 +37,7 @@
 			  'find-file-in-project
 			  'restclient
 			  'ido-ubiquitous
-			  'ace-jump-mode)
+			  'ace-jump-mode
+			  'circe)
 
 (provide 'my-packages)
