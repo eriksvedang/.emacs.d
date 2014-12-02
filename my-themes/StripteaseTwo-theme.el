@@ -93,6 +93,10 @@
  ;; #FF3F60
  '(font-lock-function-name-face ((t (:foreground "#FF3F60"))))
  '(font-lock-variable-name-face ((t (:foreground "#FF3F60"))))
+
+ '(circe-originator-face ((t (:foreground "#00CF5F")))) ; other nick names
+ '(circe-highlight-nick-face ((t (:foreground "#FF3F60")))) ; messages with my nick cited
+ '(circe-topic-diff-new-face ((t (:foreground "#FA3"))))
  
  '(font-lock-warning-face ((t (:inherit (error)))))
  '(button ((t (:inherit (link)))))
