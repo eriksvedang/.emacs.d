@@ -27,6 +27,12 @@
 (global-set-key (kbd "C--") 'pop-global-mark)
 (global-set-key (kbd "s-i") 'imenu)
 
+;; Shell history
+(add-hook 'shell-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "<M-up>") 'comint-previous-input)
+	    (local-set-key (kbd "<M-down>") 'comint-next-input)))
+
 ;; Home/End keyboard shortcuts
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.

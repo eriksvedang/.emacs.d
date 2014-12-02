@@ -59,9 +59,9 @@
 ;;       scroll-preserve-screen-position 1)
 
 ;; Helm
-(require 'helm-config)
-(helm-mode 1)
-(global-set-key (kbd "M-RET") 'helm-M-x)
+;(require 'helm-config)
+;(helm-mode 1)
+;(global-set-key (kbd "M-RET") 'helm-M-x)
 
 ;; Ido
 (ido-mode 1)
