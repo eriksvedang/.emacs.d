@@ -28,7 +28,8 @@
 
 ;; Rainbow parens
 (require 'rainbow-delimiters)
-(add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook 'rainbow-delimiters-mode)
 

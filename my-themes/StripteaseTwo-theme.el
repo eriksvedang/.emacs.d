@@ -45,9 +45,9 @@
 	   (((class color) (min-colors 8) (background dark))
 	    (:foreground "yellow"))))
 
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#0A6"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AA"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#6CC"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#6DC"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "#ADE"))))
  '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
