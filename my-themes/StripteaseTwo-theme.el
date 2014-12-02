@@ -46,12 +46,12 @@
 	    (:foreground "yellow"))))
 
  '(rainbow-delimiters-depth-1-face ((t (:foreground "#0A6"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#5BA"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AA"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#6CC"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "#ADE"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#BAE"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#DAE"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#EAE"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#FAA"))))
  
  ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#555"))))
  ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
