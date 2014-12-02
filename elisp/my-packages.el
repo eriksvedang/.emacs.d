@@ -38,6 +38,7 @@
 			  'restclient
 			  'ido-ubiquitous
 			  'ace-jump-mode
-			  'circe)
+			  'circe
+			  'helm)
 
 (provide 'my-packages)

@@ -1,17 +1,26 @@
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-(global-set-key (kbd "<s-return>") 'cider-eval-buffer)
+
+(add-hook 'cider-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "<s-return>") 'cider-eval-buffer)
+	     (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
+	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 
 ;; Yasnippets
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas-global-mode 1)
 
 ;; Zencoding
-(global-set-key (kbd "C-s-e") 'zencoding-expand-line)
+(add-hook 'zencoding-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
 
 ;; Sgml (html mode)
-(global-set-key (kbd "M-s-.") 'sgml-close-tag)
-(global-set-key (kbd "M-s-…") 'sgml-close-tag)
+(add-hook 'sgml-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "M-s-.") 'sgml-close-tag)
+	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 
 ;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
