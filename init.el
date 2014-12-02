@@ -1,3 +1,4 @@
+(add-to-list 'custom-theme-load-path "~/.emacs.d/my-themes")
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 (setq custom-file "~/.emacs.d/custom.el")
