@@ -8,6 +8,8 @@
 ;; (setq mac-option-modifier nil)
 
 ;; Let me write these characters, plx
+(global-set-key (kbd "M-2") "@")
+(global-set-key (kbd "M-4") "$")
 (global-set-key (kbd "M-8") "[")
 (global-set-key (kbd "M-9") "]")
 (global-set-key (kbd "M-(") "{")

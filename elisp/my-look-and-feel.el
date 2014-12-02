@@ -1,5 +1,5 @@
 ;; Theme and font
-(load-theme 'Striptease)
+(load-theme 'StripteaseTwo)
 (set-face-attribute 'default nil :height 160)
 (let ((font "Monaco"))
   (when (member font (font-family-list))
@@ -28,7 +28,9 @@
 
 ;; Rainbow parens
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'elisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook 'rainbow-delimiters-mode)
 
 ;; Show the color of hex colors inline
 (add-hook 'prog-mode-hook 'rainbow-mode)
@@ -40,8 +42,8 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "s-j") 'ace-jump-mode)
 
-;; C-n can't stop
-(setq next-line-add-newlines t)
+;; C-n adds new line if necessary
+;; (setq next-line-add-newlines 1)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
