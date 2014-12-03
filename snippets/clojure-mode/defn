@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Clojure Function
+# key: defn
+# binding: direct-keybinding
+# --
+(defn ${1:name} [${2:}]
+  ${3:})

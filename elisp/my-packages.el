@@ -16,27 +16,30 @@
          package)))
    packages))
 
-(ensure-package-installed 'rainbow-delimiters
-			  'magit
-			  'multiple-cursors
-			  'rust-mode
-			  'haskell-mode
-			  'ghc
-			  'yasnippet
-			  'cider
-			  'rainbow-mode
-			  'smartparens
-			  'company
-			  'powerline
-			  'zencoding-mode
-			  'tabbar
-			  'smex
-			  'undo-tree
-			  'find-file-in-project
-			  'restclient
-			  'ido-ubiquitous
-			  'ace-jump-mode
-			  'circe
-			  )
+(ensure-package-installed
+ 'multiple-cursors
+ 'smartparens
+ 'rainbow-delimiters
+ 'rainbow-mode
+ 'tabbar
+ 'undo-tree
+ 'smex
+ 'ido-ubiquitous
+ 'powerline
+ 'find-file-in-project
+ 'ace-jump-mode
+ 'company
+ 
+ 'magit
+ 'yasnippet
+ 'restclient
+ 'circe
+ 
+ 'haskell-mode
+ 'ghc
+ 'cider
+ 'rust-mode
+ 'zencoding-mode
+ )
 
 (provide 'my-packages)

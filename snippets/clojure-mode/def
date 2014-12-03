@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Clojure Var Definition
+# key: def
+# binding: direct-keybinding
+# --
+(def ${1:name} ${2:args})
