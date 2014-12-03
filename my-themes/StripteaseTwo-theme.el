@@ -26,6 +26,7 @@
  '(escape-glyph ((t (:foreground "#f00"))))
  
  '(minibuffer-prompt ((t (:foreground "#0072b2" :weight bold))))
+   
  '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
@@ -85,17 +86,17 @@
  '(font-lock-keyword-face ((t (:foreground "#09d" :weight extra-bold))))
 
  ;; #00AF5F
- '(font-lock-string-face ((t (:foreground "#00CF5F"))))
+ '(font-lock-string-face ((t (:foreground "#00AF5F"))))
 
  ;; #1199B9
  ;; #FA3
- '(font-lock-type-face ((t (:foreground "#F93" :weight bold))))
+ '(font-lock-type-face ((t (:foreground "#F90" :weight bold))))
 
  ;; #FF3F60
  '(font-lock-function-name-face ((t (:foreground "#FF3F60"))))
  '(font-lock-variable-name-face ((t (:foreground "#FF3F60"))))
 
- '(circe-originator-face ((t (:foreground "#00CF5F")))) ; other nick names
+ '(circe-originator-face ((t (:foreground "#00AF5F")))) ; other nick names
  '(circe-highlight-nick-face ((t (:foreground "#FF3F60")))) ; messages with my nick cited
  '(circe-topic-diff-new-face ((t (:foreground "#FA3"))))
  
