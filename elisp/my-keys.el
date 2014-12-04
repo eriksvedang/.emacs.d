@@ -1,8 +1,3 @@
-;; Move lines up and down
-(require 'movelines)
-(global-set-key (kbd "C-s-<down>") 'move-lines-down)
-(global-set-key (kbd "C-s-<up>") 'move-lines-up)
-
 ;; Fix meta
 ;; (setq mac-option-key-is-meta 0)
 ;; (setq mac-option-modifier nil)

@@ -65,22 +65,6 @@
                              (global-set-key [(meta x)] 'smex)
                              (smex)))
 
-;; Magit
-(require 'magit)
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-
-(defun magit-quit-session ()
-  "Restores the previous window configuration and kills the magit buffer"
-  (interactive)
-  (kill-buffer)
-  (jump-to-register :magit-fullscreen))
-
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)	  
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ;; Undo Tree
 (undo-tree-mode 1)
 (global-set-key (kbd "C-x C-z") 'undo-tree-visualize)
@@ -97,40 +81,6 @@
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
 	"*.c" "*.cpp" "*.cs" "*.m" "*.rs"))
-
-;; Smartparens
-(require 'smartparens)
-(add-hook 'prog-mode-hook 'smartparens-mode)
-(add-hook 'html-mode-hook 'smartparens-mode)
-(add-hook 'sgml-mode-hook 'smartparens-mode)
-
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
-
-(define-key sp-keymap (kbd "C-M-a") 'sp-beginning-of-sexp)
-(define-key sp-keymap (kbd "C-M-e") 'sp-end-of-sexp)
-
-(define-key sp-keymap (kbd "C-M-n") 'sp-next-sexp)
-(define-key sp-keymap (kbd "C-M-p") 'sp-previous-sexp)
-
-(define-key sp-keymap (kbd "C-M-u") 'sp-up-sexp)
-(define-key sp-keymap (kbd "C-M-d") 'sp-backward-down-sexp)
-(define-key sp-keymap (kbd "C-M-S-d") 'sp-down-sexp)
-
-(define-key sp-keymap (kbd "C-)") 'sp-forward-slurp-sexp)
-(define-key sp-keymap (kbd "C-(") 'sp-backward-slurp-sexp)
-(define-key sp-keymap (kbd "C-M-)") 'sp-forward-barf-sexp)
-(define-key sp-keymap (kbd "C-M-(") 'sp-backward-barf-sexp)
-
-(define-key sp-keymap (kbd "C-M-k") 'sp-kill-sexp)
-(define-key sp-keymap (kbd "C-M-w") 'sp-copy-sexp)
-(define-key sp-keymap (kbd "C-M-<backspace>") 'sp-unwrap-sexp)
-
-(define-key sp-keymap (kbd "C-M-t") 'sp-transpose-sexp)
-(define-key sp-keymap (kbd "C-M-j") 'sp-join-sexp)
-(define-key sp-keymap (kbd "C-M-s") 'sp-split-sexp)
-
-(sp-pair "'" nil :actions :rem) ; Don't make the single quote open a pair (smart parens do that by default)
 
 (provide 'my-look-and-feel)
 

@@ -1,5 +1,3 @@
-;; move the line(s) spanned by the active region up/down (line transposing)
-
 (defun move-lines (n)
   (let ((beg) (end) (keep))
     (if mark-active
@@ -37,4 +35,7 @@
   (interactive "*p")
   (move-lines (or n 1)))
 
-(provide 'movelines)
+(global-set-key (kbd "C-s-<down>") 'move-lines-down)
+(global-set-key (kbd "C-s-<up>") 'move-lines-up)
+
+(provide 'my-movelines)
