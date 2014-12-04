@@ -79,7 +79,7 @@
 (setq ffip-patterns
       '("*.html" "*.org" "*.txt" "*.md" "*.el"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
-	"*.sh" "*.erl" "*.hs" "*.ml" "*.css"
+	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
 	"*.c" "*.cpp" "*.cs" "*.m" "*.rs"))
 
 (provide 'my-look-and-feel)
