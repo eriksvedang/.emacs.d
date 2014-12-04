@@ -40,6 +40,7 @@
  'cider
  'rust-mode
  'zencoding-mode
+ 'elm-mode
  )
 
 (provide 'my-packages)
