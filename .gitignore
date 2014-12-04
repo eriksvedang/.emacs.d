@@ -13,3 +13,5 @@ ac-comphist.dat
 /smex-items
 
 elisp/secret.el
+
+eshell/history
