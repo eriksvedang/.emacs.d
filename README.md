@@ -12,6 +12,8 @@ Notes
 * C-x 0     Close current buffer
 * C-x b     Open another buffer
 * C-x C-b   Open fancy buffer menu
+* C-d       Open dired in the current folder when searching for files using ido
+* C-x C-f C-f Override ido menu so you can enter any filename you want
 * M-x       Run command
 * C-s /C-r  Interactive search
 * i         Mark for installation
