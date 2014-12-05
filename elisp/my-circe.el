@@ -9,6 +9,7 @@
 		    "#haskell-game"
 		    "#clojure"
 		    "#quil"
+		    "#elm"
 		    "#kodsnack")
          :nickserv-password ,freenode-password
          )))
