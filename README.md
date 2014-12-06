@@ -26,6 +26,8 @@ Notes
 * C-h f     Get help for a function
 * C-h v     Get help for a variable
 * q         close "pane" (what's the real word?)
+* C-y       Yank (paste)
+* M-y       Cycle through kill ring (can only be used after yanking)
 
 Commands (run with M-x)
 =======================
