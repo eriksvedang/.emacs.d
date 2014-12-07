@@ -45,7 +45,8 @@
 	     (file-name-sans-extension (buffer-file-name))))))
 
 (add-hook 'rust-mode-hook
-      (lambda ()
-        (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)))
+	  (lambda ()
+	    (flycheck-mode)
+	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)))
 
 (provide 'my-programming-modes)
