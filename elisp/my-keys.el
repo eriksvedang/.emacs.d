@@ -2,6 +2,9 @@
 ;; (setq mac-option-key-is-meta 0)
 ;; (setq mac-option-modifier nil)
 
+(global-set-key (kbd "M-s-h") 'ns-do-hide-others)
+(global-set-key (kbd "M-s-˛") 'ns-do-hide-others)
+
 ;; Let me write these characters, plx
 (global-set-key (kbd "M-2") "@")
 (global-set-key (kbd "M-4") "$")
