@@ -41,6 +41,7 @@
  'rust-mode
  'zencoding-mode
  'elm-mode
+ 'swift-mode
  )
 
 (provide 'my-packages)
