@@ -23,15 +23,17 @@
 (delete-selection-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+(scroll-bar-mode 0)
 (set-fringe-mode 0)
+(hl-line-mode -1)
+
 (setq ring-bell-function 'ignore)
 (setq initial-scratch-message "")
 (setq undo-limit 3600)
 (setq compilation-ask-about-save nil)
-(defalias 'yes-or-no-p 'y-or-n-p)
-(hl-line-mode 0)
 (setq make-backup-files nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
