@@ -29,6 +29,7 @@
  'find-file-in-project
  'ace-jump-mode
  'company
+ 'pretty-mode
  
  'magit
  'yasnippet
@@ -43,6 +44,7 @@
  'rust-mode
  'zencoding-mode
  'elm-mode
- 'swift-mode)
+ 'swift-mode
+ 'fsharp-mode)
 
 (provide 'my-packages)

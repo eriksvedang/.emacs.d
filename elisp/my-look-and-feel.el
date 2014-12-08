@@ -1,7 +1,7 @@
 ;; Theme and font
 (load-theme 'StripteaseTwo)
 (set-face-attribute 'default nil :height 160)
-(let ((font "Monaco"))
+(let ((font "Monaco")) ;; "Monaco" / "Menlo" / "Hasklig"
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
 
@@ -20,6 +20,9 @@
 
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
 (global-prettify-symbols-mode 1)
+
+;; Pretty mode
+;;(global-pretty-mode 0)
 
 ;; Show matching paren
 (show-paren-mode 0)
