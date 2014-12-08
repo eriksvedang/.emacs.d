@@ -37,11 +37,12 @@
  
  'haskell-mode
  'ghc
+ 'flymake-hlint
+ 
  'cider
  'rust-mode
  'zencoding-mode
  'elm-mode
- 'swift-mode
- )
+ 'swift-mode)
 
 (provide 'my-packages)

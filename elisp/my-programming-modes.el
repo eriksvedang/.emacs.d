@@ -1,3 +1,33 @@
+;; Haskell
+(require 'haskell-mode)
+(require 'haskell-interactive-mode)
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
+(custom-set-variables
+ '(haskell-process-type 'cabal-repl)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t))
+
+(add-hook 'haskell-mode-hook 'flycheck-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(defun my-cabal-run ()
+  "Run the Cabal project."
+  (interactive)
+  (haskell-process-do-cabal "run"))
+
+(define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
+
+;; C-c C-l    Load file into repl
+;; C-c C-.    Sort imports
+
+;; ghc-mod
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;;(autoload 'ghc-debug "ghc" nil t)
+
+
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
@@ -26,12 +56,6 @@
 	  (lambda ()
 	    (local-set-key (kbd "M-s-.") 'sgml-close-tag)
 	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
-
-;; Haskell
-(add-hook 'haskell-mode-hook 'turn-on-hi2)
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 ;; Rust
 (defun rust-save-compile-and-run ()

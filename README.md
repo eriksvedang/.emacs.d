@@ -11,6 +11,8 @@ Notes
 * C-x 3     Split window left/right
 * C-x 0     Close current buffer
 * C-x b     Open another buffer
+* C-x left  Previous buffer
+* C-x right Next buffer
 * C-x C-b   Open fancy buffer menu
 * C-d       Open dired in the current folder when searching for files using ido
 * C-x C-f C-f Override ido menu so you can enter any filename you want
