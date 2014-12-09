@@ -57,6 +57,11 @@
 	    (local-set-key (kbd "M-s-.") 'sgml-close-tag)
 	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 
+;; Elm
+(add-hook 'elm-mode-hook
+	  (lambda ()
+	    (elm-indent-mode 0)))
+
 ;; Rust
 (defun rust-save-compile-and-run ()
   (interactive)

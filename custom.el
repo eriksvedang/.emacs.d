@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("a68770426f1df57e7cc8ac993c5d518d171f5dc2a3e322d79ffabecf6d6dafe1" default))))
+    ("a68770426f1df57e7cc8ac993c5d518d171f5dc2a3e322d79ffabecf6d6dafe1" default)))
+ '(ns-alternate-modifier (quote meta)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
