@@ -18,6 +18,7 @@
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-f") 'ido-find-file)
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)

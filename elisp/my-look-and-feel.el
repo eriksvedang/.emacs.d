@@ -8,6 +8,8 @@
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
 ;; (set-frame-position (selected-frame) 0 0)
+(when window-system
+  (set-frame-size (selected-frame) 90 40))
 
 ;; Cursor
 (setq cursor-type 'bar)
