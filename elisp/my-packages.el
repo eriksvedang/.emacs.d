@@ -30,6 +30,7 @@
  'ace-jump-mode
  'company
  'pretty-mode
+ 'smooth-scrolling
  
  'magit
  'yasnippet
