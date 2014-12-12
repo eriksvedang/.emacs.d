@@ -60,7 +60,10 @@
 ;; Elm
 (add-hook 'elm-mode-hook
 	  (lambda ()
-	    (elm-indent-mode 0)))
+	    (elm-indent-mode 0)
+            (haskell-indent-mode 1)
+            ;;(elm-indentation-mode 1)
+            ))
 
 ;; Rust
 (defun rust-save-compile-and-run ()
