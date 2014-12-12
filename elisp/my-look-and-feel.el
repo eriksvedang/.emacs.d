@@ -50,6 +50,7 @@
 
 ;; Smooth scrolling
 (require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
 
 ;; Scroll
 ;; (setq redisplay-dont-pause t

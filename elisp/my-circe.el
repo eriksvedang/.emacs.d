@@ -13,7 +13,20 @@
                     "#minikanren"
 		    "#kodsnack")
          :nickserv-password ,freenode-password
+         )
+	("Mozilla"
+	 :host "irc.mozilla.org"
+         :nick "e_svedang"
+         :channels ("#rust"
+		    "#rust-gamedev")
+         :nickserv-password ,freenode-password
          )))
+
+(defun circe-connect-all ()
+  "Connects to my favorite IRC servers and channels."
+  (interactive)
+  (circe "Mozilla")
+  (circe "Freenode"))
 
 ;; Hide join/leave messages
 (setq circe-reduce-lurker-spam t)
