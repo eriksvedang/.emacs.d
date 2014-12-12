@@ -33,6 +33,8 @@
 (setq compilation-ask-about-save nil)
 (setq make-backup-files nil)
 
+(setq ns-pop-up-frames nil) ;; open files in same frame (don't create new separate ones)
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (defadvice split-window (after move-point-to-new-window activate)
