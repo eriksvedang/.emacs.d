@@ -1,9 +1,5 @@
 (require 'smartparens)
 
-(add-hook 'prog-mode-hook 'smartparens-mode)
-(add-hook 'html-mode-hook 'smartparens-mode)
-(add-hook 'sgml-mode-hook 'smartparens-mode)
-
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 

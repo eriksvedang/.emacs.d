@@ -21,6 +21,7 @@ Notes
 * i         Mark for installation
 * u         Unmark
 * x         Install selected (execute)
+* g         Refresh pane (dired, buffers)
 * C-n       Next line
 * C-p       Prev line
 * C-h k     Describe keyboard shortcut

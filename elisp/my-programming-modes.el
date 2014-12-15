@@ -30,6 +30,8 @@
 
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'smartparens-mode)
+(add-hook 'clojure-mode-hook 'smartparens-mode)
 
 (add-hook 'cider-mode-hook
 	  (lambda ()
@@ -56,6 +58,8 @@
 	  (lambda ()
 	    (local-set-key (kbd "M-s-.") 'sgml-close-tag)
 	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
+(add-hook 'sgml-mode-hook 'smartparens-mode)
+(add-hook 'html-mode-hook 'smartparens-mode)
 
 ;; Elm
 (add-hook 'elm-mode-hook
