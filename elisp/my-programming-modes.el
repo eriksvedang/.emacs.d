@@ -73,12 +73,14 @@
 (defun rust-save-compile-and-run ()
   (interactive)
   (save-buffer)
-  (if (locate-dominating-file (buffer-file-name) "Cargo.toml")
-      (compile "cargo run")
-    (compile
-     (format "rustc %s ; %s"
-	     (buffer-file-name)
-	     (file-name-sans-extension (buffer-file-name))))))
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "Cargo.toml")))
+    (if project-dir
+	(progn (setq default-directory project-dir)
+	       (compile "cargo run"))
+      (compile
+       (format "rustc %s ; %s"
+	       (buffer-file-name)
+	       (file-name-sans-extension (buffer-file-name)))))))
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
