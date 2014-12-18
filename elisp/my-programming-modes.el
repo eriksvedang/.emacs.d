@@ -88,3 +88,14 @@
 	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)))
 
 (provide 'my-programming-modes)
+
+
+;; C
+(defun compile-c ()
+  (interactive)
+  (save-buffer)
+  (compile (format "make")))
+
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (define-key c-mode-map (kbd "C-c C-r") 'compile-c)))
