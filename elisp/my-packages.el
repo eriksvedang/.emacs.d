@@ -46,6 +46,7 @@
  'zencoding-mode
  'elm-mode
  'swift-mode
+ 'js2-mode
  'fsharp-mode)
 
 (provide 'my-packages)
