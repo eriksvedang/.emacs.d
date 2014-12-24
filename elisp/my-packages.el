@@ -50,6 +50,7 @@
  'elm-mode
  'swift-mode
  'js2-mode
+ 'glsl-mode
  'fsharp-mode)
 
 (provide 'my-packages)
