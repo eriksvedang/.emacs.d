@@ -9,11 +9,14 @@
   "Assure every package is installed, ask for installation if it’s not"
   (mapcar
    (lambda (package)
-     (if (package-installed-p package)
+     (if
+	 (package-installed-p package)
          nil
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-           (package-install package)
-         package)))
+         (package-install package)
+       ;; (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+       ;;     (package-install package)
+       ;;   package)
+       ))
    packages))
 
 (ensure-package-installed
