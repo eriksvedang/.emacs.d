@@ -96,6 +96,12 @@
   (save-buffer)
   (compile (format "make")))
 
+(defun run-c ()
+  (interactive)
+  (save-buffer)
+  (compile (format "make run")))
+
 (add-hook 'c-mode-hook
 	  (lambda ()
-	    (define-key c-mode-map (kbd "C-c C-r") 'compile-c)))
+	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
+	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)))

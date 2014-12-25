@@ -62,12 +62,12 @@
     :foreground "#fff" :background "#ff3f60"
     :inverse-video nil
     :family "Menlo"
-    :box '(:line-width 6 :color "#ff3f60" :style nil))
+    :box '(:line-width 4 :color "#ff3f60" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "gray60" :background "gray30"
     :inverse-video nil
-    :box '(:line-width 6 :color "gray30" :style nil))
+    :box '(:line-width 4 :color "gray30" :style nil))
 
 ;(set-face-attribute 'mode-line nil :foreground "#fff" :background "#0072b2" :box nil)
 ;(set-face-attribute 'mode-line-inactive nil :foreground "#666" :background "#050000" :box nil)
