@@ -89,7 +89,7 @@
       '("*.html" "*.org" "*.txt" "*.md" "*.el"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
-	"*.c" "*.cpp" "*.cs" "*.m" "*.rs"))
+	"*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
 (provide 'my-look-and-feel)
 

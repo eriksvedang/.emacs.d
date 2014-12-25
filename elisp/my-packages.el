@@ -29,16 +29,17 @@
  'smex
  'ido-ubiquitous
  'powerline
- 'find-file-in-project
- 'ace-jump-mode
  'company
  'pretty-mode
  'smooth-scrolling
  
+ 'find-file-in-project
+ 'ace-jump-mode
+ 
  'magit
  'yasnippet
- 'restclient
  'circe
+ 'restclient
  
  'haskell-mode
  'ghc
