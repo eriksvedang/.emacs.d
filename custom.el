@@ -5,7 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("a68770426f1df57e7cc8ac993c5d518d171f5dc2a3e322d79ffabecf6d6dafe1" default)))
+    ("d0f16ec50886c25ad45721f1e38507aef27c9c5c5309215fbd8dc19b95506b7f" "a68770426f1df57e7cc8ac993c5d518d171f5dc2a3e322d79ffabecf6d6dafe1" default)))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-type (quote cabal-repl))
  '(ns-alternate-modifier (quote meta)))
 
 (custom-set-faces
