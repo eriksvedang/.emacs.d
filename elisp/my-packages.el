@@ -52,6 +52,7 @@
  'swift-mode
  'js2-mode
  'glsl-mode
+ 'sml-mode
  'fsharp-mode)
 
 (provide 'my-packages)

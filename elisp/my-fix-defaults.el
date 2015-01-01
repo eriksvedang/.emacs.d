@@ -7,7 +7,10 @@
   (dolist (path paths) (when (file-directory-p path)
                          (add-to-list 'exec-path path))))
 
+;;(setenv "PATH" (concat "/usr/local/smlnj/bin:" (getenv "PATH")))
+
 (add-to-list 'exec-path "~/bin")
+(add-to-list 'exec-path "/usr/local/smlnj/bin")
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
