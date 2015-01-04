@@ -30,6 +30,7 @@
 (set-fringe-mode 0)
 (hl-line-mode -1)
 
+(setq truncate-lines nil)
 (setq ring-bell-function 'ignore)
 (setq initial-scratch-message "")
 (setq undo-limit 3600)
