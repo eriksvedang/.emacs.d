@@ -62,6 +62,7 @@
     :foreground "#fff" :background "#ff3f60"
     :inverse-video nil
     :family "Menlo"
+    :height 160
     :box '(:line-width 4 :color "#ff3f60" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
