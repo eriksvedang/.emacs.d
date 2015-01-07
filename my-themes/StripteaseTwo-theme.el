@@ -80,21 +80,24 @@
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
  ;; #0072b2
+ ;; #148
  '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
 
  ;; #5f74b8
- '(font-lock-keyword-face ((t (:foreground "#09d" :weight normal))))
+ ;; #09d
+ '(font-lock-keyword-face ((t (:foreground "#148" :weight normal))))
 
  ;; #00AF5F
  '(font-lock-string-face ((t (:foreground "#00AF5F"))))
 
  ;; #1199B9
  ;; #FA3
- '(font-lock-type-face ((t (:foreground "#F90" :weight normal))))
+ ;; #F90
+ '(font-lock-type-face ((t (:foreground "#09D" :weight normal))))
 
  ;; #FF3F60
- '(font-lock-function-name-face ((t (:foreground "#FF3F60"))))
- '(font-lock-variable-name-face ((t (:foreground "#FF3F60"))))
+ '(font-lock-function-name-face ((t (:foreground "#000"))))
+ '(font-lock-variable-name-face ((t (:foreground "#000"))))
 
  '(circe-originator-face ((t (:foreground "#00AF5F")))) ; other nick names
  '(circe-highlight-nick-face ((t (:foreground "#FF3F60")))) ; messages with my nick cited

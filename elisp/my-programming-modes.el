@@ -36,7 +36,8 @@
 
 (add-hook 'cider-mode-hook
 	  (lambda ()
-	    (local-set-key (kbd "<s-return>") 'cider-eval-buffer)))
+	    (local-set-key (kbd "<s-return>") 'cider-eval-ns-form)
+	    (local-set-key (kbd "<s-shift-return>" 'cider-eval-buffer))))
 
 (add-hook 'cider-repl-mode-hook
 	  '(lambda ()
