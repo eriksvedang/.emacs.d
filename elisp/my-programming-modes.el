@@ -4,28 +4,29 @@
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-(custom-set-variables
- '(haskell-process-type 'cabal-repl)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t))
+;; (custom-set-variables
+;;  '(haskell-process-type 'cabal-repl)
+;;  '(haskell-process-auto-import-loaded-modules t)
+;;  '(haskell-process-log t))
 
-(add-hook 'haskell-mode-hook 'flycheck-mode)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'flycheck-mode)
+;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
-(defun my-cabal-run ()
-  "Run the Cabal project."
-  (interactive)
-  (haskell-process-do-cabal "run"))
+;; (defun my-cabal-run ()
+;;   "Run the Cabal project."
+;;   (interactive)
+;;   (haskell-process-do-cabal "run"))
 
-(define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
+;; (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
 
 ;; C-c C-l    Load file into repl
 ;; C-c C-.    Sort imports
 
 ;; ghc-mod
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-;;(autoload 'ghc-debug "ghc" nil t)
+;; (autoload 'ghc-init "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+;; (autoload 'ghc-debug "ghc" nil t) ; unnecessary?
 
 
 ;; Cider

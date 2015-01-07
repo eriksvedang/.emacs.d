@@ -25,7 +25,7 @@
  '(variable-pitch ((t (:family "Sans Serif"))))
  '(escape-glyph ((t (:foreground "#f00"))))
  
- '(minibuffer-prompt ((t (:foreground "#0072b2" :weight bold))))
+ '(minibuffer-prompt ((t (:foreground "#0072b2" :weight normal))))
    
  '(highlight ((t (:background "#eeeeee"))))
  
@@ -80,17 +80,17 @@
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
  ;; #0072b2
- '(font-lock-builtin-face ((t (:weight bold :foreground "#148"))))
+ '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
 
  ;; #5f74b8
- '(font-lock-keyword-face ((t (:foreground "#09d" :weight extra-bold))))
+ '(font-lock-keyword-face ((t (:foreground "#09d" :weight normal))))
 
  ;; #00AF5F
  '(font-lock-string-face ((t (:foreground "#00AF5F"))))
 
  ;; #1199B9
  ;; #FA3
- '(font-lock-type-face ((t (:foreground "#F90" :weight bold))))
+ '(font-lock-type-face ((t (:foreground "#F90" :weight normal))))
 
  ;; #FF3F60
  '(font-lock-function-name-face ((t (:foreground "#FF3F60"))))

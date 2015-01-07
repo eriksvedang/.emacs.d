@@ -1,7 +1,7 @@
 ;; Theme and font
 (load-theme 'StripteaseTwo)
-(set-face-attribute 'default nil :height 160)
-(let ((font "Monaco")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
+(set-face-attribute 'default nil :height 170)
+(let ((font "Hasklig")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
 
@@ -9,7 +9,7 @@
 (setq-default left-margin-width 0 right-margin-width 0)
 ;; (set-frame-position (selected-frame) 0 0)
 (when window-system
-  (set-frame-size (selected-frame) 90 40))
+  (set-frame-size (selected-frame) 90 38))
 
 ;; Cursor
 (setq cursor-type 'bar)
