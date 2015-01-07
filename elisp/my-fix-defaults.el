@@ -33,7 +33,7 @@
 (setq truncate-lines nil)
 (setq ring-bell-function 'ignore)
 (setq initial-scratch-message "")
-(setq undo-limit 3600)
+(setq undo-limit 9999999)
 (setq compilation-ask-about-save nil)
 (setq make-backup-files nil)
 
