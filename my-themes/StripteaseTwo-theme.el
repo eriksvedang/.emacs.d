@@ -79,6 +79,12 @@
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
+ ;; '(company-tooltip ((t (:foreground "#000" :background "#CCC"))))
+ ;; '(company-scrollbar-bg ((t (:background "#333"))))
+ ;; '(company-scrollbar-fg ((t (:background "#777"))))
+ ;; '(company-tooltip-selection ((t (:foreground "#000" :background "#FFA"))))
+ ;; '(company-tooltip-common ((t (:foreground "#F90" :background "#EEE"))))
+ 
  ;; #0072b2
  ;; #148
  '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
