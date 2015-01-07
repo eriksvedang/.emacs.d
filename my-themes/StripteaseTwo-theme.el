@@ -7,7 +7,7 @@
  '(default ((t (         :inherit nil
 			 :stipple nil
 			 :background "white"
-			 :foreground "black"
+			 :foreground "#000"
 			 :inverse-video nil
 			 :box nil
 			 :strike-through nil
@@ -93,6 +93,8 @@
  ;; #09d
  '(font-lock-keyword-face ((t (:foreground "#148" :weight normal))))
 
+ '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
+ 
  ;; #00AF5F
  '(font-lock-string-face ((t (:foreground "#00AF5F"))))
 

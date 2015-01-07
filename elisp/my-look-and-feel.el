@@ -96,5 +96,12 @@
  '(help-at-pt-timer-delay 0.9)
  '(help-at-pt-display-when-idle '(flymake-overlay)))
 
+;; Function for finding out info about font at cursor
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))
+
 (provide 'my-look-and-feel)
 
