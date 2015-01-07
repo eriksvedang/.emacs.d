@@ -32,6 +32,8 @@
  'company
  'pretty-mode
  'smooth-scrolling
+ 'flymake-easy
+ 'flymake-cursor
  
  'find-file-in-project
  'ace-jump-mode
@@ -42,7 +44,6 @@
  'restclient
  
  'haskell-mode
- 'ghc
  'flymake-hlint
  
  'cider

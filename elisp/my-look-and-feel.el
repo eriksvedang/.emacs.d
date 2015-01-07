@@ -91,5 +91,10 @@
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
 	"*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
+;; Flymake Cursor (show flymake help at cursor)
+(custom-set-variables
+ '(help-at-pt-timer-delay 0.9)
+ '(help-at-pt-display-when-idle '(flymake-overlay)))
+
 (provide 'my-look-and-feel)
 

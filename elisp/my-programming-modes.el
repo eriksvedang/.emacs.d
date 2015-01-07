@@ -2,31 +2,37 @@
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
 
+(custom-set-variables
+ '(haskell-process-type 'cabal-repl)
+ '(haskell-process-log t)
+ '(haskell-process-auto-import-loaded-modules t)
+  )
+
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'flymake-hlint-load)
 
-;; (custom-set-variables
-;;  '(haskell-process-type 'cabal-repl)
-;;  '(haskell-process-auto-import-loaded-modules t)
-;;  '(haskell-process-log t))
+(define-key haskell-mode-map (kbd "C-c C-j") 'haskell-interactive-bring)
+(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+(define-key haskell-mode-map (kbd "C-c C-s") 'haskell-sort-imports)
 
-;; (add-hook 'haskell-mode-hook 'flycheck-mode)
-;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+;; Prev / next in REPL: M-p / M-n
 
-;; (defun my-cabal-run ()
-;;   "Run the Cabal project."
-;;   (interactive)
-;;   (haskell-process-do-cabal "run"))
+(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
+(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+(define-key haskell-mode-map (kbd "s-.") 'haskell-mode-jump-to-def)
 
-;; (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
+(defun my-cabal-run ()
+  "Run the Cabal project."
+  (interactive)
+  (haskell-process-do-cabal "run"))
 
-;; C-c C-l    Load file into repl
-;; C-c C-.    Sort imports
+(define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
 
-;; ghc-mod
-;; (autoload 'ghc-init "ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-
-;; (autoload 'ghc-debug "ghc" nil t) ; unnecessary?
 
 
 ;; Cider
@@ -63,6 +69,8 @@
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
 
+
+
 ;; Elm
 (add-hook 'elm-mode-hook
 	  (lambda ()
@@ -70,6 +78,8 @@
             (haskell-indent-mode 1)
             ;;(elm-indentation-mode 1)
             ))
+
+
 
 ;; Rust
 (defun rust-save-compile-and-run ()
