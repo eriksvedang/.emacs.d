@@ -41,10 +41,8 @@
 (add-hook 'cider-mode-hook 'smartparens-mode)
 (add-hook 'clojure-mode-hook 'smartparens-mode)
 
-(add-hook 'cider-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "<s-return>") 'cider-eval-ns-form)
-	    (local-set-key (kbd "<s-shift-return>" 'cider-eval-buffer))))
+;; (add-hook 'cider-mode-hook)
+(define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)
 
 (add-hook 'cider-repl-mode-hook
 	  '(lambda ()

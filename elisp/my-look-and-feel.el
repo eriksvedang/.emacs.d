@@ -21,7 +21,7 @@
 (setq linum-format (quote "%4d  "))
 
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
-(global-prettify-symbols-mode 1)
+(global-prettify-symbols-mode -1)
 
 ;; Pretty mode
 ;;(global-pretty-mode 0)
