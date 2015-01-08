@@ -45,3 +45,4 @@ Magit
 * b b to switch to another branch
 * P P to do a git push
 * F F to do a git pull
+* k   to discard changes
