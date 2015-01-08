@@ -15,7 +15,6 @@
 			 :underline nil
 			 :slant normal
 			 :weight normal
-			 :height 160
 			 :width normal
 			 :foundry "apple"))))
  
@@ -118,6 +117,9 @@
  '(circe-topic-diff-new-face ((t (:foreground "#FA3"))))
  
  '(font-lock-warning-face ((t (:inherit (error)))))
+
+ '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
+ 
  '(button ((t (:inherit (link)))))
  '(link ((t (:foreground "#0072b2" :underline (:color foreground-color :style line)))))
  '(link-visited ((t (:inherit (link) :foreground "#cc79a7" :underline (:color foreground-color :style line)))))
