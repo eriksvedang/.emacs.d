@@ -78,11 +78,18 @@
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
- '(company-tooltip ((t (:foreground "#333" :background "#F9C"))))
- '(company-scrollbar-fg ((t (:background "#F3A"))))
- '(company-scrollbar-bg ((t (:background "#FAC"))))
- '(company-tooltip-selection ((t (:foreground "#000" :background "#ADF"))))
- '(company-tooltip-common ((t (:foreground "#F3A" :background "#F9C"))))
+ '(company-tooltip ((t (:foreground "#AAA" :background "#333"))))
+ '(company-scrollbar-fg ((t (:background "#777"))))
+ '(company-scrollbar-bg ((t (:background "#444"))))
+ ;;#FF3F60
+ '(company-tooltip-selection ((t (:foreground "#000" :background "#DDD"))))
+ '(company-tooltip-common ((t (:foreground "#FFF" :background "#333"))))
+ 
+ ;; '(company-tooltip ((t (:foreground "#333" :background "#F9C"))))
+ ;; '(company-scrollbar-fg ((t (:background "#F3A"))))
+ ;; '(company-scrollbar-bg ((t (:background "#FAC"))))
+ ;; '(company-tooltip-selection ((t (:foreground "#000" :background "#ADF"))))
+ ;; '(company-tooltip-common ((t (:foreground "#F3A" :background "#F9C"))))
  
  ;; #0072b2
  ;; #148
