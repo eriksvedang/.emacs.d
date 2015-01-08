@@ -6,6 +6,7 @@
  '(haskell-process-type 'cabal-repl)
  '(haskell-process-log t)
  '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-show-debug-tips nil)
   )
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)

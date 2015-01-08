@@ -17,8 +17,7 @@
 			 :weight normal
 			 :height 160
 			 :width normal
-			 :foundry "apple"
-			 :family "Monaco"))))
+			 :foundry "apple"))))
  
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
@@ -79,11 +78,11 @@
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
- ;; '(company-tooltip ((t (:foreground "#000" :background "#CCC"))))
- ;; '(company-scrollbar-bg ((t (:background "#333"))))
- ;; '(company-scrollbar-fg ((t (:background "#777"))))
- ;; '(company-tooltip-selection ((t (:foreground "#000" :background "#FFA"))))
- ;; '(company-tooltip-common ((t (:foreground "#F90" :background "#EEE"))))
+ '(company-tooltip ((t (:foreground "#333" :background "#F9C"))))
+ '(company-scrollbar-fg ((t (:background "#F3A"))))
+ '(company-scrollbar-bg ((t (:background "#FAC"))))
+ '(company-tooltip-selection ((t (:foreground "#000" :background "#ADF"))))
+ '(company-tooltip-common ((t (:foreground "#F3A" :background "#F9C"))))
  
  ;; #0072b2
  ;; #148
