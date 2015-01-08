@@ -51,7 +51,6 @@
  'zencoding-mode
  'elm-mode
  'swift-mode
- 'js2-mode
  'glsl-mode
  'sml-mode
  'fsharp-mode)
