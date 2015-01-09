@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Deckset slide
+# key: s
+# binding: direct-keybinding
+# --
+---
+# ${1:title}

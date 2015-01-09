@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Image
+# key: i
+# binding: direct-keybinding
+# --
+![${1:fit}](${2:image1.jpg})
