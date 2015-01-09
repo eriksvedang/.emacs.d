@@ -45,7 +45,9 @@
  
  'haskell-mode
  'flymake-hlint
- 
+
+ 'idris-mode
+ 'markdown-mode
  'cider
  'rust-mode
  'zencoding-mode
