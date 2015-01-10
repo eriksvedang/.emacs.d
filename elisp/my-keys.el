@@ -14,7 +14,7 @@
 (global-set-key (kbd "M-)") "}")
 (global-set-key (kbd "M-7") "|")
 (global-set-key (kbd "M-/") "\\")
-(global-set-key (kbd "M-l") "λ")
+;(global-set-key (kbd "M-l") "λ") ;; save this for edit lines command instead
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -62,7 +62,7 @@
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
-(define-key my-keys-minor-mode-map (kbd "C-c C-l") 'mc/edit-lines)
+(define-key my-keys-minor-mode-map (kbd "M-l") 'mc/edit-lines)
 (define-minor-mode my-keys-minor-mode
   "A minor mode so that my key settings override annoying major modes."
   t " keys" 'my-keys-minor-mode-map)
