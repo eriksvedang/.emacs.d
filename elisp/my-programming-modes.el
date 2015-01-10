@@ -1,3 +1,9 @@
+;; Idris
+;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
+;; Right now, adding a hook disables all keys for idris mode
+;; Sadly this makes it hard to automatically disable company mode for idris
+;; which makes the buffer hang at times when it fails to do some crap...
+
 ;; Haskell
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
