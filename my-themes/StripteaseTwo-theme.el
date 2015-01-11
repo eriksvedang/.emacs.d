@@ -103,6 +103,8 @@
  ;; #00AF5F
  '(font-lock-string-face ((t (:foreground "#00AF5F"))))
 
+ ;; #5FE3FD
+
  ;; #1199B9
  ;; #FA3
  ;; #F90
