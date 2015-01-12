@@ -81,6 +81,7 @@
 ;; Auto complete
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "<C-escape>") 'company-search-mode)
 
 ;; Find file in project (git repo)
 (require 'find-file-in-project)
