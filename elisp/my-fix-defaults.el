@@ -11,6 +11,7 @@
 
 (add-to-list 'exec-path "~/bin")
 (add-to-list 'exec-path "/usr/local/smlnj/bin")
+(add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/Projects/Idris/.cabal-sandbox/bin/")
 
 ;; UTF-8
