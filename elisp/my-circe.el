@@ -10,6 +10,7 @@
 		    "#clojure"
 		    "#quil"
 		    "#elm"
+		    "#esoteric"
                     "#minikanren"
 		    "#kodsnack")
          :nickserv-password ,freenode-password
