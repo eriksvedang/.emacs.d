@@ -89,6 +89,8 @@
  ;; '(company-scrollbar-bg ((t (:background "#FAC"))))
  ;; '(company-tooltip-selection ((t (:foreground "#000" :background "#ADF"))))
  ;; '(company-tooltip-common ((t (:foreground "#F3A" :background "#F9C"))))
+
+ '(dired-directory ((t (:foreground "#09D" :weight bold))))
  
  ;; #0072b2
  ;; #148
