@@ -27,7 +27,7 @@
 ;;(global-pretty-mode 0)
 
 ;; Show matching paren
-(show-paren-mode 0)
+(show-paren-mode 1)
 
 ;; Rainbow parens
 (require 'rainbow-delimiters)
