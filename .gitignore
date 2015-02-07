@@ -16,3 +16,5 @@ elisp/secret.el
 
 eshell/history
 /my-themes/#StripteaseTwo-theme.el#
+
+eshell/lastdir
