@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
 
 (require 'my-fix-defaults)
 (require 'my-packages)
@@ -15,4 +14,6 @@
 (require 'my-powerline)
 (require 'my-circe)
 (require 'my-programming-modes)
+
+(load custom-file)
 
