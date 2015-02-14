@@ -14,7 +14,7 @@
 (global-set-key (kbd "M-)") "}")
 (global-set-key (kbd "M-7") "|")
 (global-set-key (kbd "M-/") "\\")
-;(global-set-key (kbd "M-l") "λ") ;; save this for edit lines command instead
+(global-set-key (kbd "C-x M-l") "λ")
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
