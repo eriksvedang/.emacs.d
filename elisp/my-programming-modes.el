@@ -10,14 +10,14 @@
 
 (custom-set-variables
  '(haskell-process-type 'cabal-repl)
- '(haskell-process-log t)
- '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-show-debug-tips nil)
+;; '(haskell-process-log t)
+;; '(haskell-process-auto-import-loaded-modules t)
   )
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'flymake-hlint-load)
+;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
 
 (define-key haskell-mode-map (kbd "C-c C-j") 'haskell-interactive-bring)
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
@@ -30,8 +30,8 @@
 ;; Prev / next in REPL: M-p / M-n
 
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 (define-key haskell-mode-map (kbd "s-.") 'haskell-mode-jump-to-def)
+;;(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
 (defun my-cabal-run ()
   "Run the Cabal project."
@@ -40,6 +40,10 @@
 
 (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
 
+
+;; Inferior lisp mode
+(setq inferior-lisp-program "pilsner")
+(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/")
 
 
 ;; Cider
@@ -122,4 +126,5 @@
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
-	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)))
+	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
+	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
