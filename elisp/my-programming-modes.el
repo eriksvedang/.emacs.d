@@ -41,9 +41,16 @@
 (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
 
 
-;; Inferior lisp mode
-(setq inferior-lisp-program "pilsner")
+
+;; Pilsner
 (setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/")
+(setq inferior-lisp-program "pilsner")
+
+(defun pilsner-jack-in ()
+  (interactive)  
+  ;(split-window-below)
+  )
+
 
 
 ;; Cider

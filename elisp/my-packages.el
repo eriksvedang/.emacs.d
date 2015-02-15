@@ -55,6 +55,7 @@
  'swift-mode
  'glsl-mode
  'sml-mode
- 'fsharp-mode)
+ 'fsharp-mode
+ 'slime)
 
 (provide 'my-packages)
