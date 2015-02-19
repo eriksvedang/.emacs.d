@@ -47,9 +47,10 @@
                           (rhs (list
 				;;(powerline-raw '(10 "%i"))
 				;;(powerline-raw global-mode-string mode-line 'r)
-				(powerline-raw "%l," mode-line 'l)
-				(powerline-raw (format-mode-line '(8 "%c")))
-				(powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r)
+				
+				;; (powerline-raw "%l," mode-line 'l)
+				;; (powerline-raw (format-mode-line '(8 "%c")))
+				;; (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r)
 				))
 			  )
                      (concat (powerline-render lhs)
