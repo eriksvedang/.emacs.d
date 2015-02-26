@@ -43,7 +43,7 @@
 
 
 ;; Pilsner
-(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/")
+(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/lisp/")
 (setq inferior-lisp-program "pilsner")
 
 (defun pilsner-jack-in ()
@@ -123,12 +123,20 @@
 (defun compile-c ()
   (interactive)
   (save-buffer)
-  (compile (format "make")))
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
+    (if project-dir
+	(progn (setq default-directory project-dir)
+	       (compile (format "make")))
+      (message "Can't find makefile"))))
 
 (defun run-c ()
   (interactive)
   (save-buffer)
-  (compile (format "make run")))
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
+    (if project-dir
+	(progn (setq default-directory project-dir)
+	       (compile (format "make run")))
+      (message "Can't find makefile"))))
 
 (add-hook 'c-mode-hook
 	  (lambda ()
