@@ -90,7 +90,7 @@
       '("*.html" "*.org" "*.txt" "*.md" "*.el"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
-	"*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
