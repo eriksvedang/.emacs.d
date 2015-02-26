@@ -56,6 +56,8 @@
  'glsl-mode
  'sml-mode
  'fsharp-mode
- 'slime)
+ 'slime
+ 'cc-mode
+ 'gud)
 
 (provide 'my-packages)
