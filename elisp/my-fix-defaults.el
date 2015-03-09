@@ -14,6 +14,7 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/Projects/Idris/.cabal-sandbox/bin/")
 (add-to-list 'exec-path "~/Projects/Pilsner/bin/")
+(add-to-list 'exec-path "~/Documents/C/Pilsner/bin/")
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
