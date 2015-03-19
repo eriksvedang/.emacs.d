@@ -18,6 +18,30 @@
 			 :width normal
 			 :foundry "apple"))))
  
+ ;; #0072b2
+ ;; #148
+ '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
+
+ ;; #5f74b8
+ ;; #09d
+ '(font-lock-keyword-face ((t (:foreground "#148" :weight normal))))
+
+ '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
+ 
+ ;; #00AF5F
+ '(font-lock-string-face ((t (:foreground "#00AF5F"))))
+
+ ;; #5FE3FD
+
+ ;; #1199B9
+ ;; #FA3
+ ;; #F90
+ '(font-lock-type-face ((t (:foreground "#09D" :weight normal))))
+
+ ;; #FF3F60
+ '(font-lock-function-name-face ((t (:foreground "#000"))))
+ '(font-lock-variable-name-face ((t (:foreground "#000"))))
+ 
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
@@ -86,38 +110,8 @@
  ;;#FF3F60
  '(company-tooltip-selection ((t (:foreground "#000" :background "#DDD"))))
  '(company-tooltip-common ((t (:foreground "#FFF" :background "#333"))))
- 
- ;; '(company-tooltip ((t (:foreground "#333" :background "#F9C"))))
- ;; '(company-scrollbar-fg ((t (:background "#F3A"))))
- ;; '(company-scrollbar-bg ((t (:background "#FAC"))))
- ;; '(company-tooltip-selection ((t (:foreground "#000" :background "#ADF"))))
- ;; '(company-tooltip-common ((t (:foreground "#F3A" :background "#F9C"))))
 
  '(dired-directory ((t (:foreground "#09D" :weight bold))))
- 
- ;; #0072b2
- ;; #148
- '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
-
- ;; #5f74b8
- ;; #09d
- '(font-lock-keyword-face ((t (:foreground "#148" :weight normal))))
-
- '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
- 
- ;; #00AF5F
- '(font-lock-string-face ((t (:foreground "#00AF5F"))))
-
- ;; #5FE3FD
-
- ;; #1199B9
- ;; #FA3
- ;; #F90
- '(font-lock-type-face ((t (:foreground "#09D" :weight normal))))
-
- ;; #FF3F60
- '(font-lock-function-name-face ((t (:foreground "#000"))))
- '(font-lock-variable-name-face ((t (:foreground "#000"))))
 
  '(circe-originator-face ((t (:foreground "#00AF5F")))) ; other nick names
  '(circe-highlight-nick-face ((t (:foreground "#FF3F60")))) ; messages with my nick cited
