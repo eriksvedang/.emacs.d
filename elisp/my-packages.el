@@ -30,7 +30,6 @@
  'ido-ubiquitous
  'powerline
  'company
- 'pretty-mode
  'smooth-scrolling
  'flymake-easy
  'flymake-cursor
@@ -56,7 +55,6 @@
  'glsl-mode
  'sml-mode
  'fsharp-mode
- 'slime
  'cc-mode
  'gud)
 
