@@ -1,5 +1,8 @@
 (require 'magit)
 
+;; Got a warning on startup about setting this variable:
+(setq magit-auto-revert-mode nil)
+
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
