@@ -1,5 +1,7 @@
 (require 'magit)
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; Got a warning on startup about setting this variable:
 (setq magit-auto-revert-mode nil)
 
