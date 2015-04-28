@@ -45,6 +45,7 @@
  'haskell-mode
  'flymake-hlint
 
+ 'tuareg ;; ocaml
  'idris-mode
  'markdown-mode
  'cider
