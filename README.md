@@ -24,6 +24,11 @@ Notes
 * g         Refresh pane (dired, buffers)
 * C-n       Next line
 * C-p       Prev line
+* C-a       Beginning of line
+* C-e       End of line
+* C-d       Delete forward
+* M-d       Delete word forward
+* M-backspc Delete word backward
 * C-h k     Describe keyboard shortcut
 * C-h a     Search for a word and get help for it
 * C-h f     Get help for a function
