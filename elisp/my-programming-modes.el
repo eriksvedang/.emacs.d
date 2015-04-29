@@ -1,8 +1,11 @@
 ;; Idris
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
+(add-hook 'idris-mode-hook (lambda () (eldoc-mode -1)))
+
 ;; Right now, adding a hook disables all keys for idris mode
 ;; Sadly this makes it hard to automatically disable company mode for idris
 ;; which makes the buffer hang at times when it fails to do some crap...
+;; UPDATE: Is this true anymore..? Keys seem to be working now.
 
 ;; Haskell
 (require 'haskell-mode)

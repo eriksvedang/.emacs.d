@@ -87,7 +87,7 @@
 (require 'find-file-in-project)
 (global-set-key (kbd "s-p") 'find-file-in-project)
 (setq ffip-patterns
-      '("*.html" "*.org" "*.txt" "*.md" "*.el"
+      '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
