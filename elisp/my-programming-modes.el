@@ -45,6 +45,12 @@
 
 
 
+;; Agda
+(load-file (let ((coding-system-for-read 'utf-8))
+	     (shell-command-to-string "agda-mode locate")))
+
+
+
 ;; Pilsner
 ;;(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/lisp/")
 (setenv "PILSNER_LIB" "/users/erik/Documents/C/Pilsner/lisp/")
