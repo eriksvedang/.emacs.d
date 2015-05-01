@@ -56,6 +56,8 @@
  'glsl-mode
  'sml-mode
  'fsharp-mode
+ 'nim-mode
+ 'php-mode
  'cc-mode
  'gud)
 
