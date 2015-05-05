@@ -25,6 +25,7 @@
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C--") 'pop-global-mark)
 (global-set-key (kbd "s-i") 'imenu) ; lists the functions in file
+(global-set-key (kbd "s-f") 'rgrep) ; search for files
 
 ;; Shell history
 (add-hook 'shell-mode-hook
