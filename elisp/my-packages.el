@@ -31,9 +31,6 @@
  'powerline
  'company
  'smooth-scrolling
- 'flymake-easy
- 'flymake-cursor
- 
  'find-file-in-project
  'ace-jump-mode
  
@@ -42,11 +39,13 @@
  'circe
  'restclient
  
- 'haskell-mode
+ 'flymake-easy
+ 'flymake-cursor
  'flymake-hlint
 
- 'tuareg ;; ocaml
+ 'haskell-mode
  'idris-mode
+ 'tuareg
  'markdown-mode
  'cider
  'rust-mode
