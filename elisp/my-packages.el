@@ -41,7 +41,7 @@
  
  'flymake-easy
  'flymake-cursor
- 'flymake-hlint
+ ;; 'flymake-hlint
 
  'haskell-mode
  'idris-mode
