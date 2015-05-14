@@ -35,9 +35,9 @@
  'ace-jump-mode
  
  'magit
- 'yasnippet
  'circe
  'restclient
+ ;; 'yasnippet
  
  'flymake-easy
  'flymake-cursor

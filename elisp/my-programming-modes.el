@@ -80,8 +80,8 @@
 (setq cider-repl-use-clojure-font-lock t)
 
 ;; Yasnippets
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas-global-mode 1)
+;;(require 'yasnippet) ;; not yasnippet-bundle
+;;(yas-global-mode 1)
 
 ;; Zencoding
 (add-hook 'zencoding-mode-hook
