@@ -97,6 +97,13 @@
  '(help-at-pt-timer-delay 0.9)
  '(help-at-pt-display-when-idle '(flymake-overlay)))
 
+;; Switch to new window when using help
+(defadvice describe-key (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-function (after move-point-to-new-window activate)
+  (other-window 1))
+
 ;; Function for finding out info about font at cursor
 (defun what-face (pos)
   (interactive "d")

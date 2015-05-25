@@ -1,6 +1,12 @@
 .emacs.d
 ========
 
+Keys
+====
+* C = control
+* M = alt
+* s = command
+
 Notes
 =====
 * C-g       Cancel
@@ -36,6 +42,7 @@ Notes
 * q         close "pane" (what's the real word?)
 * C-y       Yank (paste)
 * M-y       Cycle through kill ring (can only be used after yanking)
+* s-l       Goto line
 
 Commands (run with M-x)
 =======================
