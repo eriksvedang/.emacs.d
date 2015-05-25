@@ -97,6 +97,7 @@
  '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
  '(font-lock-comment-face ((t (:foreground "#a6a6a6" :slant italic))))
  '(font-lock-constant-face ((t (:foreground "#000000" :weight normal))))
+ '(highlight-numbers-number ((t (:foreground "#ff3377" :weight normal))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
  
  '(font-lock-negation-char-face ((t nil)))

@@ -60,13 +60,14 @@
 (powerline-erik-theme)
 
 ;; #ff3f60
+;; #ff0f80
 
 (set-face-attribute 'mode-line nil
-    :foreground "#fff" :background "#ff0f80"
+    :foreground "#fff" :background "#ff3377"
     :inverse-video nil
     ;; :family "Menlo"
     :height 170
-    :box '(:line-width 4 :color "#ff0f80" :style nil))
+    :box '(:line-width 4 :color "#ff3377" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "gray60" :background "gray30"

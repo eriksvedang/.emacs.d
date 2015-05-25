@@ -111,12 +111,8 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
-;; Make numbers have color
-;; (make-face 'font-lock-number-face)
-;; (set-face-foreground 'font-lock-number-face "#ff3377")
-;; (defun add-custom-keyw ()
-;;   (font-lock-add-keywords nil '(("[0-9]+\\.[0-9]+" . 'font-lock-number-face))))
-;; (add-hook 'c-mode-hook 'add-custom-keyw)
+;; Give numbers syntax highlighting
+;(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 (provide 'my-look-and-feel)
 

@@ -33,6 +33,7 @@
  'smooth-scrolling
  'find-file-in-project
  'ace-jump-mode
+ 'highlight-numbers
  
  'magit
  'circe
