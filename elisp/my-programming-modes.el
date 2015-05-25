@@ -62,6 +62,9 @@
   )
 
 
+;; Lisp
+(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+
 
 ;; Cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
