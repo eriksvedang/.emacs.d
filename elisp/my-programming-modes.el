@@ -112,21 +112,29 @@
 
 
 ;; Rust
-(defun rust-save-compile-and-run ()
-  (interactive)
+(defun internal-rust-save-compile-run (cargo-cmd non-cargo-cmd)
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "Cargo.toml")))
     (if project-dir
   	(progn (setq default-directory project-dir)
-  	       (compile "cargo run"))
+  	       (compile cargo-cmd))
       (compile
-       (format "rustc %s ; %s"
+       (format non-cargo-cmd 
   	       (buffer-file-name)
   	       (file-name-sans-extension (buffer-file-name)))))))
 
+(defun rust-save-compile-and-run ()
+  (interactive)
+  (internal-rust-save-compile-run "cargo run" "rustc %s ; %s"))
+
+(defun rust-save-compile ()
+  (interactive)
+  (internal-rust-save-compile-run "cargo build" "rustc %s"))
+
 (add-hook 'rust-mode-hook
 	  (lambda ()
-	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)))
+	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
+	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
 (provide 'my-programming-modes)
 
