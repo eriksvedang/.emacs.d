@@ -2,7 +2,7 @@
   "Created 2014-11-24.")
 
 (custom-theme-set-faces
- 'StripteaseTwo
+ 'Striptease
  
  '(default ((t (         :inherit nil
 			 :stipple nil
@@ -142,4 +142,4 @@
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch))))))
 
-(provide-theme 'StripteaseTwo)
+(provide-theme 'Striptease)

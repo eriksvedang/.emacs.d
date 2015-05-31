@@ -66,11 +66,11 @@
     :inverse-video nil
     :family "Hasklig"
     :height 170
-    :box '(:line-width 6 :color "#ff3377" :style nil))
+    :box '(:line-width 3 :color "#ff3377" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
     :foreground "gray90" :background "gray60"
     :inverse-video nil
-    :box '(:line-width 6 :color "gray60" :style nil))
+    :box '(:line-width 3 :color "gray60" :style nil))
 
 (provide 'my-powerline)
