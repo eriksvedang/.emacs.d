@@ -64,9 +64,8 @@
 (set-face-attribute 'mode-line nil
     :foreground "#fff" :background "#ff3377"
     :inverse-video nil
-    :family "Menlo"
-    ;;:family"Hasklig"
-    :height 150
+    :family "Hasklig"
+    :height 170
     :box '(:line-width 6 :color "#ff3377" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil

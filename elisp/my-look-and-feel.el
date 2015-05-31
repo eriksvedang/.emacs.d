@@ -1,5 +1,5 @@
 ;; Theme and font
-(load-theme 'StripteaseTwo)
+(load-theme 'Striptease)
 (set-face-attribute 'default nil :height 170)
 (let ((font "Hasklig")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
   (when (member font (font-family-list))
