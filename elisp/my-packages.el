@@ -40,8 +40,10 @@
  'restclient
  ;; 'yasnippet
  
+ 'flycheck
  'flymake-easy
  'flymake-cursor
+ 'flycheck-rust
  ;; 'flymake-hlint
 
  'haskell-mode
