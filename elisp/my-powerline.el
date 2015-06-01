@@ -59,22 +59,18 @@
 
 (powerline-erik-theme)
 
-;; #ff3f60
-;; #ff0f80
+;; old röd: #ff3f60
 
 (set-face-attribute 'mode-line nil
     :foreground "#fff" :background "#ff3377"
     :inverse-video nil
-    ;; :family "Menlo"
+    :family "Hasklig"
     :height 170
-    :box '(:line-width 4 :color "#ff3377" :style nil))
+    :box '(:line-width 3 :color "#ff3377" :style nil))
 
 (set-face-attribute 'mode-line-inactive nil
-    :foreground "gray60" :background "gray30"
+    :foreground "gray90" :background "gray60"
     :inverse-video nil
-    :box '(:line-width 4 :color "gray30" :style nil))
-
-;(set-face-attribute 'mode-line nil :foreground "#fff" :background "#0072b2" :box nil)
-;(set-face-attribute 'mode-line-inactive nil :foreground "#666" :background "#050000" :box nil)
+    :box '(:line-width 3 :color "gray60" :style nil))
 
 (provide 'my-powerline)
