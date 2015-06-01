@@ -133,6 +133,7 @@
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
+	    (electric-pair-mode 1)
 	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
@@ -160,12 +161,15 @@
 
 (add-hook 'c-mode-hook
 	  (lambda ()
+	    (electric-pair-mode 1)
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
 (add-hook 'c++-mode-hook
 	  (lambda ()
+	    (electric-pair-mode 1)
 	    (define-key c++-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
+
