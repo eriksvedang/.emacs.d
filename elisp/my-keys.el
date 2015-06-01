@@ -27,6 +27,8 @@
 (global-set-key (kbd "C--") 'pop-global-mark)
 (global-set-key (kbd "s-i") 'imenu) ; lists the functions in file
 (global-set-key (kbd "s-f") 'rgrep) ; search for files
+(global-set-key (kbd "s-+") 'enlarge-window)
+(global-set-key (kbd "s--") 'shrink-window)
 
 ;; Shell history
 (add-hook 'shell-mode-hook

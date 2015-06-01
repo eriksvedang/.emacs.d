@@ -113,7 +113,7 @@
 (defadvice describe-mode (after move-point-to-new-window activate)
   (other-window 1))
 
-(defadvice search-documentation (after move-point-to-new-window activate)
+(defadvice find-commands-by-name (after move-point-to-new-window activate)
   (other-window 1))
 
 ;; Function for finding out info about font at cursor
