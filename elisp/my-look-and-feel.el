@@ -104,6 +104,12 @@
 (defadvice describe-function (after move-point-to-new-window activate)
   (other-window 1))
 
+(defadvice describe-variable (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-mode (after move-point-to-new-window activate)
+  (other-window 1))
+
 ;; Function for finding out info about font at cursor
 (defun what-face (pos)
   (interactive "d")
