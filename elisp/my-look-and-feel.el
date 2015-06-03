@@ -95,6 +95,13 @@
 ;; Org mode
 (setq org-support-shift-select t)
 
+(defun my-insert-bullet ()
+  (interactive)
+  (indent-for-tab-command)
+  (insert "- [ ] "))
+
+(add-hook 'org-mode (define-key org-mode-map (kbd "C-c C-b") 'my-insert-bullet))
+
 ;; Flycheck
 (add-hook 'rust-mode-hook #'flycheck-mode)
 
