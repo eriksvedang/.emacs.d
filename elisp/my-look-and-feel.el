@@ -100,7 +100,7 @@
   (indent-for-tab-command)
   (insert "- [ ] "))
 
-(add-hook 'org-mode (define-key org-mode-map (kbd "C-c C-b") 'my-insert-bullet))
+(global-set-key (kbd "C-c §") 'my-insert-bullet)
 
 ;; Flycheck
 (add-hook 'rust-mode-hook #'flycheck-mode)
