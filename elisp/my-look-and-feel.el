@@ -95,9 +95,6 @@
 ;; Org mode
 (setq org-support-shift-select t)
 
-;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
  '(help-at-pt-timer-delay 0.9)
