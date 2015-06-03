@@ -95,6 +95,12 @@
 ;; Org mode
 (setq org-support-shift-select t)
 
+;; Flycheck
+(add-hook 'rust-mode-hook #'flycheck-mode)
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
  '(help-at-pt-timer-delay 0.9)

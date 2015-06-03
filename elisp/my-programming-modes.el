@@ -123,11 +123,6 @@
   	       (buffer-file-name)
   	       (file-name-sans-extension (buffer-file-name)))))))
 
-(add-hook 'rust-mode-hook #'flycheck-mode)
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
 (defun rust-save-compile-and-run ()
   (interactive)
   (internal-rust-save-compile-run "cargo run" "rustc %s ; %s"))
