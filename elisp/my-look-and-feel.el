@@ -92,9 +92,6 @@
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
-;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
  '(help-at-pt-timer-delay 0.9)
