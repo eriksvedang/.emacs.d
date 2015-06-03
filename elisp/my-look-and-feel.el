@@ -92,6 +92,9 @@
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
+;; Org mode
+(setq org-support-shift-select t)
+
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
