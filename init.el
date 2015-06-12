@@ -16,5 +16,3 @@
 (require 'my-circe)
 (require 'my-programming-modes)
 
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)

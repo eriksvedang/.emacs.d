@@ -49,4 +49,7 @@
   "Moves the point to the newly created window after splitting."
   (other-window 1))
 
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 (provide 'my-fix-defaults)
