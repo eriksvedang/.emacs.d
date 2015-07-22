@@ -15,6 +15,7 @@
 (add-to-list 'exec-path "~/Projects/Idris/.cabal-sandbox/bin/")
 (add-to-list 'exec-path "~/Projects/Pilsner/bin/")
 (add-to-list 'exec-path "~/Documents/C/Pilsner/bin/")
+(add-to-list 'exec-path "/Applications/ghc-7.8.3.app/Contents/bin/")
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
