@@ -11,6 +11,10 @@
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
 
+;; (let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
+;;   (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
+;;   (add-to-list 'exec-path my-cabal-path))
+
 (custom-set-variables
  '(haskell-process-type 'cabal-repl)
  '(haskell-process-show-debug-tips nil)
