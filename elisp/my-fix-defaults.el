@@ -1,20 +1,3 @@
-;; Damnit, path!
-(let ((paths (mapcar (lambda (i) (concat (getenv "HOME") "/" i))
-                     '("bin" ".cabal/bin"))))
-  (setenv "PATH" (apply 'concat
-                        (append (mapcar (lambda (i) (concat i ":")) paths)
-                                (list (getenv "PATH")))))
-  (dolist (path paths) (when (file-directory-p path)
-                         (add-to-list 'exec-path path))))
-
-(add-to-list 'exec-path "~/bin")
-(add-to-list 'exec-path "/usr/local/smlnj/bin")
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "~/Projects/Idris/.cabal-sandbox/bin/")
-(add-to-list 'exec-path "~/Projects/Pilsner/bin/")
-(add-to-list 'exec-path "~/Documents/C/Pilsner/bin/")
-(add-to-list 'exec-path "/Applications/ghc-7.8.3.app/Contents/bin/")
-
 ;; A package for getting the PATH when starting emacs via OSX (not from terminal)
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)

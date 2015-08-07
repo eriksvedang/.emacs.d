@@ -51,7 +51,7 @@
  'idris-mode
  'tuareg
  'markdown-mode
- 'cider
+ ;'cider
  'rust-mode
  'zencoding-mode
  'elm-mode
