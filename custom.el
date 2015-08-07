@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("5182598e3537435dbee15255fffb74a96348a9ac62925c5cce32c578ec312412" "ebdb3d196d2156b0a392344bdde5aab8f3b971ab73ed0852fc0d70baae1c01e1" default)))
+    ("8aabfc41f1643af75768bf334dd3dfda6ffb7d82eda24f0d065a5515f3073436" "5182598e3537435dbee15255fffb74a96348a9ac62925c5cce32c578ec312412" "ebdb3d196d2156b0a392344bdde5aab8f3b971ab73ed0852fc0d70baae1c01e1" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-show-debug-tips nil)

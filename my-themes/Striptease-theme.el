@@ -105,6 +105,8 @@
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
+ '(racket-selfeval-face ((t (:foreground "#FF3377"))))
+ 
  '(company-tooltip ((t (:foreground "#AAA" :background "#333"))))
  '(company-scrollbar-fg ((t (:background "#777"))))
  '(company-scrollbar-bg ((t (:background "#444"))))

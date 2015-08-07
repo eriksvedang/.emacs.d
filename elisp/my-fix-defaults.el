@@ -7,8 +7,6 @@
   (dolist (path paths) (when (file-directory-p path)
                          (add-to-list 'exec-path path))))
 
-;;(setenv "PATH" (concat "/usr/local/smlnj/bin:" (getenv "PATH")))
-
 (add-to-list 'exec-path "~/bin")
 (add-to-list 'exec-path "/usr/local/smlnj/bin")
 (add-to-list 'exec-path "/usr/local/bin")
@@ -16,6 +14,10 @@
 (add-to-list 'exec-path "~/Projects/Pilsner/bin/")
 (add-to-list 'exec-path "~/Documents/C/Pilsner/bin/")
 (add-to-list 'exec-path "/Applications/ghc-7.8.3.app/Contents/bin/")
+
+;; A package for getting the PATH when starting emacs via OSX (not from terminal)
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)

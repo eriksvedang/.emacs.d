@@ -34,6 +34,7 @@
  'find-file-in-project
  'ace-jump-mode
  'highlight-numbers
+ 'exec-path-from-shell
  
  'magit
  'circe
@@ -61,6 +62,7 @@
  'nim-mode
  'php-mode
  'cc-mode
- 'gud)
+ 'gud
+ 'racket-mode)
 
 (provide 'my-packages)
