@@ -4,6 +4,7 @@
 
 ;; Got a warning on startup about setting this variable:
 (setq magit-auto-revert-mode nil)
+(setq magit-push-always-verify nil)
 
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
