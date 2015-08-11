@@ -22,3 +22,5 @@ eshell/lastdir
 abbrev_defs
 /tramp
 /games/
+/.emacs.desktop
+/.emacs.desktop.lock

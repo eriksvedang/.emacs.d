@@ -38,4 +38,6 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+(desktop-save-mode 1) ; reopen buffers from last session
+
 (provide 'my-fix-defaults)

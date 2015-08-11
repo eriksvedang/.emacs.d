@@ -141,7 +141,20 @@
 	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
-(provide 'my-programming-modes)
+;; Racer (rust auto completion)
+(setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
+
+(let ((racer-path (getenv "RACER_PATH")))
+  (setq racer-cmd (concat racer-path "/target/release/racer"))
+  (add-to-list 'load-path (concat racer-path "/editors/emacs"))
+  (eval-after-load "rust-mode" '(require 'racer)))
+
+(add-hook 'rust-mode-hook 
+  '(lambda () 
+     (racer-activate)
+     (local-set-key (kbd "M-.") #'racer-find-definition)
+     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
+
 
 
 ;; C
@@ -177,3 +190,6 @@
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
+
+
+(provide 'my-programming-modes)

@@ -53,6 +53,7 @@
  'markdown-mode
  ;'cider
  'rust-mode
+ 'racer
  'zencoding-mode
  'elm-mode
  'swift-mode
