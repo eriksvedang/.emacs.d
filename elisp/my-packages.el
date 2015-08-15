@@ -39,6 +39,7 @@
  'magit
  'circe
  'restclient
+ 'ses
  ;; 'yasnippet
  
  'flycheck
