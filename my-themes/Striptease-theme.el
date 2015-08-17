@@ -6,7 +6,7 @@
  
  '(default ((t (         :inherit nil
 			 :stipple nil
-			 :background "white"
+			 :background "#FFF"
 			 :foreground "#000"
 			 :inverse-video nil
 			 :box nil
