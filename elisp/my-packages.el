@@ -40,6 +40,7 @@
  'circe
  'restclient
  'ses
+ 'neotree
  ;; 'yasnippet
  
  'flycheck
