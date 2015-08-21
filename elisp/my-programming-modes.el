@@ -1,19 +1,6 @@
-;; Idris
-;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
-(add-hook 'idris-mode-hook (lambda () (eldoc-mode -1)))
-
-;; Right now, adding a hook disables all keys for idris mode
-;; Sadly this makes it hard to automatically disable company mode for idris
-;; which makes the buffer hang at times when it fails to do some crap...
-;; UPDATE: Is this true anymore..? Keys seem to be working now.
-
 ;; Haskell
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
-
-;; (let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
-;;   (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
-;;   (add-to-list 'exec-path my-cabal-path))
 
 (custom-set-variables
  '(haskell-process-type 'cabal-repl)
@@ -34,7 +21,7 @@
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-sort-imports)
 
-;; Prev / next in REPL: M-p / M-n
+;; Reminder: Prev / next in REPL: M-p / M-n
 
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
 (define-key haskell-mode-map (kbd "s-.") 'haskell-mode-jump-to-def)
@@ -46,6 +33,22 @@
   (haskell-process-do-cabal "run"))
 
 (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
+
+;; Ghc-mod
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+
+
+;; Idris
+;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
+(add-hook 'idris-mode-hook (lambda () (eldoc-mode -1)))
+
+;; Right now, adding a hook disables all keys for idris mode
+;; Sadly this makes it hard to automatically disable company mode for idris
+;; which makes the buffer hang at times when it fails to do some crap...
+;; UPDATE: Is this true anymore..? Keys seem to be working now.
 
 
 
@@ -64,6 +67,7 @@
   (interactive)  
   ;(split-window-below)
   )
+
 
 
 ;; Lisp
@@ -86,14 +90,14 @@
 
 (setq cider-repl-use-clojure-font-lock t)
 
-;; Yasnippets
-;;(require 'yasnippet) ;; not yasnippet-bundle
-;;(yas-global-mode 1)
+
 
 ;; Zencoding
 (add-hook 'zencoding-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
+
+
 
 ;; Sgml (html mode)
 (add-hook 'sgml-mode-hook

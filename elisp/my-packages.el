@@ -50,6 +50,7 @@
  ;; 'flymake-hlint
 
  'haskell-mode
+ 'ghc ;; this is actually ghc-mod!
  'idris-mode
  'tuareg
  'markdown-mode
