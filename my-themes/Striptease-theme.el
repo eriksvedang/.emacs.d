@@ -5,18 +5,18 @@
  'Striptease
  
  '(default ((t (         :inherit nil
-			 :stipple nil
-			 :background "#FFF"
-			 :foreground "#000"
-			 :inverse-video nil
-			 :box nil
-			 :strike-through nil
-			 :overline nil
-			 :underline nil
-			 :slant normal
-			 :weight normal
-			 :width normal
-			 :foundry "apple"))))
+				  :stipple nil
+				  :background "#FFF"
+				  :foreground "#000"
+				  :inverse-video nil
+				  :box nil
+				  :strike-through nil
+				  :overline nil
+				  :underline nil
+				  :slant normal
+				  :weight normal
+				  :width normal
+				  :foundry "apple"))))
  
  ;; #0072b2
  ;; #148
@@ -48,7 +48,7 @@
  '(escape-glyph ((t (:foreground "#f00"))))
  
  '(minibuffer-prompt ((t (:foreground "#0072b2" :weight normal))))
-   
+ 
  '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
@@ -106,13 +106,16 @@
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
  '(racket-selfeval-face ((t (:foreground "#FF3377"))))
- 
- '(company-tooltip ((t (:foreground "#AAA" :background "#333"))))
- '(company-scrollbar-fg ((t (:background "#777"))))
- '(company-scrollbar-bg ((t (:background "#444"))))
- ;;#FF3F60
- '(company-tooltip-selection ((t (:foreground "#000" :background "#DDD"))))
- '(company-tooltip-common ((t (:foreground "#FFF" :background "#333"))))
+
+ '(company-tooltip ((t (:foreground "#DDD" :background "#121133"))))
+
+ '(company-tooltip-selection ((t (:foreground "#000" :background "#a0eeee"))))
+
+ '(company-tooltip-common ((t (:foreground "#FFF" :background "#121133"))))
+ '(company-tooltip-common-selection ((t (:foreground "#000" :background "#a0eeee"))))
+
+ '(company-scrollbar-fg ((t (:background "#DDD")))) ;; the handle
+ '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
 
  '(dired-directory ((t (:foreground "#09D" :weight bold))))
 
