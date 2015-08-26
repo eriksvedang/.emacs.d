@@ -146,19 +146,10 @@
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
 ;; Racer (rust auto completion)
+(setq racer-cmd (concat (getenv "RACER_PATH") "/target/release/racer"))
 (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
 
-(let ((racer-path (getenv "RACER_PATH")))
-  (setq racer-cmd (concat racer-path "/target/release/racer"))
-  (add-to-list 'load-path (concat racer-path "/editors/emacs"))
-  (eval-after-load "rust-mode" '(require 'racer)))
-
-(add-hook 'rust-mode-hook 
-  '(lambda () 
-     (racer-activate)
-     (local-set-key (kbd "M-.") #'racer-find-definition)
-     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
-
+(add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 
 

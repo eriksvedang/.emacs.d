@@ -81,10 +81,11 @@
 ;; Auto complete
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(global-set-key (kbd "<C-escape>") 'company-search-mode)
+;;(global-set-key (kbd "<C-escape>") 'company-search-mode)
+;;(global-set-key (kbd "TAB") #'company-complete)
 (setq company-tooltip-align-annotations t)
-(setq company-minimum-prefix-length 2)
-(setq company-idle-delay 0.0)
+(setq company-minimum-prefix-length 0)
+(setq company-idle-delay 0.3)
 
 ;; Find file in project (git repo)
 (require 'find-file-in-project)
