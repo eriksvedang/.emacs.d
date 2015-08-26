@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("bbb99e4f04a58b32667c17ff1ba1977c6e383170f8769b4bee4020b91b976f26" "8aabfc41f1643af75768bf334dd3dfda6ffb7d82eda24f0d065a5515f3073436" "5182598e3537435dbee15255fffb74a96348a9ac62925c5cce32c578ec312412" "ebdb3d196d2156b0a392344bdde5aab8f3b971ab73ed0852fc0d70baae1c01e1" default)))
+    ("895d0f359e44372793f620d98b83013670d05aa7419b3b1288474bc418afba41" "bbb99e4f04a58b32667c17ff1ba1977c6e383170f8769b4bee4020b91b976f26" "8aabfc41f1643af75768bf334dd3dfda6ffb7d82eda24f0d065a5515f3073436" "5182598e3537435dbee15255fffb74a96348a9ac62925c5cce32c578ec312412" "ebdb3d196d2156b0a392344bdde5aab8f3b971ab73ed0852fc0d70baae1c01e1" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-show-debug-tips nil)
@@ -19,4 +19,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(neo-banner-face ((t :inherit shadow)))
+ '(neo-button-face ((t :inherit dired-directory)))
+ '(neo-dir-link-face ((t :inherit dired-directory)))
+ '(neo-expand-btn-face ((t :inherit button)))
+ '(neo-file-link-face ((t :inherit default)))
+ '(neo-header-face ((t :inherit shadow)))
+ '(neo-root-dir-face ((t :inherit link-visited :underline nil))))
