@@ -89,7 +89,7 @@
 	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 
 (setq cider-repl-use-clojure-font-lock t)
-
+(setq cider-prompt-save-file-on-load 'always-save)
 
 
 ;; Zencoding

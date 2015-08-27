@@ -117,6 +117,8 @@
  '(company-scrollbar-fg ((t (:background "#DDD")))) ;; the handle
  '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
 
+ '(company-tooltip-annotation ((t :background "#121133" :foreground "#0c3")))
+
  '(dired-directory ((t (:foreground "#09D" :weight bold))))
 
  '(circe-originator-face ((t (:foreground "#00AF5F")))) ; other nick names
