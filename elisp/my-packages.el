@@ -41,7 +41,6 @@
  'restclient
  'ses
  'neotree
- ;; 'yasnippet
  
  'flycheck
  'flymake-easy
@@ -54,7 +53,7 @@
  'idris-mode
  'tuareg
  'markdown-mode
- ;'cider
+ 'cider
  'rust-mode
  'racer
  'zencoding-mode
