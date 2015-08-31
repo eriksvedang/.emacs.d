@@ -5,13 +5,13 @@
 (custom-set-variables
  '(haskell-process-type 'cabal-repl)
  '(haskell-process-show-debug-tips nil)
-;; '(haskell-process-log t)
-;; '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-auto-import-loaded-modules t)
   )
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
+(add-hook 'haskell-mode-hook 'flymake-hlint-load)
 
 (define-key haskell-mode-map (kbd "C-c C-j") 'haskell-interactive-bring)
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
