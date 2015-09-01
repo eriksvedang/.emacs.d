@@ -1,18 +1,5 @@
 (require 'smartparens)
 
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
-
-(define-key sp-keymap (kbd "C-M-a") 'sp-beginning-of-sexp)
-(define-key sp-keymap (kbd "C-M-e") 'sp-end-of-sexp)
-
-(define-key sp-keymap (kbd "C-M-n") 'sp-next-sexp)
-(define-key sp-keymap (kbd "C-M-p") 'sp-previous-sexp)
-
-(define-key sp-keymap (kbd "C-M-u") 'sp-up-sexp)
-(define-key sp-keymap (kbd "C-M-d") 'sp-backward-down-sexp)
-(define-key sp-keymap (kbd "C-M-S-d") 'sp-down-sexp)
-
 (define-key sp-keymap (kbd "C-)") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-(") 'sp-backward-slurp-sexp)
 (define-key sp-keymap (kbd "C-M-)") 'sp-forward-barf-sexp)
