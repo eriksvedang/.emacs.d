@@ -15,4 +15,4 @@
 (require 'my-powerline)
 (require 'my-circe)
 (require 'my-programming-modes)
-
+(require 'my-neotree)

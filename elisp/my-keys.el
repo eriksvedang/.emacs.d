@@ -2,6 +2,7 @@
 ;; (setq mac-option-key-is-meta 0)
 ;; (setq mac-option-modifier nil)
 
+;; The OSX behaviour for hiding all other windows
 (global-set-key (kbd "M-s-h") 'ns-do-hide-others)
 (global-set-key (kbd "M-s-˛") 'ns-do-hide-others)
 

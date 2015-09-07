@@ -106,6 +106,7 @@
 	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
+(add-hook 'html-mode-hook 'zencoding-mode)
 
 
 
