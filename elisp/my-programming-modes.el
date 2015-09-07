@@ -72,6 +72,7 @@
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
 
 
 ;; Cider

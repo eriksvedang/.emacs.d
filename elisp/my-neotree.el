@@ -1,9 +1,9 @@
 ;; Neotree (IDE-style file view)
-(add-to-list 'load-path "/some/path/neotree")
 (require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
 
+(global-set-key [f8] 'neotree-toggle)
 (setq neo-theme 'ascii)
+
 (custom-set-faces
  '(neo-banner-face ((t . (:inherit shadow))) t)
  '(neo-header-face ((t . (:inherit shadow))) t)
