@@ -4,6 +4,8 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+(setq just-say-yes t)
+
 ;; Auto install packages
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not"
@@ -13,9 +15,9 @@
 	 (package-installed-p package)
          nil
          (package-install package)
-       ;; (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-       ;;     (package-install package)
-       ;;   package)
+	 (if (or just-say-yes (y-or-n-p (format "Package %s is missing. Install it? " package)))
+           (package-install package)
+         package)
        ))
    packages))
 
@@ -46,7 +48,7 @@
  'flymake-easy
  'flymake-cursor
  'flycheck-rust
- ;; 'flymake-hlint
+ 'flymake-hlint
 
  'haskell-mode
  'ghc ;; this is actually ghc-mod!
