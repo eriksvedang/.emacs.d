@@ -1,6 +1,8 @@
 ;; Powerline (customize the 'mode line')
 (require 'powerline)
 
+(setq ns-use-srgb-colorspace nil) ;; DON'T MESS UP THE COLORS
+
 (defun powerline-erik-theme ()
   (interactive)
   (setq-default mode-line-format
@@ -114,7 +116,7 @@
 				     (powerline-raw "%3c" face1 'r)
 				     (funcall separator-right face1 mode-line)
 				     (powerline-raw "    ")
-				     (powerline-raw "%6p" nil 'r)
+				     (powerline-raw "%8p" nil 'r)
 				     ;;(powerline-hud face2 face1)
 				     ))
 			  (center (list )))
@@ -128,21 +130,23 @@
               :foreground "#0C3"
               :background "#000000"
               :box '(:line-width 1 :color "#000" :style nil)
-              :weight 'bold
+              :weight 'normal
+	      :height 180
 	      )
   
   (set-face-attribute 'mode-line-buffer-id nil
               :foreground "white"
-              :weight 'bold
+              :weight 'normal
 	      )
   
   (set-face-attribute 'powerline-active1 nil
               :foreground "gray20"
-              :background "gray80")
+              :background "gray80") ;; gray80
 
   (set-face-attribute 'powerline-active2 nil
-	      :foreground "gray90"
-	      :background "#0AF") ;; 0CF / FF3377
+	      :foreground "white"
+	      :background "#0CF" ;; #0CF / #FF3377 / #567
+	      :weight 'normal) 
   
   (set-face-attribute 'mode-line-inactive nil
               :foreground "gray90"
