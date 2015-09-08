@@ -54,6 +54,21 @@
 ;;       scroll-conservatively 10000
 ;;       scroll-preserve-screen-position 1)
 
+;; Ibuffer (buffer switcher)
+(setq ibuffer-formats 
+      '((mark modified read-only " "
+              (name 30 30 :left :elide) ; change: 30s were originally 18s
+              " "
+              (size 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " " filename-and-process)
+        (mark " "
+              (name 16 -1)
+              " " filename)))
+
+
+
 ;; Ido
 (ido-mode 1)
 (ido-ubiquitous 1)

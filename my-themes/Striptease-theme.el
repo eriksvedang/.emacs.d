@@ -56,7 +56,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "grey80"))
+	     (background light)) (:foreground "grey80")) ;; <- Line numbers
 	   (((class color grayscale)
 	     (min-colors 88)
 	     (background dark))
@@ -91,6 +91,8 @@
 				     :underline nil
 				     :weight bold
 				     ))))
+
+ '(magit-section-heading ((t (:foreground "#0099EE" :weight bold))))
  
  '(secondary-selection ((t (:background "#e5e5e5"))))
  '(trailing-whitespace ((t (:background "#d55e00"))))
