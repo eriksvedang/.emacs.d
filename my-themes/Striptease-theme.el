@@ -29,7 +29,7 @@
  '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
  
  ;; #00AF5F
- '(font-lock-string-face ((t (:foreground "#00AF5F"))))
+ '(font-lock-string-face ((t (:foreground "#0B0"))))
 
  ;; #5FE3FD
 

@@ -128,19 +128,21 @@
               :foreground "#0C3"
               :background "#000000"
               :box '(:line-width 1 :color "#000" :style nil)
-              :weight 'bold)
+              :weight 'bold
+	      )
   
   (set-face-attribute 'mode-line-buffer-id nil
               :foreground "white"
-              :weight 'bold)
+              :weight 'bold
+	      )
   
   (set-face-attribute 'powerline-active1 nil
               :foreground "gray20"
-              :background "gray90")
+              :background "gray80")
 
   (set-face-attribute 'powerline-active2 nil
 	      :foreground "gray90"
-	      :background "#0CF") ;; 0CF / FF3377
+	      :background "#0AF") ;; 0CF / FF3377
   
   (set-face-attribute 'mode-line-inactive nil
               :foreground "gray90"
