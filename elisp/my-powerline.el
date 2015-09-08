@@ -71,7 +71,7 @@
 		      :inverse-video nil
 		      :box '(:line-width 3 :color "gray60" :style nil)))
 
-(powerline-erik-theme)
+
 
 (defun powerline-uber-theme ()
   "uber"
@@ -89,8 +89,8 @@
 			  (separator-right (intern (format "powerline-%s-%s"
 							   (powerline-current-separator)
 							   (cdr powerline-default-separator-dir))))
-			  (lhs (list (powerline-raw "%*" nil 'l)
-				     (powerline-buffer-size nil 'l)
+			  (lhs (list (powerline-raw " %* " nil 'l)
+				     ;; (powerline-buffer-size nil 'l)
 				     (powerline-buffer-id nil 'l)
 				     (powerline-raw " ")
 				     (funcall separator-left mode-line face1)
@@ -113,7 +113,7 @@
 				     (powerline-raw ":" face1)
 				     (powerline-raw "%3c" face1 'r)
 				     (funcall separator-right face1 mode-line)
-				     (powerline-raw " ")
+				     (powerline-raw "    ")
 				     (powerline-raw "%6p" nil 'r)
 				     (powerline-hud face2 face1)))
 			  (center (list )))
@@ -155,6 +155,8 @@
   
   )
 
+
+;;(powerline-erik-theme)
 (powerline-uber-theme)
 
 (provide 'my-powerline)
