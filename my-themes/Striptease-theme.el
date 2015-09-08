@@ -93,6 +93,7 @@
 				     ))))
 
  '(magit-section-heading ((t (:foreground "#0099EE" :weight bold))))
+ '(magit-log-author ((t (:foreground "#0099EE"))))
  
  '(secondary-selection ((t (:background "#e5e5e5"))))
  '(trailing-whitespace ((t (:background "#d55e00"))))
