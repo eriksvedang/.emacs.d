@@ -70,6 +70,19 @@
 ;; make ibuffer refresh automatically
 (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 
+;; ibuffer groups
+(setq ibuffer-saved-filter-groups
+      '(("home"
+	 ("Magit" (name . "\*magit"))
+	 ("Help" (or (name . "\*Help\*")
+		     (name . "\*Apropos\*")
+		     (name . "\*info\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+	  '(lambda ()
+	     (ibuffer-switch-to-saved-filter-groups "home")))
+
+
 
 ;; Ido
 (ido-mode 1)
