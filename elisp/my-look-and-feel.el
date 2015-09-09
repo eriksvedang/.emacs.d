@@ -74,6 +74,8 @@
 (setq ibuffer-saved-filter-groups
       '(("home"
 	 ("Magit" (name . "\*magit"))
+	 ("Emacs" (or (name . "\*Messages\*")
+		     (name . "\*Scratch\*")))
 	 ("Help" (or (name . "\*Help\*")
 		     (name . "\*Apropos\*")
 		     (name . "\*info\*"))))))
