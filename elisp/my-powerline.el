@@ -129,7 +129,8 @@
   (set-face-attribute 'mode-line nil
               :foreground "#0C3"
               :background "#000000"
-              :box '(:line-width 1 :color "#000" :style nil)
+	      ; :box '(:line-width 1 :color "#000" :style nil)
+	      :box nil
               :weight 'normal
 	      :height 180
 	      )
