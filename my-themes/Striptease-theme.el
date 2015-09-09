@@ -28,8 +28,8 @@
 
  '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
  
- ;; #00AF5F
- '(font-lock-string-face ((t (:foreground "#0B0"))))
+ ;; #00AF5F / #0B0
+ '(font-lock-string-face ((t (:foreground "#00AF7F"))))
 
  ;; #5FE3FD
 
