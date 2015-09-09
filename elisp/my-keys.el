@@ -30,6 +30,7 @@
 (global-set-key (kbd "s-f") 'rgrep) ; search for files
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
+(global-set-key (kbd "C-<") 'shell)
 
 ;; i-search
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
