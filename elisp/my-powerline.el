@@ -132,7 +132,7 @@
 	      ; :box '(:line-width 1 :color "#000" :style nil)
 	      :box nil
               :weight 'normal
-	      :height 180
+	      :height 170
 	      )
   
   (set-face-attribute 'mode-line-buffer-id nil
