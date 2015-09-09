@@ -127,7 +127,7 @@
 			     (powerline-render rhs))))))
 
   (set-face-attribute 'mode-line nil
-              :foreground "#0CD" ;; 0C3
+              :foreground "#0CF" ;; 0C3
               :background "#000000"
 	      ; :box '(:line-width 1 :color "#000" :style nil)
 	      :box nil
