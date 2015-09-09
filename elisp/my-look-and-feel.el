@@ -1,4 +1,4 @@
-;; Theme and font
+; Theme and font
 (load-theme 'Striptease)
 (set-face-attribute 'default nil :height 170)
 (let ((font "Hasklig")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
@@ -67,6 +67,8 @@
               (name 16 -1)
               " " filename)))
 
+;; make ibuffer refresh automatically
+(add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 
 
 ;; Ido
