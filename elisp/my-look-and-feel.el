@@ -34,9 +34,8 @@
 ;; Show the color of hex colors inline
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
-;; Ace jump!
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "s-j") 'ace-jump-mode)
+;; Avy
+(define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))

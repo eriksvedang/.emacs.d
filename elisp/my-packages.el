@@ -34,7 +34,7 @@
  'company
  'smooth-scrolling
  'find-file-in-project
- 'ace-jump-mode
+ 'avy
  'highlight-numbers
  'exec-path-from-shell
  
