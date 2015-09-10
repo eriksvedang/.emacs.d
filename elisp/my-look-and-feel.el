@@ -83,6 +83,7 @@
 	  '(lambda ()
 	     (ibuffer-switch-to-saved-filter-groups "home")))
 
+(setq ibuffer-show-empty-filter-groups nil)
 
 
 ;; Ido
