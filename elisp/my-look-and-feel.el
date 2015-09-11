@@ -74,9 +74,12 @@
       '(("home"
 	 ("Magit" (name . "\*magit"))
 	 ("Emacs" (or (name . "\*Messages\*")
-		     (name . "\*Scratch\*")))
-	 ("Help" (or (name . "\*Help\*")
+		     (name . "\*Scratch\*")
+		     (name . "\*Help\*")
 		     (name . "\*Apropos\*")
+		     (name . "\*Backtrace\*")
+		     (name . "\*Packages\*")
+		     (name . "\*Compile-Log\*")
 		     (name . "\*info\*"))))))
 
 (add-hook 'ibuffer-mode-hook
