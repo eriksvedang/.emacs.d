@@ -35,6 +35,7 @@
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
 ;; Avy
+(require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 
 ;; Mouse wheel
@@ -128,6 +129,7 @@
 
 ;; Org mode
 (setq org-support-shift-select t)
+(setq org-src-fontify-natively t)
 
 (defun my-insert-bullet ()
   (interactive)

@@ -43,6 +43,10 @@ Notes
 * C-y       Yank (paste)
 * M-y       Cycle through kill ring (can only be used after yanking)
 * s-l       Goto line
+* C-SPC     Set the mark
+* C-x C-x   Go back to mark
+* C-u C-SPC Go back to previous position in buffer
+* C-x C-SPC Pop the "global mark" (can go back to other buffers)
 
 Commands (run with M-x)
 =======================
