@@ -35,9 +35,9 @@
 (define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
 
 ;; Ghc-mod
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
+;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 
 
