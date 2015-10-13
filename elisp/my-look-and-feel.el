@@ -74,14 +74,8 @@
 (setq ibuffer-saved-filter-groups
       '(("home"
 	 ("Magit" (name . "\*magit"))
-	 ("Emacs" (or (name . "\*Messages\*")
-		     (name . "\*Scratch\*")
-		     (name . "\*Help\*")
-		     (name . "\*Apropos\*")
-		     (name . "\*Backtrace\*")
-		     (name . "\*Packages\*")
-		     (name . "\*Compile-Log\*")
-		     (name . "\*info\*"))))))
+	 ("Emacs" (or (mode . help-mode)
+		      (name . "\*"))))))
 
 (add-hook 'ibuffer-mode-hook
 	  '(lambda ()
