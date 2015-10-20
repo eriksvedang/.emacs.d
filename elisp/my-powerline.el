@@ -146,7 +146,7 @@
 
   (set-face-attribute 'powerline-active2 nil
 	      :foreground "white"
-	      :background "#0C8" ;; #0CF / #FF3377 / #567
+	      :background "#00BF8F" ;; #0CF / #FF3377 / #567 / #0C8
 	      :weight 'normal) 
   
   (set-face-attribute 'mode-line-inactive nil
