@@ -82,10 +82,12 @@
 
 (add-hook 'cider-mode-hook
 	  '(lambda ()
+	     (electric-pair-mode 0)
 	     (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
 
 (add-hook 'cider-repl-mode-hook
 	  '(lambda ()
+	     (electric-pair-mode 0)
 	     (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
 	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 

@@ -74,6 +74,7 @@
 (setq ibuffer-saved-filter-groups
       '(("home"
 	 ("Magit" (name . "\*magit"))
+	 ("Dired" (mode . dired-mode))
 	 ("Emacs" (or (mode . help-mode)
 		      (name . "\*"))))))
 
