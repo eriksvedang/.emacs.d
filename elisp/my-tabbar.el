@@ -43,25 +43,25 @@
  'tabbar-modified nil
  :background "#DDD"
  :foreground "#09F" 
- :box '(:line-width 6 :color "#DDD" :style nil))
+ :box '(:line-width 5 :color "#DDD" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
  :foreground "black"
- :box '(:line-width 6 :color "white" :style nil))
+ :box '(:line-width 5 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-unselected nil
  :background "#DDD"
  :foreground "#888"
- :box '(:line-width 6 :color "#DDD" :style nil))
+ :box '(:line-width 5 :color "#DDD" :style nil))
  
 (set-face-attribute
  'tabbar-button nil
  :background "#FFF"
  :foreground "#000"
- :box '(:line-width 6 :color "white" :style nil))
+ :box '(:line-width 5 :color "white" :style nil))
 
 (set-face-attribute
  'tabbar-separator nil
