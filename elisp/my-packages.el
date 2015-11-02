@@ -37,6 +37,7 @@
  'avy
  'highlight-numbers
  'exec-path-from-shell
+ 'gist
  
  'magit
  'circe
