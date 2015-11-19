@@ -69,6 +69,7 @@
  'nim-mode
  'php-mode
  'cc-mode
+ 'irony ;; c++ autocomplete
  'gud
  'racket-mode)
 

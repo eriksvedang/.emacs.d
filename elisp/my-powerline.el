@@ -126,13 +126,18 @@
 			     (powerline-fill face1 (powerline-width rhs))
 			     (powerline-render rhs))))))
 
+  (if (eq system-type 'darwin)
+      (setq powerline-text-height-hack 170)
+    (setq powerline-text-height-hack 130))
+    
+  
   (set-face-attribute 'mode-line nil
               :foreground "#0CF" ;; 0C3
               :background "#000000"
 	      ; :box '(:line-width 1 :color "#000" :style nil)
 	      :box nil
               :weight 'normal
-	      :height 170
+	      :height powerline-text-height-hack
 	      )
   
   (set-face-attribute 'mode-line-buffer-id nil

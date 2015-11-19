@@ -193,6 +193,18 @@
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
+(add-hook 'c++-mode-hook 'irony-mode)
+
+;; (setenv LIBCLANG_LIBRARY "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/")
+;; (setenv LIBCLANG_INCLUDE_DIR "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include")
+
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 
 (provide 'my-programming-modes)
