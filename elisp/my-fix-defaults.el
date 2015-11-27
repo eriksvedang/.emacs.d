@@ -26,6 +26,7 @@
 (setq undo-limit 9999999)
 (setq compilation-ask-about-save nil)
 (setq make-backup-files nil)
+(setq echo-keystrokes 0.1)
 
 (setq ns-pop-up-frames nil) ;; open files in same frame (don't create new separate ones)
 
