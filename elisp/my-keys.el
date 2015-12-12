@@ -35,10 +35,10 @@
 (global-set-key (kbd "C-<") 'shell)
 
 ;; i-search
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+;;(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+;;(global-set-key (kbd "C-M-s") 'isearch-forward)
+;;(global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; Shell history
 (add-hook 'shell-mode-hook

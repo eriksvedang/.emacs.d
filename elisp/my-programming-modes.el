@@ -61,12 +61,17 @@
 ;; Pilsner
 ;;(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/lisp/")
 (setenv "PILSNER_LIB" "/users/erik/Documents/C/Pilsner/lisp/")
-(setq inferior-lisp-program "pilsner")
+;;(setq inferior-lisp-program "pilsner")
 
 (defun pilsner-jack-in ()
   (interactive)  
   ;(split-window-below)
   )
+
+
+
+;; Tesuji
+(setq inferior-lisp-program "./mini")
 
 
 
