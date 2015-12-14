@@ -72,6 +72,7 @@
 (require 'multiple-cursors)
 
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
+;; If you want to insert a newline in multiple-cursors-mode, use C-j
 
 ;; Minor mode to ensure key map
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
