@@ -77,6 +77,12 @@
 ;; Tesuji
 (setq inferior-lisp-program "./mini")
 
+;; (defun run-tesuji ()
+;;   (interactive)
+;;   (split-window-below)
+;;   (inferior-lisp "")
+;;   (other-window))
+
 
 
 ;; Lisp
