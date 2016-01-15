@@ -16,3 +16,4 @@
 (require 'my-circe)
 (require 'my-programming-modes)
 (require 'my-neotree)
+(require 'my-gnus)

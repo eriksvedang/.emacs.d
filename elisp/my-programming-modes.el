@@ -1,3 +1,7 @@
+;; Carp
+(add-to-list 'auto-mode-alist '("\\.carp\\'" . clojure-mode))
+
+
 ;; Haskell
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
