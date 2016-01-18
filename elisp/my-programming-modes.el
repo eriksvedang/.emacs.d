@@ -1,5 +1,6 @@
 ;; Carp
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . clojure-mode))
+(put-clojure-indent 'match 1)
 
 
 ;; Haskell
