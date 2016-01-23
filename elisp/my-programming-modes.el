@@ -1,7 +1,5 @@
 ;; Carp
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . clojure-mode))
-(put-clojure-indent 'match 1)
-
 
 ;; Haskell
 (require 'haskell-mode)
@@ -95,6 +93,10 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-mode-hook 'smartparens-mode)
 (add-hook 'clojure-mode-hook 'smartparens-mode)
+
+(add-hook 'clojure-mode-hook
+	  '(lambda ()
+	     (put-clojure-indent 'match 1)))
 
 (add-hook 'cider-mode-hook
 	  '(lambda ()
