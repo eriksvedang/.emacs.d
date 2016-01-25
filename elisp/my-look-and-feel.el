@@ -119,7 +119,7 @@
 (setq ffip-patterns
       '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
-	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm"
+	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 
 ;; Org mode
