@@ -38,6 +38,7 @@
  'highlight-numbers
  'exec-path-from-shell
  'gist
+ 'iedit
  
  'magit
  'circe

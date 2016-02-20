@@ -139,6 +139,10 @@
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
+;; Iedit (edit all occurences of a word in the buffer at the same time)
+;; Needs no activation.
+;; Shortut: C-; (when on a word)
+
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
  '(help-at-pt-timer-delay 0.5)
