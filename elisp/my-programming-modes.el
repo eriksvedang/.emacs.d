@@ -1,6 +1,18 @@
 ;; Carp
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . clojure-mode))
 
+(setq inferior-lisp-program "carp-inferior")
+;;(setq inferior-lisp-program "lein repl")
+
+;; (setq inferior-lisp-load-command)
+;;(define-key clojure-mode-map "\C-x\C-e" 'lisp-eval-last-sexp)
+
+;; (add-hook 'clojure-mode-hook
+;;           (lambda ()))
+
+
+
+
 ;; Haskell
 (require 'haskell-mode)
 (require 'haskell-interactive-mode)
@@ -63,24 +75,8 @@
 
 ;; Pilsner
 ;;(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/lisp/")
-(setenv "PILSNER_LIB" "/users/erik/Documents/C/Pilsner/lisp/")
+;;(setenv "PILSNER_LIB" "/users/erik/Documents/C/Pilsner/lisp/")
 ;;(setq inferior-lisp-program "pilsner")
-
-(defun pilsner-jack-in ()
-  (interactive)  
-  ;(split-window-below)
-  )
-
-
-
-;; Tesuji
-(setq inferior-lisp-program "./mini")
-
-;; (defun run-tesuji ()
-;;   (interactive)
-;;   (split-window-below)
-;;   (inferior-lisp "")
-;;   (other-window))
 
 
 
@@ -223,6 +219,10 @@
     'irony-completion-at-point-async))
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+
+;; Pico-8
+(add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
 
 
 (provide 'my-programming-modes)

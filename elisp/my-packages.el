@@ -1,7 +1,9 @@
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")
+                         ;;("melpa" . "http://melpa.milkbox.net/packages/")
+			 ))
 (package-initialize)
 
 (setq just-say-yes t)
@@ -52,11 +54,13 @@
  'flycheck-rust
  'flymake-hlint
 
+;; 'slime
  'haskell-mode
  'ghc ;; this is actually ghc-mod!
  'idris-mode
  'tuareg
  'markdown-mode
+ 'lua-mode
  'cider
  'rust-mode
  'racer

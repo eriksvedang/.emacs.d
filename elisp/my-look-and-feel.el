@@ -140,7 +140,7 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; Iedit (edit all occurences of a word in the buffer at the same time)
-;; Needs no activation.
+;; (iedit-mode)
 ;; Shortut: C-; (when on a word)
 
 ;; Flymake Cursor (show flymake help at cursor)
