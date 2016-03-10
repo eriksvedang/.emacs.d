@@ -12,6 +12,17 @@
 
 
 
+;; Markdown
+
+;; Fix annoying keybindings by overriding them
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (local-set-key (kbd "<M-right>") 'right-word)
+	    (local-set-key (kbd "<M-left>") 'left-word)
+	    (local-set-key (kbd "<M-S-right>") 'right-word)
+	    (local-set-key (kbd "<M-S-left>") 'left-word)))
+
+
 
 ;; Haskell
 (require 'haskell-mode)
