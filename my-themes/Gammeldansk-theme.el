@@ -40,7 +40,7 @@
  '(highlight ((t (:background "#eeeeee"))))
  
  '(region ((t (:background "#a0eeee"))))
- '(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
+ ;;'(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
@@ -90,28 +90,25 @@
  '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
  '(company-tooltip-annotation ((t :background "#121133" :foreground "#0c3")))
 
- '(dired-directory ((t (:foreground "#000" :weight bold))))
- 
+ '(dired-directory ((t (:foreground "#000" :weight bold)))) 
  '(font-lock-warning-face ((t (:inherit (error)))))
-
  '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
  
  '(button ((t (:inherit (link)))))
  '(link ((t (:foreground "#0072b2" :underline (:color foreground-color :style line)))))
  '(link-visited ((t (:inherit (link) :foreground "#cc79a7" :underline (:color foreground-color :style line)))))
- '(fringe ((t (:background "#f7f7f7"))))
+ '(fringe ((t (:background "#fff"))))
  '(header-line ((t (:inherit (mode-line) :background "grey90" :foreground "grey20" :box nil))))
  '(tooltip ((t (:inherit (variable-pitch) :background "lightyellow" :foreground "black"))))
  
- '(isearch ((t (:background "#ff00cc" :foreground "white"))))
- 
+ '(isearch ((t (:background "#ff00cc" :foreground "white")))) 
+ '(lazy-highlight ((t (:background "#408" :foreground "white"))))
  '(isearch-fail ((((class color) (min-colors 88) (background light)) (:background "#f88"))
 		 (((class color) (min-colors 88) (background dark)) (:background "#f00"))
 		 (((class color) (min-colors 16)) (:background "red"))
 		 (((class color) (min-colors 8)) (:background "red"))
 		 (((class color grayscale)) (:foreground "grey")) (t (:inverse-video t))))
  
- '(lazy-highlight ((t (:background "#408" :foreground "white"))))
  '(match ((((class color) (min-colors 88) (background light)) (:background "yellow1")) (((class color) (min-colors 88) (background dark)) (:background "RoyalBlue3")) (((class color) (min-colors 8) (background light)) (:background "yellow" :foreground "black")) (((class color) (min-colors 8) (background dark)) (:background "blue" :foreground "white")) (((type tty) (class mono)) (:inverse-video t)) (t (:background "gray"))))
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch))))))
