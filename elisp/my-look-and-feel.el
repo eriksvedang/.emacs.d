@@ -150,7 +150,7 @@
 ;; Iedit (edit all occurences of a word in the buffer at the same time)
 ;; (iedit-mode)
 ;; Shortut: C-; (when on a word)
-(iedit-mode)
+;; (global-set-key (kbd "C-;") (iedit-mode))
 
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
