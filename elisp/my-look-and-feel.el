@@ -8,9 +8,7 @@
 ;; Gammeldansk (a stab at an oldschool, minimalist mode)
 (defun gammeldansk ()
   (interactive)
-  (load-theme 'Gammeldansk)
-  (global-linum-mode 0)
-  (fringe-mode))
+  (load-theme 'Gammeldansk))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
@@ -39,7 +37,9 @@
 (add-hook 'cider-mode-hook 'rainbow-delimiters-mode)
 
 ;; Show the color of hex colors inline
-(add-hook 'prog-mode-hook 'rainbow-mode)
+(add-hook 'lisp-mode-hook 'rainbow-mode)
+(add-hook 'html-mode-hook 'rainbow-mode)
+(add-hook 'css-mode-hook 'rainbow-mode)
 
 ;; Avy
 (require 'avy)

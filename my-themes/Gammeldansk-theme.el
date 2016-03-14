@@ -41,10 +41,12 @@
  
  '(region ((t (:background "#a0eeee"))))
  ;;'(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
+
+ ;;'(font-lock-preprocessor-face ((t :foreground "#fff")))
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "grey80")) ;; <- Line numbers
+	     (background light)) (:foreground "grey85")) ;; <- Line numbers
 	   )
 	  )
 
@@ -60,8 +62,8 @@
 
  '(rainbow-delimiters-unmatched-face ((t (:background "#F00"))))
 
- '(show-paren-match ((t (:background "#fff"
-				     :underline t
+ '(show-paren-match ((t (:background "#a0eeee"
+				     :underline nil
 				     :weight bold
 				     ))))
 
