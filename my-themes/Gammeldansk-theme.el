@@ -16,7 +16,7 @@
 			 :slant normal
 			 :weight normal
 			 :width normal
-			 :font "Fira Mono" ;; "Avenir" / "Fira Mono"
+			 :font "Hasklig" ;; "Avenir" / "Fira Mono"
 			 :height 170
 			 :foundry "apple"))))
  
