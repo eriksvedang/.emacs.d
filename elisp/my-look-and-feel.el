@@ -5,6 +5,13 @@
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
 
+;; Gammeldansk (a stab at an oldschool, minimalist mode)
+(defun gammeldansk ()
+  (interactive)
+  (load-theme 'Gammeldansk)
+  (global-linum-mode 0)
+  (fringe-mode))
+
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
 ;;(when window-system (set-frame-size (selected-frame) 90 38))
@@ -121,6 +128,7 @@
 	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+(setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
 
 ;; Org mode
 (setq org-support-shift-select t)
