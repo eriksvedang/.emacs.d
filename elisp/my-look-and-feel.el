@@ -1,14 +1,12 @@
 ; Theme and font
-(load-theme 'Striptease)
+
+;;(load-theme 'Striptease)
 (set-face-attribute 'default nil :height 170)
 (let ((font "Hasklig")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
   (when (member font (font-family-list))
     (set-face-attribute 'default nil :font font)))
 
-;; Gammeldansk (a stab at an oldschool, minimalist mode)
-(defun gammeldansk ()
-  (interactive)
-  (load-theme 'Gammeldansk))
+(load-theme 'Gammeldansk)
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
