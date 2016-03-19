@@ -15,4 +15,3 @@
 (require 'my-powerline)
 (require 'my-programming-modes)
 (require 'my-neotree)
-(require 'my-gnus)
