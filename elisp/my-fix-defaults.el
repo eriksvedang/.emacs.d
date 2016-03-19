@@ -10,7 +10,6 @@
 ;; Startup
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
-;; (set-frame-parameter nil 'fullscreen 'fullboth)
 
 ;; Little modes and fixes
 (delete-selection-mode 1)

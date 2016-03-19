@@ -34,7 +34,7 @@
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
 (global-set-key (kbd "C-<") 'shell)
 
-;; i-search
+;; i-search with regexp instead
 ;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)
 ;;(global-set-key (kbd "C-r") 'isearch-backward-regexp)
 ;;(global-set-key (kbd "C-M-s") 'isearch-forward)
