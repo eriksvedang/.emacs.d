@@ -1,11 +1,12 @@
 (setq package-enable-at-startup nil)
+
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")
-                         ;;("melpa" . "http://melpa.milkbox.net/packages/")
-			 ))
+			 ("melpa" . "https://melpa.org/packages/")))
+
 (package-initialize)
 
+;; Don't show y-or-no-p when installing package?
 (setq just-say-yes t)
 
 ;; Auto install packages
@@ -13,14 +14,12 @@
   "Assure every package is installed, ask for installation if it’s not"
   (mapcar
    (lambda (package)
-     (if
-	 (package-installed-p package)
+     (if (package-installed-p package)
          nil
-         (package-install package)
-	 (if (or just-say-yes (y-or-n-p (format "Package %s is missing. Install it? " package)))
+       (package-install package)
+       (if (or just-say-yes (y-or-n-p (format "Package %s is missing. Install it? " package)))
            (package-install package)
-         package)
-       ))
+         package)))
    packages))
 
 (ensure-package-installed
@@ -28,25 +27,23 @@
  'smartparens
  'rainbow-delimiters
  'rainbow-mode
- 'tabbar
  'undo-tree
- 'smex
- 'ido-ubiquitous
- 'powerline
+ 'smex ;; better help in minibuffer
+ 'ido-ubiquitous ;; ido mode for everything
  'company
  'smooth-scrolling
  'find-file-in-project
  'avy
- 'highlight-numbers
- 'exec-path-from-shell
- 'gist
  'iedit
+ 'exec-path-from-shell
+ 
+ 'powerline
+ 'tabbar
+ 'neotree
  
  'magit
- 'circe
+ 'gist
  'restclient
- 'ses
- 'neotree
  
  'flycheck
  'flymake-easy
@@ -54,28 +51,28 @@
  'flycheck-rust
  'flymake-hlint
 
-;; 'slime
  'haskell-mode
- 'ghc ;; this is actually ghc-mod!
+ 'ghc ;; this is actually ghc-mod
+ 'tuareg ;; OCaml
  'idris-mode
- 'tuareg
- 'markdown-mode
- 'lua-mode
- 'cider
- 'rust-mode
- 'racer
- 'zencoding-mode
  'elm-mode
- 'swift-mode
- 'glsl-mode
  'sml-mode
  'fsharp-mode
- 'csharp-mode
+ 'cider
+ 'racket-mode
  'nim-mode
+ 'csharp-mode
+ 'rust-mode
+ 'racer ;; rust auto complete
  'php-mode
- 'cc-mode
+ 'lua-mode
+ 'swift-mode
+ 'markdown-mode
+ 'zencoding-mode ;; html & css
+ 'cc-mode ;; C
+ 'glsl-mode
  'irony ;; c++ autocomplete
- 'gud
- 'racket-mode)
+ 'gud ;; gdb debugging
+ )
 
 (provide 'my-packages)
