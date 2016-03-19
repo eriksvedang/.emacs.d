@@ -16,7 +16,8 @@
 (define-key sp-keymap (kbd "C-M-e") 'sp-up-sexp)
 (define-key sp-keymap (kbd "C-M-a") 'sp-backward-down-sexp)
 
-(sp-pair "'" nil :actions :rem) ; Don't make the single quote open a pair (smart parens do that by default)
+;; Disable automatic pairing for these characters:
+(sp-pair "'" nil :actions :rem)
 (sp-pair "\"" nil :actions :rem)
 (sp-pair "\\\"" nil :actions :rem)
 

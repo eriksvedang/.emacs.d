@@ -71,29 +71,12 @@
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
 (add-hook 'idris-mode-hook (lambda () (eldoc-mode -1)))
 
-;; Right now, adding a hook disables all keys for idris mode
-;; Sadly this makes it hard to automatically disable company mode for idris
-;; which makes the buffer hang at times when it fails to do some crap...
-;; UPDATE: Is this true anymore..? Keys seem to be working now.
-
-
-
-;; Agda
-;; (load-file (let ((coding-system-for-read 'utf-8))
-;; 	     (shell-command-to-string "agda-mode locate")))
-
-
-
-;; Pilsner
-;;(setenv "PILSNER_LIB" "/users/erik/Projects/Pilsner/lisp/")
-;;(setenv "PILSNER_LIB" "/users/erik/Documents/C/Pilsner/lisp/")
-;;(setq inferior-lisp-program "pilsner")
-
 
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
+
 
 
 ;; Cider
@@ -118,6 +101,7 @@
 
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load 'always-save)
+
 
 
 ;; Zencoding
@@ -234,8 +218,10 @@
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 
+
 ;; Pico-8
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
+
 
 
 (provide 'my-programming-modes)

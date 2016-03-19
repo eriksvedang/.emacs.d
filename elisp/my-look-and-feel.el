@@ -1,16 +1,8 @@
-; Theme and font
-
-;;(load-theme 'Striptease)
-(set-face-attribute 'default nil :height 170)
-(let ((font "Hasklig")) ;; "Monaco" / "Menlo" / "Hasklig" / "Fira"
-  (when (member font (font-family-list))
-    (set-face-attribute 'default nil :font font)))
-
+;; Theme and font
 (load-theme 'Gammeldansk)
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
-;;(when window-system (set-frame-size (selected-frame) 90 38))
 
 ;; Cursor
 (setq cursor-type 'bar)
@@ -24,7 +16,7 @@
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
 (global-prettify-symbols-mode -1)
 
-;; Show matching paren
+;; Show matching parenthesis
 (show-paren-mode 1)
 
 ;; Rainbow parens
@@ -51,13 +43,6 @@
 ;; Smooth scrolling
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
-
-;; Scroll
-;; (setq redisplay-dont-pause t
-;;       scroll-margin 1
-;;       scroll-step 10
-;;       scroll-conservatively 10000
-;;       scroll-preserve-screen-position 1)
 
 ;; Ibuffer (buffer switcher)
 (setq ibuffer-formats 
@@ -99,11 +84,11 @@
 
 ;; Smex (Ido completition for M-x menu)
 (global-set-key (kbd "M-x") (lambda ()
-                             (interactive)
-                             (or (boundp 'smex-cache)
-                                 (smex-initialize))
-                             (global-set-key [(meta x)] 'smex)
-                             (smex)))
+                              (interactive)
+                              (or (boundp 'smex-cache)
+                                  (smex-initialize))
+                              (global-set-key [(meta x)] 'smex)
+                              (smex)))
 
 ;; Undo Tree
 (undo-tree-mode 1)
@@ -146,9 +131,8 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; Iedit (edit all occurences of a word in the buffer at the same time)
-;; (iedit-mode)
+;; Must start manually with (iedit-mode)
 ;; Shortut: C-; (when on a word)
-;; (global-set-key (kbd "C-;") (iedit-mode))
 
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables

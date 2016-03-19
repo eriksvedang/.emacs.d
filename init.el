@@ -13,7 +13,6 @@
 (require 'my-movelines)
 (require 'my-smartparens)
 (require 'my-powerline)
-(require 'my-circe)
 (require 'my-programming-modes)
 (require 'my-neotree)
 (require 'my-gnus)

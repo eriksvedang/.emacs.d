@@ -3,78 +3,6 @@
 
 (setq ns-use-srgb-colorspace nil) ;; DON'T MESS UP THE COLORS
 
-(defun powerline-erik-theme ()
-  (interactive)
-  (setq-default mode-line-format
-                '("%e"
-                  (:eval
-                   (let* ((active (powerline-selected-window-active))
-                          (mode-line (if active 'mode-line 'mode-line-inactive))
-                          (face1 (if active 'powerline-active1 'powerline-inactive1))
-                          (face2 (if active 'powerline-active2 'powerline-inactive2))
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          powerline-default-separator
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
-                                                           powerline-default-separator
-                                                           (cdr powerline-default-separator-dir))))
-                          (lhs (list (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
-				     
-                                     (powerline-raw "[" mode-line 'l)
-                                     (powerline-major-mode mode-line)
-                                     (powerline-process mode-line)
-                                     (powerline-raw "]" mode-line)
-				     
-                                     ;; (when (buffer-modified-p)
-                                     ;;   (powerline-raw "[+]" mode-line))
-                                     ;; (when buffer-read-only
-                                     ;;   (powerline-raw "[RO]" mode-line))
-                                     ;; (powerline-raw "[%z]" mode-line)
-                                     ;; ;; (powerline-raw (concat "[" (mode-line-eol-desc) "]") mode-line)
-                                     ;; (when (and (boundp 'which-func-mode) which-func-mode)
-                                     ;;   (powerline-raw which-func-format nil 'l))
-                                     ;; (when (boundp 'erc-modified-channels-object)
-                                     ;;   (powerline-raw erc-modified-channels-object face1 'l))
-                                     ;; (powerline-raw "[" mode-line 'l)
-                                     ;; (powerline-minor-modes mode-line)
-                                     ;; (powerline-raw "%n" mode-line)
-                                     ;; (powerline-raw "]" mode-line)
-				     
-                                     (when (and vc-mode buffer-file-name)
-                                       (let ((backend (vc-backend buffer-file-name)))
-                                         (when backend
-                                           (concat (powerline-raw "[" mode-line 'l)
-                                                   (powerline-raw (format "%s/%s" backend (vc-working-revision buffer-file-name backend)))
-                                                   (powerline-raw "]" mode-line)))))))
-                          (rhs (list
-				;;(powerline-raw '(10 "%i"))
-				;;(powerline-raw global-mode-string mode-line 'r)
-				
-				(powerline-raw "%l," mode-line 'l)
-				(powerline-raw (format-mode-line '(8 "%c")))
-				(powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r)
-				))
-			  )
-                     (concat (powerline-render lhs)
-                             (powerline-fill mode-line (powerline-width rhs))
-                             (powerline-render rhs))))))
-
-  ;; old röd: #ff3f60
-
-  (set-face-attribute 'mode-line nil
-		      :foreground "#fff" :background "#ff3377"
-		      :inverse-video nil
-		      :family "Hasklig"
-		      :height 170
-		      :box '(:line-width 3 :color "#ff3377" :style nil))
-
-  (set-face-attribute 'mode-line-inactive nil
-		      :foreground "gray90" :background "gray60"
-		      :inverse-video nil
-		      :box '(:line-width 3 :color "gray60" :style nil)))
-
-
-
 (defun powerline-uber-theme ()
   "uber"
   (interactive)
@@ -92,7 +20,6 @@
 							   (powerline-current-separator)
 							   (cdr powerline-default-separator-dir))))
 			  (lhs (list (powerline-raw " %* " nil 'l)
-				     ;; (powerline-buffer-size nil 'l)
 				     (powerline-buffer-id nil 'l)
 				     (powerline-raw " ")
 				     (funcall separator-left mode-line face1)
@@ -105,8 +32,6 @@
 					  (powerline-raw erc-modified-channels-object face2 'l))
 					(powerline-major-mode face2 'l)
 					(powerline-process face2)
-					;; (powerline-raw " :" face2)
-					;; (powerline-minor-modes face2 'l)
 					(powerline-raw " " face2)
 					(funcall separator-left face2 face1)))
 			  
@@ -116,9 +41,7 @@
 				     (powerline-raw "%3c" face1 'r)
 				     (funcall separator-right face1 mode-line)
 				     (powerline-raw "    ")
-				     (powerline-raw "%8p" nil 'r)
-				     ;;(powerline-hud face2 face1)
-				     ))
+				     (powerline-raw "%8p" nil 'r)))
 			  (center (list )))
 		     (concat (powerline-render lhs)
 			     (powerline-fill-center face1 (/ (powerline-width center) 2.0))
@@ -132,9 +55,8 @@
     
   
   (set-face-attribute 'mode-line nil
-              :foreground "#0CF" ;; 0C3
+              :foreground "#0CF"
               :background "#000000"
-	      ; :box '(:line-width 1 :color "#000" :style nil)
 	      :box nil
               :weight 'normal
 	      :height powerline-text-height-hack
@@ -147,11 +69,11 @@
   
   (set-face-attribute 'powerline-active1 nil
               :foreground "gray20"
-              :background "gray80") ;; gray80
+              :background "gray80")
 
   (set-face-attribute 'powerline-active2 nil
 	      :foreground "white"
-	      :background "#00BF8F" ;; #0CF / #FF3377 / #567 / #0C8
+	      :background "#00BF8F"
 	      :weight 'normal) 
   
   (set-face-attribute 'mode-line-inactive nil
@@ -164,12 +86,9 @@
               :background "gray80")
   (set-face-attribute 'powerline-inactive2 nil
               :foreground "#ccc"
-              :background "#eee")
-  
+              :background "#eee") 
   )
 
-
-;;(powerline-erik-theme)
 (powerline-uber-theme)
 
 (provide 'my-powerline)
