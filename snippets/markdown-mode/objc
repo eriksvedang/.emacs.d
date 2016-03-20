@@ -1,8 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: Code
-# key: c
-# binding: direct-keybinding
-# --
-\`\`\`${1:objc}
-    ${2:code}
-\`\`\`

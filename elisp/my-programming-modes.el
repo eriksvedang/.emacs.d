@@ -73,9 +73,17 @@
 
 
 
-;; Lisp
+;; Emacs Lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
+
+
+
+;; Lisp
+(add-hook 'lisp-mode-hook
+	  '(lambda ()
+	     (electric-pair-mode 0)
+	     (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
 
 
 
