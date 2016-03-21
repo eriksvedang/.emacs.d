@@ -1,5 +1,5 @@
 ;; Carp
-(add-to-list 'auto-mode-alist '("\\.carp\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
 
 (setq inferior-lisp-program "carp-inferior")
 ;;(setq inferior-lisp-program "lein repl")
@@ -76,6 +76,7 @@
 ;; Emacs Lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
+(define-key emacs-lisp-mode-map (kbd "C-c C-l") 'eval-buffer)
 
 
 
