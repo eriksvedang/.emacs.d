@@ -1,5 +1,5 @@
 ;; Theme and font
-(load-theme 'Gammeldansk)
+(load-theme 'Striptease)
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)

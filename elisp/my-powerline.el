@@ -91,6 +91,6 @@
 
 (powerline-uber-theme)
 
-(setq powerline-height 28)
+(setq powerline-height 24)
 
 (provide 'my-powerline)
