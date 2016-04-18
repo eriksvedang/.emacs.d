@@ -102,6 +102,8 @@
 (setq company-tooltip-align-annotations t)
 (setq company-minimum-prefix-length 3)
 (setq company-idle-delay 0.4)
+;;(global-set-key (kbd "C-n") 'company-select-next)
+;;(global-set-key (kbd "C-p") 'company-select-previous)
 
 ;; Find file in project (git repo)
 (require 'find-file-in-project)
@@ -112,17 +114,6 @@
 	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
 	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 (setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
-
-;; Org mode
-(setq org-support-shift-select t)
-(setq org-src-fontify-natively t)
-
-(defun my-insert-bullet ()
-  (interactive)
-  (indent-for-tab-command)
-  (insert "- [ ] "))
-
-(global-set-key (kbd "C-c §") 'my-insert-bullet)
 
 ;; Flycheck
 (add-hook 'rust-mode-hook #'flycheck-mode)

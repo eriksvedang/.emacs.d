@@ -17,6 +17,7 @@
 (require 'my-powerline)
 (require 'my-programming-modes)
 (require 'my-neotree)
+(require 'my-org-mode)
 
 (require 'carp-mode)
 (require 'inf-carp-mode)

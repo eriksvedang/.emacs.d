@@ -44,6 +44,8 @@
  'magit
  'gist
  'restclient
+
+ 'org-bullets
  
  'flycheck
  'flymake-easy
