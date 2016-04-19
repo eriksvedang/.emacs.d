@@ -71,6 +71,8 @@
  'swift-mode
  'markdown-mode
  'zencoding-mode ;; html & css
+ 'js2-mode
+ 'web-mode
  'cc-mode ;; C
  'glsl-mode
  'irony ;; c++ autocomplete
