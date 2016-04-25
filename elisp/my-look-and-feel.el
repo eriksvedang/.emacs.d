@@ -105,6 +105,16 @@
 ;;(global-set-key (kbd "C-n") 'company-select-next)
 ;;(global-set-key (kbd "C-p") 'company-select-previous)
 
+;; Turn off backend that makes Carp repl hang: (WTF?!)
+(setq company-backends
+      '(company-elisp
+        ;; company-semantic
+        ;; company-capf
+        (company-dabbrev-code company-gtags company-etags
+                              company-keywords)
+        company-files
+        company-dabbrev))
+
 ;; Find file in project (git repo)
 (require 'find-file-in-project)
 (global-set-key (kbd "s-p") 'find-file-in-project)
