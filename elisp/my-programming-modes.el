@@ -227,6 +227,11 @@
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 
+;; etags (for navigation)
+(defun generate-etags ()
+  (interactive)
+  (shell-command "find . -type f -iname \"*.[chS]\" | xargs etags -a"))
+
 
 ;; Pico-8
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
