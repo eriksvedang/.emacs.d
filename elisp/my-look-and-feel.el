@@ -2,7 +2,9 @@
 (load-theme 'Striptease)
 
 ;; Ligature hack
-(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+(defun enable-ligatures ()
+  (interactive)
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
                (36 . ".\\(?:>\\)")
                (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
@@ -28,7 +30,7 @@
                (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)"))))
   (dolist (char-regexp alist)
     (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+                          `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
