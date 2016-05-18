@@ -18,6 +18,8 @@
 (scroll-bar-mode 0)
 (set-fringe-mode 0)
 (hl-line-mode -1)
+(global-auto-revert-mode 1) ;; change buffer automatically when file changes on disk
+(auto-save-mode 0)
 
 (setq truncate-lines nil)
 (setq ring-bell-function 'ignore)
