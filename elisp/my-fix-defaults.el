@@ -21,7 +21,6 @@
 (global-auto-revert-mode 1) ;; change buffer automatically when file changes on disk
 (auto-save-mode 0)
 
-(setq truncate-lines nil)
 (setq ring-bell-function 'ignore)
 (setq initial-scratch-message "")
 (setq undo-limit 9999999)

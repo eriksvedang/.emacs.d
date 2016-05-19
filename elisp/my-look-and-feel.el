@@ -44,6 +44,10 @@
 (global-linum-mode 1)
 (setq linum-format (quote "%4d  "))
 
+;; Line Wrapping
+(setq-default truncate-lines 1)
+;;(setq-default global-visual-line-mode t)
+
 ;; Prettify (replace 'lambda' with the greek symbol, etc)
 (global-prettify-symbols-mode -1)
 

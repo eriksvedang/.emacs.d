@@ -27,3 +27,4 @@
  '(neo-file-link-face ((t :inherit default)))
  '(neo-header-face ((t :inherit shadow)))
  '(neo-root-dir-face ((t :inherit link-visited :underline nil))))
+
