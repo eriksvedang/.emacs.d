@@ -184,7 +184,7 @@
     (if project-dir
 	(progn (setq default-directory project-dir)
 	       (compile (format "make")))
-      (message "Can't find makefile"))))
+      (compile (format "clang %s -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (defun run-c ()
   (interactive)
@@ -193,7 +193,7 @@
     (if project-dir
 	(progn (setq default-directory project-dir)
 	       (compile (format "make run")))
-      (message "Can't find makefile"))))
+      (compile (format "./%s" (file-name-sans-extension (buffer-name)))))))
 
 (add-hook 'c-mode-hook
 	  (lambda ()
