@@ -55,8 +55,8 @@
     
   
   (set-face-attribute 'mode-line nil
-              :foreground "#0CF"
-              :background "#000000"
+              :foreground "#FFF" ;; #0BF
+              :background "#234"
 	      :box nil
               :weight 'normal
 	      :height powerline-text-height-hack
@@ -68,12 +68,12 @@
 	      )
   
   (set-face-attribute 'powerline-active1 nil
-              :foreground "gray20"
-              :background "gray80")
+              :foreground "gray50"
+              :background "#ccc")
 
   (set-face-attribute 'powerline-active2 nil
 	      :foreground "white"
-	      :background "#00BF8F"
+	      :background "#567" ;; 00BF8F
 	      :weight 'normal) 
   
   (set-face-attribute 'mode-line-inactive nil
@@ -83,7 +83,7 @@
               :weight 'bold)
   (set-face-attribute 'powerline-inactive1 nil
               :foreground "#aaa"
-              :background "gray80")
+              :background "#ddd")
   (set-face-attribute 'powerline-inactive2 nil
               :foreground "#ccc"
               :background "#eee") 
