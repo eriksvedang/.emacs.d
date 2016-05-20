@@ -33,6 +33,8 @@
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
 (global-set-key (kbd "C-<") 'shell)
+(global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
+(global-set-key (kbd "M-p") 'previous-error)
 
 ;; i-search with regexp instead
 ;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)

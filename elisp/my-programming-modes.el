@@ -202,8 +202,9 @@
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)
-            (define-key c-mode-map (kbd "M-n") 'next-error)
-            (define-key c-mode-map (kbd "M-p") 'previous-error)))
+            ;; (define-key c-mode-map (kbd "M-n") 'next-error)
+            ;; (define-key c-mode-map (kbd "M-p") 'previous-error)
+            ))
 
 (add-hook 'c++-mode-hook
 	  (lambda ()
