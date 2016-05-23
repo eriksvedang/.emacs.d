@@ -62,3 +62,10 @@ Magit
 * P P to do a git push
 * F F to do a git pull
 * k   to discard changes
+
+Org
+===
+* C-c C-t Turn item into TODO item or toggle TODO item
+* C-c C-l Insert link
+* C-c C-o Open link
+* C-c C-d Insert date
