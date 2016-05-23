@@ -143,8 +143,9 @@
 ;; Turn off backend that makes Carp repl hang: (WTF?!)
 (setq company-backends
       '(company-elisp
-        ;; company-semantic
-        ;; company-capf
+        ;;company-semantic ;; <- problematic?!
+        company-capf ;; problematic?!
+        
         (company-dabbrev-code company-gtags company-etags
                               company-keywords)
         company-files
