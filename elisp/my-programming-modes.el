@@ -80,6 +80,12 @@
 
 
 
+;; Scheme
+(add-hook 'scheme-mode-hook 'smartparens-mode)
+(define-key scheme-mode-map (kbd "<s-return>") 'scheme-send-definition)
+
+
+
 ;; Lisp
 (add-hook 'lisp-mode-hook
 	  '(lambda ()
