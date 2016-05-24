@@ -41,6 +41,6 @@
         "✸"
         ))
 
-(setq org-ellipsis " ↴ ") ;; ⤵ ▼ ↴ ⬎ ⤷ 
+(setq org-ellipsis " (...)") ;; ⤵ ▼ ↴ ⬎ ⤷ 
 
 (provide 'my-org-mode)
