@@ -26,6 +26,10 @@
                           `(org-level-2 ((t (,@headline :height 1.1))))
                           `(org-level-1 ((t (,@headline :height 1.25))))))
 
+(custom-theme-set-faces 'user
+                        '(org-todo ((t (:foreground "#E67E22" :weight bold))))
+                        '(org-done ((t (:foreground "#00AF7F" :weight bold)))))
+
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
@@ -36,5 +40,7 @@
         "◉"
         "✸"
         ))
+
+(setq org-ellipsis " ↴ ") ;; ⤵ ▼ ↴ ⬎ ⤷ 
 
 (provide 'my-org-mode)
