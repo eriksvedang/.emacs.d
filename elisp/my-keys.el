@@ -70,6 +70,9 @@
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
 
+;; Google this
+(global-set-key (kbd "s-g") 'google-this)
+
 ;; Multiple cursors
 (require 'multiple-cursors)
 

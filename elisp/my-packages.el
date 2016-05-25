@@ -37,6 +37,7 @@
  'iedit
  'exec-path-from-shell
  'reveal-in-osx-finder
+ 'google-this
  
  'powerline
  'tabbar
