@@ -60,6 +60,7 @@
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
 
 ;; Show the color of hex colors inline
 (add-hook 'lisp-mode-hook 'rainbow-mode)

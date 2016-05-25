@@ -82,7 +82,7 @@
 
 ;; Scheme
 (add-hook 'scheme-mode-hook 'smartparens-mode)
-(define-key scheme-mode-map (kbd "<s-return>") 'scheme-send-definition)
+;;(define-key scheme-mode-map (kbd "<s-return>") 'scheme-send-definition)
 
 
 
@@ -95,7 +95,7 @@
 
 
 ;; Cider
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'eldoc-mode)
 (add-hook 'cider-mode-hook 'smartparens-mode)
 (add-hook 'clojure-mode-hook 'smartparens-mode)
 
