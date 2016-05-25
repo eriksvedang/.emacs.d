@@ -36,6 +36,7 @@
  'avy
  'iedit
  'exec-path-from-shell
+ 'reveal-in-osx-finder
  
  'powerline
  'tabbar

@@ -131,6 +131,7 @@
  '(font-lock-warning-face ((t (:inherit (error)))))
 
  '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
+ '(cider-result-overlay-face ((t (:foreground "#000" :background "#EEE" :weight normal))))
  
  '(button ((t (:inherit (link)))))
  '(link ((t (:foreground "#0072b2" :underline (:color foreground-color :style line)))))
