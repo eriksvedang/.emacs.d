@@ -48,6 +48,17 @@ Notes
 * C-u C-SPC Go back to previous position in buffer
 * C-x C-SPC Pop the "global mark" (can go back to other buffers)
 
+Keyboard Macros
+===============
+* C-x (     Start recording
+* C-x )     End recording
+* C-x e     Execute macro (just press 'e' to repeat)
+* C-x C-k e Edit last macro
+* C-x C-k n Name last macro
+* C-x C-k l Look at keyboard commands that have been entered
+* M-x insert-kbd-macro Save keyboard macro as a elisp function
+
+
 Commands (run with M-x)
 =======================
 * package-list-packages  Lists packages
