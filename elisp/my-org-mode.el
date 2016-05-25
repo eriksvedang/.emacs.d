@@ -27,7 +27,7 @@
                           `(org-level-1 ((t (,@headline :height 1.25))))))
 
 (custom-theme-set-faces 'user
-                        '(org-todo ((t (:foreground "#E67E22" :weight bold))))
+                        '(org-todo ((t (:foreground "#FF3F60" :weight bold))))
                         '(org-done ((t (:foreground "#00AF7F" :weight bold)))))
 
 (require 'org-bullets)
