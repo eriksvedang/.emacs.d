@@ -74,22 +74,32 @@
 (global-set-key (kbd "s-g") 'google-this)
 
 ;; Make C-x left and C-x right skip boring buffers
-(defun my-prev-buffer ()
-  "prev-buffer, only skip *Ibuffer*"
-  (interactive)
-  (previous-buffer)
-  (when (string= "*Ibuffer*" (buffer-name))
-      (previous-buffer)))
+(setq my-skippable-buffers '("*Ibuffer*" "*Messages*" "*scratch*" "*Help*"))
+
+(defun my-change-buffer (change-buffer)
+  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
+  (let ((initial (current-buffer)))
+    (funcall change-buffer)
+    (let ((first-change (current-buffer)))
+      (catch 'loop
+        (while (member (buffer-name) my-skippable-buffers)
+          (funcall change-buffer)
+          (when (eq (current-buffer) first-change)
+            (switch-to-buffer initial)
+            (throw 'loop t)))))))
 
 (defun my-next-buffer ()
-  "next-buffer, only skip *Ibuffer*"
+  "`next-buffer' that skips `my-skippable-buffers'."
   (interactive)
-  (next-buffer)
-  (when (string= "*Ibuffer*" (buffer-name))
-      (next-buffer)))
+  (my-change-buffer 'next-buffer))
 
-(global-set-key [remap previous-buffer] 'my-prev-buffer)
+(defun my-previous-buffer ()
+  "`previous-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'previous-buffer))
+
 (global-set-key [remap next-buffer] 'my-next-buffer)
+(global-set-key [remap previous-buffer] 'my-previous-buffer)
 
 ;; Multiple cursors
 (require 'multiple-cursors)
