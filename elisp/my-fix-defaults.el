@@ -28,6 +28,7 @@
 (setq make-backup-files nil)
 (setq echo-keystrokes 0.1)
 (setq-default indent-tabs-mode nil)
+(setq pcomplete-ignore-case t) ;; ignore case when auto completing in shell
 
 (setq ns-pop-up-frames nil) ;; open files in same frame (don't create new separate ones)
 

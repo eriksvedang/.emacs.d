@@ -73,6 +73,24 @@
 ;; Google this
 (global-set-key (kbd "s-g") 'google-this)
 
+;; Make C-x left and C-x right skip boring buffers
+(defun my-prev-buffer ()
+  "prev-buffer, only skip *Ibuffer*"
+  (interactive)
+  (previous-buffer)
+  (when (string= "*Ibuffer*" (buffer-name))
+      (previous-buffer)))
+
+(defun my-next-buffer ()
+  "next-buffer, only skip *Ibuffer*"
+  (interactive)
+  (next-buffer)
+  (when (string= "*Ibuffer*" (buffer-name))
+      (next-buffer)))
+
+(global-set-key [remap previous-buffer] 'my-prev-buffer)
+(global-set-key [remap next-buffer] 'my-next-buffer)
+
 ;; Multiple cursors
 (require 'multiple-cursors)
 
