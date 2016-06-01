@@ -200,4 +200,7 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
+;; Clock
+(setq display-time-24hr-format t)
+
 (provide 'my-look-and-feel)
