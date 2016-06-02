@@ -70,6 +70,18 @@
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
 
+;; "Nudging" the buffer up or down
+(defun gcm-scroll-down ()
+  (interactive)
+  (scroll-up 1))
+
+(defun gcm-scroll-up ()
+  (interactive)
+  (scroll-down 1))
+
+(global-set-key [M-up] 'gcm-scroll-down)
+(global-set-key [M-down]   'gcm-scroll-up)
+
 ;; Google this
 (global-set-key (kbd "s-g") 'google-this)
 

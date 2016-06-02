@@ -89,7 +89,8 @@
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
 
  ;; #DFF
- '(show-paren-match ((t (:background "#AFF" :underline nil :weight bold))))
+ ;; #AFF
+ '(show-paren-match ((t (:background "#FE9" :underline nil :weight bold))))
 
  '(magit-section-heading ((t (:foreground "#0099EE" :weight bold))))
  '(magit-log-author ((t (:foreground "#0099EE"))))
