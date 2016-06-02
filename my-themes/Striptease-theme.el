@@ -20,23 +20,23 @@
  
  ;; #0072b2
  ;; #148
- '(font-lock-builtin-face ((t (:weight normal :foreground "#148"))))
+ '(font-lock-builtin-face ((t (:weight normal :foreground "#147"))))
 
  ;; #5f74b8
  ;; #09d
- '(font-lock-keyword-face ((t (:foreground "#148" :weight normal))))
+ '(font-lock-keyword-face ((t (:foreground "#147" :weight normal))))
 
- '(haskell-keyword-face ((t (:foreground "#148" :weight normal))))
+ '(haskell-keyword-face ((t (:foreground "#147" :weight normal))))
  
- ;; #00AF5F / #0B0
- '(font-lock-string-face ((t (:foreground "#00AF7F"))))
+ ;; #00AF5F / #0B0 / #00AF7F / #33AA88
+ '(font-lock-string-face ((t (:foreground "#448877"))))
 
  ;; #5FE3FD
-
  ;; #1199B9
  ;; #FA3
  ;; #F90
- '(font-lock-type-face ((t (:foreground "#09D" :weight normal))))
+ ;; #09D
+ '(font-lock-type-face ((t (:foreground "#48B" :weight normal))))
 
  ;; #FF3F60
  '(font-lock-function-name-face ((t (:foreground "#000"))))
@@ -50,8 +50,9 @@
  '(minibuffer-prompt ((t (:foreground "#0072b2" :weight normal))))
  
  '(highlight ((t (:background "#eeeeee"))))
- 
- '(region ((t (:background "#a0eeee"))))
+
+ ;; #a0eeee
+ '(region ((t (:background "#d0eeee"))))
  '(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
  
  '(shadow ((((class color grayscale)
@@ -67,30 +68,28 @@
 	    (:foreground "green"))
 	   (((class color) (min-colors 8) (background dark))
 	    (:foreground "yellow"))))
-
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
  
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#555"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#EE9933"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#0C3"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#FF3F60"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#0099EE"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#555"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#EE9933"))))
- ;; '(rainbow-delimiters-depth-8-face ((t (:foreground "#0C3"))))
-
+ ;; Old trusty:
+ ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
+ ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
+ ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
+ ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
+ ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
+ ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
+ ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
+ 
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#222"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#444"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#666"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#888"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#AAA"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#CCC"))))
+ 
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
 
- '(show-paren-match ((t (:background "#dff"
-				     :underline nil
-				     :weight bold
-				     ))))
+ ;; #DFF
+ '(show-paren-match ((t (:background "#AFF" :underline nil :weight bold))))
 
  '(magit-section-heading ((t (:foreground "#0099EE" :weight bold))))
  '(magit-log-author ((t (:foreground "#0099EE"))))
@@ -98,7 +97,9 @@
  '(secondary-selection ((t (:background "#e5e5e5"))))
  '(trailing-whitespace ((t (:background "#d55e00"))))
  '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:foreground "#a6a6a6" :slant italic))))
+
+ ;; a6a6a6
+ '(font-lock-comment-face ((t (:foreground "#aaa" :slant italic))))
  '(font-lock-constant-face ((t (:foreground "#000000" :weight normal))))
  '(highlight-numbers-number ((t (:foreground "#ff3377" :weight normal))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
