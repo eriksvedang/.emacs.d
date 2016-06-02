@@ -1,19 +1,10 @@
 ;; Carp
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
-
 (setq inferior-lisp-program "carp-inferior")
-;;(setq inferior-lisp-program "lein repl")
-
-;; (setq inferior-lisp-load-command)
-;;(define-key clojure-mode-map "\C-x\C-e" 'lisp-eval-last-sexp)
-
-;; (add-hook 'clojure-mode-hook
-;;           (lambda ()))
 
 
 
 ;; Markdown
-
 ;; Fix annoying keybindings by overriding them
 (add-hook 'markdown-mode-hook
           (lambda ()
@@ -32,8 +23,7 @@
  '(haskell-process-type 'cabal-repl)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-log t)
- '(haskell-process-auto-import-loaded-modules t)
-  )
+ '(haskell-process-auto-import-loaded-modules t))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -119,7 +109,7 @@
 
 
 
-;; Zencoding
+;; Zencoding (expand abbreviated tags to full html)
 (add-hook 'zencoding-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
@@ -141,9 +131,7 @@
 (add-hook 'elm-mode-hook
 	  (lambda ()
 	    (elm-indent-mode 0)
-            (haskell-indent-mode 1)
-            ;;(elm-indentation-mode 1)
-            ))
+            (haskell-indent-mode 1)))
 
 
 
@@ -207,10 +195,7 @@
             (rainbow-mode 0) ;; treats #def as a color
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
-	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)
-            ;; (define-key c-mode-map (kbd "M-n") 'next-error)
-            ;; (define-key c-mode-map (kbd "M-p") 'previous-error)
-            ))
+	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
 (add-hook 'c++-mode-hook
 	  (lambda ()
@@ -219,11 +204,7 @@
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
-
 (add-hook 'c++-mode-hook 'irony-mode)
-
-;; (setenv LIBCLANG_LIBRARY "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/")
-;; (setenv LIBCLANG_INCLUDE_DIR "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include")
 
 (defun my-irony-mode-hook ()
   (define-key irony-mode-map [remap completion-at-point]
@@ -233,11 +214,11 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-
 ;; etags (for navigation)
 (defun generate-etags ()
   (interactive)
   (shell-command "find . -type f -iname \"*.[chS]\" | xargs etags -a"))
+
 
 
 ;; Pico-8

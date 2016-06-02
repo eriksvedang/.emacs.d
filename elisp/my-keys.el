@@ -74,10 +74,10 @@
 (global-set-key (kbd "s-g") 'google-this)
 
 ;; Make C-x left and C-x right skip boring buffers
-(setq my-skippable-buffers '("*Ibuffer*" "*Messages*" "*scratch*" "*Help*"))
+(setq my-skippable-buffers '("*Ibuffer*" "*Messages*" "*Help*"))
 
 (defun my-change-buffer (change-buffer)
-  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
+  "Call 'change-buffer' until current buffer is not in `my-skippable-buffers'."
   (let ((initial (current-buffer)))
     (funcall change-buffer)
     (let ((first-change (current-buffer)))
@@ -101,6 +101,7 @@
 (global-set-key [remap next-buffer] 'my-next-buffer)
 (global-set-key [remap previous-buffer] 'my-previous-buffer)
 
+;; A better version of the built in 'just-one-space'
 (defun kill-whitespace ()
   "Kill the whitespace between two non-whitespace characters"
   (interactive "*")
@@ -120,7 +121,7 @@
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 ;; If you want to insert a newline in multiple-cursors-mode, use C-j
 
-;; Minor mode to ensure key map
+;; Minor mode to ensure key map related to 'multiple cursors'
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
 (define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
 (define-key my-keys-minor-mode-map (kbd "M-l") 'mc/edit-lines)

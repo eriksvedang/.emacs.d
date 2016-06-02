@@ -134,21 +134,16 @@
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "<C-escape>") 'company-search-mode)
-;;(global-set-key (kbd "TAB") #'company-complete)
 (setq company-tooltip-align-annotations t)
 (setq company-minimum-prefix-length 3)
 (setq company-idle-delay 0.4)
-;;(global-set-key (kbd "C-n") 'company-select-next)
-;;(global-set-key (kbd "C-p") 'company-select-previous)
 
 ;; Turn off backend that makes Carp repl hang: (WTF?!)
 (setq company-backends
       '(company-elisp
         ;;company-semantic ;; <- problematic?!
         company-capf ;; problematic?!
-        
-        (company-dabbrev-code company-gtags company-etags
-                              company-keywords)
+        (company-dabbrev-code company-gtags company-etags company-keywords)
         company-files
         company-dabbrev))
 
@@ -176,22 +171,6 @@
 (custom-set-variables
  '(help-at-pt-timer-delay 0.5)
  '(help-at-pt-display-when-idle '(flymake-overlay)))
-
-;; Switch to new window when using help
-(defadvice describe-key (after move-point-to-new-window activate)
-  (other-window 1))
-
-(defadvice describe-function (after move-point-to-new-window activate)
-  (other-window 1))
-
-(defadvice describe-variable (after move-point-to-new-window activate)
-  (other-window 1))
-
-(defadvice describe-mode (after move-point-to-new-window activate)
-  (other-window 1))
-
-(defadvice find-commands-by-name (after move-point-to-new-window activate)
-  (other-window 1))
 
 ;; Function for finding out info about font at cursor
 (defun what-face (pos)

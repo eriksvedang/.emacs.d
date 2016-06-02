@@ -34,13 +34,29 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(defadvice split-window (after move-point-to-new-window activate)
-  "Moves the point to the newly created window after splitting."
-  (other-window 1))
-
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
 (desktop-save-mode 1) ; reopen buffers from last session
+
+(defadvice split-window (after move-point-to-new-window activate)
+  "Moves the point to the newly created window after splitting."
+  (other-window 1))
+
+;; Switch to new window when using help
+(defadvice describe-key (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-function (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-variable (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-mode (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice find-commands-by-name (after move-point-to-new-window activate)
+  (other-window 1))
 
 (provide 'my-fix-defaults)
