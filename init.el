@@ -18,7 +18,6 @@
 (require 'my-programming-modes)
 (require 'my-neotree)
 (require 'my-org-mode)
-(require 'my-utilities)
 
 (require 'carp-mode)
 (require 'inf-carp-mode)

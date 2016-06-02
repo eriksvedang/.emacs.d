@@ -1,4 +1,0 @@
-
-;; todo
-
-(provide 'my-utilities)
