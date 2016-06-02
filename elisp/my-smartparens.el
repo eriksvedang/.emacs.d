@@ -13,8 +13,23 @@
 (define-key sp-keymap (kbd "C-M-j") 'sp-join-sexp)
 (define-key sp-keymap (kbd "C-M-s") 'sp-split-sexp)
 
+;; Move out and to the right: ( | ) => ( ) |
 (define-key sp-keymap (kbd "C-M-e") 'sp-up-sexp)
-(define-key sp-keymap (kbd "C-M-a") 'sp-backward-down-sexp)
+
+;; Move out and to the left: ( | ) => | ( )
+(define-key sp-keymap (kbd "C-M-a") 'sp-backward-up-sexp)
+
+;; Move down right: | ( ) => ( | )
+(define-key sp-keymap (kbd "C-M-d") 'sp-down-sexp)
+
+;; Move down left: ( ) | => ( | )
+(define-key sp-keymap (kbd "C-M-c") 'sp-backward-down-sexp)
+
+;; Move right: ( a | b c ) => ( a b | c )
+(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
+
+;; Move left: ( a b | c ) => ( a | b c )
+(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
 ;; Disable automatic pairing for these characters:
 (sp-pair "'" nil :actions :rem)
