@@ -28,8 +28,8 @@
 
  '(haskell-keyword-face ((t (:foreground "#147" :weight normal))))
  
- ;; #00AF5F / #0B0 / #00AF7F / #33AA88
- '(font-lock-string-face ((t (:foreground "#448877"))))
+ ;; #00AF5F / #0B0 / #00AF7F / #33AA88 / #448877
+ '(font-lock-string-face ((t (:foreground "#00AF7F"))))
 
  ;; #5FE3FD
  ;; #1199B9
@@ -70,21 +70,21 @@
 	    (:foreground "yellow"))))
  
  ;; Old trusty:
- ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
- ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
- ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
- ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
- ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
- ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
- ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
  
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#000"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#222"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#444"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#666"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#888"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#AAA"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#CCC"))))
+ ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#000"))))
+ ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#222"))))
+ ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#444"))))
+ ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#666"))))
+ ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#888"))))
+ ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#AAA"))))
+ ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#CCC"))))
  
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
 
