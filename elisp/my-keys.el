@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-<") 'shell)
 (global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
 (global-set-key (kbd "M-p") 'previous-error)
+(global-set-key (kbd "s-e") 'er/expand-region)
 
 ;; i-search with regexp instead
 ;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)

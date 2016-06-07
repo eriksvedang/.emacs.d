@@ -23,6 +23,7 @@
         exec-path-from-shell
         reveal-in-osx-finder
         google-this
+        expand-region
         
         powerline
         tabbar
