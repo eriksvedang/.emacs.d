@@ -185,6 +185,6 @@
 ;; Clock
 (setq display-time-24hr-format t)
 (setq display-time-default-load-average nil)
-(display-time)
+;; (display-time)
 
 (provide 'my-look-and-feel)
