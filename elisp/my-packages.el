@@ -6,80 +6,70 @@
 
 (package-initialize)
 
-;; Don't show y-or-no-p when installing package?
-(setq just-say-yes t)
+(setq the-packages
+      '(
+        multiple-cursors
+        smartparens
+        rainbow-delimiters
+        rainbow-mode
+        undo-tree
+        smex ;; better help in minibuffer
+        ido-ubiquitous ;; ido mode for everything
+        company
+        smooth-scrolling
+        find-file-in-project
+        avy
+        iedit
+        exec-path-from-shell
+        reveal-in-osx-finder
+        google-this
+        
+        powerline
+        tabbar
+        neotree
+        
+        magit
+        gist
+        restclient
 
-;; Auto install packages
-(defun ensure-package-installed (&rest packages)
-  "Assure every package is installed, ask for installation if it’s not"
-  (mapcar
-   (lambda (package)
-     (if (package-installed-p package)
-         nil
-       (package-install package)
-       (if (or just-say-yes (y-or-n-p (format "Package %s is missing. Install it? " package)))
-           (package-install package)
-         package)))
-   packages))
+        org-bullets
+        
+        flycheck
+        flymake-easy
+        flymake-cursor
+        flycheck-rust
+        flymake-hlint
 
-(ensure-package-installed
- 'multiple-cursors
- 'smartparens
- 'rainbow-delimiters
- 'rainbow-mode
- 'undo-tree
- 'smex ;; better help in minibuffer
- 'ido-ubiquitous ;; ido mode for everything
- 'company
- 'smooth-scrolling
- 'find-file-in-project
- 'avy
- 'iedit
- 'exec-path-from-shell
- 'reveal-in-osx-finder
- 'google-this
- 'sos
- 
- 'powerline
- 'tabbar
- 'neotree
- 
- 'magit
- 'gist
- 'restclient
+        haskell-mode
+        ghc ;; this is actually ghc-mod
+        tuareg ;; OCaml
+        idris-mode
+        elm-mode
+        sml-mode
+        fsharp-mode
+        cider
+        racket-mode
+        nim-mode
+        csharp-mode
+        rust-mode
+        racer ;; rust auto complete
+        php-mode
+        lua-mode
+        swift-mode
+        markdown-mode
+        zencoding-mode ;; html & css
+        js2-mode
+        web-mode
+        cc-mode ;; C
+        glsl-mode
+        irony ;; c++ autocomplete
+        gud) ;; gdb debugging
+      )
 
- 'org-bullets
- 
- 'flycheck
- 'flymake-easy
- 'flymake-cursor
- 'flycheck-rust
- 'flymake-hlint
-
- 'haskell-mode
- 'ghc ;; this is actually ghc-mod
- 'tuareg ;; OCaml
- 'idris-mode
- 'elm-mode
- 'sml-mode
- 'fsharp-mode
- 'cider
- 'racket-mode
- 'nim-mode
- 'csharp-mode
- 'rust-mode
- 'racer ;; rust auto complete
- 'php-mode
- 'lua-mode
- 'swift-mode
- 'markdown-mode
- 'zencoding-mode ;; html & css
- 'js2-mode
- 'web-mode
- 'cc-mode ;; C
- 'glsl-mode
- 'irony ;; c++ autocomplete
- 'gud ;; gdb debugging
- )
+(mapcar (lambda (package)
+                 (if (package-installed-p package)
+                     nil
+                   (package-install package)))
+               the-packages)
 
 (provide 'my-packages)
