@@ -48,6 +48,10 @@ Notes
 * C-u C-SPC Go back to previous position in buffer
 * C-x C-SPC Pop the "global mark" (can go back to other buffers)
 
+Useful functions
+================
+* align-regexp   Very good for aligning variable initializations and stuff like that
+
 Keyboard Macros
 ===============
 * C-x (     Start recording
@@ -73,6 +77,7 @@ Magit
 * P P to do a git push
 * F F to do a git pull
 * k   to discard changes
+* M-x magit-log-buffer-file   Show git log for the active buffer
 
 Org
 ===

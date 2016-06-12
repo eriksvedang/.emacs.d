@@ -39,7 +39,7 @@
 (add-hook 'html-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
 
-;; Avy
+;; Avy (mode for going to a position in the buffer very quickly, based on beginning char of words)
 (require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 
