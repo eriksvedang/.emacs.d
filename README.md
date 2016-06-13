@@ -68,7 +68,8 @@ Notes
 
 Useful functions
 ================
-* align-regexp   Very good for aligning variable initializations and stuff like that
+* align-regexp      Very good for aligning variable initializations and stuff like that
+* tabify /untabify  Convert between spaces and tabs in file
 
 Keyboard Macros
 ===============
