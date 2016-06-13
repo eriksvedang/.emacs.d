@@ -52,6 +52,9 @@
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
 
+;; How many lines to keep the same when doing page up / page down
+(setq next-screen-context-lines 10)
+
 ;; Ibuffer (buffer switcher)
 (setq ibuffer-formats 
       '((mark modified read-only " "

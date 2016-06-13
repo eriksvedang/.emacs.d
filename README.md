@@ -64,6 +64,7 @@ Notes
 * M->            goto end of buffer
 * M-q            fill-paragraph, will arrange text so that it doesn't flow outside right margin
 * M-x f          set the maximum width to be used by fill-paragraph (fill-column)
+* C-_            Undo ("C-x u" also works)
 
 Useful functions
 ================
