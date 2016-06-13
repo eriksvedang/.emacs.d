@@ -10,51 +10,54 @@ Keys
 
 Notes
 =====
-* C-g       Cancel
-* C-x C-e   Evaluate form
-* C-x k     Kill buffer
-* C-x 1     Close other buffer
-* C-x 2     Split window up/down
-* C-x 3     Split window left/right
-* C-x 0     Close current buffer
-* C-x b     Open another buffer
-* C-x left  Previous buffer
-* C-x right Next buffer
-* C-x C-b   Open fancy buffer menu
-* C-d       Open dired in the current folder when searching for files using ido
-* C-x C-f C-f Override ido menu so you can enter any filename you want
-* M-x       Run command
-* C-s /C-r  Interactive search
-* i         Mark for installation
-* u         Unmark
-* x         Install selected (execute)
-* g         Refresh pane (dired, buffers)
-* C-n       Next line
-* C-p       Prev line
-* C-a       Beginning of line
-* C-e       End of line
-* C-d       Delete forward
-* M-d       Delete word forward
-* M-backspc Delete word backward
-* C-h k     Describe keyboard shortcut
-* C-h a     'apropos-command' - search for a command (interactive function)
-* C-h f     describe-function
-* C-h v     describe-variable
-* q         close "pane" (what's the real word?)
-* C-y       Yank (paste)
-* M-y       Cycle through kill ring (can only be used after yanking)
-* s-l       Goto line (original shortcut: M-g M-g)
-* C-SPC     Set the mark
-* C-x C-x   Exchange point and mark
-* C-u C-SPC Go back to previous position in buffer
-* C-x C-SPC Pop the "global mark" (can go back to other buffers)
-* C-S-backspace Delete line
-* M-r       Toggle point position - top, bottom, middle
-* C-l       Center view on line
-* C-M-l     Center view on paragraph
-* M-u       Make next word uppercase
-* M-l       Make next word lowercase
-* M-c       Capitalize next word (first character only)
+* C-g            Cancel
+* C-x C-e        Evaluate form
+* C-x k          Kill buffer
+* C-x 1          Close other buffer
+* C-x 2          Split window up/down
+* C-x 3          Split window left/right
+* C-x 0          Close current buffer
+* C-x b          Open another buffer
+* C-x left       Previous buffer
+* C-x right      Next buffer
+* C-x C-b        Open fancy buffer menu
+* C-d            Open dired in the current folder when searching for files using ido
+* C-x C-f C-f    Override ido menu so you can enter any filename you want
+* M-x            Run command
+* C-s /C-r       Interactive search
+* i              Mark for installation
+* u              Unmark
+* x              Install selected (execute)
+* g              Refresh pane (dired, buffers)
+* C-n            Next line
+* C-p            Prev line
+* C-a            Beginning of line
+* C-e            End of line
+* C-d            Delete forward
+* M-d            Delete word forward
+* M-backspc      Delete word backward
+* C-h k          Describe keyboard shortcut
+* C-h a          'apropos-command' - search for a command (interactive function)
+* C-h f          describe-function
+* C-h v          describe-variable
+* q              close "pane" (what's the real word?)
+* C-y            Yank (paste)
+* M-y            Cycle through kill ring (can only be used after yanking)
+* s-l            Goto line (original shortcut: M-g M-g)
+* C-SPC          Set the mark
+* C-x C-x        Exchange point and mark
+* C-u C-SPC      Go back to previous position in buffer
+* C-x C-SPC      Pop the "global mark" (can go back to other buffers)
+* C-S-backspace  Delete line
+* M-r            Toggle point position - top, bottom, middle
+* C-l            Center view on line
+* C-M-l          Center view on paragraph
+* M-u            Make next word uppercase
+* M-l            Make next word lowercase
+* M-c            Capitalize next word (first character only)
+* C-M-space      Select next sexpr
+* C-x C-u        uppercase-region
+* C-x C-l        lowercase-region
 
 Useful functions
 ================
