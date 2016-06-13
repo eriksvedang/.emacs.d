@@ -57,7 +57,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "grey80")) ;; <- Line numbers
+	     (background light)) (:foreground "grey85")) ;; <- Line numbers
 	   (((class color grayscale)
 	     (min-colors 88)
 	     (background dark))
