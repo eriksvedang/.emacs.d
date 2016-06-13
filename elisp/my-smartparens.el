@@ -14,10 +14,10 @@
 (define-key sp-keymap (kbd "C-M-s") 'sp-split-sexp)
 
 ;; Move out and to the right: ( | ) => ( ) |
-(define-key sp-keymap (kbd "C-M-e") 'sp-up-sexp)
+(define-key sp-keymap (kbd "C-M-i") 'sp-up-sexp)
 
 ;; Move out and to the left: ( | ) => | ( )
-(define-key sp-keymap (kbd "C-M-a") 'sp-backward-up-sexp)
+(define-key sp-keymap (kbd "C-M-u") 'sp-backward-up-sexp)
 
 ;; Move down right: | ( ) => ( | )
 (define-key sp-keymap (kbd "C-M-d") 'sp-down-sexp)
@@ -30,6 +30,17 @@
 
 ;; Move left: ( a b | c ) => ( a | b c )
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+
+;; Move left to outmost paren ( ( | ) ) => | ( ( ) )
+(define-key sp-keymap (kbd "C-M-a") 'beginning-of-defun)
+
+(defun my-end-of-defun ()
+  (interactive)
+  (end-of-defun)
+  (left-char))
+
+;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
+(define-key sp-keymap (kbd "C-M-e") 'my-end-of-defun)
 
 ;; Disable automatic pairing for these characters:
 (sp-pair "'" nil :actions :rem)

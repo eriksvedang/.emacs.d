@@ -53,6 +53,9 @@
 (defadvice describe-variable (after move-point-to-new-window activate)
   (other-window 1))
 
+(defadvice describe-bindings (after move-point-to-new-window activate)
+  (other-window 1))
+
 (defadvice describe-mode (after move-point-to-new-window activate)
   (other-window 1))
 
