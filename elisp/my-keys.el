@@ -133,14 +133,7 @@
 
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 ;; If you want to insert a newline in multiple-cursors-mode, use C-j
-
-;; Minor mode to ensure key map related to 'multiple cursors'
-(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
-(define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
-(define-key my-keys-minor-mode-map (kbd "M-l") 'mc/edit-lines)
-(define-minor-mode my-keys-minor-mode
-  "A minor mode so that my key settings override annoying major modes."
-  t " keys" 'my-keys-minor-mode-map)
-(my-keys-minor-mode 1)
+(global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "s-l") 'mc/edit-lines)
 
 (provide 'my-keys)

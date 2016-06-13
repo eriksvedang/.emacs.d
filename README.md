@@ -35,7 +35,7 @@ Notes
 * C-e            End of line
 * C-d            Delete forward
 * M-d            Delete word forward
-* M-backspc      Delete word backward
+* M-backspace    Delete word backward
 * C-h k          Describe keyboard shortcut
 * C-h a          'apropos-command' - search for a command (interactive function)
 * C-h f          describe-function
@@ -43,7 +43,7 @@ Notes
 * q              close "pane" (what's the real word?)
 * C-y            Yank (paste)
 * M-y            Cycle through kill ring (can only be used after yanking)
-* s-l            Goto line (original shortcut: M-g M-g)
+* M-g M-g        Goto line
 * C-SPC          Set the mark
 * C-x C-x        Exchange point and mark
 * C-u C-SPC      Go back to previous position in buffer
@@ -58,6 +58,12 @@ Notes
 * C-M-space      Select next sexpr
 * C-x C-u        uppercase-region
 * C-x C-l        lowercase-region
+* M-a            backward-sentence
+* M-e            forward-sentence
+* M-<            goto beginning of buffer
+* M->            goto end of buffer
+* M-q            fill-paragraph, will arrange text so that it doesn't flow outside right margin
+* M-x f          set the maximum width to be used by fill-paragraph (fill-column)
 
 Useful functions
 ================
