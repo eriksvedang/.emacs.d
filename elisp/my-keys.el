@@ -35,13 +35,9 @@
 (global-set-key (kbd "C-<") 'shell)
 (global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
 (global-set-key (kbd "M-p") 'previous-error)
-(global-set-key (kbd "s-e") 'er/expand-region)
 
-;; i-search with regexp instead
-;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-;;(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-;;(global-set-key (kbd "C-M-s") 'isearch-forward)
-;;(global-set-key (kbd "C-M-r") 'isearch-backward)
+;; Dired
+(add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "b") 'dired-up-directory)))
 
 ;; Shell history
 (add-hook 'shell-mode-hook
@@ -82,6 +78,9 @@
 
 (global-set-key [M-s-up] 'my-scroll-down)
 (global-set-key [M-s-down]   'my-scroll-up)
+
+;; Expand region (mode)
+(global-set-key (kbd "s-e") 'er/expand-region)
 
 ;; Google this
 (global-set-key (kbd "s-g") 'google-this)
