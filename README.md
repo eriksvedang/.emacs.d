@@ -88,13 +88,14 @@ Commands (run with M-x)
 
 Magit
 =====
-* s to stage files
-* c c to commit (type the message then C-c C-c to actually commit)
-* b b to switch to another branch
-* P P to do a git push
-* F F to do a git pull
-* k   to discard changes
-* M-x magit-log-buffer-file   Show git log for the active buffer
+* s      to stage files
+* S      stage all files
+* c c    to commit (type the message, then press C-c C-c to actually commit)
+* b b    to switch to another branch
+* P p    to do a git push
+* F p    to do a git pull
+* k      to discard changes
+* M-x magit-log-buffer-file - Show git log for the active buffer
 
 Org
 ===
