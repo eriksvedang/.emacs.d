@@ -5,7 +5,8 @@ Keys
 ====
 * C = control
 * M = alt
-* s = command
+* s = command (super)
+* S = shift
 
 Notes
 =====
@@ -36,17 +37,24 @@ Notes
 * M-d       Delete word forward
 * M-backspc Delete word backward
 * C-h k     Describe keyboard shortcut
-* C-h a     Search for a word and get help for it
-* C-h f     Get help for a function
-* C-h v     Get help for a variable
+* C-h a     'apropos-command' - search for a command (interactive function)
+* C-h f     describe-function
+* C-h v     describe-variable
 * q         close "pane" (what's the real word?)
 * C-y       Yank (paste)
 * M-y       Cycle through kill ring (can only be used after yanking)
-* s-l       Goto line
+* s-l       Goto line (original shortcut: M-g M-g)
 * C-SPC     Set the mark
-* C-x C-x   Go back to mark
+* C-x C-x   Exchange point and mark
 * C-u C-SPC Go back to previous position in buffer
 * C-x C-SPC Pop the "global mark" (can go back to other buffers)
+* C-S-backspace Delete line
+* M-r       Toggle point position - top, bottom, middle
+* C-l       Center view on line
+* C-M-l     Center view on paragraph
+* M-u       Make next word uppercase
+* M-l       Make next word lowercase
+* M-c       Capitalize next word (first character only)
 
 Useful functions
 ================
