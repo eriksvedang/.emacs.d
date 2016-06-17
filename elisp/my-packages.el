@@ -24,6 +24,8 @@
         reveal-in-osx-finder
         google-this
         expand-region
+        free-keys
+        ace-window
         
         powerline
         tabbar

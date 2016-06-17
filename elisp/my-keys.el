@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "s-b") 'ibuffer)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
-(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "M-o") 'ace-window) ;; used to be other-window
 (global-set-key (kbd "s-W") 'delete-window)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -35,13 +35,9 @@
 (global-set-key (kbd "C-<") 'shell)
 (global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
 (global-set-key (kbd "M-p") 'previous-error)
-(global-set-key (kbd "s-e") 'er/expand-region)
 
-;; i-search with regexp instead
-;;(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-;;(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-;;(global-set-key (kbd "C-M-s") 'isearch-forward)
-;;(global-set-key (kbd "C-M-r") 'isearch-backward)
+;; Dired
+(add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "b") 'dired-up-directory)))
 
 ;; Shell history
 (add-hook 'shell-mode-hook
@@ -82,6 +78,9 @@
 
 (global-set-key [M-s-up] 'my-scroll-down)
 (global-set-key [M-s-down]   'my-scroll-up)
+
+;; Expand region (mode)
+(global-set-key (kbd "s-e") 'er/expand-region)
 
 ;; Google this
 (global-set-key (kbd "s-g") 'google-this)
@@ -133,14 +132,7 @@
 
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 ;; If you want to insert a newline in multiple-cursors-mode, use C-j
-
-;; Minor mode to ensure key map related to 'multiple cursors'
-(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap")
-(define-key my-keys-minor-mode-map (kbd "s-d") 'mc/mark-next-like-this)
-(define-key my-keys-minor-mode-map (kbd "M-l") 'mc/edit-lines)
-(define-minor-mode my-keys-minor-mode
-  "A minor mode so that my key settings override annoying major modes."
-  t " keys" 'my-keys-minor-mode-map)
-(my-keys-minor-mode 1)
+(global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "s-l") 'mc/edit-lines)
 
 (provide 'my-keys)

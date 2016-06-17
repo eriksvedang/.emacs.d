@@ -32,14 +32,14 @@
   (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'cider-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode))
-;;(activate-rainbow-hooks)
+(activate-rainbow-hooks)
 
 ;; Show the color of hex colors inline
 (add-hook 'lisp-mode-hook 'rainbow-mode)
 (add-hook 'html-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
 
-;; Avy
+;; Avy (mode for going to a position in the buffer very quickly, based on beginning char of words)
 (require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 
@@ -51,6 +51,9 @@
 ;; Smooth scrolling
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
+
+;; How many lines to keep the same when doing page up / page down
+(setq next-screen-context-lines 10)
 
 ;; Ibuffer (buffer switcher)
 (setq ibuffer-formats 

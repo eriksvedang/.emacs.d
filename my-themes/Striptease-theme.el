@@ -57,7 +57,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "grey80")) ;; <- Line numbers
+	     (background light)) (:foreground "grey85")) ;; <- Line numbers
 	   (((class color grayscale)
 	     (min-colors 88)
 	     (background dark))
@@ -70,13 +70,13 @@
 	    (:foreground "yellow"))))
  
  ;; Old trusty:
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
+ ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
+ ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#5AC"))))
+ ;; '(rainbow-delimiters-depth-3-face ((t (:foreground "#3EB"))))
+ ;; '(rainbow-delimiters-depth-4-face ((t (:foreground "#FAA"))))
+ ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#99F"))))
+ ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#EAE"))))
+ ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#1AF"))))
  
  ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#000"))))
  ;; '(rainbow-delimiters-depth-2-face ((t (:foreground "#222"))))
@@ -85,12 +85,21 @@
  ;; '(rainbow-delimiters-depth-5-face ((t (:foreground "#888"))))
  ;; '(rainbow-delimiters-depth-6-face ((t (:foreground "#AAA"))))
  ;; '(rainbow-delimiters-depth-7-face ((t (:foreground "#CCC"))))
+
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#000"))))
  
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
 
  ;; #DFF
  ;; #AFF
  '(show-paren-match ((t (:background "#FE9" :underline nil :weight bold))))
+ '(show-paren-mismatch ((t (:background "#ff3377" :underline nil :weight bold))))
 
  '(magit-section-heading ((t (:foreground "#0099EE" :weight bold))))
  '(magit-log-author ((t (:foreground "#0099EE"))))
@@ -142,7 +151,7 @@
  '(header-line ((t (:inherit (mode-line) :background "grey90" :foreground "grey20" :box nil))))
  '(tooltip ((t (:inherit (variable-pitch) :background "lightyellow" :foreground "black"))))
  
- '(isearch ((t (:background "#ff00cc" :foreground "white"))))
+ '(isearch ((t (:background "#ff33dd" :foreground "white"))))
  
  '(isearch-fail ((((class color) (min-colors 88) (background light)) (:background "RosyBrown1"))
 		 (((class color) (min-colors 88) (background dark)) (:background "red4"))

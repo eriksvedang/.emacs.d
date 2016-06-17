@@ -27,13 +27,13 @@
 				     (powerline-vc face1)
 
 				     (powerline-raw " " face1)
-					(funcall separator-left face1 face2)
-					(when (boundp 'erc-modified-channels-object)
-					  (powerline-raw erc-modified-channels-object face2 'l))
-					(powerline-major-mode face2 'l)
-					(powerline-process face2)
-					(powerline-raw " " face2)
-					(funcall separator-left face2 face1)))
+                                     (funcall separator-left face1 face2)
+                                     (when (boundp 'erc-modified-channels-object)
+                                       (powerline-raw erc-modified-channels-object face2 'l))
+                                     (powerline-major-mode face2 'l)
+                                     (powerline-process face2)
+                                     (powerline-raw " " face2)
+                                     (funcall separator-left face2 face1)))
 			  
 			  (rhs (list (powerline-raw global-mode-string face1 'r)
 				     (powerline-raw "%4l" face1 'r)
@@ -52,41 +52,41 @@
   (if (eq system-type 'darwin)
       (setq powerline-text-height-hack 170)
     (setq powerline-text-height-hack 130))
-    
+  
   
   (set-face-attribute 'mode-line nil
-              :foreground "#FFF" ;; #0BF
-              :background "#234"
-	      :box nil
-              :weight 'normal
-	      :height powerline-text-height-hack
-	      )
+                      :foreground "#FFF" ;; #0BF
+                      :background "#234"
+                      :box nil
+                      :weight 'normal
+                      :height powerline-text-height-hack
+                      )
   
   (set-face-attribute 'mode-line-buffer-id nil
-              :foreground "white"
-              :weight 'normal
-	      )
+                      :foreground "white"
+                      :weight 'normal
+                      )
   
   (set-face-attribute 'powerline-active1 nil
-              :foreground "gray50"
-              :background "#ccc")
+                      :foreground "gray50"
+                      :background "#ccc")
 
   (set-face-attribute 'powerline-active2 nil
-	      :foreground "white"
-	      :background "#567" ;; 00BF8F
-	      :weight 'normal) 
+                      :foreground "white"
+                      :background "#567" ;; 00BF8F
+                      :weight 'normal) 
   
   (set-face-attribute 'mode-line-inactive nil
-              :foreground "gray90"
-              :background "gray65"
-              :box nil
-              :weight 'bold)
+                      :foreground "gray90"
+                      :background "gray65"
+                      :box nil
+                      :weight 'bold)
   (set-face-attribute 'powerline-inactive1 nil
-              :foreground "#aaa"
-              :background "#ddd")
+                      :foreground "#aaa"
+                      :background "#ddd")
   (set-face-attribute 'powerline-inactive2 nil
-              :foreground "#ccc"
-              :background "#eee") 
+                      :foreground "#ccc"
+                      :background "#eee") 
   )
 
 (powerline-uber-theme)
