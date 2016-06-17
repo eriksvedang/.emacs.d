@@ -73,6 +73,7 @@ Magit
 * P P to do a git push
 * F F to do a git pull
 * k   to discard changes
+* M-x magit-log-buffer-file Log of the current file
 
 Org
 ===
