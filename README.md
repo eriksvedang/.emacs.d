@@ -105,3 +105,4 @@ Org
 * C-c C-l Insert link
 * C-c C-o Open link
 * C-c C-d Insert date
+* <s TAB  Insert src_code block
