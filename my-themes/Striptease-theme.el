@@ -93,6 +93,11 @@
  '(rainbow-delimiters-depth-5-face ((t (:foreground "#000"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "#000"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-10-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-11-face ((t (:foreground "#000"))))
+ '(rainbow-delimiters-depth-12-face ((t (:foreground "#000"))))
  
  '(rainbow-delimiters-unmatched-face ((t (:background "#F99"))))
 
