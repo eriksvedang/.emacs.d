@@ -80,7 +80,7 @@ Keyboard Macros
 * C-x C-k n Name last macro
 * C-x C-k l Look at keyboard commands that have been entered
 * M-x insert-kbd-macro Save keyboard macro as a elisp function
-
+* C-x C-k C-i Insert counter
 
 Commands (run with M-x)
 =======================
