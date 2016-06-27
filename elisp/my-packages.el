@@ -45,12 +45,14 @@
 
         haskell-mode
         ghc ;; this is actually ghc-mod
+        intero
         tuareg ;; OCaml
         idris-mode
         elm-mode
         sml-mode
         fsharp-mode
         cider
+        clj-refactor
         racket-mode
         nim-mode
         csharp-mode

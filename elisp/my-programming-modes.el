@@ -108,6 +108,12 @@
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load 'always-save)
 
+(defun my-clojure-refactor-hook ()
+    (clj-refactor-mode 1)
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+(add-hook 'clojure-mode-hook #'my-clojure-refactor-hook)
+
 
 
 ;; Zencoding (expand abbreviated tags to full html)
