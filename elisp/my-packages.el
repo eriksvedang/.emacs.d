@@ -52,7 +52,6 @@
         sml-mode
         fsharp-mode
         cider
-        clj-refactor
         racket-mode
         nim-mode
         csharp-mode
