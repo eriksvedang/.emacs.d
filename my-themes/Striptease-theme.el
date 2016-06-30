@@ -16,6 +16,7 @@
 				  :slant normal
 				  :weight normal
 				  :width normal
+                                  :height 180
 				  :foundry "apple"))))
  
  ;; #0072b2
