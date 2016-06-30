@@ -17,6 +17,7 @@
 				  :weight normal
 				  :width normal
                                   :height 170
+                                  :font "Hasklig"
 				  :foundry "apple"))))
  
  ;; #0072b2
