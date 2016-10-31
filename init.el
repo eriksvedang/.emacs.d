@@ -1,4 +1,4 @@
-;; Added by Package.el.  This must come before configurations of installed packages.
+;; Added by Package.el. This must come before configurations of installed packages.
 (package-initialize)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/my-themes")
