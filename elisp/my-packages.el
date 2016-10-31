@@ -9,31 +9,30 @@
 (setq the-packages
       '(
         multiple-cursors
-        smartparens
-        rainbow-delimiters
-        rainbow-mode
+        smartparens ;; slurp and barf
+        rainbow-delimiters ;; colorful parens
+        rainbow-mode ;; highlight colors in code
         undo-tree
         smex ;; better help in minibuffer
         ido-ubiquitous ;; ido mode for everything
-        company
+        company ;; auto completion
         smooth-scrolling
         find-file-in-project
-        avy
+        avy ;; jump to position in buffer
         iedit
         exec-path-from-shell
         reveal-in-osx-finder
         google-this
-        expand-region
-        free-keys
-        ace-window
+        expand-region ;; select larger and larger region
+        free-keys ;; show what key combinations that are not taken
+        ace-window ;; select window with number keys
         
         powerline
         tabbar
-        neotree
         
         magit
         gist
-        restclient
+        restclient ;; Send web requests from a buffer
 
         org-bullets
         
@@ -45,13 +44,13 @@
 
         haskell-mode
         ghc ;; this is actually ghc-mod
-        intero
+        intero ;; Haskell mode that works well with Stack
         tuareg ;; OCaml
         idris-mode
         elm-mode
         sml-mode
         fsharp-mode
-        cider
+        cider ;; Clojure
         racket-mode
         nim-mode
         csharp-mode
