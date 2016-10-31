@@ -31,10 +31,10 @@
         tabbar ;; sometimes tabs are useful
         
         magit
-        gist
+        gist ;; send files to Github gist
         restclient ;; Send web requests from a buffer
 
-        org-bullets
+        org-bullets ;; show nice icons in Org buffers
         
         flycheck
         flymake-easy
@@ -60,8 +60,8 @@
         swift-mode
         markdown-mode
         zencoding-mode ;; html & css
-        js2-mode
-        web-mode
+        js2-mode ;; javascript
+        web-mode ;; smart editing of html templates
         cc-mode ;; C
         glsl-mode
         irony ;; c++ autocomplete

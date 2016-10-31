@@ -27,3 +27,4 @@ abbrev_defs
 
 var/pcache/gh/gh-gist-api/eriksvedang
 /var/
+/network-security.data
