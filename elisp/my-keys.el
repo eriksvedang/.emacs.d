@@ -114,7 +114,7 @@
 (global-set-key [remap next-buffer] 'my-next-buffer)
 (global-set-key [remap previous-buffer] 'my-previous-buffer)
 
-;; A better version of the built in 'just-one-space'
+;; A riff on the built in 'just-one-space', this thing deletes empty lines and all whitespace.
 (defun kill-whitespace ()
   "Kill the whitespace between two non-whitespace characters"
   (interactive "*")
