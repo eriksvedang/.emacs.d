@@ -71,9 +71,9 @@
       )
 
 (mapcar (lambda (package)
-                 (if (package-installed-p package)
-                     nil
-                   (package-install package)))
-               the-packages)
+          (if (package-installed-p package)
+              nil
+            (package-install package)))
+        the-packages)
 
 (provide 'my-packages)
