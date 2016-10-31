@@ -4,21 +4,21 @@
 (custom-theme-set-faces
  'Striptease
  
- '(default ((t (         :inherit nil
-				  :stipple nil
-				  :background "#FFF"
-				  :foreground "#000"
-				  :inverse-video nil
-				  :box nil
-				  :strike-through nil
-				  :overline nil
-				  :underline nil
-				  :slant normal
-				  :weight normal
-				  :width normal
-                                  :height 170
-                                  :font "Hasklig"
-				  :foundry "apple"))))
+ '(default ((t (:inherit nil
+                :stipple nil
+                :background "#FFF"
+                :foreground "#000"
+                :inverse-video nil
+                :box nil
+                :strike-through nil
+                :overline nil
+                :underline nil
+                :slant normal
+                :weight normal
+                :width normal
+                :height 170
+                :font "Hasklig"
+                :foundry "apple"))))
  
  ;; #0072b2
  ;; #148
