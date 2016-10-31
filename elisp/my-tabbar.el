@@ -42,13 +42,19 @@
 (set-face-attribute
  'tabbar-modified nil
  :background "#DDD"
- :foreground "#09F" 
+ :foreground "#09F"
  :box '(:line-width 5 :color "#DDD" :style nil))
 
 (set-face-attribute
  'tabbar-selected nil
  :background "white"
  :foreground "black"
+ :box '(:line-width 5 :color "white" :style nil))
+
+(set-face-attribute
+ 'tabbar-selected-modified nil
+ :background "white"
+ :foreground "#09F"
  :box '(:line-width 5 :color "white" :style nil))
 
 (set-face-attribute
