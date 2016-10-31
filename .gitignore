@@ -26,3 +26,4 @@ abbrev_defs
 /.emacs.desktop.lock
 
 var/pcache/gh/gh-gist-api/eriksvedang
+/var/

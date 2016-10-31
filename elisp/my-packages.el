@@ -12,14 +12,14 @@
         smartparens ;; slurp and barf
         rainbow-delimiters ;; colorful parens
         rainbow-mode ;; highlight colors in code
-        undo-tree
+        undo-tree ;; show a graph of edits that can be undone
         smex ;; better help in minibuffer
         ido-ubiquitous ;; ido mode for everything
         company ;; auto completion
-        smooth-scrolling
-        find-file-in-project
+        smooth-scrolling ;; not quite true
+        find-file-in-project ;; looks in current git repo and show all source files
         avy ;; jump to position in buffer
-        iedit
+        iedit ;; edit all in scope
         exec-path-from-shell
         reveal-in-osx-finder
         google-this
@@ -28,7 +28,7 @@
         ace-window ;; select window with number keys
         
         powerline
-        tabbar
+        tabbar ;; sometimes tabs are useful
         
         magit
         gist
@@ -48,11 +48,10 @@
         tuareg ;; OCaml
         idris-mode
         elm-mode
-        sml-mode
+        sml-mode ;; Standard ML
         fsharp-mode
         cider ;; Clojure
         racket-mode
-        nim-mode
         csharp-mode
         rust-mode
         racer ;; rust auto complete
