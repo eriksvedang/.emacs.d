@@ -71,6 +71,7 @@ Useful functions
 ================
 * align-regexp      Very good for aligning variable initializations and stuff like that
 * tabify /untabify  Convert between spaces and tabs in file
+* regexp-builder    Interactively construct an emacs regexp
 
 Keyboard Macros
 ===============
