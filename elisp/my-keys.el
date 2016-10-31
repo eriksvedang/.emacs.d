@@ -89,7 +89,8 @@
 (setq my-skippable-buffers '("*Ibuffer*" "*Messages*" "*Help*"))
 
 (defun my-change-buffer (change-buffer)
-  "Call 'change-buffer' until current buffer is not in `my-skippable-buffers'."
+  "Call 'change-buffer' until current buffer is not in 'my-skippable-buffers'.
+   This makes it more convenient to do C-x left / C-x right."
   (let ((initial (current-buffer)))
     (funcall change-buffer)
     (let ((first-change (current-buffer)))
