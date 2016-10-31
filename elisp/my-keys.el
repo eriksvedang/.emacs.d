@@ -128,6 +128,10 @@
 
 (global-set-key [s-backspace] 'kill-whitespace)
 
+;; Avy (mode for going to a position in the buffer very quickly, based on beginning char of words)
+(require 'avy)
+(define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
+
 ;; Multiple cursors
 (require 'multiple-cursors)
 

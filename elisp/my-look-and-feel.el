@@ -39,10 +39,6 @@
 (add-hook 'html-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
 
-;; Avy (mode for going to a position in the buffer very quickly, based on beginning char of words)
-(require 'avy)
-(define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
-
 ;; Mouse wheel
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
