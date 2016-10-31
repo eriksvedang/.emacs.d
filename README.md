@@ -25,6 +25,7 @@ Notes
 * C-x C-f C-f    Override ido menu so you can enter any filename you want
 * M-x            Run command
 * C-s /C-r       Interactive search
+* M-%            Query replace (very similar to search and replace in a normal word processor)
 * i              Mark for installation
 * u              Unmark
 * x              Install selected (execute)
