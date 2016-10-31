@@ -52,20 +52,17 @@
   (if (eq system-type 'darwin)
       (setq powerline-text-height-hack 170)
     (setq powerline-text-height-hack 130))
-  
-  
+    
   (set-face-attribute 'mode-line nil
                       :foreground "#FFF" ;; #0BF
                       :background "#234"
                       :box nil
                       :weight 'normal
-                      :height powerline-text-height-hack
-                      )
+                      :height powerline-text-height-hack)
   
   (set-face-attribute 'mode-line-buffer-id nil
                       :foreground "white"
-                      :weight 'normal
-                      )
+                      :weight 'normal)
   
   (set-face-attribute 'powerline-active1 nil
                       :foreground "gray50"
@@ -81,9 +78,11 @@
                       :background "gray65"
                       :box nil
                       :weight 'bold)
+  
   (set-face-attribute 'powerline-inactive1 nil
                       :foreground "#aaa"
                       :background "#ddd")
+
   (set-face-attribute 'powerline-inactive2 nil
                       :foreground "#ccc"
                       :background "#eee") 
