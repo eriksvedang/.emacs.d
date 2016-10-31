@@ -81,8 +81,7 @@
 
 (setq ibuffer-show-empty-filter-groups nil)
 
-
-;; Ido
+;; Ido (autocompletion in the minibuffer)
 (ido-mode 1)
 (ido-ubiquitous 1)
 (setq ido-enable-flex-matching t)
