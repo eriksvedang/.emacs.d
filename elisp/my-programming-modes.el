@@ -69,7 +69,7 @@
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
-(define-key emacs-lisp-mode-map (kbd "C-c C-l") 'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
 
 
 
