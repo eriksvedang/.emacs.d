@@ -140,4 +140,28 @@
 (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "s-l") 'mc/edit-lines)
 
+;; Control numbers in the source via keyboard
+(defun control-number-at-point (x)
+  (let* ((s (symbol-name (symbol-at-point)))
+         (n (read s)))
+    (if (numberp n)
+        (let* ((replacement (format "%d" (+ n x)))
+               (bounds (bounds-of-thing-at-point 'symbol)))
+          (progn
+            (when bounds
+              (delete-region (car bounds) (cdr bounds)))
+            (insert replacement)))
+      (print (format "%s is not a number." s)))))
+
+(defun inc-number-at-point ()
+  (interactive)
+  (control-number-at-point 1))
+
+(defun dec-number-at-point ()
+  (interactive)
+  (control-number-at-point -1))
+
+(global-set-key (kbd "C-c C-+") 'inc-number-at-point)
+(global-set-key (kbd "C-c C--") 'dec-number-at-point)
+
 (provide 'my-keys)

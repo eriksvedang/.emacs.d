@@ -64,6 +64,10 @@
 ;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 
+;; Intero (Stack's Haskell mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
+
+
 
 ;; Idris
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
