@@ -185,4 +185,6 @@
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
+(enable-ligatures)
+
 (provide 'my-look-and-feel)
