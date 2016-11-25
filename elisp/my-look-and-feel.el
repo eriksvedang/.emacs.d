@@ -3,7 +3,7 @@
 
 ;; Fix on Windows
 (when (eq system-type 'windows-nt)
-  (set-face-attribute 'default nil :height 120 :font "Hasklig"))
+  (set-face-attribute 'default nil :height 140 :font "Consolas"))
 
 ;; Window size and position
 (setq-default left-margin-width 0 right-margin-width 0)
