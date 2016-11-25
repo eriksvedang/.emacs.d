@@ -1,6 +1,8 @@
 ;; A package for getting the PATH when starting emacs via OSX (not from terminal)
 (require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+
+(when (eq system-type 'darwin)
+  (exec-path-from-shell-initialize))
 
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
