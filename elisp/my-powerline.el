@@ -90,6 +90,6 @@
 
 (powerline-uber-theme)
 
-(setq powerline-height (if (eq system-type 'darwin) 24 16))
+(setq powerline-height 24)
 
 (provide 'my-powerline)
