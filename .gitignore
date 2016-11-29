@@ -29,3 +29,5 @@ var/pcache/gh/gh-gist-api/eriksvedang
 /var/
 /network-security.data
 auto-save-list/
+/elisp/.emacs.desktop
+/ido.last
