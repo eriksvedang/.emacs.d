@@ -31,3 +31,4 @@ var/pcache/gh/gh-gist-api/eriksvedang
 auto-save-list/
 /elisp/.emacs.desktop
 /ido.last
+/.DS_Store
