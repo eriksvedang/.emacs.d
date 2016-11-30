@@ -42,8 +42,6 @@
         flycheck-rust
         flymake-hlint
 
-        haskell-mode
-        ghc ;; this is actually ghc-mod
         intero ;; Haskell mode that works well with Stack
         tuareg ;; OCaml
         idris-mode
@@ -54,18 +52,18 @@
         racket-mode
         csharp-mode
         rust-mode
-        racer ;; rust auto complete
+        racer ;; Rust auto complete
         php-mode
         lua-mode
         swift-mode
         markdown-mode
-        zencoding-mode ;; html & css
-        js2-mode ;; javascript
-        web-mode ;; smart editing of html templates
+        zencoding-mode ;; HTML & CSS
+        js2-mode ;; Javascript
+        web-mode ;; Smart editing of HTML templates
         cc-mode ;; C
         glsl-mode
-        irony ;; c++ autocomplete
-        gud) ;; gdb debugging
+        irony ;; C++ autocomplete
+        gud) ;; GDB debugging
       )
 
 (mapcar (lambda (package)
