@@ -21,52 +21,9 @@
 	    (local-set-key (kbd "<M-S-left>") 'left-word)))
 
 
-
-;; Haskell
-(require 'haskell-mode)
-(require 'haskell-interactive-mode)
-
-(custom-set-variables
- '(haskell-process-type 'cabal-repl)
- '(haskell-process-show-debug-tips nil)
- '(haskell-process-log t)
- '(haskell-process-auto-import-loaded-modules t))
-
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
-(add-hook 'haskell-mode-hook 'smartparens-mode)
-
-(define-key haskell-mode-map (kbd "C-c C-j") 'haskell-interactive-bring)
-(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-(define-key haskell-mode-map (kbd "C-c C-s") 'haskell-sort-imports)
-
-;; Reminder: Prev / next in REPL: M-p / M-n
-
-(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-(define-key haskell-mode-map (kbd "s-.") 'haskell-mode-jump-to-def)
-;;(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-
-(defun my-cabal-run ()
-  "Run the Cabal project."
-  (interactive)
-  (haskell-process-do-cabal "run"))
-
-(define-key haskell-mode-map (kbd "C-c C-r") 'my-cabal-run)
-
-;; Ghc-mod
-;; (autoload 'ghc-init "ghc" nil t)
-;; (autoload 'ghc-debug "ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-
-
 ;; Intero (Stack's Haskell mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
-
+(add-hook 'intero-mode-hook 'smartparens-mode)
 
 
 ;; Idris
