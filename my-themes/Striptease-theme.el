@@ -128,6 +128,8 @@
 
  '(racket-selfeval-face ((t (:foreground "#FF3377"))))
 
+ '(tuareg-font-lock-operator-face ((t (:foreground "#000000"))))
+
  '(company-tooltip ((t (:foreground "#DDD" :background "#121133"))))
 
  '(company-tooltip-selection ((t (:foreground "#000" :background "#a0eeee"))))
