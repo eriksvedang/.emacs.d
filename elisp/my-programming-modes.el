@@ -163,6 +163,7 @@
 	  (lambda ()
 	    (electric-pair-mode 0)
             (rainbow-mode 0) ;; treats #def as a color
+            (disable-ligatures)
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
@@ -170,6 +171,7 @@
 (add-hook 'c++-mode-hook
 	  (lambda ()
 	    (electric-pair-mode 0)
+            (disable-ligatures)
 	    (define-key c++-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
