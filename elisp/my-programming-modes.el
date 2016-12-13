@@ -161,7 +161,7 @@
 
 (add-hook 'c-mode-hook
 	  (lambda ()
-	    (electric-pair-mode 0)
+	    (electric-pair-mode 1)
             (rainbow-mode 0) ;; treats #def as a color
             (disable-ligatures)
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
