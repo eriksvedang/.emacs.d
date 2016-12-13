@@ -115,8 +115,9 @@
  '(trailing-whitespace ((t (:background "#d55e00"))))
  '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
 
- ;; a6a6a6
- '(font-lock-comment-face ((t (:foreground "#aaa" :slant italic))))
+ ;; a6a6a6 aaa
+ '(font-lock-comment-face ((t (:foreground "#ff0088" :background "#ffeaea" :weight bold :slant italic))))
+ 
  '(font-lock-constant-face ((t (:foreground "#000000" :weight normal))))
  '(highlight-numbers-number ((t (:foreground "#ff3377" :weight normal))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))

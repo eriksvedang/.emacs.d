@@ -32,3 +32,4 @@ auto-save-list/
 /elisp/.emacs.desktop
 /ido.last
 /.DS_Store
+nix-buffer

@@ -42,6 +42,9 @@
         flycheck-rust
         flymake-hlint
 
+        nix-mode
+        nix-buffer ;; "nix-shell for emacs"
+
         intero ;; Haskell mode that works well with Stack
         tuareg ;; OCaml
         idris-mode
