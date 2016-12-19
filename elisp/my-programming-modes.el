@@ -76,6 +76,7 @@
 
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load 'always-save)
+(setq cider-repl-display-help-banner nil)
 
 
 
