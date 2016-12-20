@@ -141,7 +141,12 @@
 
 
 ;; C#
-(setq omnisharp-server-executable-path "/Users/erik/Projects/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+(add-hook 'csharp-mode-hook
+          (lambda ()
+            (setq omnisharp-server-executable-path "/Users/erik/Projects/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+            (define-key csharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
+            (define-key csharp-mode-map (kbd "s-r") 'omnisharp-rename)
+            (add-to-list 'company-backends 'company-omnisharp)))
 
 
 ;; C
