@@ -17,6 +17,9 @@
 (global-linum-mode 1)
 (setq linum-format (quote "%4d  "))
 
+;; Tab indentation width
+(setq default-tab-width 4)
+
 ;; Line Wrapping
 (setq-default truncate-lines 1)
 ;;(setq-default global-visual-line-mode t)
