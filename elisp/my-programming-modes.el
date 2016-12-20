@@ -140,6 +140,9 @@
 (add-hook 'racer-mode-hook #'eldoc-mode)
 
 
+;; C#
+(setq omnisharp-server-executable-path "/Users/erik/Projects/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+
 
 ;; C
 (defun compile-c ()

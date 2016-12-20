@@ -54,6 +54,7 @@
         cider                ;; Clojure
         racket-mode
         csharp-mode
+        omnisharp            ;; Auto completion server for .NET languages
         rust-mode
         racer                ;; Rust auto complete
         php-mode
