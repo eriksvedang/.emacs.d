@@ -165,6 +165,8 @@
 	    (electric-pair-mode 1)
             (rainbow-mode 0) ;; treats #def as a color
             (disable-ligatures)
+            (setq-default c-basic-offset 4)
+            (c-set-style "cc-mode")
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
