@@ -157,7 +157,7 @@
     (if project-dir
 	(progn (setq default-directory project-dir)
 	       (compile (format "make")))
-      (compile (format "clang %s -O0 -g -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+      (compile (format "clang %s -O0 -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (defun run-c ()
   (interactive)
@@ -166,7 +166,12 @@
     (if project-dir
 	(progn (setq default-directory project-dir)
 	       (compile (format "make run")))
-      (compile (format "./%s" (file-name-sans-extension (buffer-name)))))))
+    (compile (format "./%s" (file-name-sans-extension (buffer-name)))))))
+
+;; Focus on the compiler output window so it's easier to close with 'q'
+;; Not a good idea unfortunately since you can't run the code with C-c C-r when not focused on source.
+;; (defadvice compile-c (after move-point-to-new-window activate)
+;;   (other-window 0))
 
 (add-hook 'c-mode-hook
 	  (lambda ()
