@@ -157,7 +157,7 @@
     (if project-dir
 	(progn (setq default-directory project-dir)
 	       (compile (format "make")))
-      (compile (format "clang %s -O0 -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+      (compile (format "clang %s -O0 -g -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (defun run-c ()
   (interactive)
