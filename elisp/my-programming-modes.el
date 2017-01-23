@@ -176,19 +176,32 @@
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (electric-pair-mode 1)
-            (rainbow-mode 0) ;; treats #def as a color
-            (disable-ligatures)
-            (setq-default c-basic-offset 4)
-            (c-set-style "cc-mode")
+        (rainbow-mode 0) ;; treats #def as a color
+        (disable-ligatures)
+        (setq-default c-basic-offset 4)
+        (c-set-style "cc-mode")
 	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
 	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
+;; C++
+(defun compile-cpp ()
+  (interactive)
+  (save-buffer)
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
+    (if project-dir
+	(progn (setq default-directory project-dir)
+	       (compile (format "make")))
+      (compile (format "clang++ -std=c++11 %s -O0 -g -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+
 (add-hook 'c++-mode-hook
 	  (lambda ()
-	    (electric-pair-mode 0)
-            (disable-ligatures)
-	    (define-key c++-mode-map (kbd "C-c C-c") 'compile-c)
+	    (electric-pair-mode 1)
+        (rainbow-mode 0) ;; treats #def as a color
+        (disable-ligatures)
+        (setq-default c-basic-offset 4)
+        (c-set-style "cc-mode")
+	    (define-key c++-mode-map (kbd "C-c C-c") 'compile-cpp)
 	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
 	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
@@ -206,6 +219,16 @@
 (defun generate-etags ()
   (interactive)
   (shell-command "find . -type f -iname \"*.[chS]\" | xargs etags -a"))
+
+
+
+;; Objective C
+(add-hook 'objc-mode-hook
+          (lambda ()
+            (electric-pair-mode 1)
+            (disable-ligatures)
+            (setq-default c-basic-offset 4)
+            (c-set-style "cc-mode")))
 
 
 
