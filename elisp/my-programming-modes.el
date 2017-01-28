@@ -232,6 +232,34 @@
 
 
 
+;; Swift
+(defun compile-swift ()
+  (interactive)
+  (save-buffer)
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "Package.swift")))
+    (if project-dir
+	(progn (setq default-directory project-dir)
+	       (compile (format "swift build")))
+    (compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+
+(defun run-swift ()
+  (interactive)
+  (save-buffer)
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "Project.swift")))
+    (if project-dir
+        (error "Can't run swift projects at the moment.")
+    (compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+
+(add-hook 'swift-mode-hook
+          (lambda ()
+            (electric-pair-mode 1)
+            (enable-ligatures)
+            (setq-default c-basic-offset 4)
+            (define-key swift-mode-map (kbd "C-c C-c") 'compile-swift)
+            (define-key swift-mode-map (kbd "C-c C-r") 'run-swift)))
+
+
+
 ;; Pico-8
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
 
