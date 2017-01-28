@@ -26,6 +26,7 @@
         expand-region        ;; Select larger and larger region
         free-keys            ;; Show what key combinations that are not taken
         ace-window           ;; Select window with number keys
+        swiper               ;; Better search in buffer
         
         powerline
         tabbar               ;; Sometimes tabs are useful
