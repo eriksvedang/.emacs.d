@@ -164,4 +164,16 @@
 (global-set-key (kbd "C-c C-+") 'inc-number-at-point)
 (global-set-key (kbd "C-c C--") 'dec-number-at-point)
 
+;; Insert an empty line above the current line
+(defun smart-open-line-above ()
+  "Insert an empty line above the current line."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key (kbd "<C-return>") 'smart-open-line-above)
+
+
 (provide 'my-keys)
