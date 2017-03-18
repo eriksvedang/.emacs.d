@@ -47,6 +47,7 @@
         nix-buffer           ;; "nix-shell for emacs"
 
         intero               ;; Haskell mode that works well with Stack
+        shm                  ;; Structured Haskell Mode (Paredit for Haskell)
         tuareg               ;; OCaml
         idris-mode
         elm-mode

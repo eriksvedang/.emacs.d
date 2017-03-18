@@ -21,9 +21,16 @@
 	    (local-set-key (kbd "<M-S-left>") 'left-word)))
 
 
+
 ;; Intero (Stack's Haskell mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
 (add-hook 'intero-mode-hook 'smartparens-mode)
+
+;; Structured Haskell Mode
+;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;; (set-face-background 'shm-current-face "#eee8d5")
+;; (set-face-background 'shm-quarantine-face "lemonchiffon")
+
 
 
 ;; Idris
