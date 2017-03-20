@@ -28,8 +28,8 @@
 
 ;; Structured Haskell Mode
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (set-face-background 'shm-current-face "#eee8d5")
-;; (set-face-background 'shm-quarantine-face "lemonchiffon")
+;; (set-face-background 'shm-current-face "#eee")
+;; (set-face-background 'shm-quarantine-face "#ffc")
 
 
 
