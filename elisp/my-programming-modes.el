@@ -28,8 +28,21 @@
 
 ;; Structured Haskell Mode
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (set-face-background 'shm-current-face "#eee")
-;; (set-face-background 'shm-quarantine-face "#ffc")
+
+(set-face-background 'shm-current-face "#dfefef")
+(set-face-background 'shm-quarantine-face "#ffd")
+
+(define-key shm-map (kbd "M-(") nil) ;; These are bound to creating '{'
+(define-key shm-map (kbd "M-)") nil) ;; and '}' on my Swedish keyboard.
+(define-key shm-map (kbd "<deletechar>") nil) ;; Still wanna be able to delete chars
+(define-key shm-map (kbd "\"") nil)
+(define-key shm-map (kbd "s-v") #'shm/yank)
+(define-key shm-map (kbd "M-y") #'shm/yank-pop)
+
+;; OK shortcuts:
+;; M-a   Goto parent
+;; M-e   Goto parent end
+
 
 
 
