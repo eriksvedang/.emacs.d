@@ -29,6 +29,17 @@
  '(font-lock-keyword-face ((t (:foreground "#147" :weight normal))))
 
  '(haskell-keyword-face ((t (:foreground "#147" :weight normal))))
+
+ ;; Idris
+ '(idris-identifier-face ((t :foreground "#000")))
+ '(idris-keyword-face ((t :foreground "#147")))
+ '(idris-semantic-data-face ((t :foreground "#00AF7F")))
+ '(idris-semantic-type-face ((t :foreground "#48B")))
+ '(idris-semantic-function-face ((t :foreground "#000")))
+ '(idris-semantic-bobund-face ((t :foreground "#000" :underline nil)))
+ '(idris-semantic-namespace-face ((t :foreground "#48B")))
+ '(idris-semantic-definition-face ((t :foreground "#48B")))
+ '(idris-hole-face ((t :foreground "#F90")))
  
  ;; #00AF5F / #0B0 / #00AF7F / #33AA88 / #448877
  '(font-lock-string-face ((t (:foreground "#00AF7F"))))
