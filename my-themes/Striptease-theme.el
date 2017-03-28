@@ -36,7 +36,7 @@
  '(idris-semantic-data-face ((t :foreground "#00AF7F")))
  '(idris-semantic-type-face ((t :foreground "#48B")))
  '(idris-semantic-function-face ((t :foreground "#000")))
- '(idris-semantic-bobund-face ((t :foreground "#000" :underline nil)))
+ '(idris-semantic-bound-face ((t :foreground "#000" :underline nil)))
  '(idris-semantic-namespace-face ((t :foreground "#48B")))
  '(idris-semantic-definition-face ((t :foreground "#48B")))
  '(idris-hole-face ((t :foreground "#F90")))
