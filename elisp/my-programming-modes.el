@@ -51,6 +51,7 @@
 ;; Idris
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
 (add-hook 'idris-mode-hook (lambda () (eldoc-mode -1)))
+(add-hook 'idris-mode-hook 'smartparens-mode)
 
 
 
