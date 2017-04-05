@@ -81,6 +81,8 @@
 	    (:foreground "green"))
 	   (((class color) (min-colors 8) (background dark))
 	    (:foreground "yellow"))))
+
+ '(markdown-header-face-1 ((t (:height 220 :weight bold :foreground "#0072B2"))))
  
  ;; Old trusty:
  ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
