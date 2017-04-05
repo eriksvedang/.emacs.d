@@ -82,7 +82,8 @@
 	   (((class color) (min-colors 8) (background dark))
 	    (:foreground "yellow"))))
 
- '(markdown-header-face-1 ((t (:height 220 :weight bold :foreground "#0072B2"))))
+ '(markdown-header-face-1 ((t (:height 250 :weight bold :foreground "#0072B2"))))
+ '(markdown-header-face-2 ((t (:height 200 :weight bold))))
  
  ;; Old trusty:
  ;; '(rainbow-delimiters-depth-1-face ((t (:foreground "#037"))))
