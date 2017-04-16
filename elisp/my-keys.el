@@ -15,7 +15,19 @@
 (global-set-key (kbd "M-)") "}")
 (global-set-key (kbd "M-7") "|")
 (global-set-key (kbd "M-/") "\\")
-(global-set-key (kbd "C-x M-l") "λ")
+
+;; Special Characters
+(global-set-key (kbd "C-x M-l") "λ") ; lambda
+(global-set-key (kbd "C-x M-a") "∧") ; and
+(global-set-key (kbd "C-x M-o") "∨") ; or
+(global-set-key (kbd "C-x M-e") "∈") ; element
+(global-set-key (kbd "C-x M-t") "⊤") ; true
+(global-set-key (kbd "C-x M-b") "⊥") ; bottom
+(global-set-key (kbd "C-x M-f") "∀") ; for all
+(global-set-key (kbd "C-x M-e") "∃") ; there exists
+(global-set-key (kbd "C-x M-p") "⊢") ; provable
+(global-set-key (kbd "C-x M-n") "¬") ; negation
+(global-set-key (kbd "C-x M-i") "⊃") ; implies
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
