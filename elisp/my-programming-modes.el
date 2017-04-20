@@ -52,8 +52,8 @@
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
 (add-hook 'idris-mode-hook (lambda ()
                              (eldoc-mode -1)
-                             (modify-syntax-entry ?_ "w" idris-syntax-table) ; Underscore is part of words
-                             (modify-syntax-entry ?? "w" idris-syntax-table) ; Questionmark is part of words
+                             ;; (modify-syntax-entry ?_ "w" idris-syntax-table) ; Underscore is part of words
+                             ;; (modify-syntax-entry ?? "w" idris-syntax-table) ; Questionmark is part of words
                              ))
 
 (add-hook 'idris-mode-hook 'smartparens-mode)
