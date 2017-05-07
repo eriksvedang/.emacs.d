@@ -29,7 +29,7 @@
 (add-hook 'intero-mode-hook 'smartparens-mode)
 
 ;; Structured Haskell Mode
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
 (add-hook 'structured-haskell-mode-hook
           (lambda ()
