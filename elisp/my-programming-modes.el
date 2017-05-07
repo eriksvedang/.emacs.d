@@ -24,6 +24,8 @@
 
 ;; Intero (Stack's Haskell mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
+
+;; Perhaps SmartParens messes with Structured Haskell Mode?!
 (add-hook 'intero-mode-hook 'smartparens-mode)
 
 ;; Structured Haskell Mode
@@ -36,15 +38,22 @@
             (define-key shm-map (kbd "M-(") nil) ;; These are bound to creating '{'
             (define-key shm-map (kbd "M-)") nil) ;; and '}' on my Swedish keyboard.
             (define-key shm-map (kbd "<deletechar>") nil) ;; Still wanna be able to delete chars
-            (define-key shm-map (kbd "\"") nil)
             (define-key shm-map (kbd "s-v") #'shm/yank)
             (define-key shm-map (kbd "M-y") #'shm/yank-pop)
             (define-key shm-map (kbd "M-e") #'shm/goto-parent-end)
-            (define-key shm-map (kbd ")") nil)))
+            (define-key shm-map (kbd "M-q") #'shm/delete-indentation)
+            (define-key shm-map (kbd "\"") nil)
+            ;;(define-key shm-map (kbd ")") nil) ;; <- This messes up M-) which is bound to important things for this mode!
+            ))
 
-;; OK shortcuts:
-;; M-a   Goto parent
-
+;; Default SHM shortcuts that are OK:
+;; <RET> Runs the command bound to C-j in the docs, "newline-indent"
+;; M-a   Goto parent (beginning)
+;; M-k   Kill parent
+;; M-r   Raise (replace parent with current expression)
+;; C-k   Kill line (same as kill parent?)
+;; M-)   Go to parent end
+;; C-+   Add operand
 
 
 
