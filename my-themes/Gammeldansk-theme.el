@@ -20,7 +20,10 @@
 			 :height 170
 			 :foundry "apple"))))
 
- '(font-lock-comment-face ((t (:foreground "#0E9" :background "#fff" :weight normal))))
+;; #0E9 #A18 #0CF
+ 
+ '(font-lock-comment-face ((t (:foreground "#555" :background "#FFF" :weight normal))))
+ '(font-lock-doc-face ((t (:foreground "#555" :background "#FFF" :weight normal))))
  
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
  '(font-lock-string-face ((t (:foreground "#A17"))))
@@ -28,7 +31,6 @@
  '(font-lock-function-name-face ((t (:foreground "#000" :weight bold))))
  '(font-lock-variable-name-face ((t (:foreground "#000"))))
  '(font-lock-keyword-face ((t (:foreground "#000"))))
- '(font-lock-doc-face ((t (:foreground "#0E9" :weight normal))))
 
  '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
@@ -53,7 +55,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "#FFF")) ;; <- Line numbers
+	     (background light)) (:foreground "gray90")) ;; <- Line numbers
 	   )
 	  )
 
