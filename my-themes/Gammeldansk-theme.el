@@ -28,9 +28,9 @@
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
  '(font-lock-string-face ((t (:foreground "#A17"))))
  '(font-lock-type-face ((t (:foreground "#000" :weight normal))))
- '(font-lock-function-name-face ((t (:foreground "#000" :weight bold))))
+ '(font-lock-function-name-face ((t (:foreground "#000" :weight normal))))
  '(font-lock-variable-name-face ((t (:foreground "#000"))))
- '(font-lock-keyword-face ((t (:foreground "#000"))))
+ '(font-lock-keyword-face ((t (:foreground "#000" :weight bold))))
 
  '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
