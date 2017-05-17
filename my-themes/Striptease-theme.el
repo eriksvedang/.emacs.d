@@ -159,6 +159,12 @@
 
  '(dired-directory ((t (:foreground "#09D" :weight bold))))
 
+ '(ido-subdir ((t (:foreground "#000")))) ;; Face used by ido for highlighting subdirs in the alternatives.
+ '(ido-first-match ((t (:foreground "#09D")))) ;; Face used by ido for highlighting first match.
+ '(ido-only-match ((t (:foreground "#09D")))) ;; Face used by ido for highlighting only match.
+ '(ido-indicator ((t (:foreground "#000")))) ;; Face used by ido for highlighting its indicators (don't actually use this)
+ '(ido-incomplete-regexp ((t (:foreground "#000")))) ;; Ido face for indicating incomplete regexps. (don't use this either)
+
  '(circe-originator-face ((t (:foreground "#00AF5F")))) ; other nick names
  '(circe-highlight-nick-face ((t (:foreground "#FF3F60")))) ; messages with my nick cited
  '(circe-topic-diff-new-face ((t (:foreground "#FA3"))))

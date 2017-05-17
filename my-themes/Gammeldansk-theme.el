@@ -98,6 +98,12 @@
  '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
  '(company-tooltip-annotation ((t :background "#121133" :foreground "#0c3")))
 
+ '(ido-subdir ((t (:foreground "#000")))) ;; Face used by ido for highlighting subdirs in the alternatives.
+ '(ido-first-match ((t (:foreground "#A17")))) ;; Face used by ido for highlighting first match.
+ '(ido-only-match ((t (:foreground "#A17")))) ;; Face used by ido for highlighting only match.
+ '(ido-indicator ((t (:foreground "#000")))) ;; Face used by ido for highlighting its indicators (don't actually use this)
+ '(ido-incomplete-regexp ((t (:foreground "#000")))) ;; Ido face for indicating incomplete regexps. (don't use this either)
+
  '(dired-directory ((t (:foreground "#000" :weight bold)))) 
  '(font-lock-warning-face ((t (:inherit (error)))))
  '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
