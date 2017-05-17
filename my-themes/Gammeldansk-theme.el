@@ -16,16 +16,23 @@
 			 :slant normal
 			 :weight normal
 			 :width normal
-			 :font "Hasklig" ;; "Avenir" / "Fira Mono"
+			 :font "Fira Code"
 			 :height 170
 			 :foundry "apple"))))
+
+ '(font-lock-comment-face ((t (:foreground "#0E9" :background "#fff" :weight normal))))
  
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
- '(font-lock-string-face ((t (:foreground "#000" :slant italic))))
+ '(font-lock-string-face ((t (:foreground "#A17"))))
  '(font-lock-type-face ((t (:foreground "#000" :weight normal))))
- '(font-lock-function-name-face ((t (:foreground "#000"))))
+ '(font-lock-function-name-face ((t (:foreground "#000" :weight bold))))
  '(font-lock-variable-name-face ((t (:foreground "#000"))))
  '(font-lock-keyword-face ((t (:foreground "#000"))))
+ '(font-lock-doc-face ((t (:foreground "#0E9" :weight normal))))
+
+ '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
+ '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
+ '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
  
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
@@ -39,14 +46,14 @@
  
  '(highlight ((t (:background "#eeeeee"))))
  
- '(region ((t (:background "#a0eeee"))))
+ '(region ((t (:background "#0CF"))))
  ;;'(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
 
  ;;'(font-lock-preprocessor-face ((t :foreground "#fff")))
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "grey85")) ;; <- Line numbers
+	     (background light)) (:foreground "#FFF")) ;; <- Line numbers
 	   )
 	  )
 
@@ -62,10 +69,9 @@
 
  '(rainbow-delimiters-unmatched-face ((t (:background "#F00"))))
 
- '(show-paren-match ((t (:background "#a0eeee"
-				     :underline nil
-				     :weight bold
-				     ))))
+ '(show-paren-match ((t (:background "#0e9"
+                                     :weight normal
+                                     :underline nil))))
 
  ;;'(mode-line ((t (:foreground "#fff"))))
 

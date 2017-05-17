@@ -1,5 +1,6 @@
 ;; Theme and font
-(load-theme 'Striptease)
+;;(load-theme 'Striptease)
+(load-theme 'Gammeldansk)
 
 ;; Fix on Windows
 (when (eq system-type 'windows-nt)
