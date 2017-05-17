@@ -66,7 +66,7 @@
   
   (set-face-attribute 'powerline-active1 nil
                       :foreground "#271c4b" ;; gray50
-                      :background "#ccc")  ;; #ccc
+                      :background "gray92")  ;; #ccc
 
   (set-face-attribute 'powerline-active2 nil
                       :foreground "white"
@@ -75,17 +75,17 @@
   
   (set-face-attribute 'mode-line-inactive nil
                       :foreground "gray90"
-                      :background "gray65"
+                      :background "gray70"
                       :box nil
                       :weight 'bold)
   
   (set-face-attribute 'powerline-inactive1 nil
                       :foreground "#aaa"
-                      :background "#ddd")
+                      :background "gray92")
 
   (set-face-attribute 'powerline-inactive2 nil
-                      :foreground "#ccc"
-                      :background "#eee") 
+                      :foreground "gray95"
+                      :background "gray85") 
   )
 
 (powerline-uber-theme)
