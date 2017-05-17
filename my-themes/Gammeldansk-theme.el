@@ -22,8 +22,8 @@
 
 ;; #0E9 #A18 #0CF
  
- '(font-lock-comment-face ((t (:foreground "#555" :background "#FFF" :weight normal))))
- '(font-lock-doc-face ((t (:foreground "#555" :background "#FFF" :weight normal))))
+ '(font-lock-comment-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
+ '(font-lock-doc-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
  
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
  '(font-lock-string-face ((t (:foreground "#A17"))))
