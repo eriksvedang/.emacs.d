@@ -34,7 +34,7 @@
 (add-hook 'structured-haskell-mode-hook
           (lambda ()
             (set-face-background 'shm-current-face "#efefef")
-            (set-face-background 'shm-quarantine-face "#dfe")
+            (set-face-background 'shm-quarantine-face "#def")
             (define-key shm-map (kbd "M-(") nil) ;; These are bound to creating '{'
             (define-key shm-map (kbd "M-)") nil) ;; and '}' on my Swedish keyboard.
             (define-key shm-map (kbd "<deletechar>") nil) ;; Still wanna be able to delete chars
