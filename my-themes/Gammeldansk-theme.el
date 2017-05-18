@@ -35,10 +35,11 @@
  '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
  
  '(font-lock-comment-face ((t (:foreground "gray70" :background "#FFF" :weight normal))))
- '(font-lock-doc-face ((t (:foreground "#FFF"
-                                       :background "#271c4b"
-                                       :weight normal
-                                       :box nil))))
+ '(font-lock-doc-face ((t (:foreground "#271c4b"
+                                       :background "white"
+                                       :weight bold
+                                       :slant italic
+                                       :box))))
  ;;'(font-lock-comment-face ((t (:foreground "#ff0088" :background "#ffecef" :weight bold :slant italic))))
  
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
