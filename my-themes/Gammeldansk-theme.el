@@ -16,8 +16,8 @@
 			 :slant normal
 			 :weight normal
 			 :width normal
-			 :font "Fira Code"
-			 :height 175
+			 :font "Hasklig"
+			 :height 170
 			 :foundry "apple"))))
 
 ;; #0E9 #A18 #0CF #271c4b
@@ -34,11 +34,11 @@
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
  '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
  
- '(font-lock-doc-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
- '(font-lock-doc-face ((t (:foreground "#fff" :background "#271c4b"
+ '(font-lock-comment-face ((t (:foreground "gray70" :background "#FFF" :weight normal))))
+ '(font-lock-doc-face ((t (:foreground "#FFF"
+                                       :background "#271c4b"
                                        :weight normal
-                                       :box nil
-                                       :slant none))))
+                                       :box nil))))
  ;;'(font-lock-comment-face ((t (:foreground "#ff0088" :background "#ffecef" :weight bold :slant italic))))
  
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
@@ -60,7 +60,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "gray90")) ;; <- Line numbers
+	     (background light)) (:foreground "gray80")) ;; <- Line numbers
 	   )
 	  )
 
