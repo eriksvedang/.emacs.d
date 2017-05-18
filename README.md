@@ -62,12 +62,13 @@ Notes
 * C-x C-l        lowercase-region
 * M-a            backward-sentence
 * M-e            forward-sentence
-* M-<            goto beginning of buffer
-* M->            goto end of buffer
+* M - <          Goto beginning of buffer
+* M - >          Goto end of buffer
 * M-q            fill-paragraph, will arrange text so that it doesn't flow outside right margin
-* M-x f          set the maximum width to be used by fill-paragraph (fill-column)
+* M-x f          Set the maximum width to be used by fill-paragraph (fill-column)
 * C-_            Undo ("C-x u" also works)
 * C-x 8 RET      Insert unicode symbol
+* C-x =          Get info about the char at point (more info with C-u prefix)
 
 Useful functions
 ================

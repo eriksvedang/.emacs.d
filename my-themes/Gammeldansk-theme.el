@@ -17,13 +17,11 @@
 			 :weight normal
 			 :width normal
 			 :font "Fira Code"
-			 :height 170
+			 :height 175
 			 :foundry "apple"))))
 
-;; #0E9 #A18 #0CF
+;; #0E9 #A18 #0CF #271c4b
  
- '(font-lock-comment-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
- '(font-lock-doc-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
  
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
  '(font-lock-string-face ((t (:foreground "#A17"))))
@@ -35,6 +33,13 @@
  '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
  '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
+ 
+ '(font-lock-doc-face ((t (:foreground "gray90" :background "#FFF" :weight normal))))
+ '(font-lock-doc-face ((t (:foreground "#fff" :background "#271c4b"
+                                       :weight normal
+                                       :box nil
+                                       :slant none))))
+ ;;'(font-lock-comment-face ((t (:foreground "#ff0088" :background "#ffecef" :weight bold :slant italic))))
  
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
@@ -48,7 +53,7 @@
  
  '(highlight ((t (:background "#eeeeee"))))
  
- '(region ((t (:background "#0CF"))))
+ '(region ((t (:foreground "#000" :background "#0DF"))))
  ;;'(idle-highlight ((t (:background "#f4ffff" :weight bold)))) ;; :underline t
 
  ;;'(font-lock-preprocessor-face ((t :foreground "#fff")))
@@ -84,9 +89,7 @@
  '(trailing-whitespace ((t (:background "#f00"))))
  
  '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:foreground "#aaa"))))
- '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
- 
+  
  '(font-lock-negation-char-face ((t nil)))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
