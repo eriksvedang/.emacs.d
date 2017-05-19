@@ -185,5 +185,4 @@
 
 (global-set-key (kbd "<C-return>") 'smart-open-line-above)
 
-
 (provide 'my-keys)
