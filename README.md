@@ -87,6 +87,8 @@ Keyboard Macros
 * M-x insert-kbd-macro Save keyboard macro as a elisp function
 * C-x C-k C-i Insert counter
 
+Repeat a macro until end of buffer by prefixing the invokation with M-0
+
 Commands (run with M-x)
 =======================
 * package-list-packages  Lists packages
