@@ -33,6 +33,16 @@
  '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
  '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
+
+ '(idris-identifier-face ((t :foreground "#000")))
+ '(idris-keyword-face ((t :foreground "#000" :weight bold)))
+ '(idris-semantic-data-face ((t :foreground "#000")))
+ '(idris-semantic-type-face ((t :foreground "#000")))
+ '(idris-semantic-function-face ((t :foreground "#000")))
+ '(idris-semantic-bound-face ((t :foreground "#000" :underline nil)))
+ '(idris-semantic-namespace-face ((t :foreground "#000")))
+ '(idris-semantic-definition-face ((t :foreground "#000")))
+ '(idris-hole-face ((t :foreground "#000" :background "#0E9")))
  
  '(font-lock-comment-face ((t (:foreground "gray70" :background "#FFF" :weight normal))))
  '(font-lock-doc-face ((t (:foreground "#271c4b"
