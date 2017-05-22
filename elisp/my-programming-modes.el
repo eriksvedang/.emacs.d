@@ -1,13 +1,12 @@
 ;; Carp
-(add-to-list 'load-path "~/Documents/Carp/emacs")
-(add-to-list 'load-path "~/Projects/Carp/emacs")
+(add-to-list 'load-path "~/Projects/CarpHask/emacs")
 
 (require 'carp-mode)
 (require 'inf-carp-mode)
 
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
-(setq inferior-lisp-program "carp-inferior")
-(add-hook 'carp-mode-hook 'smart-parens-mode)
+(setq inferior-lisp-program "CarpHask-exe")
+(add-hook 'carp-mode-hook 'smartparens-mode)
 
 
 
