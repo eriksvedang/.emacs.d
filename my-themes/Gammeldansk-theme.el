@@ -87,9 +87,7 @@
 
  '(rainbow-delimiters-unmatched-face ((t (:background "#F00"))))
 
- '(show-paren-match ((t (:background "#fff"
-                                     :weight bold
-                                     :underline nil))))
+ '(show-paren-match ((t (:weight bold :underline nil))))
 
  ;;'(mode-line ((t (:foreground "#fff"))))
 
