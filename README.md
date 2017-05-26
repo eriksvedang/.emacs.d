@@ -24,6 +24,7 @@ Notes
 * C-d            Open dired in the current folder when searching for files using ido
 * C-x C-f C-f    Override ido menu so you can enter any filename you want
 * M-x            Run command
+* M-x <text> SPC Get completions for command written so far
 * C-s /C-r       Interactive search
 * M-e            Edit the current interactive search string
 * M-%            Query replace (very similar to search and replace in a normal word processor)
@@ -42,6 +43,8 @@ Notes
 * C-h a          'apropos-command' - search for a command (interactive function)
 * C-h f          describe-function
 * C-h v          describe-variable
+* C-h m          help for modes
+* C-h i          Open Info, the documentation browser (contains documentation for Emacs and modes) 
 * q              close "pane" (what's the real word?)
 * C-y            Yank (paste)
 * M-y            Cycle through kill ring (can only be used after yanking)
