@@ -43,6 +43,10 @@
  '(idris-semantic-namespace-face ((t :foreground "#000")))
  '(idris-semantic-definition-face ((t :foreground "#000")))
  '(idris-hole-face ((t :foreground "#000" :background "#0E9")))
+
+ '(neo-root-dir-face ((t :height 150 :foreground "#A17")))
+ '(neo-dir-link-face ((t :height 150 :weight bold)))
+ '(neo-file-link-face ((t :height 150 :weight bold)))
  
  '(font-lock-comment-face ((t (:foreground "gray70" :background "#FFF" :weight normal))))
  '(font-lock-doc-face ((t (:foreground "#271c4b"

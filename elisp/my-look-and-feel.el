@@ -162,6 +162,16 @@
 (setq display-time-default-load-average nil)
 ;; (display-time)
 
+;; Neotree (sidebar)
+(require 'neotree)
+(setq neo-theme 'icons)
+(setq neo-window-width 30)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-smart-open t)
+(add-hook 'neotree-mode-hook
+          (lambda ()
+            (setq truncate-lines 1)))
+
 ;; Ligature hack
 (defun enable-ligatures ()
   (interactive)

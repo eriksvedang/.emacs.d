@@ -30,6 +30,8 @@
         
         powerline
         tabbar               ;; Sometimes tabs are useful
+        neotree              ;; Sidebar
+        all-the-icons        ;; Icons for Neotree, requires special fonts to be installed.
         
         magit
         gist                 ;; Send files to Github gist

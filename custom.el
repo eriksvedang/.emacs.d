@@ -16,7 +16,7 @@
  '(ns-alternate-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (shm swiper omnisharp omnisharp-mode nix-buffer nix-mode rust-mode flymake-easy flycheck avy company intero zencoding-mode web-mode undo-tree tuareg tabbar swift-mode smooth-scrolling sml-mode smex smartparens reveal-in-osx-finder restclient rainbow-mode rainbow-delimiters racket-mode racer powerline php-mode org-bullets nim-mode neotree multiple-cursors markdown-mode magit lua-mode js2-mode irony iedit idris-mode ido-ubiquitous goto-chg google-this glsl-mode gist fsharp-mode free-keys flymake-hlint flymake-cursor flycheck-rust find-file-in-project expand-region exec-path-from-shell elm-mode csharp-mode cider ace-window))))
+    (all-the-icons shm swiper omnisharp omnisharp-mode nix-buffer nix-mode rust-mode flymake-easy flycheck avy company intero zencoding-mode web-mode undo-tree tuareg tabbar swift-mode smooth-scrolling sml-mode smex smartparens reveal-in-osx-finder restclient rainbow-mode rainbow-delimiters racket-mode racer powerline php-mode org-bullets nim-mode neotree multiple-cursors markdown-mode magit lua-mode js2-mode irony iedit idris-mode ido-ubiquitous goto-chg google-this glsl-mode gist fsharp-mode free-keys flymake-hlint flymake-cursor flycheck-rust find-file-in-project expand-region exec-path-from-shell elm-mode csharp-mode cider ace-window))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
