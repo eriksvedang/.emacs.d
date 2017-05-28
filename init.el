@@ -18,3 +18,4 @@
 (require 'my-powerline)
 (require 'my-programming-modes)
 (require 'my-org-mode)
+(require 'my-neotree)

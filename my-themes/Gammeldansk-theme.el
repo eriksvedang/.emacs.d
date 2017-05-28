@@ -20,8 +20,7 @@
 			 :height 170
 			 :foundry "apple"))))
 
-;; #0E9 #A18 #0CF #271c4b
- 
+;; #0E9 #A17 #0CF #271c4b 
  
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
  '(font-lock-string-face ((t (:foreground "#A17"))))
@@ -44,9 +43,9 @@
  '(idris-semantic-definition-face ((t :foreground "#000")))
  '(idris-hole-face ((t :foreground "#000" :background "#0E9")))
 
- '(neo-root-dir-face ((t :height 150 :foreground "#A17")))
- '(neo-dir-link-face ((t :height 150 :foreground "black" :weight bold)))
- '(neo-file-link-face ((t :height 150 :foreground "black" :weight normal)))
+ '(neo-root-dir-face  ((t :height 150 :font "Fira Sans" :foreground "#A17")))
+ '(neo-dir-link-face  ((t :height 150 :font "Fira Sans" :foreground "black" :weight bold)))
+ '(neo-file-link-face ((t :height 150 :font "Fira Sans" :foreground "black" :weight normal)))
  
  '(font-lock-comment-face ((t (:foreground "gray70" :background "#FFF" :weight normal))))
  '(font-lock-doc-face ((t (:foreground "#271c4b"
@@ -75,7 +74,7 @@
  
  '(shadow ((((class color grayscale)
 	     (min-colors 88)
-	     (background light)) (:foreground "gray80")) ;; <- Line numbers
+	     (background light)) (:foreground "gray80" :font "Fira Sans" :height 150)) ;; <- Line numbers
 	   )
 	  )
 
