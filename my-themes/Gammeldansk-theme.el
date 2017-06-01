@@ -17,7 +17,7 @@
 			 :weight normal
 			 :width normal
 			 :font "Hasklig"
-			 :height 170
+			 :height 190
 			 :foundry "apple"))))
 
 ;; #0E9 #A17 #0CF #271c4b 
@@ -121,7 +121,8 @@
  '(ido-indicator ((t (:foreground "#000")))) ;; Face used by ido for highlighting its indicators (don't actually use this)
  '(ido-incomplete-regexp ((t (:foreground "#000")))) ;; Ido face for indicating incomplete regexps. (don't use this either)
 
- '(dired-directory ((t (:foreground "#000" :weight bold)))) 
+ '(dired-directory ((t (:foreground "#000" :weight bold))))
+ '(dired-ignored ((t (:foreground "#888" :weight bold)))) 
  '(font-lock-warning-face ((t (:inherit (error)))))
  '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
  
