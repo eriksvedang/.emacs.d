@@ -6,8 +6,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
 (setq inferior-lisp-program "CarpHask-exe")
-(add-hook 'carp-mode-hook 'smartparens-mode)
-
+(add-hook 'carp-mode-hook
+          (lambda ()
+            (electric-pair-local-mode 0)
+            (smartparens-mode 1)))
 
 
 ;; Markdown
@@ -25,7 +27,10 @@
 (add-hook 'haskell-mode-hook 'intero-mode)
 
 ;; Perhaps SmartParens messes with Structured Haskell Mode?!
-(add-hook 'intero-mode-hook 'smartparens-mode)
+(add-hook 'intero-mode-hook
+          (lambda ()
+            (smartparens-mode 1)
+            (electric-pair-local-mode 0)))
 
 ;; Structured Haskell Mode
 ;;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
@@ -85,7 +90,7 @@
 ;; Lisp
 (add-hook 'lisp-mode-hook
 	  '(lambda ()
-	     (electric-pair-mode 0)
+	     (electric-pair-local-mode 0)
 	     (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
 
 
@@ -101,12 +106,12 @@
 
 (add-hook 'cider-mode-hook
 	  '(lambda ()
-	     (electric-pair-mode 0)
+	     (electric-pair-local-mode 0)
 	     (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
 
 (add-hook 'cider-repl-mode-hook
 	  '(lambda ()
-	     (electric-pair-mode 0)
+	     (electric-pair-local-mode 0)
 	     (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
 	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 
@@ -164,7 +169,7 @@
 
 (add-hook 'rust-mode-hook
 	  (lambda ()
-	    (electric-pair-mode 1)
+	    (electric-pair-local-mode 1)
 	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
@@ -211,7 +216,7 @@
 
 (add-hook 'c-mode-hook
 	  (lambda ()
-	    (electric-pair-mode 1)
+	    (electric-pair-local-mode 1)
         (rainbow-mode 0) ;; treats #def as a color
         (disable-ligatures)
         (setq-default c-basic-offset 4)
@@ -232,7 +237,7 @@
 
 (add-hook 'c++-mode-hook
 	  (lambda ()
-	    (electric-pair-mode 1)
+	    (electric-pair-local-mode 1)
         (rainbow-mode 0) ;; treats #def as a color
         (disable-ligatures)
         (setq-default c-basic-offset 4)
@@ -261,7 +266,7 @@
 ;; Objective C
 (add-hook 'objc-mode-hook
           (lambda ()
-            (electric-pair-mode 1)
+            (electric-pair-local-mode 1)
             (disable-ligatures)
             (setq-default c-basic-offset 4)
             (c-set-style "cc-mode")))
@@ -288,7 +293,7 @@
 
 (add-hook 'swift-mode-hook
           (lambda ()
-            (electric-pair-mode 1)
+            (electric-pair-local-mode 1)
             (enable-ligatures)
             (setq-default c-basic-offset 4)
             (define-key swift-mode-map (kbd "C-c C-c") 'compile-swift)

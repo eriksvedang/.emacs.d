@@ -34,6 +34,8 @@ Notes
 * g              Refresh pane (dired, buffers)
 * C-n            Next line
 * C-p            Prev line
+* C-v            Scroll down one page
+* M-v            Scroll up one page
 * C-a            Beginning of line
 * C-e            End of line
 * C-d            Delete forward
