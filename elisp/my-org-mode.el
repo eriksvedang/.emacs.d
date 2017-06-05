@@ -1,6 +1,10 @@
 (setq org-support-shift-select t)
 (setq org-src-fontify-natively t)
 
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Documents/Organized/todo.org" "Brådskande")
+         "* TODO %?\n")))
+
 (defun my-insert-bullet ()
   (interactive)
   (indent-for-tab-command)
