@@ -1,5 +1,5 @@
 ;; Carp
-(add-to-list 'load-path "~/Projects/CarpHask/emacs")
+(add-to-list 'load-path "~/Projects/Carp/emacs")
 
 (require 'carp-mode)
 (require 'inf-carp-mode)
