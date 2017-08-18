@@ -43,6 +43,8 @@
  '(idris-semantic-definition-face ((t :foreground "#000")))
  '(idris-hole-face ((t :foreground "#000" :background "#0E9")))
 
+ '(markdown-header-delimiter-face ((t (:height 170 :weight normal :foreground "#000"))))
+ 
  '(neo-root-dir-face  ((t :height 150 :font "Fira Sans" :foreground "#A17")))
  '(neo-dir-link-face  ((t :height 150 :font "Fira Sans" :foreground "black" :weight bold)))
  '(neo-file-link-face ((t :height 150 :font "Fira Sans" :foreground "black" :weight normal)))
