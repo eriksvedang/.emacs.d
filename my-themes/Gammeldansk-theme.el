@@ -44,6 +44,7 @@
  '(idris-hole-face ((t :foreground "#000" :background "#0E9")))
 
  '(markdown-header-delimiter-face ((t (:inherit default))))
+ '(markdown-markup-face ((t (:inherit default))))
  '(markdown-list-face ((t (:inherit default))))
  
  '(neo-root-dir-face  ((t :height 150 :font "Fira Sans" :foreground "#A17")))
