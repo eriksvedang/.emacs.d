@@ -91,7 +91,7 @@
 
 ;; Ido (autocompletion in the minibuffer)
 (ido-mode 1)
-(ido-ubiquitous 1)
+(ido-ubiquitous-mode)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (setq ido-case-fold  t)
