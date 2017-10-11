@@ -5,7 +5,7 @@
 (require 'inf-carp-mode)
 
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
-(setq inferior-lisp-program "CarpHask-exe")
+(setq inferior-lisp-program "carp")
 (add-hook 'carp-mode-hook
           (lambda ()
             (electric-pair-local-mode 0)
