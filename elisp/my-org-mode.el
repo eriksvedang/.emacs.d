@@ -35,7 +35,13 @@
                         '(org-done ((t (:foreground "#00AF7F" :weight bold)))))
 
 (require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'org-mode-hook (lambda ()
+                           (org-bullets-mode 1)
+                           (local-unset-key (kbd "<S-up>"))
+                           (local-unset-key (kbd "<S-down>"))
+                           (local-unset-key (kbd "<S-left>"))
+                           (local-unset-key (kbd "<S-right>"))
+                           ))
 
 (setq org-bullets-bullet-list
       '(
