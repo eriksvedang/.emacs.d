@@ -25,7 +25,8 @@
 (global-set-key (kbd "C-x M-b") "⊥") ; bottom
 (global-set-key (kbd "C-x M-f") "∀") ; for all
 (global-set-key (kbd "C-x M-e") "∃") ; there exists
-(global-set-key (kbd "C-x M-p") "⊢") ; provable
+(global-set-key (kbd "C-x M-p") "π") ; pi
+(global-set-key (kbd "C-x M-r") "⊢") ; provable
 (global-set-key (kbd "C-x M-n") "¬") ; negation
 (global-set-key (kbd "C-x M-i") "⊃") ; implies
 
