@@ -40,6 +40,8 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+(add-hook 'before-save-hook 'whitespace-cleanup) ;; Remove trailing whitespace etc on save
+
 (desktop-save-mode 1) ; reopen buffers from last session
 
 (defadvice split-window (after move-point-to-new-window activate)
