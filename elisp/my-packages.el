@@ -2,7 +2,7 @@
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
+             ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
 
@@ -27,18 +27,19 @@
         free-keys            ;; Show what key combinations that are not taken
         ace-window           ;; Select window with number keys
         swiper               ;; Better search in buffer
-        
+
         powerline
         tabbar               ;; Sometimes tabs are useful
         neotree              ;; Sidebar
         all-the-icons        ;; Icons for Neotree, requires special fonts to be installed.
-        
+
         magit
         gist                 ;; Send files to Github gist
         restclient           ;; Send web requests from a buffer
 
         org-bullets          ;; Show nice icons in Org buffers
-        
+        org-present          ;; Show slides made in Org mode
+
         flycheck
         flymake-easy
         flymake-cursor

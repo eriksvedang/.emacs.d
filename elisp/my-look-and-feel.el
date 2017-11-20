@@ -60,7 +60,7 @@
 (setq next-screen-context-lines 10)
 
 ;; Ibuffer (buffer switcher)
-(setq ibuffer-formats 
+(setq ibuffer-formats
       '((mark modified read-only " "
               (name 30 30 :left :elide) ; change: 30s were originally 18s
               " "
@@ -78,14 +78,14 @@
 ;; ibuffer groups
 (setq ibuffer-saved-filter-groups
       '(("home"
-	 ("Magit" (name . "\*magit"))
-	 ("Dired" (mode . dired-mode))
-	 ("Emacs" (or (mode . help-mode)
-		      (name . "\*"))))))
+     ("Magit" (name . "\*magit"))
+     ("Dired" (mode . dired-mode))
+     ("Emacs" (or (mode . help-mode)
+              (name . "\*"))))))
 
 (add-hook 'ibuffer-mode-hook
-	  '(lambda ()
-	     (ibuffer-switch-to-saved-filter-groups "home")))
+      '(lambda ()
+         (ibuffer-switch-to-saved-filter-groups "home")))
 
 (setq ibuffer-show-empty-filter-groups nil)
 
@@ -130,9 +130,9 @@
 (global-set-key (kbd "s-p") 'find-file-in-project)
 (setq ffip-patterns
       '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-	"*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
-	"*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
-	"*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+    "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
+    "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
+    "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 (setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
 
 ;; Flycheck
@@ -196,24 +196,24 @@
 (defun disable-ligatures ()
   (interactive)
   (let ((alist '((33 . "")
-                 (35 . "") 
-                 (36 . "") 
+                 (35 . "")
+                 (36 . "")
                  (37 . "")
-                 (38 . "") 
-                 (43 . "") 
-                 (45 . "") 
-                 (46 . "") 
-                 (47 . "") 
-                 (48 . "") 
-                 (58 . "") 
-                 (59 . "") 
-                 (60 . "") 
-                 (61 . "") 
-                 (62 . "") 
-                 (63 . "") 
-                 (91 . "") 
-                 (92 . "") 
-                 (94 . "") 
+                 (38 . "")
+                 (43 . "")
+                 (45 . "")
+                 (46 . "")
+                 (47 . "")
+                 (48 . "")
+                 (58 . "")
+                 (59 . "")
+                 (60 . "")
+                 (61 . "")
+                 (62 . "")
+                 (63 . "")
+                 (91 . "")
+                 (92 . "")
+                 (94 . "")
                  (119 . "")
                  (123 . "")
                  (124 . "")
@@ -225,5 +225,22 @@
 (enable-ligatures)
 
 ;; -> <- => >>= << >> /= == >- -<
+
+;; Org present mode
+;; C-c C-q to quit.
+(eval-after-load "org-present"
+  '(progn
+     (add-hook 'org-present-mode-hook
+               (lambda ()
+                 (org-present-big)
+                 (org-display-inline-images)
+                 (org-present-hide-cursor)
+                 (org-present-read-only)))
+     (add-hook 'org-present-mode-quit-hook
+               (lambda ()
+                 (org-present-small)
+                 (org-remove-inline-images)
+                 (org-present-show-cursor)
+                 (org-present-read-write)))))
 
 (provide 'my-look-and-feel)
