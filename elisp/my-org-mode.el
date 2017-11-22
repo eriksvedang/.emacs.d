@@ -31,6 +31,7 @@
                           `(org-level-1 ((t (,@headline :height 1.25))))))
 
 (custom-theme-set-faces 'user
+                        '(org-ellipsis ((t (:foreground "#0072b2" :weight bold))))
                         '(org-todo ((t (:foreground "#FF3F60" :weight bold))))
                         '(org-done ((t (:foreground "#00AF7F" :weight bold)))))
 
@@ -51,6 +52,6 @@
         "✸"
         ))
 
-(setq org-ellipsis " (...)") ;; ⤵ ▼ ↴ ⬎ ⤷ 
+(setq org-ellipsis " ◦◦◦ ") ;; ⤵ ▼ ↴ ⬎ ⤷
 
 (provide 'my-org-mode)
