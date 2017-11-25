@@ -31,6 +31,7 @@
  '(neo-header-face ((t :inherit shadow)))
  '(neo-root-dir-face ((t :inherit link-visited :underline nil)))
  '(org-done ((t (:foreground "#00AF7F" :weight bold))))
+ '(org-ellipsis ((t (:foreground "#0072b2" :weight bold))))
  '(org-level-1 ((t (:inherit default :weight bold :foreground "#000" :height 1.25))))
  '(org-level-2 ((t (:inherit default :weight bold :foreground "#000" :height 1.1))))
  '(org-level-3 ((t (:inherit default :weight bold :foreground "#000" :height 1.0))))
