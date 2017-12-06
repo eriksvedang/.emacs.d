@@ -46,7 +46,7 @@ Notes
 * C-h f          describe-function
 * C-h v          describe-variable
 * C-h m          help for modes
-* C-h i          Open Info, the documentation browser (contains documentation for Emacs and modes) 
+* C-h i          Open Info, the documentation browser (contains documentation for Emacs and modes)
 * q              close "pane" (what's the real word?)
 * C-y            Yank (paste)
 * M-y            Cycle through kill ring (can only be used after yanking)
@@ -55,7 +55,6 @@ Notes
 * C-x C-x        Exchange point and mark
 * C-u C-SPC      Go back to previous position in buffer
 * C-x C-SPC      Pop the "global mark" (can go back to other buffers)
-* C-S-backspace  Delete line
 * M-r            Toggle point position - top, bottom, middle
 * C-l            Center view on line
 * C-M-l          Center view on paragraph
@@ -95,7 +94,7 @@ Keyboard Macros
 Repeat a macro until end of buffer by prefixing the invokation with M-0
 
 Commands (run with M-x)
-=======================
+========================
 * package-list-packages  Lists packages
 * eval-buffer            Evaluate the current buffer
 * eww                    Web browser!
