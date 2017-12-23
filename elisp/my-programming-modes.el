@@ -5,7 +5,7 @@
 (require 'inf-carp-mode)
 
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
-(setq inferior-lisp-program "carp")
+
 (add-hook 'carp-mode-hook
           (lambda ()
             (electric-pair-local-mode 0)
@@ -17,9 +17,9 @@
 (add-hook 'markdown-mode-hook
           (lambda ()
             (local-set-key (kbd "<M-right>") 'right-word)
-	    (local-set-key (kbd "<M-left>") 'left-word)
-	    (local-set-key (kbd "<M-S-right>") 'right-word)
-	    (local-set-key (kbd "<M-S-left>") 'left-word)))
+        (local-set-key (kbd "<M-left>") 'left-word)
+        (local-set-key (kbd "<M-S-right>") 'right-word)
+        (local-set-key (kbd "<M-S-left>") 'left-word)))
 
 
 
@@ -89,9 +89,9 @@
 
 ;; Lisp
 (add-hook 'lisp-mode-hook
-	  '(lambda ()
-	     (electric-pair-local-mode 0)
-	     (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
+      '(lambda ()
+         (electric-pair-local-mode 0)
+         (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
 
 
 
@@ -101,19 +101,19 @@
 (add-hook 'clojure-mode-hook 'smartparens-mode)
 
 (add-hook 'clojure-mode-hook
-	  '(lambda ()
-	     (put-clojure-indent 'match 1)))
+      '(lambda ()
+         (put-clojure-indent 'match 1)))
 
 (add-hook 'cider-mode-hook
-	  '(lambda ()
-	     (electric-pair-local-mode 0)
-	     (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
+      '(lambda ()
+         (electric-pair-local-mode 0)
+         (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
 
 (add-hook 'cider-repl-mode-hook
-	  '(lambda ()
-	     (electric-pair-local-mode 0)
-	     (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
-	     (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
+      '(lambda ()
+         (electric-pair-local-mode 0)
+         (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
+         (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load 'always-save)
@@ -123,16 +123,16 @@
 
 ;; Zencoding (expand abbreviated tags to full html)
 (add-hook 'zencoding-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
+      (lambda ()
+        (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
 
 
 
 ;; Sgml (html mode)
 (add-hook 'sgml-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "M-s-.") 'sgml-close-tag)
-	    (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
+      (lambda ()
+        (local-set-key (kbd "M-s-.") 'sgml-close-tag)
+        (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
@@ -141,8 +141,8 @@
 
 ;; Elm
 (add-hook 'elm-mode-hook
-	  (lambda ()
-	    (elm-indent-mode 0)
+      (lambda ()
+        (elm-indent-mode 0)
             (haskell-indent-mode 1)))
 
 
@@ -152,12 +152,12 @@
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "Cargo.toml")))
     (if project-dir
-  	(progn (setq default-directory project-dir)
-  	       (compile cargo-cmd))
+    (progn (setq default-directory project-dir)
+           (compile cargo-cmd))
       (compile
-       (format non-cargo-cmd 
-  	       (buffer-file-name)
-  	       (file-name-sans-extension (buffer-file-name)))))))
+       (format non-cargo-cmd
+           (buffer-file-name)
+           (file-name-sans-extension (buffer-file-name)))))))
 
 (defun rust-save-compile-and-run ()
   (interactive)
@@ -168,10 +168,10 @@
   (internal-rust-save-compile-run "cargo build" "rustc %s"))
 
 (add-hook 'rust-mode-hook
-	  (lambda ()
-	    (electric-pair-local-mode 1)
-	    (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
-	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
+      (lambda ()
+        (electric-pair-local-mode 1)
+        (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
+        (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
 
 ;; Racer (rust auto completion)
 (setq racer-cmd (concat (getenv "RACER_PATH") "/target/release/racer"))
@@ -196,8 +196,8 @@
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
     (if project-dir
-	(progn (setq default-directory project-dir)
-	       (compile (format "make")))
+    (progn (setq default-directory project-dir)
+           (compile (format "make")))
       (compile (format "clang %s -O0 -g -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (defun run-c ()
@@ -205,8 +205,8 @@
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
     (if project-dir
-	(progn (setq default-directory project-dir)
-	       (compile (format "make run")))
+    (progn (setq default-directory project-dir)
+           (compile (format "make run")))
     (compile (format "./%s" (file-name-sans-extension (buffer-name)))))))
 
 ;; Focus on the compiler output window so it's easier to close with 'q'
@@ -215,15 +215,15 @@
 ;;   (other-window 0))
 
 (add-hook 'c-mode-hook
-	  (lambda ()
-	    (electric-pair-local-mode 1)
+      (lambda ()
+        (electric-pair-local-mode 1)
         (rainbow-mode 0) ;; treats #def as a color
         (disable-ligatures)
         (setq-default c-basic-offset 4)
         (c-set-style "cc-mode")
-	    (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
-	    (define-key c-mode-map (kbd "C-c C-r") 'run-c)
-	    (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
+        (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
+        (define-key c-mode-map (kbd "C-c C-r") 'run-c)
+        (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
 ;; C++
 (defun compile-cpp ()
@@ -231,20 +231,20 @@
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "makefile")))
     (if project-dir
-	(progn (setq default-directory project-dir)
-	       (compile (format "make")))
+    (progn (setq default-directory project-dir)
+           (compile (format "make")))
       (compile (format "clang++ -std=c++11 %s -O0 -g -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (add-hook 'c++-mode-hook
-	  (lambda ()
-	    (electric-pair-local-mode 1)
+      (lambda ()
+        (electric-pair-local-mode 1)
         (rainbow-mode 0) ;; treats #def as a color
         (disable-ligatures)
         (setq-default c-basic-offset 4)
         (c-set-style "cc-mode")
-	    (define-key c++-mode-map (kbd "C-c C-c") 'compile-cpp)
-	    (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
-	    (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
+        (define-key c++-mode-map (kbd "C-c C-c") 'compile-cpp)
+        (define-key c++-mode-map (kbd "C-c C-r") 'run-c)
+        (define-key c++-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
 (add-hook 'c++-mode-hook 'irony-mode)
 
@@ -279,8 +279,8 @@
   (save-buffer)
   (let ((project-dir (locate-dominating-file (buffer-file-name) "Package.swift")))
     (if project-dir
-	(progn (setq default-directory project-dir)
-	       (compile (format "swift build")))
+    (progn (setq default-directory project-dir)
+           (compile (format "swift build")))
     (compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
 (defun run-swift ()
