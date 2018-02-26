@@ -20,13 +20,14 @@
         find-file-in-project ;; Looks in current git repo and show all source files
         avy                  ;; Jump to position in buffer
         iedit                ;; Edit all in scope
-        exec-path-from-shell
+        exec-path-from-shell ;; Fix the path on MacOS
         reveal-in-osx-finder
         google-this
         expand-region        ;; Select larger and larger region
         free-keys            ;; Show what key combinations that are not taken
         ace-window           ;; Select window with number keys
         swiper               ;; Better search in buffer
+        evil                 ;; Vim bindings
 
         powerline
         tabbar               ;; Sometimes tabs are useful
@@ -40,11 +41,12 @@
         org-bullets          ;; Show nice icons in Org buffers
         org-present          ;; Show slides made in Org mode
 
-        flycheck
-        flymake-easy
+        flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
         flymake-cursor
-        flycheck-rust
         flymake-hlint
+
+        flycheck             ;; Replacement for flymake
+        flycheck-rust
 
         nix-mode
         nix-buffer           ;; "nix-shell for emacs"
@@ -72,7 +74,8 @@
         cc-mode              ;; C
         glsl-mode
         irony                ;; C++ autocomplete
-        gud)                 ;; GDB debugging
+        gud                  ;; GDB debugging
+        )
       )
 
 (mapcar (lambda (package)
