@@ -3,14 +3,15 @@
 
 (require 'carp-mode)
 (require 'inf-carp-mode)
+(require 'carp-flycheck)
 
 (add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
 
 (add-hook 'carp-mode-hook
           (lambda ()
             (electric-pair-local-mode 0)
-            (smartparens-mode 1)))
-
+            (smartparens-mode 1)
+            #'flycheck-mode))
 
 ;; Markdown
 ;; Fix annoying keybindings by overriding them
