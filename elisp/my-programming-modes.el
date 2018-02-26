@@ -11,7 +11,7 @@
           (lambda ()
             (electric-pair-local-mode 0)
             (smartparens-mode 1)
-            #'flycheck-mode))
+            (flycheck-mode 1)))
 
 ;; Markdown
 ;; Fix annoying keybindings by overriding them
