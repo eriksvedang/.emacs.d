@@ -42,6 +42,15 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup) ;; Remove trailing whitespace etc on save
 
+(defun save-buffer-no-whitespace-cleanup ()
+  (interactive)
+  (let ((normally-should-whitespace-cleanup (memq 'whitespace-cleanup before-save-hook)))
+    (when normally-should-whitespace-cleanup
+      (remove-hook 'before-save-hook 'whitespace-cleanup))
+    (save-buffer)
+    (when normally-should-whitespace-cleanup
+      (add-hook 'before-save-hook 'whitespace-cleanup))))
+
 (desktop-save-mode 1) ; reopen buffers from last session
 
 (defadvice split-window (after move-point-to-new-window activate)
