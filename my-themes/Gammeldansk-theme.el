@@ -27,6 +27,8 @@
  '(font-lock-variable-name-face ((t (:foreground "#000"))))
  '(font-lock-keyword-face ((t (:foreground "#000" :weight bold))))
 
+ '(slime-repl-inputed-output-face ((t (:foreground "#1A7"))))
+
  '(haskell-keyword-face ((t (:foreground "#000" :weight bold))))
  '(haskell-definition-face ((t (:foreground "#000" :weight normal))))
  '(haskell-operator-face ((t (:foreground "#000" :weight normal))))
