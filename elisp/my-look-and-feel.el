@@ -105,7 +105,7 @@
                               (smex)))
 
 ;; Undo Tree
-(undo-tree-mode 1)
+(global-undo-tree-mode 1)
 (global-set-key (kbd "C-x C-z") 'undo-tree-visualize)
 
 ;; Auto complete
