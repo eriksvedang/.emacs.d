@@ -94,6 +94,8 @@
          (electric-pair-local-mode 0)
          (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
 
+(setq inferior-lisp-program "/Users/erik/.nix-profile/bin/sbcl")
+(slime-setup '(slime-fancy))
 
 
 ;; Cider

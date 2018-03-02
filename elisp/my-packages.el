@@ -51,6 +51,7 @@
         nix-mode
         nix-buffer           ;; "nix-shell for emacs"
 
+        slime                ;; Common Lisp
         intero               ;; Haskell mode that works well with Stack
         shm                  ;; Structured Haskell Mode (Paredit for Haskell)
         tuareg               ;; OCaml
