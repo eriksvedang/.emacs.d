@@ -70,11 +70,13 @@
 
   (set-face-attribute 'mode-line-inactive nil
                       :box nil
-                      :weight 'bold)
+                      :font "Fira Sans")
 
-  (set-face-attribute 'powerline-inactive1 nil)
+  (set-face-attribute 'powerline-inactive1 nil
+                      )
 
-  (set-face-attribute 'powerline-inactive2 nil)
+  (set-face-attribute 'powerline-inactive2 nil
+                      )
   )
 
 (powerline-uber-theme)
