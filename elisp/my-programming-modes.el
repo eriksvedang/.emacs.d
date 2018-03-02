@@ -13,6 +13,8 @@
             (smartparens-mode 1)
             (flycheck-mode 1)))
 
+
+
 ;; Markdown
 ;; Fix annoying keybindings by overriding them
 (add-hook 'markdown-mode-hook
@@ -229,6 +231,8 @@
         (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
         (define-key c-mode-map (kbd "C-c C-r") 'run-c)
         (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
+
+
 
 ;; C++
 (defun compile-cpp ()
