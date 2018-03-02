@@ -135,15 +135,10 @@
     "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 (setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
 
-;; Flycheck
-(add-hook 'rust-mode-hook #'flycheck-mode)
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
 ;; Iedit (edit all occurences of a word in the buffer at the same time)
 ;; Must start manually with (iedit-mode)
 ;; Shortut: C-; (when on a word)
+(global-set-key (kbd "C-;") 'iedit-mode)
 
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables

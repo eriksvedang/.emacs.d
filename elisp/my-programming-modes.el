@@ -172,7 +172,11 @@
       (lambda ()
         (electric-pair-local-mode 1)
         (define-key rust-mode-map (kbd "C-c C-r") 'rust-save-compile-and-run)
-        (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)))
+        (define-key rust-mode-map (kbd "C-c C-c") 'rust-save-compile)
+        #'flycheck-mode))
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; Racer (rust auto completion)
 (setq racer-cmd (concat (getenv "RACER_PATH") "/target/release/racer"))
