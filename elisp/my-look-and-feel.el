@@ -105,8 +105,8 @@
                               (smex)))
 
 ;; Undo Tree
-(undo-tree-mode 1)
-(global-set-key (kbd "C-x C-z") 'undo-tree-visualize)
+(global-undo-tree-mode 1)
+;; Normally "C-x u" is undo, but with global-undo-tree-mode on it runs 'undo-tree-visualize instead.
 
 ;; Auto complete
 (require 'company)
@@ -135,15 +135,10 @@
     "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 (setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
 
-;; Flycheck
-(add-hook 'rust-mode-hook #'flycheck-mode)
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
 ;; Iedit (edit all occurences of a word in the buffer at the same time)
 ;; Must start manually with (iedit-mode)
 ;; Shortut: C-; (when on a word)
+(global-set-key (kbd "C-;") 'iedit-mode)
 
 ;; Flymake Cursor (show flymake help at cursor)
 (custom-set-variables
