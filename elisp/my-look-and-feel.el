@@ -106,7 +106,7 @@
 
 ;; Undo Tree
 (global-undo-tree-mode 1)
-(global-set-key (kbd "C-x C-z") 'undo-tree-visualize)
+;; Normally "C-x u" is undo, but with global-undo-tree-mode on it runs 'undo-tree-visualize instead.
 
 ;; Auto complete
 (require 'company)
