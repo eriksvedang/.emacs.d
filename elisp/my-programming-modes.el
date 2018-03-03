@@ -92,12 +92,19 @@
 
 ;; Lisp
 (add-hook 'lisp-mode-hook
-      '(lambda ()
-         (electric-pair-local-mode 0)
-         (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
+          '(lambda ()
+             (smartparens-mode 1)
+             (electric-pair-local-mode 0)
+             (define-key lisp-mode-map (kbd "<s-return>") 'lisp-eval-defun)))
 
 (setq inferior-lisp-program "/Users/erik/.nix-profile/bin/sbcl")
 (slime-setup '(slime-fancy))
+
+(add-hook 'slime-mode-hook
+          '(lambda ()
+             (smartparens-mode 1)
+             (define-key lisp-mode-map (kbd "<s-return>") 'slime-eval-defun)))
+
 
 
 ;; Cider
