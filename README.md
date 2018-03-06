@@ -118,6 +118,11 @@ Org
 * C-c C-d Insert date
 * <s TAB  Insert src_code block
 
+Dired
+=====
+* b    Go up one directory
+* s    Toggle sort by name or date
+
 Search and replace in directory
 ==============================
 1. Use find-dired or mark files in dired mode using 'm'.
