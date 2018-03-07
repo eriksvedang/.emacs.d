@@ -18,6 +18,20 @@
 (global-linum-mode 1)
 (setq linum-format (quote "%4d  "))
 
+;; Mode Line (gets overriden by powerline mode if that gets activated)
+(setq mode-line-format (list "%e"
+                             mode-line-front-space
+                             mode-line-mule-info
+                             mode-line-client
+                             mode-line-modified
+                             mode-line-remote
+                             mode-line-frame-identification
+                             mode-line-buffer-identification
+                             "   "
+                             mode-line-position
+                             ))
+(setq default-mode-line-format mode-line-format)
+
 ;; Tab width (for actual, real tabs)
 (setq default-tab-width 4)
 
