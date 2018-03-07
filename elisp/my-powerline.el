@@ -79,7 +79,7 @@
                       )
   )
 
-;; (powerline-uber-theme)
+(powerline-uber-theme)
 
 (setq powerline-height 28)
 
