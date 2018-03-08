@@ -170,7 +170,7 @@
 
 
 (powerline-hardcore-theme) ;; Used by the Hardcore theme.
-(setq powerline-height 24)
+(setq powerline-height 26)
 
 
 (provide 'my-powerline)
