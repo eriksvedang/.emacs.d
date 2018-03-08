@@ -39,7 +39,7 @@
         restclient           ;; Send web requests from a buffer
 
         org-bullets          ;; Show nice icons in Org buffers
-        org-present          ;; Show slides made in Org mode
+;;        org-present          ;; Show slides made in Org mode
 
         flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
         flymake-cursor

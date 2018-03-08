@@ -166,11 +166,8 @@
   )
 
 ;;(powerline-uber-theme) ;; Used by the Gammeldansk theme.
-;;(setq powerline-height 28)
-
-
 (powerline-hardcore-theme) ;; Used by the Hardcore theme.
-(setq powerline-height 26)
 
+(setq powerline-height 28)
 
 (provide 'my-powerline)
