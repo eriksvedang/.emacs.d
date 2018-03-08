@@ -134,11 +134,43 @@
                      )))
              (concat (powerline-render lhs)
                  (powerline-fill face2 (powerline-width rhs))
-                 (powerline-render rhs)))))))
+                 (powerline-render rhs))))))
+
+  (if (eq system-type 'darwin)
+      (setq powerline-text-height-hack 170)
+    (setq powerline-text-height-hack 130))
+
+  (set-face-attribute 'mode-line nil
+                      :font "Fira Sans"
+                      :box nil
+                      :weight 'normal
+                      :height powerline-text-height-hack)
+
+  (set-face-attribute 'mode-line-buffer-id nil
+                      :weight 'normal)
+
+  (set-face-attribute 'powerline-active1 nil)
+
+  (set-face-attribute 'powerline-active2 nil
+                      :weight 'normal)
+
+  (set-face-attribute 'mode-line-inactive nil
+                      :box nil
+                      :font "Fira Sans")
+
+  (set-face-attribute 'powerline-inactive1 nil
+                      )
+
+  (set-face-attribute 'powerline-inactive2 nil
+                      )
+  )
 
 ;;(powerline-uber-theme) ;; Used by the Gammeldansk theme.
-(powerline-hardcore-theme) ;; Used by the Hardcore theme.
+;;(setq powerline-height 28)
 
-(setq powerline-height 28)
+
+(powerline-hardcore-theme) ;; Used by the Hardcore theme.
+(setq powerline-height 24)
+
 
 (provide 'my-powerline)
