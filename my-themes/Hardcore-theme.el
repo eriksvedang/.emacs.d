@@ -69,10 +69,10 @@
 
  '(show-paren-match ((t (:weight bold :underline nil))))
 
- '(mode-line ((t (:foreground "#fff" :background "black"))))
+ '(mode-line ((t (:foreground "#fff" :background "#1c1c1c"))))
  '(mode-line-buffer-id ((t (:foreground "#fff"))))
- '(powerline-active1 ((t (:foreground "gray90" :background "#333"))))
- '(powerline-active2 ((t (:foreground "white" :background "black"))))
+ '(powerline-active1 ((t (:foreground "#1c1c1c" :background "gray92"))))
+ '(powerline-active2 ((t (:foreground "#fff" :background "#1c1c1c"))))
  '(mode-line-inactive ((t (:foreground "gray90" :background "gray70"))))
  '(powerline-inactive1 ((t (:foreground "#aaa" :background "gray92"))))
  '(powerline-inactive2 ((t (:foreground "gray95" :background "gray85"))))
