@@ -73,9 +73,9 @@
  '(mode-line-buffer-id ((t (:foreground "#fff"))))
  '(powerline-active1 ((t (:foreground "#fff" :background "#1c1c1c"))))
  '(powerline-active2 ((t (:foreground "#fff" :background "#1c1c1c"))))
- '(mode-line-inactive ((t (:foreground "gray90" :background "gray70"))))
- '(powerline-inactive1 ((t (:foreground "#aaa" :background "gray92"))))
- '(powerline-inactive2 ((t (:foreground "gray95" :background "gray85"))))
+ '(mode-line-inactive ((t (:foreground "#fff" :background "gray80"))))
+ '(powerline-inactive1 ((t (:foreground "#fff" :background "gray80"))))
+ '(powerline-inactive2 ((t (:foreground "#fff" :background "gray80"))))
 
  '(slime-repl-inputed-output-face ((t (:foreground "#000" :weight bold))))
  '(cider-repl-err-output-face ((t (:foreground "#FF3F60"))))
