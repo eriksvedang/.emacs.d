@@ -37,6 +37,7 @@
         magit
         gist                 ;; Send files to Github gist
         restclient           ;; Send web requests from a buffer
+        circe                ;; IRC
 
         org-bullets          ;; Show nice icons in Org buffers
 ;;        org-present          ;; Show slides made in Org mode
