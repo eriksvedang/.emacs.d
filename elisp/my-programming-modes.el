@@ -11,7 +11,8 @@
           (lambda ()
             (electric-pair-local-mode 0)
             (smartparens-mode 1)
-            (flycheck-mode 1)))
+            ;;(flycheck-mode 1)
+            ))
 
 
 
