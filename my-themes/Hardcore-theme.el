@@ -41,7 +41,7 @@
 
  '(minibuffer-prompt ((t (:foreground "#000" :weight normal))))
  '(highlight ((t (:background "#eeeeee"))))
- '(region ((t (:foreground "#000" :background "#CCC"))))
+ '(region ((t (:foreground "#000" :background "#F9C"))))
 
  '(isearch ((t (:background "#1c1c1c" :foreground "white"))))
  '(lazy-highlight ((t (:background "#5e5e5e" :foreground "white"))))
