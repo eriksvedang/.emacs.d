@@ -2,8 +2,9 @@
 (setq org-src-fontify-natively t)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Documents/Organized/todo.org" "Brådskande") "* TODO %?\n")
-        ("c" "Carp" entry (file+headline "~/Projects/Carp/docs/Todo.org" "Unsorted") "* %?\n")))
+      '(("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
+        ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+        ("c" "Carp" entry (file+headline "~/Projects/Carp/docs/Todo.org" "Unsorted Todo:s") "* %?\n")))
 
 (defun my-insert-bullet ()
   (interactive)
