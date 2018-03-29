@@ -79,4 +79,7 @@
 (defadvice find-commands-by-name (after move-point-to-new-window activate)
   (other-window 1))
 
+(defadvice completion-list-mode (after move-point-to-new-window activate)
+  (other-window 1))
+
 (provide 'my-fix-defaults)

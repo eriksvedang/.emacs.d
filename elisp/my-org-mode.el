@@ -2,8 +2,8 @@
 (setq org-src-fontify-natively t)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Documents/Organized/todo.org" "Brådskande")
-         "* TODO %?\n")))
+      '(("t" "Todo" entry (file+headline "~/Documents/Organized/todo.org" "Brådskande") "* TODO %?\n")
+        ("c" "Carp" entry (file+headline "~/Projects/Carp/docs/Todo.org" "Unsorted") "* %?\n")))
 
 (defun my-insert-bullet ()
   (interactive)
@@ -11,6 +11,7 @@
   (insert "- [ ] "))
 
 (global-set-key (kbd "C-c §") 'my-insert-bullet)
+(global-set-key (kbd "C-!") 'org-capture)
 
 (setq org-hide-emphasis-markers t)
 
