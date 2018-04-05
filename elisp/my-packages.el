@@ -39,7 +39,6 @@
         restclient           ;; Send web requests from a buffer
         circe                ;; IRC
         elfeed               ;; RSS-reader
-        elfeed-web           ;; Web interface (elfeed-web-start)
 
         org-bullets          ;; Show nice icons in Org buffers
 ;;        org-present          ;; Show slides made in Org mode
