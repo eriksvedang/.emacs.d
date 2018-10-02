@@ -91,6 +91,11 @@
 
 
 
+;; Racket
+(setq racket-program "/Applications/Racket/bin/racket")
+
+
+
 ;; Lisp
 (add-hook 'lisp-mode-hook
           '(lambda ()
