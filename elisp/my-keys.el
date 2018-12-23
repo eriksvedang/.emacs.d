@@ -17,18 +17,33 @@
 (global-set-key (kbd "M-/") "\\")
 
 ;; Special Characters
-(global-set-key (kbd "C-x M-l") "λ") ; lambda
 (global-set-key (kbd "C-x M-a") "∧") ; and
-(global-set-key (kbd "C-x M-o") "∨") ; or
-(global-set-key (kbd "C-x M-e") "∈") ; element
-(global-set-key (kbd "C-x M-t") "⊤") ; true
 (global-set-key (kbd "C-x M-b") "⊥") ; bottom
+(global-set-key (kbd "C-x M-c") "∘") ; composition
+(global-set-key (kbd "C-x M-d") "⊄") ; not subset
+(global-set-key (kbd "C-x M-e") "∈") ; element
 (global-set-key (kbd "C-x M-f") "∀") ; for all
-(global-set-key (kbd "C-x M-e") "∃") ; there exists
-(global-set-key (kbd "C-x M-p") "π") ; pi
-(global-set-key (kbd "C-x M-r") "⊢") ; provable
+(global-set-key (kbd "C-x M-g") "∄") ; there doesn't exist
+;; h
+(global-set-key (kbd "C-x M-i") "∞") ; infinity
+(global-set-key (kbd "C-x M-j") "→") ; implication
+(global-set-key (kbd "C-x M-k") "⇒") ; double arrow
+(global-set-key (kbd "C-x M-l") "λ") ; lambda
+;; m
 (global-set-key (kbd "C-x M-n") "¬") ; negation
-(global-set-key (kbd "C-x M-i") "⊃") ; implies
+(global-set-key (kbd "C-x M-o") "∨") ; or
+(global-set-key (kbd "C-x M-p") "π") ; pi
+(global-set-key (kbd "C-x M-q") "∅") ; empty set
+(global-set-key (kbd "C-x M-r") "⊢") ; provable
+(global-set-key (kbd "C-x M-s") "⊂") ; subset
+(global-set-key (kbd "C-x M-t") "⊤") ; true
+(global-set-key (kbd "C-x M-u") "∪") ; union
+(global-set-key (kbd "C-x M-v") "∩") ; intersection
+(global-set-key (kbd "C-x M-w") "∉") ; not element
+(global-set-key (kbd "C-x M-x") "∃") ; there exists
+;; y
+(global-set-key (kbd "C-x M-z") "⊃") ; implies
+
 
 ;; Misc keyboard shortcuts
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -55,9 +70,9 @@
 
 ;; Shell history
 (add-hook 'shell-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "<M-up>") 'comint-previous-input)
-	    (local-set-key (kbd "<M-down>") 'comint-next-input)))
+      (lambda ()
+        (local-set-key (kbd "<M-up>") 'comint-previous-input)
+        (local-set-key (kbd "<M-down>") 'comint-next-input)))
 
 ;; Home/End keyboard shortcuts
 (defun smart-beginning-of-line ()
