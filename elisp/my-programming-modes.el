@@ -98,8 +98,8 @@
 
 ;; Pie
 (add-to-list 'auto-mode-alist '("\\.pie\\'" . racket-mode))
-(font-lock-add-keywords 'racket-mode '(("Π" . font-lock-keyword-face)))
-(font-lock-add-keywords 'racket-mode '(("->" . font-lock-keyword-face)))
+;; (font-lock-add-keywords 'racket-mode '(("Π" . font-lock-keyword-face)))
+;; (font-lock-add-keywords 'racket-mode '(("->" . font-lock-keyword-face)))
 (font-lock-add-keywords 'racket-mode '(("claim" . font-lock-keyword-face)))
 (put 'claim 'racket-indent-function 1)
 
