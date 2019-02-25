@@ -33,6 +33,7 @@
 (global-set-key (kbd "C-x M-n") "¬") ; negation
 (global-set-key (kbd "C-x M-o") "∨") ; or
 (global-set-key (kbd "C-x M-p") "π") ; pi
+(global-set-key (kbd "C-x M-P") "Π") ; capital pi
 (global-set-key (kbd "C-x M-q") "∅") ; empty set
 (global-set-key (kbd "C-x M-r") "⊢") ; provable
 (global-set-key (kbd "C-x M-s") "⊂") ; subset
