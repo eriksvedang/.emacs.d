@@ -96,6 +96,12 @@
 
 
 
+;; Pie
+(font-lock-add-keywords 'racket-mode
+  '(("claim" . font-lock-keyword-face)))
+(put 'claim 'racket-indent-function 1)
+
+
 ;; Lisp
 (add-hook 'lisp-mode-hook
           '(lambda ()
