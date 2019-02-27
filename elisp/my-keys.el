@@ -37,6 +37,7 @@
 (global-set-key (kbd "C-x M-q") "∅") ; empty set
 (global-set-key (kbd "C-x M-r") "⊢") ; provable
 (global-set-key (kbd "C-x M-s") "⊂") ; subset
+(global-set-key (kbd "C-x M-S") "Σ") ; sigma
 (global-set-key (kbd "C-x M-t") "⊤") ; true
 (global-set-key (kbd "C-x M-u") "∪") ; union
 (global-set-key (kbd "C-x M-v") "∩") ; intersection
