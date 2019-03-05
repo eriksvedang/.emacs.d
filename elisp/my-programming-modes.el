@@ -93,6 +93,7 @@
 
 ;; Racket
 (setq racket-program "/Applications/Racket/bin/racket")
+(add-hook 'racket-mode-hook 'smartparens-mode)
 
 
 
