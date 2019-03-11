@@ -27,7 +27,6 @@
         free-keys            ;; Show what key combinations that are not taken
         ace-window           ;; Select window with number keys
         swiper               ;; Better search in buffer
-        ;;evil                 ;; Vim bindings
 
         powerline
         tabbar               ;; Sometimes tabs are useful
