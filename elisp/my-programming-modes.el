@@ -77,6 +77,23 @@
 
 
 
+;; Agda
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
+
+(add-hook 'agda2-mode-hook (lambda ()
+                             (set-face-attribute 'default nil
+                                                 :family "DejaVu Sans Mono"
+                                                 :height 170
+                                                 :weight 'normal
+                                                 :width  'normal)
+                             (set-fontset-font "fontset-default"
+                                               (cons (decode-char 'ucs #x2982)
+                                                     (decode-char 'ucs #x2982))
+                                               "STIX")))
+
+
+
 ;; Emacs Lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
