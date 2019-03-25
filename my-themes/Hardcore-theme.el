@@ -21,7 +21,7 @@
              :foundry "apple"))))
 
  '(font-lock-builtin-face ((t (:weight normal :foreground "#000"))))
- '(font-lock-string-face ((t (:foreground "#1c1c1c" :slant italic))))
+ '(font-lock-string-face ((t (:foreground "#168" :slant italic))))
  '(font-lock-type-face ((t (:foreground "#000" :weight normal))))
  '(font-lock-function-name-face ((t (:foreground "#000" :weight normal))))
  '(font-lock-variable-name-face ((t (:foreground "#000"))))
