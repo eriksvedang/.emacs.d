@@ -34,3 +34,4 @@ auto-save-list/
 /.DS_Store
 nix-buffer
 .DS_Store
+transient/
