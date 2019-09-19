@@ -77,6 +77,7 @@
         glsl-mode
         irony                ;; C++ autocomplete
         gud                  ;; GDB debugging
+        yaml-mode
         )
       )
 
