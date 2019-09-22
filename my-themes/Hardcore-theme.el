@@ -114,6 +114,8 @@
  '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
  '(company-tooltip-annotation ((t :background "#121133" :foreground "#0c3")))
 
+ '(org-block ((t (:face "Hasklig"))))
+
  '(ido-subdir ((t (:foreground "#000")))) ;; Face used by ido for highlighting subdirs in the alternatives.
  '(ido-first-match ((t (:foreground "#000" :weight bold)))) ;; Face used by ido for highlighting first match.
  '(ido-only-match ((t (:foreground "#000" :weight bold)))) ;; Face used by ido for highlighting only match.
