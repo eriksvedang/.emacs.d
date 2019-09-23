@@ -271,6 +271,7 @@
         (c-set-style "cc-mode")
         (define-key c-mode-map (kbd "C-c C-c") 'compile-c)
         (define-key c-mode-map (kbd "C-c C-r") 'run-c)
+        (define-key c-mode-map (kbd "s-r") 'run-c)
         (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 
 
