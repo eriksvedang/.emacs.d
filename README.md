@@ -129,3 +129,7 @@ Search and replace in directory
 2. Press 'Q' to invoke dired-do-find-regexp-and-replace
 3. Press 'y' to accept change, 'n' to skip.
 4. '!' means replace all without asking, 'N' is no for the rest of the current file.
+
+Things to try out in the future
+==============================
+- The 'use-package' package.
