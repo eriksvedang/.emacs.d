@@ -133,3 +133,7 @@ Search and replace in directory
 Things to try out in the future
 ==============================
 - The 'use-package' package.
+- 'straight' for package management?
+- 'package.el', also for package management
+- 'deadgrep' for project grep:ing
+- 'notmuch' for email
