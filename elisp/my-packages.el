@@ -53,7 +53,8 @@
         nix-buffer           ;; "nix-shell for emacs"
 
         slime                ;; Common Lisp
-        intero               ;; Haskell mode that works well with Stack
+        intero               ;; Haskell mode that works well with Stack -- DEPRECATED!
+        ;;dante                ;; Alternative to Intero
         shm                  ;; Structured Haskell Mode (Paredit for Haskell)
         tuareg               ;; OCaml
         idris-mode
@@ -77,6 +78,7 @@
         glsl-mode
         irony                ;; C++ autocomplete
         gud                  ;; GDB debugging
+        cmake-mode
         yaml-mode
         )
       )

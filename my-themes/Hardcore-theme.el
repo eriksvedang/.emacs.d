@@ -106,10 +106,10 @@
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
 
- '(company-tooltip ((t (:foreground "#DDD" :background "#1c1c1c"))))
- '(company-tooltip-selection ((t (:foreground "#000" :background "#eee"))))
- '(company-tooltip-common ((t (:foreground "#FFF" :background "#1c1c1c"))))
- '(company-tooltip-common-selection ((t (:foreground "#000" :background "#eee" :weight bold))))
+ '(company-tooltip ((t (:foreground "#1c1c1c" :background "#DDD"))))
+ '(company-tooltip-selection ((t (:foreground "#000" :background "#9FD"))))
+ '(company-tooltip-common ((t (:foreground "#000"))))
+ '(company-tooltip-common-selection ((t )))
  '(company-scrollbar-fg ((t (:background "#DDD")))) ;; the handle
  '(company-scrollbar-bg ((t (:background "#888")))) ;; the scroll bar
  '(company-tooltip-annotation ((t :background "#121133" :foreground "#0c3")))
