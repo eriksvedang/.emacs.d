@@ -8,6 +8,7 @@
 
 (setq the-packages
       '(
+        use-package
         multiple-cursors
         smartparens          ;; Slurp and barf
         rainbow-delimiters   ;; Colorful parens
@@ -53,8 +54,8 @@
         nix-buffer           ;; "nix-shell for emacs"
 
         slime                ;; Common Lisp
-        intero               ;; Haskell mode that works well with Stack -- DEPRECATED!
-        ;;dante                ;; Alternative to Intero
+        ;;intero               ;; Haskell mode that works well with Stack -- DEPRECATED!
+        dante                ;; Alternative to Intero
         shm                  ;; Structured Haskell Mode (Paredit for Haskell)
         tuareg               ;; OCaml
         idris-mode

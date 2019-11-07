@@ -51,7 +51,7 @@
     (when normally-should-whitespace-cleanup
       (add-hook 'before-save-hook 'whitespace-cleanup))))
 
-(desktop-save-mode 1) ; reopen buffers from last session
+(desktop-save-mode 0) ; reopen buffers from last session
 
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."

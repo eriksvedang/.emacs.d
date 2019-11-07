@@ -27,14 +27,31 @@
 
 
 
-;; Intero (Stack's Haskell mode)
-(add-hook 'haskell-mode-hook 'intero-mode)
+;; Intero (Stack's Haskell mode) -- DEPRECATED!
+;; (add-hook 'haskell-mode-hook 'intero-mode)
 
-;; Perhaps SmartParens messes with Structured Haskell Mode?!
-(add-hook 'intero-mode-hook
+(use-package dante
+  :ensure t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  ;; OR:
+  ;; (add-hook 'haskell-mode-hook 'flymake-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode)
+  )
+
+(setq dante-methods '(stack new-build bare-cabal bare-ghci))
+
+(add-hook 'dante-mode-hook (lambda () (local-set-key (kbd "<C-c C-t>") 'dante-type-at)))
+
+(add-hook 'haskell-mode-hook
           (lambda ()
+            (interactive-haskell-mode 1)
             (smartparens-mode 1)
             (electric-pair-local-mode 0)))
+
+(setq haskell-process-type 'stack-ghci)
 
 ;; Structured Haskell Mode
 ;;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
