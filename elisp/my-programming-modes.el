@@ -379,13 +379,14 @@
 
 
 
+;; Ord emacs modes
+(add-to-list 'load-path "~/Projects/Ord/emacs")
 ;; Ord Segment files
-(add-to-list 'load-path "~/Projects/Ord/emacs")
 (require 'segment-mode)
-
 ;; Ord Dialogue files
-(add-to-list 'load-path "~/Projects/Ord/emacs")
 (require 'dialogue-mode)
+;; Ord Room files
+(require 'room-mode)
 
 
 (provide 'my-programming-modes)
