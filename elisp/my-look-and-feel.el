@@ -129,6 +129,7 @@
 (setq company-tooltip-align-annotations t)
 (setq company-minimum-prefix-length 3)
 (setq company-idle-delay 0.4)
+(setq company-dabbrev-downcase nil) ;; Don't lowercase things!
 
 ;; Turn off backend that makes Carp repl hang: (WTF?!)
 (setq company-backends
