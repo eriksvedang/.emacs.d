@@ -356,15 +356,20 @@
     (if project-dir
     (progn (setq default-directory project-dir)
            (compile (format "swift build")))
-    (compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+    ;;(compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name))))
+    (compile ("swift build"))
+    )))
 
 (defun run-swift ()
   (interactive)
   (save-buffer)
-  (let ((project-dir (locate-dominating-file (buffer-file-name) "Project.swift")))
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "Package.swift")))
     (if project-dir
-        (error "Can't run swift projects at the moment.")
-    (compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+    (progn (setq default-directory project-dir)
+           (compile (format "swift run")))
+    ;;(compile (format "swift %s" (buffer-name) (file-name-sans-extension (buffer-name))))
+    (compile ("swift run"))
+    )))
 
 (add-hook 'swift-mode-hook
           (lambda ()
@@ -372,7 +377,8 @@
             (enable-ligatures)
             (setq-default c-basic-offset 4)
             (define-key swift-mode-map (kbd "C-c C-c") 'compile-swift)
-            (define-key swift-mode-map (kbd "C-c C-r") 'run-swift)))
+            (define-key swift-mode-map (kbd "C-c C-r") 'run-swift)
+            (define-key swift-mode-map (kbd "s-r") 'run-swift)))
 
 
 
