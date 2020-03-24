@@ -82,6 +82,13 @@
 
 
 
+;; Purescript
+(add-hook 'purescript-mode-hook
+          (lambda ()
+            (turn-on-purescript-indentation)))
+
+
+
 ;; Idris
 ;;(add-hook 'idris-mode-hook 'turn-on-idris-simple-indent)
 (add-hook 'idris-mode-hook (lambda ()

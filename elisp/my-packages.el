@@ -58,6 +58,7 @@
         dante                ;; Alternative to Intero
         shm                  ;; Structured Haskell Mode (Paredit for Haskell)
         tuareg               ;; OCaml
+        purescript-mode
         idris-mode
         elm-mode
         sml-mode             ;; Standard ML
@@ -74,6 +75,7 @@
         markdown-mode
         zencoding-mode       ;; HTML & CSS
         js2-mode             ;; Javascript
+        rjsx-mode            ;; JSX (used in React)
         web-mode             ;; Smart editing of HTML templates
         cc-mode              ;; C
         glsl-mode

@@ -10,13 +10,13 @@
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-show-debug-tips nil)
- '(haskell-process-type (quote cabal-repl))
+ '(haskell-process-type (quote cabal-repl) t)
  '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
  '(help-at-pt-timer-delay 0.5)
  '(ns-alternate-modifier (quote meta))
  '(package-selected-packages
    (quote
-    (use-package dante intero yasnippet cmake-mode yaml-mode outshine agda-mode agda chess elfeed-org elfeed circe slime-mode slime org-present all-the-icons shm swiper omnisharp omnisharp-mode nix-buffer nix-mode rust-mode flymake-easy flycheck avy company zencoding-mode web-mode undo-tree tuareg tabbar swift-mode smooth-scrolling sml-mode smex smartparens reveal-in-osx-finder restclient rainbow-mode rainbow-delimiters racket-mode racer powerline php-mode org-bullets nim-mode neotree multiple-cursors markdown-mode magit lua-mode js2-mode irony iedit idris-mode ido-ubiquitous goto-chg google-this glsl-mode gist fsharp-mode free-keys flymake-hlint flymake-cursor flycheck-rust find-file-in-project expand-region exec-path-from-shell elm-mode csharp-mode cider ace-window)))
+    (purescript-mode inf-clojure rjsx-mode use-package dante intero yasnippet cmake-mode yaml-mode outshine agda-mode agda chess elfeed-org elfeed circe slime-mode slime org-present all-the-icons shm swiper omnisharp omnisharp-mode nix-buffer nix-mode rust-mode flymake-easy flycheck avy company zencoding-mode web-mode undo-tree tuareg tabbar swift-mode smooth-scrolling sml-mode smex smartparens reveal-in-osx-finder restclient rainbow-mode rainbow-delimiters racket-mode racer powerline php-mode org-bullets nim-mode neotree multiple-cursors markdown-mode magit lua-mode js2-mode irony iedit idris-mode ido-ubiquitous goto-chg google-this glsl-mode gist fsharp-mode free-keys flymake-hlint flymake-cursor flycheck-rust find-file-in-project expand-region exec-path-from-shell elm-mode csharp-mode cider ace-window)))
  '(send-mail-function (quote sendmail-send-it)))
 
 (custom-set-faces
