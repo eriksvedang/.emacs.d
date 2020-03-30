@@ -49,7 +49,10 @@
           (lambda ()
             (interactive-haskell-mode 1)
             (smartparens-mode 1)
-            (electric-pair-local-mode 0)))
+            (electric-pair-local-mode 0)
+            (define-key haskell-mode-map (kbd "s-r") (lambda ()
+                                                       (interactive)
+                                                       (shell-command "stack run")))))
 
 (setq haskell-process-type 'stack-ghci)
 
