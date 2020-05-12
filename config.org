@@ -36,7 +36,8 @@
         exec-path-from-shell ;; Fix the path on MacOS
 	reveal-in-osx-finder ;; Open finder at current buffer's location
 	org-bullets          ;; Make org bullet points look nice
-	rainbow-mode
+	rainbow-mode         ;; Show color of hex values inlined in the buffer
+	imenu                ;; Goto definition within the file
 	
 	magit                ;; The best
 
@@ -153,6 +154,66 @@
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
 #+END_SRC
+
+** Ligatures
+(defun enable-ligatures ()
+  (interactive)
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                 (36 . ".\\(?:>\\)")
+                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                 ;;(42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)") ;; This messes up triple stars in Org mode (***)
+                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                 (48 . ".\\(?:x[a-zA-Z]\\)")
+                 (58 . ".\\(?:::\\|[:=]\\)")
+                 (59 . ".\\(?:;;\\|;\\)")
+                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                 (91 . ".\\(?:]\\)")
+                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                 (94 . ".\\(?:=\\)")
+                 (119 . ".\\(?:ww\\)")
+                 (123 . ".\\(?:-\\)")
+                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)"))))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring])))))
+
+(defun disable-ligatures ()
+  (interactive)
+  (let ((alist '((33 . "")
+                 (35 . "")
+                 (36 . "")
+                 (37 . "")
+                 (38 . "")
+                 (43 . "")
+                 (45 . "")
+                 (46 . "")
+                 (47 . "")
+                 (48 . "")
+                 (58 . "")
+                 (59 . "")
+                 (60 . "")
+                 (61 . "")
+                 (62 . "")
+                 (63 . "")
+                 (91 . "")
+                 (92 . "")
+                 (94 . "")
+                 (119 . "")
+                 (123 . "")
+                 (124 . "")
+                 (126 . ""))))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
 ** Frame
 #+BEGIN_SRC emacs-lisp
@@ -287,6 +348,54 @@
 ** Idiosyncrasies
 #+BEGIN_SRC emacs-lisp
 (delete-selection-mode 1)
+#+END_SRC
+
+** The missing keyboard shortcuts
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "s-b") 'ibuffer)
+(global-set-key (kbd "C-x C-f") 'ido-find-file)
+(global-set-key (kbd "s-W") 'delete-window)
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "s-i") 'imenu) ; lists the functions in file
+(global-set-key (kbd "s-f") 'rgrep) ; search for files
+(global-set-key (kbd "s-+") 'enlarge-window)
+(global-set-key (kbd "s--") 'shrink-window)
+(global-set-key (kbd "M-+") 'enlarge-window-horizontally)
+(global-set-key (kbd "M--") 'shrink-window-horizontally)
+(global-set-key (kbd "C-<") 'shell)
+(global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
+(global-set-key (kbd "M-p") 'previous-error)
+(global-set-key (kbd "s-g") 'goto-line)
+#+END_SRC
+
+** Kill whitespace (to the left and right of the cursor)
+#+BEGIN_SRC emacs-lisp
+(defun kill-whitespace ()
+  "Kill the whitespace between two non-whitespace characters"
+  (interactive "*")
+  (save-excursion
+    (save-restriction
+      (save-match-data
+        (progn
+          (re-search-backward "[^ \t\r\n]" nil t)
+          (re-search-forward "[ \t\r\n]+" nil t)
+          (replace-match "" nil nil))))))
+
+(global-set-key [s-backspace] 'kill-whitespace)
+#+END_SRC
+
+** Characters
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-2") "@")
+(global-set-key (kbd "M-4") "$")
+(global-set-key (kbd "M-8") "[")
+(global-set-key (kbd "M-9") "]")
+(global-set-key (kbd "M-(") "{")
+(global-set-key (kbd "M-)") "}")
+(global-set-key (kbd "M-7") "|")
+(global-set-key (kbd "M-/") "\\")
 #+END_SRC
 
 ** Ido

@@ -36,3 +36,4 @@ nix-buffer
 .DS_Store
 transient/
 config.el
+/ido.last~
