@@ -253,17 +253,17 @@
 
 (set-face-attribute 'header-line nil
 ;;                    :weight 'regular
-            :height 140
+                    :height 140
                     :underline "black"
                     :foreground "black"
-            :background "white"
-                    :box `(:line-width 3 :color "white" :style nil))
+                    :background "white"
+                    :box `(:line-width 8 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
                     :background "white"
-            :foreground "white"
+                    :foreground "white"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
@@ -271,19 +271,21 @@
                     :inherit 'mode-line)
 
 (set-face-attribute 'mode-line-buffer-id nil
-                    :weight 'light)(set-face-attribute 'header-line nil
-            :height 140
+                    :weight 'light)
+
+(set-face-attribute 'header-line nil
+                    :height 140
                     :underline t
                     :underline "black"
                     :foreground "black"
-            :background "white"
+                    :background "white"
                     :box `(:line-width 3 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
                     :background "white"
-            :foreground "white"
+                    :foreground "white"
                     :box nil)
 
 (set-face 'mode-line-inactive  'mode-line)
@@ -298,6 +300,7 @@
   (lookup-key mode-line-major-mode-keymap [mode-line]))
 
 (setq-default mode-line-format '(""))
+
 (setq-default header-line-format
   '(:eval (mode-line-render
    (format-mode-line
