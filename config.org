@@ -79,7 +79,7 @@
 (defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
 #+END_SRC
 
-*** Basics
+*** Main font
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'default nil :height 170)
 (setq-default line-spacing 4)
@@ -284,6 +284,11 @@
 #+END_SRC
 
 * Feel
+** Idiosyncrasies
+#+BEGIN_SRC emacs-lisp
+(delete-selection-mode 1)
+#+END_SRC
+
 ** Ido
 #+BEGIN_SRC emacs-lisp
 (ido-mode 1)
