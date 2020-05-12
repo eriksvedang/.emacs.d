@@ -1,10 +1,12 @@
 * Startup
 #+BEGIN_SRC emacs-lisp
+(setq inhibit-splash-screen t)
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
+(menu-bar-mode 0)
 (tool-bar-mode 0)
 (tooltip-mode  0)
 (scroll-bar-mode 0)
@@ -338,6 +340,52 @@
 ** Fix idiosyncrasies
 #+BEGIN_SRC emacs-lisp
 (delete-selection-mode 1)
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+(global-auto-revert-mode 1)
+(auto-save-mode 0)
+
+(setq ring-bell-function 'ignore)
+(setq initial-scratch-message "")
+(setq undo-limit 9999999)
+(setq make-backup-files nil)
+(setq-default indent-tabs-mode nil)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** Advice
+#+BEGIN_SRC emacs-lisp
+(defadvice split-window (after move-point-to-new-window activate)
+  "Moves the point to the newly created window after splitting."
+  (other-window 1))
+
+;; Switch to new window when using help
+(defadvice describe-key (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-function (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-variable (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice apropos-command (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-bindings (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice describe-mode (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice find-commands-by-name (after move-point-to-new-window activate)
+  (other-window 1))
+
+(defadvice completion-list-mode (after move-point-to-new-window activate)
+  (other-window 1))
 #+END_SRC
 
 ** The missing keyboard shortcuts
