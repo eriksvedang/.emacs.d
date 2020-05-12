@@ -59,7 +59,7 @@
 ** Font
 #+BEGIN_SRC emacs-lisp
 (set-face-font 'default "Roboto Mono Light 16")
-(setq-default line-spacing 2)
+(setq-default line-spacing 6)
 #+END_SRC
 
 ** Colors
@@ -72,16 +72,57 @@
 
 ** Frame
 #+BEGIN_SRC emacs-lisp
-(setq default-frame-alist
-      (append (list '(width  . 73)
-                    '(height . 41)
-                    '(vertical-scroll-bars . nil)
-                    '(internal-border-width . 24)
-                    '(font . "Roboto Mono Light 14"))))
-(set-frame-parameter
- (selected-frame) 'internal-border-width 24)
-
+(set-frame-parameter (selected-frame) 'internal-border-width 24)
 (fringe-mode '(0 . 0))
+#+END_SRC
+
+** Mode Line
+#+BEGIN_SRC emacs-lisp
+(defun mode-line-render (left right)
+  "Return a string of `window-width' length containing left, and
+   right aligned respectively."
+  (let* ((available-width (- (window-total-width) (length left) )))
+    (format (format "%%s %%%ds" available-width) left right)))
+
+(setq-default header-line-format
+  '(:eval (mode-line-render
+
+   (format-mode-line
+    (list
+     (propertize "" 'face `(:weight regular))
+     (propertize "%b " 'face `(:weight regular))
+     '(:eval (if (and buffer-file-name (buffer-modified-p))
+         (propertize "(modified)" 
+		     'face `(:weight light
+			     :foreground "#aaaaaa"))))))
+   
+   (format-mode-line
+    (propertize "%3l:%2c "
+	'face `(:weight light :foreground "#aaaaaa"))))))
+
+(setq-default mode-line-format "") ;; The "normal" mode line (at the bottom)
+
+(set-face-attribute 'header-line nil
+;;                    :weight 'regular
+		    :height 140
+                    :underline "black"
+                    :foreground "black"
+		    :background "white"
+                    :box `(:line-width 3 :color "white" :style nil))
+
+(set-face-attribute 'mode-line nil
+                    :height 10
+                    :underline "black"
+                    :background "white"
+		                :foreground "white"
+                    :box nil)
+
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil
+                    :inherit 'mode-line)
+
+(set-face-attribute 'mode-line-buffer-id nil 
+                    :weight 'light)
 #+END_SRC
 
 ** Cursor
@@ -93,8 +134,8 @@
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
 (require 'linum)
-(global-linum-mode 1)
 (setq linum-format (quote "%4d  "))
+(global-linum-mode 0)
 #+END_SRC
 
 ** Parenthesis
@@ -105,16 +146,27 @@
 ** Org bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets)
-
-(setq org-bullets-bullet-list
-      '("●"
-        "○"
-        "◉"
-        "✸"))
-
+(setq org-bullets-bullet-list '("●" "○" "◉" "✸"))
 (setq org-ellipsis " ... ")
 #+END_SRC
 
+** Org colors
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'org-level-1 nil
+		    :foreground "black"
+		    :weight 'regular)
+(set-face-attribute 'org-level-2 nil
+		    :foreground "black"
+		    :weight 'thin)
+(set-face-attribute 'org-level-3 nil
+		    :foreground "black"
+		    :weight 'thin)
+(set-face-attribute 'org-link nil
+		    :underline nil
+		    :foreground "dark blue")
+(set-face-attribute 'org-verbatim nil
+		    :foreground "dark blue")
+#+END_SRC
 * Feel
 ** Ido
 #+BEGIN_SRC emacs-lisp
@@ -182,6 +234,49 @@ Ido completition for M-x menu.
 
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
+#+END_SRC
+
+** Move Lines
+#+BEGIN_SRC emacs-lisp
+(defun move-lines (n)
+  (let ((beg) (end) (keep))
+    (if mark-active
+        (save-excursion
+          (setq keep t)
+          (setq beg (region-beginning)
+                end (region-end))
+          (goto-char beg)
+          (setq beg (line-beginning-position))
+          (goto-char end)
+          (setq end (line-beginning-position 2)))
+      (setq beg (line-beginning-position)
+            end (line-beginning-position 2)))
+    (let ((offset (if (and (mark t)
+                           (and (>= (mark t) beg)
+                                (< (mark t) end)))
+                      (- (point) (mark t))))
+          (rewind (- end (point))))
+      (goto-char (if (< n 0) beg end))
+      (forward-line n)
+      (insert (delete-and-extract-region beg end))
+      (backward-char rewind)
+      (if offset (set-mark (- (point) offset))))
+    (if keep
+        (setq mark-active t
+              deactivate-mark nil))))
+
+(defun move-lines-up (n)
+  "move the line(s) spanned by the active region up by N lines."
+  (interactive "*p")
+  (move-lines (- (or n 1))))
+
+(defun move-lines-down (n)
+  "move the line(s) spanned by the active region down by N lines."
+  (interactive "*p")
+  (move-lines (or n 1)))
+
+(global-set-key (kbd "C-s-<down>") 'move-lines-down)
+(global-set-key (kbd "C-s-<up>") 'move-lines-up)
 #+END_SRC
 
 * Modes
