@@ -370,8 +370,12 @@
 (setq-default indent-tabs-mode nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 #+END_SRC
-** Advice
+
+** Advice when splitting windows
 #+BEGIN_SRC emacs-lisp
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
@@ -438,6 +442,11 @@
           (replace-match "" nil nil))))))
 
 (global-set-key [s-backspace] 'kill-whitespace)
+#+END_SRC
+
+** Remove whitespace on save
+#+BEGIN_SRC emacs-lisp
+(add-hook 'before-save-hook 'whitespace-cleanup)
 #+END_SRC
 
 ** Insert line above
@@ -612,6 +621,11 @@ Ido completition for M-x menu.
   (delete-other-windows))
 #+END_SRC
 
+** Emacs Lisp
+#+BEGIN_SRC emacs-lisp
+(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+#+END_SRC
+
 ** Haskell
 #+BEGIN_SRC emacs-lisp
 (use-package haskell)
@@ -668,4 +682,29 @@ Ido completition for M-x menu.
 (sp-pair "'" nil :actions :rem)
 (sp-pair "\"" nil :actions :rem)
 (sp-pair "\\\"" nil :actions :rem)
+#+END_SRC
+** Carp
+#+BEGIN_SRC emacs-lisp
+(setq carp-mode-base-path "/Users/erik/Projects/Carp/emacs/")
+(setq carp-mode-path (concat carp-mode-base-path "carp-mode.el"))
+(setq inf-carp-mode-path (concat carp-mode-base-path "inf-carp-mode.el"))
+(setq carp-flycheck-path (concat carp-mode-base-path "carp-flycheck.el"))
+
+(when (file-exists-p carp-mode-path)
+  (load carp-mode-path))
+
+(when (file-exists-p inf-carp-mode-path)
+  (load inf-carp-mode-path))
+
+(when (file-exists-p carp-flycheck-path)
+  (load carp-flycheck-path))
+
+(add-to-list 'auto-mode-alist '("\\.carp\\'" . carp-mode))
+
+(add-hook 'carp-mode-hook
+          (lambda ()
+            (electric-pair-local-mode 0)
+            (smartparens-mode 1)
+            ;;(flycheck-mode 1)
+            ))
 #+END_SRC
