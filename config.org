@@ -11,7 +11,7 @@
 #+END_SRC
 
 * Packages
-** Archives to pull from
+** Archives
 #+BEGIN_SRC emacs-lisp
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
@@ -20,7 +20,7 @@
 (package-initialize)
 #+END_SRC
 
-** Install packages if not already installed
+** Install
 #+BEGIN_SRC emacs-lisp
 (setq the-packages
       '(
@@ -50,7 +50,7 @@
         the-packages)
 #+END_SRC
 
-** Enable the 'use-package' mode
+** Enable 'use-package'
 Note: Install it via 'package-list-packages' if not already available.
 
 #+BEGIN_SRC emacs-lisp
@@ -104,6 +104,19 @@ Note: Install it via 'package-list-packages' if not already available.
 (show-paren-mode 1)
 #+END_SRC
 
+** Org bullets
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets)
+
+(setq org-bullets-bullet-list
+      '("●"
+        "○"
+        "◉"
+        "✸"))
+
+(setq org-ellipsis " ... ")
+
+#+END_SRC
 * Feel
 ** Ido
 (ido-mode 1)
@@ -128,9 +141,13 @@ Note: Install it via 'package-list-packages' if not already available.
 #+END_SRC
 
 ** Navigation
+*** Buffers
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-o") 'other-window)
+#+END_SRC
 
+*** Lines
+#+BEGIN_SRC emacs-lisp
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
    Move point to the first non-whitespace character on this line.
@@ -156,10 +173,8 @@ Note: Install it via 'package-list-packages' if not already available.
 * Modes
 ** Org
 #+BEGIN_SRC emacs-lisp
-(use-package org-bullets)
-
 (add-hook 'org-mode-hook (lambda ()
-                           ;; (org-bullets-mode 1)
+                           (org-bullets-mode 1)
                            (local-unset-key (kbd "<S-up>"))
                            (local-unset-key (kbd "<S-down>"))
                            (local-unset-key (kbd "<S-left>"))
