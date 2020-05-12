@@ -525,6 +525,12 @@ Ido completition for M-x menu.
 (global-set-key [s-down] 'end-of-buffer)
 #+END_SRC
 
+*** Avy
+#+BEGIN_SRC emacs-lisp
+(require 'avy)
+(define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
+#+END_SRC
+
 ** Move Lines
 #+BEGIN_SRC emacs-lisp
 (defun move-lines (n)
