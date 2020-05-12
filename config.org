@@ -81,6 +81,8 @@
 
 *** Font presets
 #+BEGIN_SRC emacs-lisp
+(defface face-critical '((t :foreground "#ffffff"
+                           :background "#ff6347")) "Critical")
 (defface face-popout  '((t :foreground "#00bba7"))  "Popout")
 (defface face-strong  '((t :weight regular))        "Strong")
 (defface face-salient '((t :foreground "#000055")) "Salient")
@@ -90,11 +92,7 @@
 
 *** Main font
 #+BEGIN_SRC emacs-lisp
-(set-face-attribute 'default nil :height 170)
-(setq-default line-spacing 4)
-
-(defface face-display
-  '((t :family "Fira Code" :inherit 'face-faded))  "Display")
+(set-face-font 'default "Fira Code 16")
 #+END_SRC
 
 *** Programming
@@ -132,6 +130,7 @@
 (set-face 'show-paren-mismatch                           'face-normal)
 (set-face 'shadow                                         'face-faded)
 (set-face 'warning                                       'face-popout)
+(set-face 'error                                       'face-critical)
 (set-face 'outline-1                                     'face-strong)
 (set-face 'outline-2                                     'face-strong)
 (set-face 'outline-3                                     'face-strong)
@@ -152,6 +151,7 @@
 #+END_SRC
 
 ** Ligatures
+#+BEGIN_SRC emacs-lisp
 (defun enable-ligatures ()
   (interactive)
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
@@ -210,6 +210,9 @@
     (dolist (char-regexp alist)
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
+
+(enable-ligatures)
+#+END_SRC
 
 ** Frame
 #+BEGIN_SRC emacs-lisp
