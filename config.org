@@ -1,0 +1,117 @@
+* Startup
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-screen t)
+(setq inhibit-startup-echo-area-message t)
+(setq inhibit-startup-message t)
+(setq initial-scratch-message nil)
+
+(tool-bar-mode 0)
+(tooltip-mode  0)
+(scroll-bar-mode 0)
+#+END_SRC
+
+* Packages
+** Archives to pull from
+#+BEGIN_SRC emacs-lisp
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+
+(package-initialize)
+#+END_SRC
+
+** Enable the 'use-package' mode
+Note: Install it via 'package-list-packages' if not already available.
+
+#+BEGIN_SRC emacs-lisp
+(require 'use-package)
+#+END_SRC
+
+* Look
+** Font
+#+BEGIN_SRC emacs-lisp
+(set-face-font 'default "Roboto Mono Light 16")
+(setq-default line-spacing 2)
+#+END_SRC
+
+** Colors
+#+BEGIN_SRC emacs-lisp
+(setq frame-background-mode 'light)
+(set-background-color "#ffffff")
+(set-foreground-color "#000000")
+
+#+END_SRC
+
+** Frame
+#+BEGIN_SRC emacs-lisp
+(setq default-frame-alist
+      (append (list '(width  . 73)
+                    '(height . 41)
+                    '(vertical-scroll-bars . nil)
+                    '(internal-border-width . 24)
+                    '(font . "Roboto Mono Light 14"))))
+(set-frame-parameter
+ (selected-frame) 'internal-border-width 24)
+
+(fringe-mode '(0 . 0))
+#+END_SRC
+
+** Cursor
+#+BEGIN_SRC emacs-lisp
+(setq cursor-type 'bar)
+(set-default 'cursor-type 'bar)
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+(require 'linum)
+(global-linum-mode 1)
+(setq linum-format (quote "%4d  "))
+#+END_SRC
+
+** Parenthesis
+#+BEGIN_SRC emacs-lisp
+(show-paren-mode 1)
+#+END_SRC
+
+* Feel
+** Ido
+(ido-mode 1)
+(setq ido-everywhere t)
+
+** Undo
+(global-undo-tree-mode 1)
+
+** Scrolling
+*** Nudging the buffer up or down
+#+BEGIN_SRC emacs-lisp
+(defun my-scroll-down ()
+  (interactive)
+  (scroll-up 1))
+
+(defun my-scroll-up ()
+  (interactive)
+  (scroll-down 1))
+
+(global-set-key [M-s-up] 'my-scroll-down)
+(global-set-key [M-s-down]   'my-scroll-up)
+#+END_SRC
+
+** Navigation
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-o") 'other-window)
+#+END_SRC
+
+* Modes
+** Org
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets)
+
+(add-hook 'org-mode-hook (lambda ()
+                           ;; (org-bullets-mode 1)
+                           (local-unset-key (kbd "<S-up>"))
+                           (local-unset-key (kbd "<S-down>"))
+                           (local-unset-key (kbd "<S-left>"))
+                           (local-unset-key (kbd "<S-right>"))
+                           ))
+#+END_SRC
