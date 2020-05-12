@@ -93,6 +93,7 @@
 *** Main font
 #+BEGIN_SRC emacs-lisp
 (set-face-font 'default "Fira Code 16")
+(setq-default line-spacing 4)
 #+END_SRC
 
 *** Programming
