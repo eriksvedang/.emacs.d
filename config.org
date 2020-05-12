@@ -332,6 +332,11 @@
 (show-paren-mode 1)
 #+END_SRC
 
+** Tabs
+#+BEGIN_SRC emacs-lisp
+(setq-default tab-width 4)
+#+END_SRC
+
 ** Org
 #+BEGIN_SRC emacs-lisp
 (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
