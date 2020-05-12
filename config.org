@@ -36,7 +36,7 @@
         smartparens          ;; Slurp and barf
         undo-tree            ;; Show a graph of edits that can be undone
         smex                 ;; Better help in minibuffer
-        ido-ubiquitous       ;; Ido mode for everything
+        ido-completing-read+ ;; Replacing ido-ubiquitous
         company              ;; Auto completion
         avy                  ;; Jump to position in buffer
         iedit                ;; Edit all in scope
