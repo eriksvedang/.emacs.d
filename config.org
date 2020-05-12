@@ -35,9 +35,10 @@
         iedit                ;; Edit all in scope
         exec-path-from-shell ;; Fix the path on MacOS
 	reveal-in-osx-finder ;; Open finder at current buffer's location
-
-	magit
-	org-bullets
+	org-bullets          ;; Make org bullet points look nice
+	rainbow-mode
+	
+	magit                ;; The best
 
 	haskell-mode
 	go-mode
@@ -57,10 +58,34 @@
 
 * Look
 ** Fonts
+*** Define 'set-face' function
+#+BEGIN_SRC emacs-lisp
+(defun set-face (face style)
+  "Reset a face and make it inherit style."
+  (set-face-attribute face nil
+   :foreground 'unspecified :background 'unspecified
+   :family     'unspecified :slant      'unspecified
+   :weight     'unspecified :height     'unspecified
+   :underline  'unspecified :overline   'unspecified
+   :box        'unspecified :inherit    style))
+#+END_SRC
+
+*** Font presets
+#+BEGIN_SRC emacs-lisp
+(defface face-popout  '((t :foreground "#00bba7"))  "Popout")
+(defface face-strong  '((t :weight regular))        "Strong")
+(defface face-salient '((t :foreground "#000055")) "Salient")
+(defface face-faded   '((t :foreground "#999999"))   "Faded")
+(defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
+#+END_SRC
+
 *** Basics
 #+BEGIN_SRC emacs-lisp
-(set-face-font 'default "Roboto Mono Light 16")
-(setq-default line-spacing 6)
+(set-face-attribute 'default nil :height 170)
+(setq-default line-spacing 4)
+
+(defface face-display
+  '((t :family "Fira Code" :inherit 'face-faded))  "Display")
 #+END_SRC
 
 *** Regions, etc
@@ -77,38 +102,65 @@
 
 *** Programming
 #+BEGIN_SRC emacs-lisp
-
+(set-face 'font-lock-comment-face                         'face-faded)
+(set-face 'font-lock-doc-face                             'face-faded)
+(set-face 'font-lock-string-face                         'face-popout)
+(set-face 'font-lock-constant-face                      'face-salient)
+(set-face 'font-lock-warning-face                        'face-popout)
+(set-face 'font-lock-function-name-face                  'face-strong)
+(set-face 'font-lock-variable-name-face                  'face-strong)
+(set-face 'font-lock-builtin-face                       'face-salient)
+(set-face 'font-lock-type-face                          'face-salient)
+(set-face 'font-lock-keyword-face                       'face-salient)
 #+END_SRC
 
-*** Org
+*** Non-programming
 #+BEGIN_SRC emacs-lisp
-(set-face-attribute 'org-level-1 nil
-		    :foreground "black"
-		    :weight 'regular)
-(set-face-attribute 'org-level-2 nil
-		    :foreground "black"
-		    :weight 'thin)
-(set-face-attribute 'org-level-3 nil
-		    :foreground "black"
-		    :weight 'thin)
-(set-face-attribute 'org-link nil
-		    :underline nil
-		    :foreground "dark blue")
-(set-face-attribute 'org-verbatim nil
-		    :foreground "dark blue")
+(set-face 'header-line-highlight                          'face-faded)
+(set-face 'region                                        'face-subtle)
+(set-face 'highlight                                     'face-subtle)
+(set-face 'org-link                                     'face-salient)
+(set-face 'org-verbatim                                 'face-salient)
+(set-face 'bold                                          'face-strong)
+(set-face 'italic                                         'face-faded)
+(set-face 'cursor                                        'face-strong)
+(set-face-attribute 'cursor nil
+                           :background (face-foreground 'face-strong))
+(set-face 'minibuffer-prompt                             'face-strong)
+(set-face 'link                                         'face-salient)
+(set-face 'fringe                                         'face-faded)
+(set-face 'isearch                                       'face-strong)
+(set-face 'lazy-highlight                                'face-subtle)
+(set-face 'show-paren-match                              'face-popout)
+(set-face 'show-paren-mismatch                           'face-normal)
+(set-face 'shadow                                         'face-faded)
+(set-face 'warning                                       'face-popout)
+(set-face 'outline-1                                     'face-strong)
+(set-face 'outline-2                                     'face-strong)
+(set-face 'outline-3                                     'face-strong)
+(set-face 'outline-4                                     'face-strong)
+(set-face 'outline-5                                     'face-strong)
+(set-face 'outline-6                                     'face-strong)
 #+END_SRC
 
-** Colors
+*** Documentation
 #+BEGIN_SRC emacs-lisp
-(setq frame-background-mode 'light)
-(set-background-color "#ffffff")
-(set-foreground-color "#000000")
+(set-face 'info-menu-header                              'face-strong)
+(set-face 'info-header-node                              'face-normal)
+(set-face 'Info-quoted                                    'face-faded)
+(set-face 'info-title-1                                  'face-strong)
+(set-face 'info-title-2                                  'face-strong)
+(set-face 'info-title-3                                  'face-strong)
+(set-face 'info-title-4                                  'face-strong)
 #+END_SRC
 
 ** Frame
 #+BEGIN_SRC emacs-lisp
 (set-frame-parameter (selected-frame) 'internal-border-width 24)
 (fringe-mode '(0 . 0))
+(setq frame-background-mode 'light)
+(set-background-color "#ffffff")
+(set-foreground-color "#000000")
 #+END_SRC
 
 ** Mode Line
@@ -157,7 +209,47 @@
                     :inherit 'mode-line)
 
 (set-face-attribute 'mode-line-buffer-id nil 
-                    :weight 'light)
+                    :weight 'light)(set-face-attribute 'header-line nil
+		    :height 140
+                    :underline t
+                    :underline "black"
+                    :foreground "black"
+		    :background "white"
+                    :box `(:line-width 3 :color "white" :style nil))
+(set-face-attribute 'mode-line nil
+                    :height 10
+                    :underline "black"
+                    :background "white"
+		    :foreground "white"
+                    :box nil)
+(set-face 'mode-line-inactive  'mode-line)
+(set-face 'mode-line-buffer-id  'default)
+
+(defun mode-line-render (left right)
+  "Return a string of `window-width' length containing left, and
+   right aligned respectively."
+  (let* ((available-width (- (window-total-width) (length left) )))
+    (format (format "%%s %%%ds" available-width) left right)))
+(define-key mode-line-major-mode-keymap [header-line]
+  (lookup-key mode-line-major-mode-keymap [mode-line]))
+
+(setq-default mode-line-format '(""))
+(setq-default header-line-format
+  '(:eval (mode-line-render
+   (format-mode-line
+    (list
+     (propertize "☰"
+                 'face `(:weight regular)
+                 'mouse-face 'header-line-highlight
+                 'help-echo  "Major mode menu"
+                 'local-map   mode-line-major-mode-keymap)
+     " %b "
+     '(:eval (if (and buffer-file-name (buffer-modified-p))
+                 (propertize "(modified)"
+              'face `(:foreground ,(face-foreground 'face-faded)))))))
+   (format-mode-line
+    (propertize "%3l:%2c  "
+	'face `(:foreground ,(face-foreground 'face-faded)))))))
 #+END_SRC
 
 ** Cursor
@@ -187,7 +279,7 @@
 ** Org Bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets)
-;; (setq org-bullets-bullet-list '("●" "●" "●" "●" "●"))
+(setq org-bullets-bullet-list '("✸"))
 ;; (setq org-ellipsis " ... ")
 #+END_SRC
 
@@ -312,7 +404,7 @@ Ido completition for M-x menu.
 ** Org
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook (lambda ()
-                           ;;(org-bullets-mode 1)
+                           (org-bullets-mode 1)
                            (local-unset-key (kbd "<S-up>"))
                            (local-unset-key (kbd "<S-down>"))
                            (local-unset-key (kbd "<S-left>"))
