@@ -13,7 +13,7 @@
 
 ;; Make PATH work on MacOS
 (require 'exec-path-from-shell)
-(when (eq system-type 'darwin) 
+(when (eq system-type 'darwin)
   (exec-path-from-shell-initialize))
 #+END_SRC
 
@@ -41,17 +41,17 @@
       avy                  ;; Jump to position in buffer
       iedit                ;; Edit all in scope
       exec-path-from-shell ;; Fix the path on MacOS
-	  reveal-in-osx-finder ;; Open finder at current buffer's location
-	  org-bullets          ;; Make org bullet points look nice
-	  rainbow-mode         ;; Show color of hex values inlined in the buffer
-	  imenu                ;; Goto definition within the file
+      reveal-in-osx-finder ;; Open finder at current buffer's location
+      org-bullets          ;; Make org bullet points look nice
+      rainbow-mode         ;; Show color of hex values inlined in the buffer
+      imenu                ;; Goto definition within the file
       flycheck             ;; Red squiggly lines in your code
-	  
-	  magit                ;; The best
-      
-	  haskell-mode
-	  go-mode
-	  clojure-mode
+
+      magit                ;; The best
+
+      haskell-mode
+      go-mode
+      clojure-mode
 ))
 
 (mapcar (lambda (package)
@@ -241,49 +241,49 @@
      (propertize "" 'face `(:weight regular))
      (propertize "%b " 'face `(:weight regular))
      '(:eval (if (and buffer-file-name (buffer-modified-p))
-         (propertize "(modified)" 
-		     'face `(:weight light
-			     :foreground "#aaaaaa"))))))
-   
+         (propertize "(modified)"
+             'face `(:weight light
+                 :foreground "#aaaaaa"))))))
+
    (format-mode-line
     (propertize "%3l:%2c "
-	'face `(:weight light :foreground "#aaaaaa"))))))
+    'face `(:weight light :foreground "#aaaaaa"))))))
 
 (setq-default mode-line-format "") ;; The "normal" mode line (at the bottom)
 
 (set-face-attribute 'header-line nil
 ;;                    :weight 'regular
-		    :height 140
+            :height 140
                     :underline "black"
                     :foreground "black"
-		    :background "white"
+            :background "white"
                     :box `(:line-width 3 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
                     :background "white"
-		    :foreground "white"
+            :foreground "white"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
                     :box nil
                     :inherit 'mode-line)
 
-(set-face-attribute 'mode-line-buffer-id nil 
+(set-face-attribute 'mode-line-buffer-id nil
                     :weight 'light)(set-face-attribute 'header-line nil
-		    :height 140
+            :height 140
                     :underline t
                     :underline "black"
                     :foreground "black"
-		    :background "white"
+            :background "white"
                     :box `(:line-width 3 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
                     :background "white"
-		    :foreground "white"
+            :foreground "white"
                     :box nil)
 
 (set-face 'mode-line-inactive  'mode-line)
@@ -313,7 +313,7 @@
               'face `(:foreground ,(face-foreground 'face-faded)))))))
    (format-mode-line
     (propertize "%3l:%2c  "
-	'face `(:foreground ,(face-foreground 'face-faded)))))))
+    'face `(:foreground ,(face-foreground 'face-faded)))))))
 #+END_SRC
 
 ** Cursor
@@ -494,9 +494,56 @@ Ido completition for M-x menu.
                               (smex)))
 #+END_SRC
 
+** Ibuffer
+#+BEGIN_SRC emacs-lisp
+(setq ibuffer-formats
+      '((mark modified read-only " "
+              (name 30 30 :left :elide) ; change: 30s were originally 18s
+              " "
+              (size 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " " filename-and-process)
+        (mark " "
+              (name 16 -1)
+              " " filename)))
+
+(setq ibuffer-saved-filter-groups
+      '(("home"
+     ("Magit" (name . "magit:"))
+     ("Dired" (mode . dired-mode))
+     ("Emacs" (or (mode . help-mode)
+              (name . "\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+      '(lambda ()
+         (ibuffer-switch-to-saved-filter-groups "home")))
+
+(setq ibuffer-show-empty-filter-groups nil)
+
+;; Refresh automatically
+(add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
+#+END_SRC
+
 ** Undo
 #+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode 1)
+#+END_SRC
+
+** Company mode (auto completion)
+#+BEGIN_SRC emacs-lisp
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(setq company-tooltip-align-annotations t)
+(setq company-minimum-prefix-length 3)
+(setq company-idle-delay 0.4)
+(setq company-dabbrev-downcase nil) ;; Don't lowercase things!
+#+END_SRC
+
+** IEdit
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-;") 'iedit-mode)
 #+END_SRC
 
 ** Commenting
