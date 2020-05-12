@@ -56,10 +56,46 @@
 #+END_SRC
 
 * Look
-** Font
+** Fonts
+*** Basics
 #+BEGIN_SRC emacs-lisp
 (set-face-font 'default "Roboto Mono Light 16")
 (setq-default line-spacing 6)
+#+END_SRC
+
+*** Regions, etc
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'region nil
+		    :background "#f0f0f0")
+(set-face-attribute 'highlight nil
+		    :foreground "black"
+		    :background "#f0f0f0")
+(set-face-attribute 'bold nil
+ 		    :foreground "black"
+		    :weight 'regular)
+#+END_SRC
+
+*** Programming
+#+BEGIN_SRC emacs-lisp
+
+#+END_SRC
+
+*** Org
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'org-level-1 nil
+		    :foreground "black"
+		    :weight 'regular)
+(set-face-attribute 'org-level-2 nil
+		    :foreground "black"
+		    :weight 'thin)
+(set-face-attribute 'org-level-3 nil
+		    :foreground "black"
+		    :weight 'thin)
+(set-face-attribute 'org-link nil
+		    :underline nil
+		    :foreground "dark blue")
+(set-face-attribute 'org-verbatim nil
+		    :foreground "dark blue")
 #+END_SRC
 
 ** Colors
@@ -67,7 +103,6 @@
 (setq frame-background-mode 'light)
 (set-background-color "#ffffff")
 (set-foreground-color "#000000")
-
 #+END_SRC
 
 ** Frame
@@ -143,30 +178,19 @@
 (show-paren-mode 1)
 #+END_SRC
 
-** Org bullets
+** Org
 #+BEGIN_SRC emacs-lisp
-(use-package org-bullets)
-(setq org-bullets-bullet-list '("●" "○" "◉" "✸"))
-(setq org-ellipsis " ... ")
+(setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
+(setq org-src-fontify-natively t)
 #+END_SRC
 
-** Org colors
+** Org Bullets
 #+BEGIN_SRC emacs-lisp
-(set-face-attribute 'org-level-1 nil
-		    :foreground "black"
-		    :weight 'regular)
-(set-face-attribute 'org-level-2 nil
-		    :foreground "black"
-		    :weight 'thin)
-(set-face-attribute 'org-level-3 nil
-		    :foreground "black"
-		    :weight 'thin)
-(set-face-attribute 'org-link nil
-		    :underline nil
-		    :foreground "dark blue")
-(set-face-attribute 'org-verbatim nil
-		    :foreground "dark blue")
+(use-package org-bullets)
+;; (setq org-bullets-bullet-list '("●" "●" "●" "●" "●"))
+;; (setq org-ellipsis " ... ")
 #+END_SRC
+
 * Feel
 ** Ido
 #+BEGIN_SRC emacs-lisp
@@ -189,6 +213,11 @@ Ido completition for M-x menu.
 ** Undo
 #+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode 1)
+#+END_SRC
+
+** Commenting
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 #+END_SRC
 
 ** Scrolling
@@ -283,7 +312,7 @@ Ido completition for M-x menu.
 ** Org
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook (lambda ()
-                           (org-bullets-mode 1)
+                           ;;(org-bullets-mode 1)
                            (local-unset-key (kbd "<S-up>"))
                            (local-unset-key (kbd "<S-down>"))
                            (local-unset-key (kbd "<S-left>"))
