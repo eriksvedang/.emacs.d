@@ -332,7 +332,6 @@
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets)
 (setq org-bullets-bullet-list '("✸"))
-;; (setq org-ellipsis " ... ")
 #+END_SRC
 
 * Feel
@@ -349,19 +348,20 @@
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "s-i") 'imenu) ; lists the functions in file
-(global-set-key (kbd "s-f") 'rgrep) ; search for files
+(global-set-key (kbd "s-i") 'imenu)
+(global-set-key (kbd "s-f") 'rgrep)
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
 (global-set-key (kbd "C-<") 'shell)
-(global-set-key (kbd "M-n") 'next-error) ; also works for rgrep results
+(global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "s-g") 'goto-line)
 #+END_SRC
 
-** Kill whitespace (to the left and right of the cursor)
+** Kill whitespace
+(to the left and right of the cursor)
 #+BEGIN_SRC emacs-lisp
 (defun kill-whitespace ()
   "Kill the whitespace between two non-whitespace characters"
@@ -377,7 +377,7 @@
 (global-set-key [s-backspace] 'kill-whitespace)
 #+END_SRC
 
-** Insert an empty line above the current line
+** Insert line above
 #+BEGIN_SRC emacs-lisp
 (defun smart-open-line-above ()
   "Insert an empty line above the current line."
@@ -391,6 +391,8 @@
 #+END_SRC
 
 ** Characters
+These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
+
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-2") "@")
 (global-set-key (kbd "M-4") "$")
