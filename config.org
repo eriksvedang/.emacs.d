@@ -51,8 +51,6 @@
 #+END_SRC
 
 ** Enable 'use-package'
-Note: Install it via 'package-list-packages' if not already available.
-
 #+BEGIN_SRC emacs-lisp
 (require 'use-package)
 #+END_SRC
@@ -115,15 +113,31 @@ Note: Install it via 'package-list-packages' if not already available.
         "✸"))
 
 (setq org-ellipsis " ... ")
-
 #+END_SRC
+
 * Feel
 ** Ido
+#+BEGIN_SRC emacs-lisp
 (ido-mode 1)
 (setq ido-everywhere t)
+#+END_SRC
+
+** Smex
+Ido completition for M-x menu.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-x") (lambda ()
+                              (interactive)
+                              (or (boundp 'smex-cache)
+                                  (smex-initialize))
+                              (global-set-key [(meta x)] 'smex)
+                              (smex)))
+#+END_SRC
 
 ** Undo
+#+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode 1)
+#+END_SRC
 
 ** Scrolling
 *** Nudging the buffer up or down
