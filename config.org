@@ -31,26 +31,27 @@
 #+BEGIN_SRC emacs-lisp
 (setq the-packages
       '(
-        use-package
-        multiple-cursors     ;; Best feature of Sublime Text
-        smartparens          ;; Slurp and barf
-        undo-tree            ;; Show a graph of edits that can be undone
-        smex                 ;; Better help in minibuffer
-        ido-completing-read+ ;; Replacing ido-ubiquitous
-        company              ;; Auto completion
-        avy                  ;; Jump to position in buffer
-        iedit                ;; Edit all in scope
-        exec-path-from-shell ;; Fix the path on MacOS
-	reveal-in-osx-finder ;; Open finder at current buffer's location
-	org-bullets          ;; Make org bullet points look nice
-	rainbow-mode         ;; Show color of hex values inlined in the buffer
-	imenu                ;; Goto definition within the file
-	
-	magit                ;; The best
-
-	haskell-mode
-	go-mode
-	clojure-mode
+      use-package
+      multiple-cursors     ;; Best feature of Sublime Text
+      smartparens          ;; Slurp and barf
+      undo-tree            ;; Show a graph of edits that can be undone
+      smex                 ;; Better help in minibuffer
+      ido-completing-read+ ;; Replacing ido-ubiquitous
+      company              ;; Auto completion
+      avy                  ;; Jump to position in buffer
+      iedit                ;; Edit all in scope
+      exec-path-from-shell ;; Fix the path on MacOS
+	  reveal-in-osx-finder ;; Open finder at current buffer's location
+	  org-bullets          ;; Make org bullet points look nice
+	  rainbow-mode         ;; Show color of hex values inlined in the buffer
+	  imenu                ;; Goto definition within the file
+      flycheck             ;; Red squiggly lines in your code
+	  
+	  magit                ;; The best
+      
+	  haskell-mode
+	  go-mode
+	  clojure-mode
 ))
 
 (mapcar (lambda (package)
