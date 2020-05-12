@@ -251,14 +251,6 @@
 
 (setq-default mode-line-format "") ;; The "normal" mode line (at the bottom)
 
-(set-face-attribute 'header-line nil
-;;                    :weight 'regular
-                    :height 140
-                    :underline "black"
-                    :foreground "black"
-                    :background "white"
-                    :box `(:line-width 8 :color "white" :style nil))
-
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
@@ -279,7 +271,7 @@
                     :underline "black"
                     :foreground "black"
                     :background "white"
-                    :box `(:line-width 3 :color "white" :style nil))
+                    :box `(:line-width 8 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
