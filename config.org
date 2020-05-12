@@ -262,7 +262,7 @@
                     :height 10
                     :underline "black"
                     :background "white"
-		                :foreground "white"
+		    :foreground "white"
                     :box nil)
 
 (set-face-attribute 'mode-line-inactive nil
@@ -277,12 +277,14 @@
                     :foreground "black"
 		    :background "white"
                     :box `(:line-width 3 :color "white" :style nil))
+
 (set-face-attribute 'mode-line nil
                     :height 10
                     :underline "black"
                     :background "white"
 		    :foreground "white"
                     :box nil)
+
 (set-face 'mode-line-inactive  'mode-line)
 (set-face 'mode-line-buffer-id  'default)
 
