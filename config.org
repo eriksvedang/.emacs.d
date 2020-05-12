@@ -43,6 +43,7 @@
 
 	haskell-mode
 	go-mode
+	clojure-mode
 ))
 
 (mapcar (lambda (package)
@@ -87,18 +88,6 @@
 
 (defface face-display
   '((t :family "Fira Code" :inherit 'face-faded))  "Display")
-#+END_SRC
-
-*** Regions, etc
-#+BEGIN_SRC emacs-lisp
-(set-face-attribute 'region nil
-		    :background "#f0f0f0")
-(set-face-attribute 'highlight nil
-		    :foreground "black"
-		    :background "#f0f0f0")
-(set-face-attribute 'bold nil
- 		    :foreground "black"
-		    :weight 'regular)
 #+END_SRC
 
 *** Programming
@@ -347,7 +336,7 @@
 #+END_SRC
 
 * Feel
-** Idiosyncrasies
+** Fix idiosyncrasies
 #+BEGIN_SRC emacs-lisp
 (delete-selection-mode 1)
 #+END_SRC
@@ -357,7 +346,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "s-b") 'ibuffer)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
-(global-set-key (kbd "s-W") 'delete-window)
+(global-set-key (kbd "s-w") 'kill-this-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-i") 'imenu) ; lists the functions in file
@@ -386,6 +375,19 @@
           (replace-match "" nil nil))))))
 
 (global-set-key [s-backspace] 'kill-whitespace)
+#+END_SRC
+
+** Insert an empty line above the current line
+#+BEGIN_SRC emacs-lisp
+(defun smart-open-line-above ()
+  "Insert an empty line above the current line."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key (kbd "<C-return>") 'smart-open-line-above)
 #+END_SRC
 
 ** Characters
