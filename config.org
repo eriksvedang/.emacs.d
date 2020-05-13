@@ -52,6 +52,7 @@
       haskell-mode
       go-mode
       clojure-mode
+      omnisharp            ;; IDE-like features for C#
 ))
 
 (mapcar (lambda (package)
@@ -749,4 +750,29 @@ Ido completition for M-x menu.
             (smartparens-mode 1)
             ;;(flycheck-mode 1)
             ))
+#+END_SRC
+** C#
+#+BEGIN_SRC emacs-lisp
+(use-package omnisharp
+  :ensure t)
+
+(use-package csharp-mode
+  :ensure t
+  :config
+  (add-hook 'csharp-mode-hook #'omnisharp-mode)
+  (add-hook 'csharp-mode-hook #'company-mode)
+  (add-hook 'before-save-hook #'omnisharp-code-format-entire-file))
+
+(defun csharp-disable-clear-string-fences (orig-fun &rest args)
+  "This turns off `c-clear-string-fences' for `csharp-mode'. When
+on for `csharp-mode' font lock breaks after an interpolated string
+or terminating simple string."
+  (unless (equal major-mode 'csharp-mode)
+    (apply orig-fun args)))
+
+(advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
+
+(eval-after-load
+  'company
+  '(add-to-list 'company-backends #'company-omnisharp))
 #+END_SRC

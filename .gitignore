@@ -37,3 +37,4 @@ nix-buffer
 transient/
 config.el
 /ido.last~
+/.cache/
