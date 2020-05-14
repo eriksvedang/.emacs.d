@@ -221,6 +221,7 @@
 #+BEGIN_SRC emacs-lisp
 (set-frame-parameter (selected-frame) 'internal-border-width 24)
 (fringe-mode '(0 . 0))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (setq frame-background-mode 'light)
 (set-background-color "#ffffff")
 (set-foreground-color "#000000")
