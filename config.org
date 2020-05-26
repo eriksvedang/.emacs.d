@@ -47,12 +47,13 @@
       imenu                ;; Goto definition within the file
       flycheck             ;; Red squiggly lines in your code
 
-      magit                ;; The best
+      magit                ;; The best git client ever!
 
       haskell-mode
       go-mode
       clojure-mode
       omnisharp            ;; IDE-like features for C#
+      lsp-mode             ;; Language Server Protocol
 ))
 
 (mapcar (lambda (package)
