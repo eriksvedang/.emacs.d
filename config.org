@@ -538,7 +538,7 @@ Ido completition for M-x menu.
     "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
     "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
     "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-(setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
+(setq ffip-prune-patterns (cons "*/PackageCache/*" (cons "*/CMakeFiles/*" ffip-prune-patterns)))
 #+END_SRC
 
 ** Undo
