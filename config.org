@@ -790,3 +790,10 @@ or terminating simple string."
   'company
   '(add-to-list 'company-backends #'company-omnisharp))
 #+END_SRC
+** TEMPLATE
+#+BEGIN_SRC emacs-lisp
+(use-package some-mode
+  :init (bind-key "?" #'blah)
+  :config (add-hook 'some-mode-hook #'bleh)
+)
+#+END_SRC
