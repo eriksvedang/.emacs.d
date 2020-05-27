@@ -46,6 +46,7 @@
       rainbow-mode         ;; Show color of hex values inlined in the buffer
       imenu                ;; Goto definition within the file
       flycheck             ;; Red squiggly lines in your code
+      helm
 
       magit                ;; The best git client ever!
 
@@ -480,6 +481,11 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (setq ido-everywhere t)
 #+END_SRC
 
+** Helm
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package helm
+  ;;   :init (bind-key "M-x" #'helm-M-x))
+#+END_SRC
 ** Smex
 Ido completition for M-x menu.
 
@@ -523,6 +529,18 @@ Ido completition for M-x menu.
 (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+END_SRC
 
+** Find file in project
+#+BEGIN_SRC emacs-lisp
+(require 'find-file-in-project)
+(global-set-key (kbd "s-p") 'find-file-in-project)
+(setq ffip-patterns
+      '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
+    "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
+    "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
+    "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+(setq ffip-prune-patterns (cons "*/CMakeFiles/*" ffip-prune-patterns))
+#+END_SRC
+
 ** Undo
 #+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode 1)
@@ -537,6 +555,16 @@ Ido completition for M-x menu.
 (setq company-minimum-prefix-length 3)
 (setq company-idle-delay 0.1)
 (setq company-dabbrev-downcase nil) ;; Don't lowercase things!
+
+(defun my-sort-uppercase (candidates)
+  (let (case-fold-search
+        (re "\\`[[:upper:]]*\\'"))
+    (sort candidates
+          (lambda (s1 s2)
+            (and (string-match-p re s2)
+                 (not (string-match-p re s1)))))))
+
+(push 'my-sort-uppercase company-transformers)
 #+END_SRC
 
 ** IEdit
@@ -792,8 +820,8 @@ or terminating simple string."
 #+END_SRC
 ** TEMPLATE
 #+BEGIN_SRC emacs-lisp
-(use-package some-mode
-  :init (bind-key "?" #'blah)
-  :config (add-hook 'some-mode-hook #'bleh)
-)
+  ;; (use-package some-mode
+  ;;   :init (bind-key "?" #'blah)
+  ;;   :config (add-hook 'some-mode-hook #'bleh)
+  ;; )
 #+END_SRC
