@@ -46,11 +46,12 @@
       rainbow-mode         ;; Show color of hex values inlined in the buffer
       imenu                ;; Goto definition within the file
       flycheck             ;; Red squiggly lines in your code
-      helm
+      find-file-in-project ;; Make any git folder a project
 
       magit                ;; The best git client ever!
 
       haskell-mode
+      dante                ;; Interactive Haskell mode
       go-mode
       clojure-mode
       omnisharp            ;; IDE-like features for C#
@@ -478,6 +479,8 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 ** Ido
 #+BEGIN_SRC emacs-lisp
 (ido-mode 1)
+(ido-ubiquitous-mode)
+(setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 #+END_SRC
 
@@ -710,6 +713,27 @@ Ido completition for M-x menu.
 ** Haskell
 #+BEGIN_SRC emacs-lisp
 (use-package haskell)
+
+(use-package dante
+  :ensure t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init)
+
+(setq dante-methods '(stack new-build bare-cabal bare-ghci))
+
+(add-hook 'dante-mode-hook (lambda () (local-set-key (kbd "<C-c C-t>") 'dante-type-at)))
+
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (interactive-haskell-mode 1)
+            (smartparens-mode 1)
+            (electric-pair-local-mode 0)
+            (define-key haskell-mode-map (kbd "s-r") (lambda ()
+                                                       (interactive)
+                                                       (shell-command "stack run")))))
+
+(setq haskell-process-type 'stack-ghci)
 #+END_SRC
 
 ** Clojure
