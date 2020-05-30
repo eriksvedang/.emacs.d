@@ -516,6 +516,8 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 
 ** Smartparens
 #+BEGIN_SRC emacs-lisp
+(require 'smartparens)
+
 (define-key sp-keymap (kbd "C-)") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-(") 'sp-backward-slurp-sexp)
 (define-key sp-keymap (kbd "C-M-)") 'sp-forward-barf-sexp)
