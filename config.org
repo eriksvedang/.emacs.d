@@ -38,6 +38,7 @@
       smex                 ;; Better help in minibuffer
       ido-completing-read+ ;; Replacing ido-ubiquitous
       company              ;; Auto completion
+      company-fuzzy
       avy                  ;; Jump to position in buffer
       iedit                ;; Edit all in scope
       exec-path-from-shell ;; Fix the path on MacOS
@@ -669,6 +670,8 @@ Ido completition for M-x menu.
   ;; (push 'my-sort-uppercase company-transformers)
 
 (global-set-key (kbd "M-ESC") 'company-complete)
+
+(global-company-fuzzy-mode)
 #+END_SRC
 
 ** IEdit
