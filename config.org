@@ -670,8 +670,6 @@ Ido completition for M-x menu.
   ;; (push 'my-sort-uppercase company-transformers)
 
 (global-set-key (kbd "M-ESC") 'company-complete)
-
-(global-company-fuzzy-mode)
 #+END_SRC
 
 ** IEdit
