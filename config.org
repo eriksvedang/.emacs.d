@@ -650,23 +650,25 @@ Ido completition for M-x menu.
 
 ** Company mode (auto completion)
 #+BEGIN_SRC emacs-lisp
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+  (require 'company)
+  (add-hook 'after-init-hook 'global-company-mode)
 
-(setq company-tooltip-align-annotations t)
-(setq company-minimum-prefix-length 3)
-(setq company-idle-delay 0.1)
-(setq company-dabbrev-downcase nil) ;; Don't lowercase things!
+  (setq company-tooltip-align-annotations t)
+  (setq company-minimum-prefix-length 3)
+  (setq company-idle-delay 0.1)
+  (setq company-dabbrev-downcase nil) ;; Don't lowercase things!
 
-(defun my-sort-uppercase (candidates)
-  (let (case-fold-search
-        (re "\\`[[:upper:]]*\\'"))
-    (sort candidates
-          (lambda (s1 s2)
-            (and (string-match-p re s2)
-                 (not (string-match-p re s1)))))))
+  ;; (defun my-sort-uppercase (candidates)
+  ;;   (let (case-fold-search
+  ;;         (re "\\`[[:upper:]]*\\'"))
+  ;;     (sort candidates
+  ;;           (lambda (s1 s2)
+  ;;             (and (string-match-p re s2)
+  ;;                  (not (string-match-p re s1)))))))
 
-(push 'my-sort-uppercase company-transformers)
+  ;; (push 'my-sort-uppercase company-transformers)
+
+(global-set-key (kbd "M-ESC") 'company-complete)
 #+END_SRC
 
 ** IEdit
