@@ -48,6 +48,8 @@
       imenu                ;; Goto definition within the file
       flycheck             ;; Red squiggly lines in your code
       find-file-in-project ;; Make any git folder a project
+      free-keys            ;; Show what key combinations that are not taken
+      expand-region        ;; Select larger and larger region
 
       magit                ;; The best git client ever!
 
@@ -480,6 +482,11 @@
 (global-set-key (kbd "<C-return>") 'smart-open-line-above)
 #+END_SRC
 
+** Expand region
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "s-e") 'er/expand-region)
+#+END_SRC
+
 ** Characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
 
@@ -523,7 +530,6 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 ;; y
 (global-set-key (kbd "C-x M-z") "⊃") ; implies
 #+END_SRC
-
 ** Smartparens
 #+BEGIN_SRC emacs-lisp
 (require 'smartparens)
@@ -938,7 +944,10 @@ Ido completition for M-x menu.
 
 (use-package csharp-mode
   :ensure t
-  :init (bind-key "M-." 'omnisharp-go-to-definition)
+  :init
+  (bind-key "M-." 'omnisharp-go-to-definition)
+  (bind-key "C-." 'omnisharp-run-code-action-refactoring)
+  ;;(bind-key "M-ESC" 'omnisharp-auto-complete)
   :config
   (add-hook 'csharp-mode-hook #'electric-pair-mode)
   (add-hook 'csharp-mode-hook #'omnisharp-mode)
