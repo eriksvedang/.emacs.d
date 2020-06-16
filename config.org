@@ -50,6 +50,12 @@
       find-file-in-project ;; Make any git folder a project
       free-keys            ;; Show what key combinations that are not taken
       expand-region        ;; Select larger and larger region
+      ace-window           ;; Select window with number keys
+      swiper               ;; Better search in buffer
+
+      flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
+      flymake-cursor
+      flymake-hlint
 
       magit                ;; The best git client ever!
 
@@ -60,8 +66,37 @@
       omnisharp            ;; IDE-like features for C#
       lsp-mode             ;; Language Server Protocol
 
+      php-mode
+      lua-mode
+      swift-mode
+      markdown-mode
+      cc-mode
+      glsl-mode
+      irony
+      gud                  ;; GDB debugging
+      cc-mode              ;; C
+      cmake-mode
+      yaml-mode
+      elm-mode
+      idris-mode
+      purescript-mode
+      tuareg               ;; OCaml
+      rust-mode
+      racer                ;; Rust auto complete
+      flycheck-rust
+
+      racket-mode
+      fsharp-mode
+
+      nix-mode
+      nix-buffer
+
       sgml-mode            ;; HTML mode
       zencoding-mode
+      js2-mode
+      rjsx-mode            ;; JSX (used in React)
+      web-mode             ;; Smart editing of HTML templates
+      restclient           ;; Send web requests from a buffer
 ))
 
 (mapcar (lambda (package)
@@ -647,7 +682,12 @@ Ido completition for M-x menu.
     "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
     "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
     "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-(setq ffip-prune-patterns (cons "*/PackageCache/*" (cons "*/CMakeFiles/*" ffip-prune-patterns)))
+(setq ffip-prune-patterns
+  (cons "*/Packages/*"
+  (cons "*/Temp/*"
+  (cons "*/Library/*"
+  (cons "*/PackageCache/*"
+  (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
 #+END_SRC
 
 ** Undo
