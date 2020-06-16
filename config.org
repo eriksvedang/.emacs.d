@@ -679,7 +679,7 @@ Ido completition for M-x menu.
 (global-set-key (kbd "s-p") 'find-file-in-project)
 (setq ffip-patterns
       '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-    "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl"
+    "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
     "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
     "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
 (setq ffip-prune-patterns
