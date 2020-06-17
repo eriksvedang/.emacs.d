@@ -62,6 +62,7 @@
       haskell-mode
       dante                ;; Interactive Haskell mode
       go-mode
+      go-imenu
       clojure-mode
       omnisharp            ;; IDE-like features for C#
       lsp-mode             ;; Language Server Protocol
@@ -1045,6 +1046,8 @@ Expand abbreviated tags to full html.
 #+BEGIN_SRC emacs-lisp
 (use-package go-mode
   ;;:init (bind-key "?" #'blah)
-  :config (add-hook 'before-save-hook #'gofmt-before-save)
+  :config
+  (add-hook 'before-save-hook #'gofmt-before-save)
+  (add-hook 'go-mode-hook #'go-imenu-setup)
   )
 #+END_SRC
