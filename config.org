@@ -1041,3 +1041,10 @@ Expand abbreviated tags to full html.
   ;;   :config (add-hook 'some-mode-hook #'bleh)
   ;; )
 #+END_SRC
+** Go
+#+BEGIN_SRC emacs-lisp
+(use-package go-mode
+  ;;:init (bind-key "?" #'blah)
+  :config (add-hook 'before-save-hook #'gofmt-before-save)
+  )
+#+END_SRC
