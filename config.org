@@ -1044,10 +1044,20 @@ Expand abbreviated tags to full html.
 #+END_SRC
 ** Go
 #+BEGIN_SRC emacs-lisp
+(defun run-go ()
+  (interactive)
+  (save-buffer)
+  (let ((project-dir (locate-dominating-file (buffer-file-name) ".git")))
+    (if project-dir
+    (progn (setq default-directory project-dir)
+           (compile (format "go run")))
+    (compile (format "go run %s" (buffer-file-name))))))
+
 (use-package go-mode
   :init
   (bind-key "C-c C-t" #'godef-describe)
   (bind-key "C-c C-d" #'godef-describe)
+  (bind-key "C-c C-r" #'run-go)
   (bind-key "M-." #'godef-jump)
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
