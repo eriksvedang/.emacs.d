@@ -1045,7 +1045,9 @@ Expand abbreviated tags to full html.
 ** Go
 #+BEGIN_SRC emacs-lisp
 (use-package go-mode
-  ;;:init (bind-key "?" #'blah)
+  :init
+  (bind-key "C-c C-t" #'godef-describe)
+  (bind-key "M-." #'godef-jump)
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
   (add-hook 'go-mode-hook #'go-imenu-setup)
