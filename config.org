@@ -985,9 +985,9 @@ Ido completition for M-x menu.
 
 (use-package csharp-mode
   :ensure t
-  :init
-  (bind-key "M-." 'omnisharp-go-to-definition)
-  (bind-key "C-c C-r" 'omnisharp-run-code-action-refactoring)
+  :bind (:map csharp-mode-map
+         ("M-."     . omnisharp-go-to-definition)
+         ("C-c C-r" . omnisharp-run-code-action-refactoring))
   ;;(bind-key "M-ESC" 'omnisharp-auto-complete)
   :config
   (add-hook 'csharp-mode-hook #'electric-pair-mode)
@@ -1055,10 +1055,11 @@ Expand abbreviated tags to full html.
 
 (use-package go-mode
   :init
-  (bind-key "C-c C-t" #'godef-describe)
-  (bind-key "C-c C-d" #'godef-describe)
-  (bind-key "C-c C-r" #'run-go)
-  (bind-key "M-." #'godef-jump)
+  :bind (:map go-mode-map
+         ("C-c C-t" . godef-describe)
+         ("C-c C-d" . godef-describe)
+         ("C-c C-r" . run-go)
+         ("M-."     . godef-jump))
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
   (add-hook 'go-mode-hook #'go-imenu-setup)
