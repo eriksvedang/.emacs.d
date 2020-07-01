@@ -369,7 +369,7 @@
 #+BEGIN_SRC emacs-lisp
 (require 'linum)
 (setq linum-format (quote "%4d  "))
-(global-linum-mode 0)
+(global-linum-mode 1)
 #+END_SRC
 
 ** Parenthesis
