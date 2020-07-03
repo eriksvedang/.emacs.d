@@ -64,6 +64,7 @@
       go-mode
       go-imenu
       go-dlv               ;; Debugger
+      go-impl              ;; Stub generator
       clojure-mode
       omnisharp            ;; IDE-like features for C#
       lsp-mode             ;; Language Server Protocol
@@ -483,8 +484,10 @@
 
 ** Dired
 #+BEGIN_SRC emacs-lisp
-(add-hook 'dired-mode-hook (lambda () (local-set-key (kbd "b") 'dired-up-directory)))
-(set-face 'dired-directory 'face-popout)
+(add-hook 'dired-mode-hook
+  (lambda ()
+    (local-set-key (kbd "b") 'dired-up-directory)
+    (set-face 'dired-directory 'face-popout)))
 #+END_SRC
 
 ** Kill whitespace
