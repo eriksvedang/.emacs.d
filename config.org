@@ -392,7 +392,7 @@
 ** Org Bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets)
-(setq org-bullets-bullet-list '("✸" "◇" "●" "○" "✤" "✩"))
+(setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩"))
 #+END_SRC
 *** Third level
 **** Fourth level
