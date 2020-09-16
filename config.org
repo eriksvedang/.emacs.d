@@ -1070,12 +1070,22 @@ Expand abbreviated tags to full html.
            (compile (format "go run")))
     (compile (format "go run %s" (buffer-file-name))))))
 
+(defun compile-go ()
+  (interactive)
+  (save-buffer)
+  (let ((project-dir (locate-dominating-file (buffer-file-name) "go.mod")))
+    (if project-dir
+    (progn (setq default-directory project-dir)
+           (compile (format "go build ./...")))
+      (compile (format "go build %s -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+
 (use-package go-mode
   :init
   :bind (:map go-mode-map
          ("C-c C-t" . godef-describe)
          ("C-c C-d" . godef-describe)
          ("C-c C-r" . run-go)
+         ("C-c C-c" . compile-go)
          ("M-."     . godef-jump))
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
