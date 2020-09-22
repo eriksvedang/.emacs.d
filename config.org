@@ -643,11 +643,6 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (setq ido-everywhere t)
 #+END_SRC
 
-** Helm
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package helm
-  ;;   :init (bind-key "M-x" #'helm-M-x))
-#+END_SRC
 ** Smex
 Ido completition for M-x menu.
 
