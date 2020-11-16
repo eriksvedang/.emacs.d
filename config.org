@@ -847,6 +847,14 @@ Ido completition for M-x menu.
 ;; NOTE: If you want to insert a newline in multiple-cursors-mode, use C-j
 #+end_SRC
 
+** Smerge (conflic resolution)
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c n") 'smerge-next)
+(global-set-key (kbd "C-c p") 'smerge-prev)
+(global-set-key (kbd "C-c u") 'smerge-keep-upper)
+(global-set-key (kbd "C-c l") 'smerge-keep-lower)
+#+end_SRC
+
 * Modes
 ** Org
 #+BEGIN_SRC emacs-lisp
