@@ -675,7 +675,7 @@ Ido completition for M-x menu.
 
 (setq ibuffer-saved-filter-groups
       '(("home"
-     ("Magit" (name . "magit:"))
+     ("Magit" (or (name . "magit:") (name . "magit-diff:") (name . "magit-process:")))
      ("Dired" (mode . dired-mode))
      ("Emacs" (or (mode . help-mode)
               (name . "\*"))))))
