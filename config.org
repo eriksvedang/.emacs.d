@@ -166,7 +166,7 @@
 (set-face 'header-line-highlight                          'face-faded)
 (set-face 'region                                        'face-subtle)
 (set-face 'highlight                                     'face-subtle)
-(set-face 'org-link                                     'face-salient)
+(set-face 'org-link                                      'face-popout)
 (set-face 'org-verbatim                                 'face-salient)
 (set-face 'bold                                          'face-strong)
 (set-face 'italic                                         'face-faded)
