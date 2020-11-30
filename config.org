@@ -492,6 +492,7 @@
 (add-hook 'dired-mode-hook
   (lambda ()
     (local-set-key (kbd "b") 'dired-up-directory)
+    (auto-revert-mode t)
     (set-face 'dired-directory 'face-popout)))
 #+END_SRC
 
@@ -1004,6 +1005,10 @@ Ido completition for M-x menu.
 
 ** C#
 #+BEGIN_SRC emacs-lisp
+
+(setenv "PATH" (concat (getenv "PATH") ":/Library/Frameworks/Mono.framework/Versions/Current/Commands"))
+(setq exec-path (append exec-path '("/Library/Frameworks/Mono.framework/Versions/Current/Commands")))
+
 (use-package omnisharp
   :ensure t)
 
