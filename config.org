@@ -873,6 +873,8 @@ Ido completition for M-x menu.
 (use-package magit
   :init (bind-key "C-x g" 'magit-status))
 
+(add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
