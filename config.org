@@ -1139,5 +1139,6 @@ Expand abbreviated tags to full html.
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
   (add-hook 'go-mode-hook #'go-imenu-setup)
+  (add-hook 'go-mode-hook (electric-pair-mode 1))
   )
 #+END_SRC
