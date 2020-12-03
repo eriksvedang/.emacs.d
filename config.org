@@ -857,6 +857,24 @@ Ido completition for M-x menu.
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
 #+end_SRC
 
+** Rename file AND buffer
+#+BEGIN_SRC emacs-lisp
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
+#+end_SRC
+
 * Modes
 ** Org
 #+BEGIN_SRC emacs-lisp
