@@ -137,7 +137,7 @@
                            :background "#ff6347")) "Critical")
 (defface face-popout  '((t :foreground "#00bba7"))  "Popout")
 (defface face-strong  '((t :weight regular))        "Strong")
-(defface face-salient '((t :foreground "#000055")) "Salient")
+(defface face-salient '((t :foreground "#221199")) "Salient") ;; Used to be 000055
 (defface face-faded   '((t :foreground "#999999"))   "Faded")
 (defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
 #+END_SRC
