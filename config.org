@@ -10,11 +10,6 @@
 (tool-bar-mode 0)
 (tooltip-mode  0)
 (scroll-bar-mode 0)
-
-;; Make PATH work on MacOS
-(require 'exec-path-from-shell)
-(when (eq system-type 'darwin)
-  (exec-path-from-shell-initialize))
 #+END_SRC
 
 * Packages
@@ -115,6 +110,13 @@
 ** Enable 'use-package'
 #+BEGIN_SRC emacs-lisp
 (require 'use-package)
+#+END_SRC
+
+** Make PATH work on MacOS
+#+BEGIN_SRC emacs-lisp
+(require 'exec-path-from-shell)
+(when (eq system-type 'darwin)
+  (exec-path-from-shell-initialize))
 #+END_SRC
 
 * Look
