@@ -320,7 +320,7 @@
                     :weight 'light)
 
 (set-face-attribute 'header-line nil
-                    :height 140
+                    :height 180
                     :underline t
                     :underline "black"
                     :foreground "black"
@@ -347,6 +347,12 @@
 
 (setq-default mode-line-format '(""))
 
+(defun vc-branch ()
+  (if vc-mode
+      (let ((backend (vc-backend buffer-file-name)))
+        (concat "#" (substring-no-properties vc-mode
+                                 (+ (if (eq backend 'Hg) 2 3) 2))))  nil))
+
 (setq-default header-line-format
   '(:eval (mode-line-render
    (format-mode-line
@@ -357,9 +363,12 @@
                  'help-echo  "Major mode menu"
                  'local-map   mode-line-major-mode-keymap)
      " %b "
+     '(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
+     " "
      '(:eval (if (and buffer-file-name (buffer-modified-p))
                  (propertize "(modified)"
-              'face `(:foreground ,(face-foreground 'face-faded)))))))
+              'face `(:foreground ,(face-foreground 'face-faded)))))
+     ))
    (format-mode-line
     (propertize "%3l:%2c  "
     'face `(:foreground ,(face-foreground 'face-faded)))))))
