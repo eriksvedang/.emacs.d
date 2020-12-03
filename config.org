@@ -370,7 +370,7 @@
               'face `(:foreground ,(face-foreground 'face-faded)))))
      ))
    (format-mode-line
-    (propertize "%3l:%2c  "
+    (propertize "%3l:%2c              "
     'face `(:foreground ,(face-foreground 'face-faded)))))))
 #+END_SRC
 
