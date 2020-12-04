@@ -147,7 +147,7 @@
 *** Main font
 #+BEGIN_SRC emacs-lisp
 (set-face-font 'default "Fira Code 16")
-(setq-default line-spacing 4)
+(setq-default line-spacing 5)
 #+END_SRC
 
 *** Programming
@@ -325,7 +325,7 @@
                     :underline "black"
                     :foreground "black"
                     :background "white"
-                    :box `(:line-width 8 :color "white" :style nil))
+                    :box `(:line-width 12 :color "white" :style nil))
 
 (set-face-attribute 'mode-line nil
                     :height 10
