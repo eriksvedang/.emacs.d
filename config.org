@@ -363,7 +363,7 @@
                  'help-echo  "Major mode menu"
                  'local-map   mode-line-major-mode-keymap)
      " %b "
-     '(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
+     ;;'(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
      " "
      '(:eval (if (and buffer-file-name (buffer-modified-p))
                  (propertize "(modified)"
@@ -401,6 +401,14 @@
 #+BEGIN_SRC emacs-lisp
 (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
 (setq org-src-fontify-natively t)
+
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
+        ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+        ("u" "Thought" entry (file "~/Documents/Organized/thoughts.org") "* %?\n")
+        ("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
+        ))
 #+END_SRC
 
 ** Org Bullets
