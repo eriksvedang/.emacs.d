@@ -988,6 +988,7 @@ Ido completition for M-x menu.
 ** Carp
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
+(add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
 (require 'carp-mode)
 (require 'carp-flycheck)
 
