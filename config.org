@@ -351,7 +351,8 @@
   (if vc-mode
       (let ((backend (vc-backend buffer-file-name)))
         (concat "#" (substring-no-properties vc-mode
-                                 (+ (if (eq backend 'Hg) 2 3) 2))))  nil))
+                                 (+ (if (eq backend 'Hg) 2 3) 2))))
+      ""))
 
 (setq-default header-line-format
   '(:eval (mode-line-render
@@ -363,7 +364,7 @@
                  'help-echo  "Major mode menu"
                  'local-map   mode-line-major-mode-keymap)
      " %b "
-     ;;'(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
+     '(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
      " "
      '(:eval (if (and buffer-file-name (buffer-modified-p))
                  (propertize "(modified)"
