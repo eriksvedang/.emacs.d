@@ -38,3 +38,4 @@ transient/
 config.el
 /ido.last~
 /.cache/
+/bookmarks
