@@ -457,6 +457,9 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(if (eq system-type 'windows-nt)
+  (cua-mode 1))
 #+END_SRC
 
 ** Advice when splitting windows
