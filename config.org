@@ -148,6 +148,9 @@
 #+BEGIN_SRC emacs-lisp
 (set-face-font 'default "Fira Code 16")
 (setq-default line-spacing 5)
+
+(if (eq system-type 'windows-nt)
+  (set-face-font 'default "Fira Code 13"))
 #+END_SRC
 
 *** Programming
@@ -204,6 +207,7 @@
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
 #+END_SRC
+
 
 ** Ligatures
 #+BEGIN_SRC emacs-lisp
@@ -990,6 +994,8 @@ Ido completition for M-x menu.
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
 (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
+(add-to-list 'load-path "C:/Users/erik/Documents/carp-emacs")
+
 (require 'carp-mode)
 (require 'carp-flycheck)
 
