@@ -409,10 +409,10 @@
 
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
-        ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
-        ("u" "Thought" entry (file "~/Documents/Organized/thoughts.org") "* %?\n")
+      '(
         ("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
+        ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+        ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
         ))
 #+END_SRC
 
