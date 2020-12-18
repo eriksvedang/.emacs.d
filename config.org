@@ -952,7 +952,7 @@ Ido completition for M-x menu.
 (setq haskell-process-type 'stack-ghci)
 
 (use-package ormolu
- :hook (haskell-mode . ormolu-format-on-save-mode)
+ ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
  :bind
  (:map haskell-mode-map
    ("C-c r" . ormolu-format-buffer)))
