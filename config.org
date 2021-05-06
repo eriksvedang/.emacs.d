@@ -721,19 +721,22 @@ Ido completition for M-x menu.
 
 ** Find file in project
 #+BEGIN_SRC emacs-lisp
-(require 'find-file-in-project)
-(global-set-key (kbd "s-p") 'find-file-in-project)
-(setq ffip-patterns
-      '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-    "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
-    "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
-    "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-(setq ffip-prune-patterns
-  (cons "*/Packages/*"
-  (cons "*/Temp/*"
-  (cons "*/Library/*"
-  (cons "*/PackageCache/*"
-  (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
+    (require 'find-file-in-project)
+    (global-set-key (kbd "s-p") 'find-file-in-project)
+    (setq ffip-patterns
+          '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
+        "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
+        "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
+        "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+    (setq ffip-prune-patterns
+      (cons "*/Packages/*"
+      (cons "*/Temp/*"
+      (cons "*/Library/*"
+      (cons "*/PackageCache/*"
+      (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
+
+;; Without ivy-mode the find-file-in-project prompt is very bad
+(ivy-mode 1)
 #+END_SRC
 
 ** Undo
