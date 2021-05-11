@@ -64,7 +64,6 @@
       go-dlv               ;; Debugger
       go-impl              ;; Stub generator
       clojure-mode
-      omnisharp            ;; IDE-like features for C#
       lsp-mode             ;; Language Server Protocol
 
       php-mode
@@ -935,6 +934,12 @@ Ido completition for M-x menu.
 (define-key emacs-lisp-mode-map (kbd "C-c C-l") 'eval-buffer)
 #+END_SRC
 
+** LSP
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode)
+  (setq lsp-enable-snippet nil)
+#+END_SRC
+
 ** Haskell
 #+BEGIN_SRC emacs-lisp
 (use-package haskell)
@@ -1053,38 +1058,33 @@ Ido completition for M-x menu.
 ** C#
 #+BEGIN_SRC emacs-lisp
 
-(setenv "PATH" (concat (getenv "PATH") ":/Library/Frameworks/Mono.framework/Versions/Current/Commands"))
-(setq exec-path (append exec-path '("/Library/Frameworks/Mono.framework/Versions/Current/Commands")))
+  (setenv "PATH" (concat (getenv "PATH") ":/Library/Frameworks/Mono.framework/Versions/Current/Commands"))
+  (setq exec-path (append exec-path '("/Library/Frameworks/Mono.framework/Versions/Current/Commands")))
 
-(use-package omnisharp
-  :ensure t)
+  (use-package csharp-mode
+    :ensure t
+    :bind (:map csharp-mode-map
+           )
+    :config
+    (add-hook 'csharp-mode-hook #'lsp)
+    (add-hook 'csharp-mode-hook #'electric-pair-mode)
+    (add-hook 'csharp-mode-hook #'company-mode)
+    (add-hook 'csharp-mode-hook #'flycheck-mode)
+  )
 
-(use-package csharp-mode
-  :ensure t
-  :bind (:map csharp-mode-map
-         ("M-."     . omnisharp-go-to-definition)
-         ("C-c C-r" . omnisharp-run-code-action-refactoring))
-  ;;(bind-key "M-ESC" 'omnisharp-auto-complete)
-  :config
-  (add-hook 'csharp-mode-hook #'electric-pair-mode)
-  (add-hook 'csharp-mode-hook #'omnisharp-mode)
-  (add-hook 'csharp-mode-hook #'company-mode)
-  (add-hook 'csharp-mode-hook #'flycheck-mode)
-  ;;(add-hook 'before-save-hook #'omnisharp-code-format-entire-file)
-)
+  (defun csharp-disable-clear-string-fences (orig-fun &rest args)
+    "This turns off `c-clear-string-fences' for `csharp-mode'. When
+  on for `csharp-mode' font lock breaks after an interpolated string
+  or terminating simple string."
+    (unless (equal major-mode 'csharp-mode)
+      (apply orig-fun args)))
 
-(defun csharp-disable-clear-string-fences (orig-fun &rest args)
-  "This turns off `c-clear-string-fences' for `csharp-mode'. When
-on for `csharp-mode' font lock breaks after an interpolated string
-or terminating simple string."
-  (unless (equal major-mode 'csharp-mode)
-    (apply orig-fun args)))
+  (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 
-(advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
-
-(eval-after-load
-  'company
-  '(add-to-list 'company-backends #'company-omnisharp))
+  ;; (eval-after-load
+  ;;   'company
+  ;;   '(add-to-list 'company-backends #'company-???)
+  ;;   )
 #+END_SRC
 ** SGML
 HTML mode.
