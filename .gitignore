@@ -39,3 +39,4 @@ config.el
 /ido.last~
 /.cache/
 /bookmarks
+/.lsp-session-v1
