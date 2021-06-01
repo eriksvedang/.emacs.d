@@ -674,6 +674,7 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (ido-ubiquitous-mode)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+(setq ido-case-fold t)
 #+END_SRC
 
 ** Smex
@@ -943,35 +944,36 @@ Ido completition for M-x menu.
 
 ** Haskell
 #+BEGIN_SRC emacs-lisp
-(use-package haskell)
+  (use-package haskell)
 
-(use-package dante
-  :ensure t
-  :after haskell-mode
-  :commands 'dante-mode
-  :init)
+  (use-package dante
+    :ensure t
+    :after haskell-mode
+    :commands 'dante-mode
+    :init)
 
-(setq dante-methods '(stack new-build bare-cabal bare-ghci))
+  (setq dante-methods '(stack new-build bare-cabal bare-ghci))
 
-(add-hook 'dante-mode-hook (lambda () (local-set-key (kbd "<C-c C-t>") 'dante-type-at)))
+  (add-hook 'dante-mode-hook (lambda () (local-set-key (kbd "<C-c C-t>") 'dante-type-at)))
 
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (interactive-haskell-mode 1)
-            (smartparens-mode 1)
-            (electric-pair-local-mode 0)
-            (flycheck-mode 1)
-            (define-key haskell-mode-map (kbd "s-r") (lambda ()
-                                                       (interactive)
-                                                       (shell-command "stack run")))))
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (interactive-haskell-mode 1)
+              (smartparens-mode 1)
+              (electric-pair-local-mode 0)
+              (flycheck-mode 1)
+              (company-mode 1)
+              (define-key haskell-mode-map (kbd "s-r") (lambda ()
+                                                         (interactive)
+                                                         (shell-command "stack run")))))
 
-(setq haskell-process-type 'stack-ghci)
+  (setq haskell-process-type 'stack-ghci)
 
-(use-package ormolu
- ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
- :bind
- (:map haskell-mode-map
-   ("C-c r" . ormolu-format-buffer)))
+  (use-package ormolu
+   ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
+   :bind
+   (:map haskell-mode-map
+     ("C-c r" . ormolu-format-buffer)))
 #+END_SRC
 
 ** Clojure
