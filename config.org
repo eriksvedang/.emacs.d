@@ -976,6 +976,21 @@ Ido completition for M-x menu.
      ("C-c r" . ormolu-format-buffer)))
 #+END_SRC
 
+** Racket
+#+BEGIN_SRC emacs-lisp
+(setq racket-program "/Applications/Racket/bin/racket")
+(add-hook 'racket-mode-hook 'smartparens-mode)
+#+END_SRC
+
+** Pie
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'auto-mode-alist '("\\.pie\\'" . racket-mode))
+;; (font-lock-add-keywords 'racket-mode '(("Π" . font-lock-keyword-face)))
+;; (font-lock-add-keywords 'racket-mode '(("->" . font-lock-keyword-face)))
+(font-lock-add-keywords 'racket-mode '(("claim" . font-lock-keyword-face)))
+(put 'claim 'racket-indent-function 1)
+#+END_SRC
+
 ** Clojure
 #+BEGIN_SRC emacs-lisp
 (use-package clojure-mode
