@@ -40,3 +40,4 @@ config.el
 /.cache/
 /bookmarks
 /.lsp-session-v1
+/racket-mode/
