@@ -474,7 +474,10 @@
 (if (eq system-type 'windows-nt)
   (cua-mode 1))
 #+END_SRC
-
+** Narrowing
+#+BEGIN_SRC emacs-lisp
+(put 'narrow-to-region 'disabled nil)
+#+END_SRC
 ** Advice when splitting windows
 #+BEGIN_SRC emacs-lisp
 (defadvice split-window (after move-point-to-new-window activate)
