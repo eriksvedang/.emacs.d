@@ -11,7 +11,6 @@
 (tooltip-mode  0)
 (scroll-bar-mode 0)
 #+END_SRC
-
 * Packages
 ** Archives
 #+BEGIN_SRC emacs-lisp
@@ -19,7 +18,6 @@
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 #+END_SRC
-
 ** Install
 #+BEGIN_SRC emacs-lisp
   (setq the-packages
@@ -118,19 +116,16 @@
                 (package-install package)))
           the-packages)
 #+END_SRC
-
 ** Enable 'use-package'
 #+BEGIN_SRC emacs-lisp
 (require 'use-package)
 #+END_SRC
-
 ** Make PATH work on MacOS
 #+BEGIN_SRC emacs-lisp
 (require 'exec-path-from-shell)
 (when (eq system-type 'darwin)
   (exec-path-from-shell-initialize))
 #+END_SRC
-
 * Look
 ** Fonts
 *** Define 'set-face' function
@@ -144,7 +139,6 @@
    :underline  'unspecified :overline   'unspecified
    :box        'unspecified :inherit    style))
 #+END_SRC
-
 *** Font presets
 #+BEGIN_SRC emacs-lisp
 (defface face-critical '((t :foreground "#ffffff"
@@ -216,9 +210,6 @@
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
 #+END_SRC
-
-#+RESULTS:
-
 ** Ligatures
 #+BEGIN_SRC emacs-lisp
 (defun enable-ligatures ()
@@ -282,7 +273,6 @@
 
 (enable-ligatures)
 #+END_SRC
-
 ** Frame
 #+BEGIN_SRC emacs-lisp
 (set-frame-parameter (selected-frame) 'internal-border-width 24)
@@ -292,7 +282,6 @@
 (set-background-color "#ffffff")
 (set-foreground-color "#000000")
 #+END_SRC
-
 ** Mode Line
 #+BEGIN_SRC emacs-lisp
 (defun mode-line-render (left right)
@@ -388,35 +377,29 @@
     (propertize "%3l:%2c              "
     'face `(:foreground ,(face-foreground 'face-faded)))))))
 #+END_SRC
-
 ** Cursor
 #+BEGIN_SRC emacs-lisp
 (setq cursor-type 'bar)
 (set-default 'cursor-type 'bar)
 #+END_SRC
-
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
 (require 'linum)
 (setq linum-format (quote "%4d  "))
 (global-linum-mode 1)
 #+END_SRC
-
 ** Parenthesis
 #+BEGIN_SRC emacs-lisp
 (show-paren-mode 1)
 #+END_SRC
-
 ** Tabs
 #+BEGIN_SRC emacs-lisp
 (setq-default tab-width 4)
 #+END_SRC
-
 ** Org
 #+BEGIN_SRC emacs-lisp
 (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
 (setq org-src-fontify-natively t)
-
 
 (setq org-capture-templates
       '(
@@ -425,7 +408,6 @@
         ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
         ))
 #+END_SRC
-
 ** Org Bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets)
@@ -444,7 +426,6 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 #+END_SRC
-
 * Feel
 ** Fix idiosyncrasies
 #+BEGIN_SRC emacs-lisp
@@ -506,7 +487,6 @@
 (defadvice completion-list-mode (after move-point-to-new-window activate)
   (other-window 1))
 #+END_SRC
-
 ** The missing keyboard shortcuts
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -527,7 +507,6 @@
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "s-g") 'goto-line)
 #+END_SRC
-
 ** Dired
 #+BEGIN_SRC emacs-lisp
 (add-hook 'dired-mode-hook
@@ -536,7 +515,6 @@
     (auto-revert-mode t)
     (set-face 'dired-directory 'face-popout)))
 #+END_SRC
-
 ** Kill whitespace
 (to the left and right of the cursor)
 #+BEGIN_SRC emacs-lisp
@@ -553,7 +531,6 @@
 
 (global-set-key [s-backspace] 'kill-whitespace)
 #+END_SRC
-
 ** Remove whitespace on save
 #+BEGIN_SRC emacs-lisp
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -567,7 +544,6 @@
     (when normally-should-whitespace-cleanup
       (add-hook 'before-save-hook 'whitespace-cleanup))))
 #+END_SRC
-
 ** Insert line above
 #+BEGIN_SRC emacs-lisp
 (defun smart-open-line-above ()
@@ -580,12 +556,10 @@
 
 (global-set-key (kbd "<C-return>") 'smart-open-line-above)
 #+END_SRC
-
 ** Expand region
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "s-e") 'er/expand-region)
 #+END_SRC
-
 ** Characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
 
@@ -680,7 +654,6 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (sp-pair "\"" nil :actions :rem)
 (sp-pair "\\\"" nil :actions :rem)
 #+END_SRC
-
 ** Ido
 #+BEGIN_SRC emacs-lisp
 (ido-mode 1)
@@ -689,7 +662,6 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (setq ido-everywhere t)
 (setq ido-case-fold t)
 #+END_SRC
-
 ** Smex
 Ido completition for M-x menu.
 
@@ -701,7 +673,6 @@ Ido completition for M-x menu.
                               (global-set-key [(meta x)] 'smex)
                               (smex)))
 #+END_SRC
-
 ** Ibuffer
 #+BEGIN_SRC emacs-lisp
 (setq ibuffer-formats
@@ -732,7 +703,6 @@ Ido completition for M-x menu.
 ;; Refresh automatically
 (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+END_SRC
-
 ** Find file in project
 #+BEGIN_SRC emacs-lisp
     (require 'find-file-in-project)
@@ -752,12 +722,10 @@ Ido completition for M-x menu.
 ;; Without ivy-mode the find-file-in-project prompt is very bad
 (ivy-mode 1)
 #+END_SRC
-
 ** Undo
 #+BEGIN_SRC emacs-lisp
 (global-undo-tree-mode 1)
 #+END_SRC
-
 ** Company mode (auto completion)
 #+BEGIN_SRC emacs-lisp
   (require 'company)
@@ -780,17 +748,14 @@ Ido completition for M-x menu.
 
 (global-set-key (kbd "M-ESC") 'company-complete)
 #+END_SRC
-
 ** IEdit
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-;") 'iedit-mode)
 #+END_SRC
-
 ** Commenting
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 #+END_SRC
-
 ** Scrolling
 *** Nudging the buffer up or down
 #+BEGIN_SRC emacs-lisp
@@ -805,13 +770,11 @@ Ido completition for M-x menu.
 (global-set-key [M-s-up] 'my-scroll-down)
 (global-set-key [M-s-down]   'my-scroll-up)
 #+END_SRC
-
 ** Navigation
 *** Buffers
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-o") 'other-window)
 #+END_SRC
-
 *** Lines
 #+BEGIN_SRC emacs-lisp
 (defun smart-beginning-of-line ()
@@ -835,13 +798,11 @@ Ido completition for M-x menu.
 (global-set-key [s-up] 'beginning-of-buffer)
 (global-set-key [s-down] 'end-of-buffer)
 #+END_SRC
-
 *** Avy
 #+BEGIN_SRC emacs-lisp
 (require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+END_SRC
-
 ** Move Lines
 #+BEGIN_SRC emacs-lisp
 (defun move-lines (n)
@@ -884,23 +845,20 @@ Ido completition for M-x menu.
 (global-set-key (kbd "C-s-<down>") 'move-lines-down)
 (global-set-key (kbd "C-s-<up>") 'move-lines-up)
 #+END_SRC
-
 ** Multiple cursors
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "s-l") 'mc/edit-lines)
 ;; NOTE: If you want to insert a newline in multiple-cursors-mode, use C-j
-#+end_SRC
-
+#+END_SRC
 ** Smerge (conflic resolution)
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-c n") 'smerge-next)
 (global-set-key (kbd "C-c p") 'smerge-prev)
 (global-set-key (kbd "C-c u") 'smerge-keep-upper)
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
-#+end_SRC
-
+#+END_SRC
 ** Rename file AND buffer
 #+BEGIN_SRC emacs-lisp
 (defun rename-file-and-buffer ()
@@ -915,8 +873,7 @@ Ido completition for M-x menu.
          (t
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
-#+end_SRC
-
+#+END_SRC
 * Modes
 ** Org
 #+BEGIN_SRC emacs-lisp
@@ -928,7 +885,6 @@ Ido completition for M-x menu.
                            (local-unset-key (kbd "<S-right>"))
                            ))
 #+END_SRC
-
 ** Magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
@@ -941,20 +897,17 @@ Ido completition for M-x menu.
   ad-do-it
   (delete-other-windows))
 #+END_SRC
-
 ** Emacs Lisp
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-l") 'eval-buffer)
 #+END_SRC
-
 ** LSP
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode)
   (setq lsp-enable-snippet nil)
 #+END_SRC
-
 ** Haskell
 #+BEGIN_SRC emacs-lisp
   (use-package haskell)
@@ -988,13 +941,11 @@ Ido completition for M-x menu.
    (:map haskell-mode-map
      ("C-c r" . ormolu-format-buffer)))
 #+END_SRC
-
 ** Racket
 #+BEGIN_SRC emacs-lisp
 (setq racket-program "/Applications/Racket/bin/racket")
 (add-hook 'racket-mode-hook 'smartparens-mode)
 #+END_SRC
-
 ** Pie
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.pie\\'" . racket-mode))
@@ -1003,7 +954,6 @@ Ido completition for M-x menu.
 (font-lock-add-keywords 'racket-mode '(("claim" . font-lock-keyword-face)))
 (put 'claim 'racket-indent-function 1)
 #+END_SRC
-
 ** Clojure
 #+BEGIN_SRC emacs-lisp
 (use-package clojure-mode
@@ -1085,10 +1035,8 @@ Ido completition for M-x menu.
         (define-key c-mode-map (kbd "s-r") 'run-c)
         (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
 #+END_SRC
-
 ** C#
 #+BEGIN_SRC emacs-lisp
-
   (setenv "PATH" (concat (getenv "PATH") ":/Library/Frameworks/Mono.framework/Versions/Current/Commands"))
   (setq exec-path (append exec-path '("/Library/Frameworks/Mono.framework/Versions/Current/Commands")))
 
@@ -1128,7 +1076,6 @@ HTML mode.
 (add-hook 'html-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
 #+END_SRC
-
 ** Zencoding
 Expand abbreviated tags to full html.
 #+BEGIN_SRC emacs-lisp
@@ -1136,12 +1083,10 @@ Expand abbreviated tags to full html.
       (lambda ()
         (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
 #+END_SRC
-
 ** Pico8
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
 #+END_SRC
-
 ** TEMPLATE
 #+BEGIN_SRC emacs-lisp
   ;; (use-package some-mode
