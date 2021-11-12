@@ -1129,3 +1129,9 @@ Expand abbreviated tags to full html.
   (add-hook 'go-mode-hook (electric-pair-mode 1))
   )
 #+END_SRC
+
+** Regexp Builder
+#+BEGIN_SRC emacs-lisp
+  (require 're-builder)
+  (setq reb-re-syntax 'string) ;; less escaping
+#+END_SRC
