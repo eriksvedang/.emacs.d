@@ -23,7 +23,6 @@
   (setq the-packages
         '(
           use-package          ;; Configure packages in an easy way
-          esup                 ;; Emacs Startup Profiler
 
           ;; META-X / WINDOWS / BUFFERS
           smex                 ;; Better help in minibuffer
