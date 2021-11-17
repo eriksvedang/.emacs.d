@@ -15,7 +15,7 @@
 ** Archives
 #+BEGIN_SRC emacs-lisp
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ;;("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 #+END_SRC
 ** Install
@@ -151,11 +151,14 @@
 #+END_SRC
 *** Main font
 #+BEGIN_SRC emacs-lisp
-(set-face-font 'default "Fira Code 16")
-(setq-default line-spacing 5)
+  (set-face-font 'default "Fira Code 16")
+  (setq-default line-spacing 5)
 
-(if (eq system-type 'windows-nt)
-  (set-face-font 'default "Fira Code 13"))
+  (if (eq system-type 'windows-nt)
+    (set-face-font 'default "Fira Code 13"))
+
+  (if (eq system-type 'gnu/linux)
+      (set-face-font 'default "Fira Code 12"))
 #+END_SRC
 *** Programming
 #+BEGIN_SRC emacs-lisp
