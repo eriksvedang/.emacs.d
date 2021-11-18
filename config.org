@@ -913,7 +913,13 @@ Ido completition for M-x menu.
 #+END_SRC
 ** LSP
 #+BEGIN_SRC emacs-lisp
-  (use-package lsp-mode)
+  (use-package lsp-mode
+    :config
+    (setq lsp-headerline-breadcrumb-enable nil)
+    ;;(setq lsp-ui-sideline-enable nil)
+    ;;(setq lsp-ui-sideline-show-code-actions nil)
+    ;;(setq lsp-ui-doc-enable nil)
+    )
   (setq lsp-enable-snippet nil)
 #+END_SRC
 ** Haskell
@@ -1053,10 +1059,10 @@ Ido completition for M-x menu.
     :bind (:map csharp-mode-map
            )
     :config
-    ;;(add-hook 'csharp-mode-hook #'lsp)
+    (add-hook 'csharp-mode-hook #'lsp)
     (add-hook 'csharp-mode-hook #'electric-pair-mode)
-    ;;(add-hook 'csharp-mode-hook #'company-mode)
-    ;;(add-hook 'csharp-mode-hook #'flycheck-mode)
+    (add-hook 'csharp-mode-hook #'company-mode)
+    (add-hook 'csharp-mode-hook #'flycheck-mode)
   )
 
   (defun csharp-disable-clear-string-fences (orig-fun &rest args)
@@ -1104,37 +1110,38 @@ Expand abbreviated tags to full html.
 #+END_SRC
 ** Go
 #+BEGIN_SRC emacs-lisp
-(defun run-go ()
-  (interactive)
-  (save-buffer)
-  (let ((project-dir (locate-dominating-file (buffer-file-name) ".git")))
-    (if project-dir
-    (progn (setq default-directory project-dir)
-           (compile (format "go run")))
-    (compile (format "go run %s" (buffer-file-name))))))
+  (defun run-go ()
+    (interactive)
+    (save-buffer)
+    (let ((project-dir (locate-dominating-file (buffer-file-name) ".git")))
+      (if project-dir
+      (progn (setq default-directory project-dir)
+             (compile (format "go run")))
+      (compile (format "go run %s" (buffer-file-name))))))
 
-(defun compile-go ()
-  (interactive)
-  (save-buffer)
-  (let ((project-dir (locate-dominating-file (buffer-file-name) "go.mod")))
-    (if project-dir
-    (progn (setq default-directory project-dir)
-           (compile (format "go build ./...")))
-      (compile (format "go build %s -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
+  (defun compile-go ()
+    (interactive)
+    (save-buffer)
+    (let ((project-dir (locate-dominating-file (buffer-file-name) "go.mod")))
+      (if project-dir
+      (progn (setq default-directory project-dir)
+             (compile (format "go build ./...")))
+        (compile (format "go build %s -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
-(use-package go-mode
-  :init
-  :bind (:map go-mode-map
-         ("C-c C-t" . godef-describe)
-         ("C-c C-d" . godef-describe)
-         ("C-c C-r" . run-go)
-         ("C-c C-c" . compile-go)
-         ("M-."     . godef-jump))
-  :config
-  (add-hook 'before-save-hook #'gofmt-before-save)
-  (add-hook 'go-mode-hook #'go-imenu-setup)
-  (add-hook 'go-mode-hook (electric-pair-mode 1))
-  )
+  (use-package go-mode
+    :init
+    :bind (:map go-mode-map
+           ("C-c C-t" . godef-describe)
+           ("C-c C-d" . godef-describe)
+           ("C-c C-r" . run-go)
+           ("C-c C-c" . compile-go)
+           ("M-."     . godef-jump))
+    :config
+    (add-hook 'before-save-hook #'gofmt-before-save)
+    (add-hook 'go-mode-hook #'go-imenu-setup)
+    (add-hook 'go-mode-hook (electric-pair-mode 1))
+    ;; TODO: LSP!
+    )
 #+END_SRC
 
 ** Regexp Builder
