@@ -29,98 +29,98 @@
 This part should be removed and replaced with (use-package ... :ensure t)
 
    #+BEGIN_SRC emacs-lisp
-    (setq the-packages
-      '(
-        ;; META-X / WINDOWS / BUFFERS
-        smex                 ;; Better help in minibuffer
-        ivy                  ;; A generic completion mechanism
-        counsel              ;; Improved (?) ivy
-        ido-completing-read+ ;; Replacing ido-ubiquitous
-        find-file-in-project ;; Make any git folder a project
-        ace-window           ;; Select window with number keys
+     (setq the-packages
+       '(
+         ;; META-X / WINDOWS / BUFFERS
+         smex                 ;; Better help in minibuffer
+         ivy                  ;; A generic completion mechanism
+         counsel              ;; Improved (?) ivy
+         ido-completing-read+ ;; Replacing ido-ubiquitous
+         find-file-in-project ;; Make any git folder a project
+         ace-window           ;; Select window with number keys
 
-        ;; TEXT EDITING
-        multiple-cursors     ;; Best feature of Sublime Text
-        undo-tree            ;; Show a graph of edits that can be undone
-        company              ;; Auto completion
-        company-fuzzy        ;; Fuzzy matching for completion
-        avy                  ;; Jump to position in buffer
-        iedit                ;; Edit all in scope
-        rainbow-mode         ;; Show color of hex values inlined in the buffer
-        swiper               ;; Better search in buffer
-        imenu                ;; Goto definition within the file
-        expand-region        ;; Select larger and larger region
+         ;; TEXT EDITING
+         multiple-cursors     ;; Best feature of Sublime Text
+         undo-tree            ;; Show a graph of edits that can be undone
+         company              ;; Auto completion
+         company-fuzzy        ;; Fuzzy matching for completion
+         avy                  ;; Jump to position in buffer
+         iedit                ;; Edit all in scope
+         rainbow-mode         ;; Show color of hex values inlined in the buffer
+         swiper               ;; Better search in buffer
+         imenu                ;; Goto definition within the file
+         expand-region        ;; Select larger and larger region
 
-        ;; OS INTERACTION
-        exec-path-from-shell ;; Fix the path on MacOS
-        reveal-in-osx-finder ;; Open finder at current buffer's location
+         ;; OS INTERACTION
+         exec-path-from-shell ;; Fix the path on MacOS
+         reveal-in-osx-finder ;; Open finder at current buffer's location
 
-        ;; ORG MODE
-        org-bullets          ;; Make org bullet points look nice
-        free-keys            ;; Show what key combinations that are not taken
+         ;; ORG MODE
+         org-bullets          ;; Make org bullet points look nice
+         free-keys            ;; Show what key combinations that are not taken
 
-        ;; MAGIT
-        magit                ;; The best git client ever!
+         ;; MAGIT
+         magit                ;; The best git client ever!
 
-        ;; FLYCHECK / FLYMAKE
-        flycheck             ;; Red squiggly lines in your code
-        flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
-        flymake-cursor
-        flymake-hlint
-        flycheck-rust
+         ;; FLYCHECK / FLYMAKE
+         flycheck             ;; Red squiggly lines in your code
+         flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
+         flymake-cursor
+         flymake-hlint
+         flycheck-rust
 
-        ;; NIX
-        nix-mode
-        nix-buffer
+         ;; NIX
+         nix-mode
+         nix-buffer
 
-        ;; PROGRAMMING MODES
-        lsp-mode             ;; Language Server Protocol
+         ;; PROGRAMMING MODES
+         lsp-mode             ;; Language Server Protocol
 
-        haskell-mode
-        dante                ;; Interactive Haskell mode
-        ormolu               ;; Haskell auto-formatting
+         haskell-mode
+         dante                ;; Interactive Haskell mode
+         ormolu               ;; Haskell auto-formatting
 
-        go-mode
-        go-imenu
-        go-dlv               ;; Debugger
-        go-impl              ;; Stub generator
+         go-mode
+         go-imenu
+         go-dlv               ;; Debugger
+         go-impl              ;; Stub generator
 
-        cc-mode              ;; C
-        irony                ;; C/C++/ObjectiveC
-        gud                  ;; GDB debugging
+         cc-mode              ;; C
+         irony                ;; C/C++/ObjectiveC
+         gud                  ;; GDB debugging
 
-        sgml-mode            ;; HTML mode
-        web-mode             ;; Smart editing of HTML templates
+         sgml-mode            ;; HTML mode
+         web-mode             ;; Smart editing of HTML templates
 
-        clojure-mode
-        php-mode
-        lua-mode
-        swift-mode
-        markdown-mode
-        cc-mode
-        glsl-mode
-        cmake-mode
-        yaml-mode
-        elm-mode
-        idris-mode
-        purescript-mode
-        tuareg               ;; OCaml
-        rust-mode
-        racket-mode
-        fsharp-mode
-        zencoding-mode
-        js2-mode
-        rjsx-mode            ;; JSX (used in React)
+         clojure-mode
+         php-mode
+         lua-mode
+         swift-mode
+         markdown-mode
+         cc-mode
+         glsl-mode
+         cmake-mode
+         yaml-mode
+         elm-mode
+         idris-mode
+         purescript-mode
+         tuareg               ;; OCaml
+         rust-mode
+         racket-mode
+         fsharp-mode
+         zencoding-mode
+         js2-mode
+         rjsx-mode            ;; JSX (used in React)
 
-        ;; MISC
-        restclient           ;; Send web requests from a buffer
-        ))
+         ;; MISC
+         restclient           ;; Send web requests from a buffer
+         ))
 
-    (mapcar (lambda (package)
-          (if (package-installed-p package)
-          nil
-        (package-install package)))
-        the-packages)
+     (mapcar (lambda (package)
+           (if (package-installed-p package)
+           nil
+         (package-install package)))
+         the-packages)
 #+END_SRC
 ** Make PATH work on MacOS
 #+BEGIN_SRC emacs-lisp
@@ -1051,13 +1051,9 @@ Ido completition for M-x menu.
 #+END_SRC
 ** C#
 #+BEGIN_SRC emacs-lisp
-  (setenv "PATH" (concat (getenv "PATH") ":/Library/Frameworks/Mono.framework/Versions/Current/Commands"))
-  (setq exec-path (append exec-path '("/Library/Frameworks/Mono.framework/Versions/Current/Commands")))
-
   (use-package csharp-mode
     :ensure t
-    :bind (:map csharp-mode-map
-           )
+    :bind (:map csharp-mode-map)
     :config
     (add-hook 'csharp-mode-hook #'lsp)
     (add-hook 'csharp-mode-hook #'electric-pair-mode)
@@ -1073,11 +1069,6 @@ Ido completition for M-x menu.
       (apply orig-fun args)))
 
   (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
-
-  ;; (eval-after-load
-  ;;   'company
-  ;;   '(add-to-list 'company-backends #'company-???)
-  ;;   )
 #+END_SRC
 ** SGML
 HTML mode.
