@@ -15,110 +15,112 @@
 ** Archives
 #+BEGIN_SRC emacs-lisp
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ;;("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
-#+END_SRC
-** Install
-#+BEGIN_SRC emacs-lisp
-  (setq the-packages
-        '(
-          use-package          ;; Configure packages in an easy way
-
-          ;; META-X / WINDOWS / BUFFERS
-          smex                 ;; Better help in minibuffer
-          ivy                  ;; A generic completion mechanism
-          counsel              ;; Improved (?) ivy
-          ido-completing-read+ ;; Replacing ido-ubiquitous
-          find-file-in-project ;; Make any git folder a project
-          ace-window           ;; Select window with number keys
-
-          ;; TEXT EDITING
-          multiple-cursors     ;; Best feature of Sublime Text
-          smartparens          ;; Structured editing of s-expressions
-          undo-tree            ;; Show a graph of edits that can be undone
-          company              ;; Auto completion
-          company-fuzzy        ;; Fuzzy matching for completion
-          avy                  ;; Jump to position in buffer
-          iedit                ;; Edit all in scope
-          rainbow-mode         ;; Show color of hex values inlined in the buffer
-          swiper               ;; Better search in buffer
-          imenu                ;; Goto definition within the file
-          expand-region        ;; Select larger and larger region
-
-          ;; OS INTERACTION
-          exec-path-from-shell ;; Fix the path on MacOS
-          reveal-in-osx-finder ;; Open finder at current buffer's location
-
-          ;; ORG MODE
-          org-bullets          ;; Make org bullet points look nice
-          free-keys            ;; Show what key combinations that are not taken
-
-          ;; MAGIT
-          magit                ;; The best git client ever!
-
-          ;; FLYCHECK / FLYMAKE
-          flycheck             ;; Red squiggly lines in your code
-          flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
-          flymake-cursor
-          flymake-hlint
-          flycheck-rust
-
-          ;; NIX
-          nix-mode
-          nix-buffer
-
-          ;; PROGRAMMING MODES
-          lsp-mode             ;; Language Server Protocol
-
-          haskell-mode
-          dante                ;; Interactive Haskell mode
-          ormolu               ;; Haskell auto-formatting
-
-          go-mode
-          go-imenu
-          go-dlv               ;; Debugger
-          go-impl              ;; Stub generator
-
-          cc-mode              ;; C
-          irony                ;; C/C++/ObjectiveC
-          gud                  ;; GDB debugging
-
-          sgml-mode            ;; HTML mode
-          web-mode             ;; Smart editing of HTML templates
-
-          clojure-mode
-          php-mode
-          lua-mode
-          swift-mode
-          markdown-mode
-          cc-mode
-          glsl-mode
-          cmake-mode
-          yaml-mode
-          elm-mode
-          idris-mode
-          purescript-mode
-          tuareg               ;; OCaml
-          rust-mode
-          racket-mode
-          fsharp-mode
-          zencoding-mode
-          js2-mode
-          rjsx-mode            ;; JSX (used in React)
-
-          ;; MISC
-          restclient           ;; Send web requests from a buffer
-          ))
-
-  (mapcar (lambda (package)
-            (if (package-installed-p package)
-                nil
-              (package-install package)))
-          the-packages)
 #+END_SRC
 ** Enable 'use-package'
 #+BEGIN_SRC emacs-lisp
-(require 'use-package)
+  (when (not (package-installed-p 'use-package))
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (require 'use-package)
+#+END_SRC
+** Install
+This part should be removed and replaced with (use-package ... :ensure t)
+
+   #+BEGIN_SRC emacs-lisp
+    (setq the-packages
+      '(
+        ;; META-X / WINDOWS / BUFFERS
+        smex                 ;; Better help in minibuffer
+        ivy                  ;; A generic completion mechanism
+        counsel              ;; Improved (?) ivy
+        ido-completing-read+ ;; Replacing ido-ubiquitous
+        find-file-in-project ;; Make any git folder a project
+        ace-window           ;; Select window with number keys
+
+        ;; TEXT EDITING
+        multiple-cursors     ;; Best feature of Sublime Text
+        undo-tree            ;; Show a graph of edits that can be undone
+        company              ;; Auto completion
+        company-fuzzy        ;; Fuzzy matching for completion
+        avy                  ;; Jump to position in buffer
+        iedit                ;; Edit all in scope
+        rainbow-mode         ;; Show color of hex values inlined in the buffer
+        swiper               ;; Better search in buffer
+        imenu                ;; Goto definition within the file
+        expand-region        ;; Select larger and larger region
+
+        ;; OS INTERACTION
+        exec-path-from-shell ;; Fix the path on MacOS
+        reveal-in-osx-finder ;; Open finder at current buffer's location
+
+        ;; ORG MODE
+        org-bullets          ;; Make org bullet points look nice
+        free-keys            ;; Show what key combinations that are not taken
+
+        ;; MAGIT
+        magit                ;; The best git client ever!
+
+        ;; FLYCHECK / FLYMAKE
+        flycheck             ;; Red squiggly lines in your code
+        flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
+        flymake-cursor
+        flymake-hlint
+        flycheck-rust
+
+        ;; NIX
+        nix-mode
+        nix-buffer
+
+        ;; PROGRAMMING MODES
+        lsp-mode             ;; Language Server Protocol
+
+        haskell-mode
+        dante                ;; Interactive Haskell mode
+        ormolu               ;; Haskell auto-formatting
+
+        go-mode
+        go-imenu
+        go-dlv               ;; Debugger
+        go-impl              ;; Stub generator
+
+        cc-mode              ;; C
+        irony                ;; C/C++/ObjectiveC
+        gud                  ;; GDB debugging
+
+        sgml-mode            ;; HTML mode
+        web-mode             ;; Smart editing of HTML templates
+
+        clojure-mode
+        php-mode
+        lua-mode
+        swift-mode
+        markdown-mode
+        cc-mode
+        glsl-mode
+        cmake-mode
+        yaml-mode
+        elm-mode
+        idris-mode
+        purescript-mode
+        tuareg               ;; OCaml
+        rust-mode
+        racket-mode
+        fsharp-mode
+        zencoding-mode
+        js2-mode
+        rjsx-mode            ;; JSX (used in React)
+
+        ;; MISC
+        restclient           ;; Send web requests from a buffer
+        ))
+
+    (mapcar (lambda (package)
+          (if (package-installed-p package)
+          nil
+        (package-install package)))
+        the-packages)
 #+END_SRC
 ** Make PATH work on MacOS
 #+BEGIN_SRC emacs-lisp
@@ -609,54 +611,59 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 #+END_SRC
 ** Smartparens
 #+BEGIN_SRC emacs-lisp
-(require 'smartparens)
+  (defun my-end-of-defun ()
+    (interactive)
+    (end-of-defun)
+    (left-char))
 
-(define-key sp-keymap (kbd "C-)") 'sp-forward-slurp-sexp)
-(define-key sp-keymap (kbd "C-(") 'sp-backward-slurp-sexp)
-(define-key sp-keymap (kbd "C-M-)") 'sp-forward-barf-sexp)
-(define-key sp-keymap (kbd "C-M-(") 'sp-backward-barf-sexp)
+  (use-package smartparens
+    :ensure t
 
-(define-key sp-keymap (kbd "C-M-k") 'sp-kill-sexp)
-(define-key sp-keymap (kbd "C-M-w") 'sp-copy-sexp)
-(define-key sp-keymap (kbd "C-M-<backspace>") 'sp-unwrap-sexp)
+    :config
+    ;; Disable automatic pairing for these characters:
+    (sp-pair "'" nil :actions :rem)
+    (sp-pair "\"" nil :actions :rem)
+    (sp-pair "\\\"" nil :actions :rem)
 
-(define-key sp-keymap (kbd "C-M-t") 'sp-transpose-sexp)
-(define-key sp-keymap (kbd "C-M-j") 'sp-join-sexp)
-(define-key sp-keymap (kbd "C-M-s") 'sp-split-sexp)
+    :bind
+    (("C-)" . sp-forward-slurp-sexp)
+     ("C-(" . sp-backward-slurp-sexp)
 
-;; Move out and to the right: ( | ) => ( ) |
-(define-key sp-keymap (kbd "C-M-i") 'sp-up-sexp)
+     ("C-M-)" . sp-forward-barf-sexp)
+     ("C-M-(" . sp-backward-barf-sexp)
 
-;; Move out and to the left: ( | ) => | ( )
-(define-key sp-keymap (kbd "C-M-u") 'sp-backward-up-sexp)
+     ("C-M-k" . sp-kill-sexp)
+     ("C-M-w" . sp-copy-sexp)
+     ("C-M-<backspace>" . sp-unwrap-sexp)
 
-;; Move down right: | ( ) => ( | )
-(define-key sp-keymap (kbd "C-M-d") 'sp-down-sexp)
+     ("C-M-t" . sp-transpose-sexp)
+     ("C-M-j" . sp-join-sexp)
+     ("C-M-s" . sp-split-sexp)
 
-;; Move down left: ( ) | => ( | )
-(define-key sp-keymap (kbd "C-M-c") 'sp-backward-down-sexp)
+     ;; Move out and to the right: ( | ) => ( ) |
+     ("C-M-i" . sp-up-sexp)
 
-;; Move right: ( a | b c ) => ( a b | c )
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
+     ;; Move out and to the left: ( | ) => | ( )
+     ("C-M-u" . sp-backward-up-sexp)
 
-;; Move left: ( a b | c ) => ( a | b c )
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+     ;; Move down right: | ( ) => ( | )
+     ("C-M-d" . sp-down-sexp)
 
-;; Move left to outmost paren ( ( | ) ) => | ( ( ) )
-(define-key sp-keymap (kbd "C-M-a") 'beginning-of-defun)
+     ;; Move down left: ( ) | => ( | )
+     ("C-M-c" . sp-backward-down-sexp)
 
-(defun my-end-of-defun ()
-  (interactive)
-  (end-of-defun)
-  (left-char))
+     ;; Move right: ( a | b c ) => ( a b | c )
+     ("C-M-f" . sp-forward-sexp)
 
-;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
-(define-key sp-keymap (kbd "C-M-e") 'my-end-of-defun)
+     ;; Move left: ( a b | c ) => ( a | b c )
+     ("C-M-b" . sp-backward-sexp)
 
-;; Disable automatic pairing for these characters:
-(sp-pair "'" nil :actions :rem)
-(sp-pair "\"" nil :actions :rem)
-(sp-pair "\\\"" nil :actions :rem)
+     ;; Move left to outmost paren ( ( | ) ) => | ( ( ) )
+     ("C-M-a" . beginning-of-defun)
+
+     ;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
+     ("C-M-e" . my-end-of-defun))
+    )
 #+END_SRC
 ** Ido
 #+BEGIN_SRC emacs-lisp
