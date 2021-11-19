@@ -781,26 +781,26 @@ Ido completition for M-x menu.
 #+END_SRC
 *** Lines
 #+BEGIN_SRC emacs-lisp
-(defun smart-beginning-of-line ()
-  "Move point to first non-whitespace character or beginning-of-line.
-   Move point to the first non-whitespace character on this line.
-   If point was already at that position, move point to beginning of line."
-  (interactive "^") ; Use (interactive "^") in Emacs 23 to make shift-select work
-  (let ((oldpos (point)))
-    (back-to-indentation)
-    (and (= oldpos (point))
-         (beginning-of-line))))
+  (defun smart-beginning-of-line ()
+    "Move point to first non-whitespace character or beginning-of-line.
+     Move point to the first non-whitespace character on this line.
+     If point was already at that position, move point to beginning of line."
+    (interactive "^") ; Use (interactive "^") in Emacs 23 to make shift-select work
+    (let ((oldpos (point)))
+      (back-to-indentation)
+      (and (= oldpos (point))
+           (beginning-of-line))))
 
-(global-set-key [s-left] 'smart-beginning-of-line)
-(global-set-key [home] 'smart-beginning-of-line)
-(global-set-key (kbd "C-a") 'smart-beginning-of-line)
+  (global-set-key [s-left] 'smart-beginning-of-line)
+  (global-set-key [home] 'smart-beginning-of-line)
+  (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
-(global-set-key [s-right] 'end-of-line)
-(define-key global-map [end] 'end-of-line)
-(global-set-key (kbd "C-e") 'end-of-line)
+  (global-set-key [s-right] 'end-of-line)
+  (define-key global-map [end] 'end-of-line)
+  (global-set-key (kbd "C-e") 'end-of-line)
 
-(global-set-key [s-up] 'beginning-of-buffer)
-(global-set-key [s-down] 'end-of-buffer)
+  (global-set-key [s-up] 'beginning-of-buffer)
+  (global-set-key [s-down] 'end-of-buffer)
 #+END_SRC
 *** Avy
 #+BEGIN_SRC emacs-lisp
