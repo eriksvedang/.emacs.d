@@ -416,8 +416,9 @@ This part should be removed and replaced with (use-package ... :ensure t)
 #+END_SRC
 ** Org Bullets
 #+BEGIN_SRC emacs-lisp
-(use-package org-bullets)
-(setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩"))
+    (use-package org-bullets
+      :config
+      (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
 #+END_SRC
 *** Third level
 **** Fourth level
