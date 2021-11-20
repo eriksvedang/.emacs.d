@@ -59,9 +59,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
          org-bullets          ;; Make org bullet points look nice
          free-keys            ;; Show what key combinations that are not taken
 
-         ;; MAGIT
-         magit                ;; The best git client ever!
-
          ;; FLYCHECK / FLYMAKE
          flycheck             ;; Red squiggly lines in your code
          flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
@@ -883,15 +880,16 @@ Ido completition for M-x menu.
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
-(use-package magit
-  :init (bind-key "C-x g" 'magit-status))
+  (use-package magit
+    :ensure t
+    :init (bind-key "C-x g" 'magit-status))
 
-(add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
+  (defadvice magit-status (around magit-fullscreen activate)
+    (window-configuration-to-register :magit-fullscreen)
+    ad-do-it
+    (delete-other-windows))
 #+END_SRC
 ** Emacs Lisp
 #+BEGIN_SRC emacs-lisp
