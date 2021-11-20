@@ -70,9 +70,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
          nix-mode
          nix-buffer
 
-         ;; PROGRAMMING MODES
-         lsp-mode             ;; Language Server Protocol
-
          go-mode
          go-imenu
          go-dlv               ;; Debugger
@@ -85,7 +82,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
          sgml-mode            ;; HTML mode
          web-mode             ;; Smart editing of HTML templates
 
-         clojure-mode
          php-mode
          lua-mode
          swift-mode
@@ -900,6 +896,7 @@ Ido completition for M-x menu.
 ** LSP
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
+    :ensure t
     :config
     (setq lsp-headerline-breadcrumb-enable nil)
     ;;(setq lsp-ui-sideline-enable nil)
@@ -959,6 +956,7 @@ Ido completition for M-x menu.
 ** Clojure
 #+BEGIN_SRC emacs-lisp
 (use-package clojure-mode
+  :ensure t
   :init (smartparens-mode))
 
 (add-hook 'cider-mode-hook 'eldoc-mode)
