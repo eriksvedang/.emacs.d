@@ -402,28 +402,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
 #+BEGIN_SRC emacs-lisp
 (setq-default tab-width 4)
 #+END_SRC
-** Org
-#+BEGIN_SRC emacs-lisp
-(setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
-(setq org-src-fontify-natively t)
-
-(setq org-capture-templates
-      '(
-        ("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
-        ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
-        ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
-        ))
-#+END_SRC
-** Org Bullets
-#+BEGIN_SRC emacs-lisp
-    (use-package org-bullets
-      :config
-      (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
-#+END_SRC
-*** Third level
-**** Fourth level
-***** Fifth level
-****** Sixth level
 ** What face?
 #+BEGIN_SRC emacs-lisp
 ;; Function for finding out info about font at cursor
@@ -885,13 +863,27 @@ Ido completition for M-x menu.
 * Modes
 ** Org
 #+BEGIN_SRC emacs-lisp
-(add-hook 'org-mode-hook (lambda ()
-                           (org-bullets-mode 1)
-                           (local-unset-key (kbd "<S-up>"))
-                           (local-unset-key (kbd "<S-down>"))
-                           (local-unset-key (kbd "<S-left>"))
-                           (local-unset-key (kbd "<S-right>"))
-                           ))
+  (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
+  (setq org-src-fontify-natively t)
+
+  (setq org-capture-templates
+        '(
+          ("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
+          ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+          ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n")
+          ))
+
+  (add-hook 'org-mode-hook (lambda ()
+                             (org-bullets-mode 1)
+                             (local-unset-key (kbd "<S-up>"))
+                             (local-unset-key (kbd "<S-down>"))
+                             (local-unset-key (kbd "<S-left>"))
+                             (local-unset-key (kbd "<S-right>"))
+                             ))
+
+  (use-package org-bullets
+    :config
+    (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
