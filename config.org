@@ -76,10 +76,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
          ;; PROGRAMMING MODES
          lsp-mode             ;; Language Server Protocol
 
-         haskell-mode
-         dante                ;; Interactive Haskell mode
-         ormolu               ;; Haskell auto-formatting
-
          go-mode
          go-imenu
          go-dlv               ;; Debugger
@@ -916,7 +912,8 @@ Ido completition for M-x menu.
 #+END_SRC
 ** Haskell
 #+BEGIN_SRC emacs-lisp
-  (use-package haskell)
+  (use-package haskell-mode
+    :ensure t)
 
   (use-package dante
     :ensure t
@@ -942,10 +939,11 @@ Ido completition for M-x menu.
   (setq haskell-process-type 'stack-ghci)
 
   (use-package ormolu
-   ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
-   :bind
-   (:map haskell-mode-map
-     ("C-c r" . ormolu-format-buffer)))
+    ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
+    :ensure t
+    :bind
+    (:map haskell-mode-map
+          ("C-c r" . ormolu-format-buffer)))
 #+END_SRC
 ** Racket
 #+BEGIN_SRC emacs-lisp
