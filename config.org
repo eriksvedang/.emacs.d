@@ -111,15 +111,17 @@ This part should be removed and replaced with (use-package ... :ensure t)
 * Look
 ** Fonts
 *** Define 'set-face' function
+This function and the following font configuration is shamelessly stolen
+from the excellent Nano configuration, see [[nano-theme.el][https://github.com/rougier/nano-emacs]].
 #+BEGIN_SRC emacs-lisp
-(defun set-face (face style)
-  "Reset a face and make it inherit style."
-  (set-face-attribute face nil
-   :foreground 'unspecified :background 'unspecified
-   :family     'unspecified :slant      'unspecified
-   :weight     'unspecified :height     'unspecified
-   :underline  'unspecified :overline   'unspecified
-   :box        'unspecified :inherit    style))
+  (defun set-face (face style)
+    "Reset a face and make it inherit style."
+    (set-face-attribute face nil
+     :foreground 'unspecified :background 'unspecified
+     :family     'unspecified :slant      'unspecified
+     :weight     'unspecified :height     'unspecified
+     :underline  'unspecified :overline   'unspecified
+     :box        'unspecified :inherit    style))
 #+END_SRC
 *** Font presets
 #+BEGIN_SRC emacs-lisp
@@ -196,6 +198,7 @@ This part should be removed and replaced with (use-package ... :ensure t)
 (set-face 'info-title-4                                  'face-strong)
 #+END_SRC
 ** Ligatures
+It should be possible to remove this, since Emacs is supporting ligatures natively now.
 #+BEGIN_SRC emacs-lisp
 (defun enable-ligatures ()
   (interactive)
@@ -269,6 +272,7 @@ This part should be removed and replaced with (use-package ... :ensure t)
   (set-foreground-color "#000000")
 #+END_SRC
 ** Mode Line
+See [[nano-modeline.el][https://github.com/rougier/nano-emacs]].
 #+BEGIN_SRC emacs-lisp
 (defun mode-line-render (left right)
   "Return a string of `window-width' length containing left, and
