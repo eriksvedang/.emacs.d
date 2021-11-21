@@ -17,7 +17,7 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 #+END_SRC
-** Enable 'use-package'
+** Ensure 'use-package'
 #+BEGIN_SRC emacs-lisp
   (when (not (package-installed-p 'use-package))
     (package-refresh-contents)
@@ -107,12 +107,6 @@ This part should be removed and replaced with (use-package ... :ensure t)
            nil
          (package-install package)))
          the-packages)
-#+END_SRC
-** Make PATH work on MacOS
-#+BEGIN_SRC emacs-lisp
-  (require 'exec-path-from-shell)
-  (when (eq system-type 'darwin)
-    (exec-path-from-shell-initialize))
 #+END_SRC
 * Look
 ** Fonts
@@ -1115,3 +1109,11 @@ Expand abbreviated tags to full html.
   (require 're-builder)
   (setq reb-re-syntax 'string) ;; less escaping
 #+END_SRC
+
+** Exec Path From Shell (MacOS)
+ #+BEGIN_SRC emacs-lisp
+   (use-package exec-path-from-shell
+     :ensure t)
+   (when (eq system-type 'darwin)
+     (exec-path-from-shell-initialize))
+ #+END_SRC
