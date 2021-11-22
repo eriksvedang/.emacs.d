@@ -587,7 +587,9 @@ More special characters.
      ("C-M-e" . end-of-defun))
     )
 #+end_src
-** Minibuffer completion (Ido, et al)
+** Minibuffer completion
+Good old Ido, I primarily use it for finding (opening) files.
+
 #+begin_src emacs-lisp
   (ido-mode t)
   (ido-ubiquitous-mode t)
@@ -597,53 +599,48 @@ More special characters.
 
   (global-set-key (kbd "C-x C-f") 'ido-find-file)
 
-  ;; Replacement for ido-ubiquitous
+  ;; Replacement for ido-ubiquitous, might not be needed anymore?
   (use-package ido-completing-read+
     :ensure t)
 #+end_src
 
-Ivy is a generic completion framework which can filter a list of "things", e.g. filenames.
+Smex is a better M-x that still feels like home.
 
 #+begin_src emacs-lisp
-  (use-package ivy
-    :ensure t)
-
-  ;; Activate use C-o
-  (use-package ivy-hydra
-    :ensure t)
-
-  (ivy-mode 1)
-  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+  (global-set-key (kbd "M-x")
+                  (lambda ()
+                    (interactive)
+                    (or (boundp 'smex-cache)
+                        (smex-initialize))
+                    (global-set-key [(meta x)] 'smex)
+                    (smex)))
 #+end_src
 
-Counsel can do a great many things:
-
-- Complete Elisp at point with counsel-el.
-- Complete Clojure at point with counsel-clj.
-- Open a git-managed file with counsel-git.
-- Describe an Elisp variable with counsel-describe-variable.
-- Describe an Elisp function with counsel-describe-function.
-- Look up an Elisp symbol in the info with counsel-info-lookup-symbol.
-- Insert a Unicode character at point with counsel-unicode-char.
-
-It also brings in Ivy and Swiper as dependencies.
+Counsel has a bunch of functions for finding things, e.g. 'counsel-git'. It also brings in Ivy and Swiper as dependencies.
 
 #+begin_src emacs-lisp
   (use-package counsel
     :ensure t)
 #+end_src
 
-Ido completition for M-x menu.
+Ivy is a generic completion framework which can filter a list of "things", e.g. filenames or buffers.
+
 #+begin_src emacs-lisp
-  (use-package smex
+  (use-package ivy
     :ensure t)
 
-  (global-set-key (kbd "M-x") (lambda ()
-                                (interactive)
-                                (or (boundp 'smex-cache)
-                                    (smex-initialize))
-                                (global-set-key [(meta x)] 'smex)
-                                (smex)))
+  (ivy-mode 1)
+  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+#+end_src
+
+Fuzzy matching for Ivy.
+
+#+begin_src emacs-lisp
+  (use-package flx
+    :ensure t)
+
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-fuzzy)))
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
