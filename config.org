@@ -1,3 +1,19 @@
+* Packages
+** Configure archives
+1. [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
+2. [[https://elpa.gnu.org/][Official GNU archives]]
+#+begin_src emacs-lisp
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("gnu" . "http://elpa.gnu.org/packages/")))
+#+end_src
+** Ensure 'use-package' is available
+#+begin_src emacs-lisp
+  (when (not (package-installed-p 'use-package))
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (require 'use-package)
+#+end_src
 * System
 ** Exec Path From Shell (MacOS)
 Give Emacs access to the system $PATH.
@@ -7,70 +23,10 @@ Give Emacs access to the system $PATH.
   (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize))
 #+end_src
-* Packages
-** Archives
-1. [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
-2. [[https://elpa.gnu.org/][Official GNU archives]]
+** Reveal in MacOS Finder
 #+begin_src emacs-lisp
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("gnu" . "http://elpa.gnu.org/packages/")))
-#+end_src
-** Ensure 'use-package'
-#+begin_src emacs-lisp
-  (when (not (package-installed-p 'use-package))
-    (package-refresh-contents)
-    (package-install 'use-package))
-
-  (require 'use-package)
-#+end_src
-** Install
-This part should be removed and replaced with (use-package ... :ensure t)
-
-   #+begin_src emacs-lisp
-     (setq the-packages
-       '(
-         ;; META-X / WINDOWS / BUFFERS
-         smex                 ;; Better help in minibuffer
-         ivy                  ;; A generic completion mechanism
-         counsel              ;; Improved (?) ivy
-         ido-completing-read+ ;; Replacing ido-ubiquitous
-         find-file-in-project ;; Make any git folder a project
-         ace-window           ;; Select window with number keys
-         free-keys            ;; Show what key combinations that are not taken
-
-         ;; TEXT EDITING
-         multiple-cursors     ;; Best feature of Sublime Text
-         avy                  ;; Jump to position in buffer
-         rainbow-mode         ;; Show color of hex values inlined in the buffer
-         swiper               ;; Better search in buffer
-         imenu                ;; Goto definition within the file
-         expand-region        ;; Select larger and larger region
-
-         ;; OS INTERACTION
-         exec-path-from-shell ;; Fix the path on MacOS
-         reveal-in-osx-finder ;; Open finder at current buffer's location
-
-         ;; FLYCHECK / FLYMAKE
-         flycheck             ;; Red squiggly lines in your code
-         flymake-easy         ;; Helpers for easily building Emacs flymake checkers.
-         flymake-cursor
-         flymake-hlint
-         flycheck-rust
-
-         ;; NIX
-         nix-mode
-         nix-buffer
-
-         cc-mode              ;; C
-         irony                ;; C/C++/ObjectiveC
-         gud                  ;; GDB debugging
-         ))
-
-     (mapcar (lambda (package)
-           (if (package-installed-p package)
-           nil
-         (package-install package)))
-         the-packages)
+  (use-package reveal-in-osx-finder
+    :ensure t)
 #+end_src
 * Look
 ** Fonts
@@ -367,6 +323,12 @@ A function for finding out info about font at cursor.
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 #+end_src
+** Rainbow mode
+Render hex colors with actual color in the buffer.
+#+begin_src emacs-lisp
+  (use-package rainbow-mode
+    :ensure t)
+#+end_src
 ** Disable GUI
  #+begin_src emacs-lisp
    (menu-bar-mode 0)
@@ -468,6 +430,11 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
       (setq buffer-offer-save t)
       $buf))
 #+end_src
+** Go to symbol (iMenu)
+#+begin_src emacs-lisp
+  (use-package imenu
+    :ensure t)
+#+end_src
 ** MacOS-style 'super' (⌘) key shortcuts
 ⌘-W, "close tab"
 #+begin_src emacs-lisp
@@ -559,7 +526,10 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
 ** Expand region
 Grow a text selection in a smart way based on common programming language delimiters.
 #+begin_src emacs-lisp
-(global-set-key (kbd "s-e") 'er/expand-region)
+  (use-package expand-region
+    :ensure t)
+
+  (global-set-key (kbd "s-e") 'er/expand-region)
 #+end_src
 ** Insert single characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
@@ -658,29 +628,45 @@ More special characters.
 #+end_src
 ** Minibuffer completion (Ido, et al)
 #+begin_src emacs-lisp
-  (ido-mode 1)
-  (ido-ubiquitous-mode)
+  (ido-mode t)
+  (ido-ubiquitous-mode t)
   (setq ido-enable-flex-matching t)
   (setq ido-everywhere t)
   (setq ido-case-fold t)
 
   (global-set-key (kbd "C-x C-f") 'ido-find-file)
+
+  ;; Replacement for ido-ubiquitous
+  (use-package ido-completing-read+
+    :ensure t)
 #+end_src
 
 Ivy improves Ido in various ways.
 #+begin_src emacs-lisp
+  (use-package ivy
+    :ensure t)
+
   (ivy-mode 1)
   (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 #+end_src
 
+Not sure what this one is for but I don't dare remove it.
+#+begin_src emacs-lisp
+(use-package counsel
+    :ensure t)
+#+end_src
+
 Ido completition for M-x menu.
 #+begin_src emacs-lisp
-(global-set-key (kbd "M-x") (lambda ()
-                              (interactive)
-                              (or (boundp 'smex-cache)
-                                  (smex-initialize))
-                              (global-set-key [(meta x)] 'smex)
-                              (smex)))
+  (use-package smex
+    :ensure t)
+
+  (global-set-key (kbd "M-x") (lambda ()
+                                (interactive)
+                                (or (boundp 'smex-cache)
+                                    (smex-initialize))
+                                (global-set-key [(meta x)] 'smex)
+                                (smex)))
 #+end_src
 ** Ibuffer
 #+begin_src emacs-lisp
@@ -715,20 +701,24 @@ Ido completition for M-x menu.
   (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+end_src
 ** Find file in project
+Might be time to replace this with Projectile.
 #+begin_src emacs-lisp
-    (require 'find-file-in-project)
-    (global-set-key (kbd "s-p") 'find-file-in-project)
-    (setq ffip-patterns
-          '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-        "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
-        "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
-        "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-    (setq ffip-prune-patterns
-      (cons "*/Packages/*"
-      (cons "*/Temp/*"
-      (cons "*/Library/*"
-      (cons "*/PackageCache/*"
-      (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
+  (use-package find-file-in-project
+    :ensure t)
+
+  (require 'find-file-in-project)
+  (global-set-key (kbd "s-p") 'find-file-in-project)
+  (setq ffip-patterns
+        '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
+      "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
+      "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
+      "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+  (setq ffip-prune-patterns
+    (cons "*/Packages/*"
+    (cons "*/Temp/*"
+    (cons "*/Library/*"
+    (cons "*/PackageCache/*"
+    (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
@@ -737,7 +727,7 @@ Ido completition for M-x menu.
 
   (global-undo-tree-mode 1)
 #+end_src
-** Auto completion (Company)
+** Auto completion
 #+begin_src emacs-lisp
   (use-package company
     :ensure t
@@ -755,8 +745,8 @@ Ido completition for M-x menu.
 
   (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
-** IEdit
-Edit all matching symbols in the buffer. Be careful with this one!
+** iEdit
+Simultaneously edit _all_ matching symbols in the buffer. Be careful with this one!
 #+begin_src emacs-lisp
   (use-package iedit
     :ensure t)
@@ -786,7 +776,10 @@ Edit all matching symbols in the buffer. Be careful with this one!
 #+end_src
 ** Buffer switching
 #+begin_src emacs-lisp
-(global-set-key (kbd "M-o") 'other-window)
+  (use-package ace-window
+    :ensure t)
+
+  (global-set-key (kbd "M-o") 'ace-window)
 #+end_src
 ** Navigation to beginning and end of line
 #+begin_src emacs-lisp
@@ -813,10 +806,13 @@ Edit all matching symbols in the buffer. Be careful with this one!
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
-** Jump to word (Avy)
+** Jump to word
 #+begin_src emacs-lisp
-(require 'avy)
-(define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
+  (use-package avy
+    :ensure t)
+
+  (require 'avy)
+  (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+end_src
 ** Move lines
 #+begin_src emacs-lisp
@@ -867,11 +863,14 @@ Edit all matching symbols in the buffer. Be careful with this one!
 ** Multiple cursors
 If you want to insert a newline in multiple-cursors-mode, use C-j.
 #+begin_src emacs-lisp
-(global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
-(global-set-key (kbd "s-d") 'mc/mark-next-like-this)
-(global-set-key (kbd "s-l") 'mc/edit-lines)
+  (use-package multiple-cursors
+    :ensure t)
+
+  (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
+  (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+  (global-set-key (kbd "s-l") 'mc/edit-lines)
 #+end_src
-** Merge conflict resolution (Smerge)
+** Merge conflict resolution
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c n") 'smerge-next)
 (global-set-key (kbd "C-c p") 'smerge-prev)
@@ -892,6 +891,28 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
          (t
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
+#+end_src
+** Flycheck
+#+begin_src emacs-lisp
+  (use-package flycheck
+    :ensure t)
+
+  (use-package flymake-easy
+    :ensure t)
+
+  (use-package flymake-cursor
+    :ensure t)
+
+  (use-package flymake-hlint
+    :ensure t)
+
+  (use-package flycheck-rust
+    :ensure t)
+#+end_src
+** Free Keys
+#+begin_src emacs-lisp
+  (use-package free-keys
+    :ensure t)
 #+end_src
 ** Fix various small idiosyncrasies
 #+begin_src emacs-lisp
@@ -1274,5 +1295,11 @@ I probably should start using LSP for Go.
     :ensure t)
 
   (use-package restclient
+    :ensure t)
+
+  (use-package nix-mode
+    :ensure t)
+
+  (use-package nix-buffer
     :ensure t)
 #+end_src
