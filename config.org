@@ -978,9 +978,9 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+begin_src emacs-lisp
   (use-package org
     :bind
-    (("C-M-u" . org-up-element)
-     ("C-M-f" . org-next-visible-heading)
-     ("C-M-b" . org-previous-visible-heading))
+    ;; (("C-M-u" . org-up-element)
+    ;;  ("C-M-f" . org-next-visible-heading)
+    ;;  ("C-M-b" . org-previous-visible-heading))
     :config
     (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
     (setq org-src-fontify-natively t)
