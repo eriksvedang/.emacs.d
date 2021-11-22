@@ -387,8 +387,10 @@ See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-ema
 (show-paren-mode 1)
 #+end_src
 ** Tabs
+Always use four spaces.
 #+begin_src emacs-lisp
-(setq-default tab-width 4)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
 #+end_src
 ** What face?
 A function for finding out info about font at cursor.
@@ -399,7 +401,7 @@ A function for finding out info about font at cursor.
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 #+end_src
-** Remove GUI cruft
+** Disable GUI
  #+begin_src emacs-lisp
    (menu-bar-mode 0)
    (tool-bar-mode 0)
@@ -425,14 +427,13 @@ A function for finding out info about font at cursor.
   (if (eq system-type 'windows-nt)
       (cua-mode 1))
 #+end_src
-** Fix idiosyncrasies
+** Fix various idiosyncrasies
 #+begin_src emacs-lisp
   (global-auto-revert-mode 1)
   (auto-save-mode 0)
   (setq ring-bell-function 'ignore)
   (setq undo-limit 9999999)
   (setq make-backup-files nil)
-  (setq-default indent-tabs-mode nil)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
