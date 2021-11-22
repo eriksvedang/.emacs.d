@@ -480,7 +480,7 @@ Make new windows get focus to make it easy to interact with them.
 #+end_src
 ** Kill the buffer without a prompt
 #+begin_src emacs-lisp
-  (global-set-key (kbd "C-x k") 'kill-this-buffer)
+  (global-set-key (kbd "C-x k") 'kill-current-buffer)
 #+end_src
 ** Navigation of error buffers
 #+begin_src emacs-lisp
@@ -505,7 +505,7 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 ** MacOS-style 'super' (⌘) key shortcuts
 ⌘-W, "close tab"
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-w") 'kill-this-buffer)
+  (global-set-key (kbd "s-w") 'kill-current-buffer)
 #+end_src
 
 ⌘-F, "find"
@@ -541,6 +541,13 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 ⌘-B, "bold text"
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-b") 'org-emphasize)
+#+end_src
+
+⌘-K, "erase the whole line"
+This one is usually not present on MacOS, but maybe it should be?
+The original Emacs keybinding for this is C-S-backspace, which seems fine too?
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-k") 'kill-whole-line)
 #+end_src
 ** Kill whitespace
 (to the left and right of the cursor)
