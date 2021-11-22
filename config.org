@@ -418,12 +418,13 @@ A function for finding out info about font at cursor.
  #+end_src
 
 * Feel
-** Saner text editing
+** Basic text editing conveniences
 #+begin_src emacs-lisp
   (global-set-key (kbd "RET") 'newline-and-indent)
-
   (delete-selection-mode 1)
-
+#+end_src
+** Activate CUA-mode on Windows
+#+begin_src emacs-lisp
   (if (eq system-type 'windows-nt)
       (cua-mode 1))
 #+end_src
@@ -682,7 +683,7 @@ More special characters.
      ("C-M-e" . end-of-defun))
     )
 #+end_src
-** Ido, Ivy and Smex
+** Minibuffer completion (Ido, etc)
 #+begin_src emacs-lisp
   (ido-mode 1)
   (ido-ubiquitous-mode)
@@ -760,7 +761,7 @@ Ido completition for M-x menu.
 #+begin_src emacs-lisp
 (global-undo-tree-mode 1)
 #+end_src
-** Company mode (auto completion)
+** Auto completion (Company)
 #+begin_src emacs-lisp
   (use-package company
     :bind
@@ -775,6 +776,7 @@ Ido completition for M-x menu.
   (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 ** IEdit
+Edit all matching symbols in the buffer. Be careful with this one!
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-;") 'iedit-mode)
 #+end_src
@@ -799,12 +801,11 @@ Ido completition for M-x menu.
   (global-set-key [M-s-up] 'my-scroll-down)
   (global-set-key [M-s-down] 'my-scroll-up)
 #+end_src
-** Navigation
-*** Buffers
+** Buffer switching
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-o") 'other-window)
 #+end_src
-*** Lines
+** Navigation on a single line
 #+begin_src emacs-lisp
   (defun smart-beginning-of-line ()
     "Move point to first non-whitespace character or beginning-of-line.
@@ -827,56 +828,56 @@ Ido completition for M-x menu.
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
-*** Avy
+** Jump to word (Avy)
 #+begin_src emacs-lisp
 (require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+end_src
-** Move Lines
+** Move lines
 #+begin_src emacs-lisp
-    (defun move-lines (n)
-      (let ((beg) (end) (keep))
-        (if mark-active
-            (save-excursion
-              (setq keep t)
-              (setq beg (region-beginning)
-                    end (region-end))
-              (goto-char beg)
-              (setq beg (line-beginning-position))
-              (goto-char end)
-              (setq end (line-beginning-position 2)))
-          (setq beg (line-beginning-position)
-                end (line-beginning-position 2)))
-        (let ((offset (if (and (mark t)
-                               (and (>= (mark t) beg)
-                                    (< (mark t) end)))
-                          (- (point) (mark t))))
-              (rewind (- end (point))))
-          (goto-char (if (< n 0) beg end))
-          (forward-line n)
-          (insert (delete-and-extract-region beg end))
-          (backward-char rewind)
-          (if offset (set-mark (- (point) offset))))
-        (if keep
-            (setq mark-active t
-                  deactivate-mark nil))))
+  (defun move-lines (n)
+    (let ((beg) (end) (keep))
+      (if mark-active
+          (save-excursion
+            (setq keep t)
+            (setq beg (region-beginning)
+                  end (region-end))
+            (goto-char beg)
+            (setq beg (line-beginning-position))
+            (goto-char end)
+            (setq end (line-beginning-position 2)))
+        (setq beg (line-beginning-position)
+              end (line-beginning-position 2)))
+      (let ((offset (if (and (mark t)
+                             (and (>= (mark t) beg)
+                                  (< (mark t) end)))
+                        (- (point) (mark t))))
+            (rewind (- end (point))))
+        (goto-char (if (< n 0) beg end))
+        (forward-line n)
+        (insert (delete-and-extract-region beg end))
+        (backward-char rewind)
+        (if offset (set-mark (- (point) offset))))
+      (if keep
+          (setq mark-active t
+                deactivate-mark nil))))
 
-    (defun move-lines-up (n)
-      "move the line(s) spanned by the active region up by N lines."
-      (interactive "*p")
-      (move-lines (- (or n 1))))
+  (defun move-lines-up (n)
+    "move the line(s) spanned by the active region up by N lines."
+    (interactive "*p")
+    (move-lines (- (or n 1))))
 
-    (defun move-lines-down (n)
-      "move the line(s) spanned by the active region down by N lines."
-      (interactive "*p")
-      (move-lines (or n 1)))
+  (defun move-lines-down (n)
+    "move the line(s) spanned by the active region down by N lines."
+    (interactive "*p")
+    (move-lines (or n 1)))
 
-    (global-set-key (kbd "C-s-<down>") 'move-lines-down)
-    (global-set-key (kbd "C-s-<up>") 'move-lines-up)
+  (global-set-key (kbd "C-s-<down>") 'move-lines-down)
+  (global-set-key (kbd "C-s-<up>") 'move-lines-up)
 
-    ;; Alternative, since the shortcuts above clash with Rectangle.app
-    (global-set-key (kbd "C-s-n") 'move-lines-down)
-    (global-set-key (kbd "C-s-p") 'move-lines-up)
+  ;; Alternative, since the shortcuts above clash with Rectangle.app
+  (global-set-key (kbd "C-s-n") 'move-lines-down)
+  (global-set-key (kbd "C-s-p") 'move-lines-up)
 #+end_src
 ** Multiple cursors
 #+begin_src emacs-lisp
@@ -885,14 +886,14 @@ Ido completition for M-x menu.
 (global-set-key (kbd "s-l") 'mc/edit-lines)
 ;; NOTE: If you want to insert a newline in multiple-cursors-mode, use C-j
 #+end_src
-** Smerge (conflic resolution)
+** Merge conflict resolution (Smerge)
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c n") 'smerge-next)
 (global-set-key (kbd "C-c p") 'smerge-prev)
 (global-set-key (kbd "C-c u") 'smerge-keep-upper)
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
 #+end_src
-** Rename file AND buffer
+** Rename file _and_ buffer
 #+begin_src emacs-lisp
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
