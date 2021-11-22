@@ -116,7 +116,7 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
 #+end_src
-** Ligatures :defun:
+** Ligatures                                                                :defun:
 It should be possible to remove this, since Emacs is supporting ligatures natively now.
 #+begin_src emacs-lisp
 (defun enable-ligatures ()
@@ -313,7 +313,7 @@ This is used by org-mode when editing inline code blocks (C-c ').
   (set-face-foreground 'secondary-selection "#999")
   (set-face-background 'secondary-selection "#f0f0f0")
 #+end_src
-** What face? :defun:
+** What face?                                                               :defun:
 A function for finding out info about font at cursor.
 #+begin_src emacs-lisp
 (defun what-face (pos)
@@ -489,7 +489,7 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-k") 'kill-whole-line)
 #+end_src
-** Kill whitespace :defun:
+** Kill whitespace                                                          :defun:
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
 (defun kill-whitespace ()
@@ -509,7 +509,7 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
 #+begin_src emacs-lisp
 (add-hook 'before-save-hook 'whitespace-cleanup)
 #+end_src
-** Save without removing whitespace :defun:
+** Save without removing whitespace                                         :defun:
 #+begin_src emacs-lisp
   (defun save-buffer-no-whitespace-cleanup ()
     (interactive)
@@ -520,7 +520,7 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
       (when normally-should-whitespace-cleanup
         (add-hook 'before-save-hook 'whitespace-cleanup))))
 #+end_src
-** Insert line above :defun:
+** Insert  line above                                                       :defun:
 #+begin_src emacs-lisp
 (defun smart-open-line-above ()
   "Insert an empty line above the current line."
@@ -815,7 +815,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
-** Move lines :defun:
+** Move  lines                                                              :defun:
 #+begin_src emacs-lisp
   (defun move-lines (n)
     (let ((beg) (end) (keep))
@@ -878,7 +878,7 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 (global-set-key (kbd "C-c u") 'smerge-keep-upper)
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
 #+end_src
-** Rename file _and_ buffer :defun:
+** Rename file _and_ buffer                                                   :defun:
 #+begin_src emacs-lisp
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
