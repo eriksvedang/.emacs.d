@@ -608,13 +608,16 @@ Ivy improves Ido in various ways.
   (use-package ivy
     :ensure t)
 
+  (use-package ivy-hydra
+    :ensure t)
+
   (ivy-mode 1)
   (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 #+end_src
 
 Not sure what this one is for but I don't dare remove it.
 #+begin_src emacs-lisp
-(use-package counsel
+  (use-package counsel
     :ensure t)
 #+end_src
 
