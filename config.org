@@ -295,7 +295,7 @@ See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-ema
 #+begin_src emacs-lisp
 (require 'linum)
 (setq linum-format (quote "%4d  "))
-(global-linum-mode 1)
+;;(global-linum-mode 1)
 #+end_src
 ** Parenthesis
 #+begin_src emacs-lisp
