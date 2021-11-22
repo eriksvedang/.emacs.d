@@ -915,6 +915,18 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
   (use-package free-keys
     :ensure t)
 #+end_src
+** Close frame if not the last, otherwise kill Emacs                        :defun:
+#+begin_src emacs-lisp
+  (defun delete-frame-or-kill-emacs ()
+    "Delete frame or kill Emacs if there is only one frame."
+    (interactive)
+    (if (> (length (frame-list)) 1)
+        (delete-frame)
+      (save-buffers-kill-terminal)))
+
+  (global-set-key (kbd "C-x C-c") 'delete-frame-or-kill-emacs)
+  (global-set-key (kbd "s-q") 'delete-frame-or-kill-emacs)
+#+end_src
 ** Fix various small idiosyncrasies
 #+begin_src emacs-lisp
   (global-auto-revert-mode 1)
