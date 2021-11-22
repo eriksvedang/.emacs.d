@@ -65,39 +65,9 @@ This part should be removed and replaced with (use-package ... :ensure t)
          nix-mode
          nix-buffer
 
-         go-mode
-         go-imenu
-         go-dlv               ;; Debugger
-         go-impl              ;; Stub generator
-
          cc-mode              ;; C
          irony                ;; C/C++/ObjectiveC
          gud                  ;; GDB debugging
-
-         sgml-mode            ;; HTML mode
-         web-mode             ;; Smart editing of HTML templates
-
-         php-mode
-         lua-mode
-         swift-mode
-         markdown-mode
-         cc-mode
-         glsl-mode
-         cmake-mode
-         yaml-mode
-         elm-mode
-         idris-mode
-         purescript-mode
-         tuareg               ;; OCaml
-         rust-mode
-         racket-mode
-         fsharp-mode
-         zencoding-mode
-         js2-mode
-         rjsx-mode            ;; JSX (used in React)
-
-         ;; MISC
-         restclient           ;; Send web requests from a buffer
          ))
 
      (mapcar (lambda (package)
@@ -944,6 +914,18 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
     (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
     (setq org-src-fontify-natively t)
     (setq org-adapt-indentation nil) ;; Don't indent text after heading
+    (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
+        '(("a" . "export ascii")
+          ("c" . "center")
+          ("C" . "comment")
+          ("e" . "example")
+          ("E" . "export")
+          ("h" . "export html")
+          ("l" . "export latex")
+          ("q" . "quote")
+          ("s" . "src")
+          ("x" . "src emacs-lisp")
+          ("v" . "verse")))
     (setq org-capture-templates
           '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
             ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
@@ -1174,6 +1156,7 @@ Expand abbreviated tags to full html.
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
 #+end_src
 ** Go
+I probably should start using LSP for Go.
 #+begin_src emacs-lisp
   (defun run-go ()
     (interactive)
@@ -1194,7 +1177,7 @@ Expand abbreviated tags to full html.
         (compile (format "go build %s -o %s" (buffer-name) (file-name-sans-extension (buffer-name)))))))
 
   (use-package go-mode
-    :init
+    :ensure t
     :bind (:map go-mode-map
            ("C-c C-t" . godef-describe)
            ("C-c C-d" . godef-describe)
@@ -1204,13 +1187,86 @@ Expand abbreviated tags to full html.
     :config
     (add-hook 'before-save-hook #'gofmt-before-save)
     (add-hook 'go-mode-hook #'go-imenu-setup)
-    (add-hook 'go-mode-hook (electric-pair-mode 1))
-    ;; TODO: LSP!
-    )
+    (add-hook 'go-mode-hook (electric-pair-mode 1)))
+
+  ;; Jump to symbol
+  (use-package go-imenu
+    :ensure t)
+
+  ;; A debugger
+  (use-package go-dlv
+    :ensure t)
+
+  ;; Stub generator
+  (use-package go-impl
+    :ensure t)
 #+end_src
 
 ** Regexp Builder
 #+begin_src emacs-lisp
   (require 're-builder)
   (setq reb-re-syntax 'string) ;; less escaping
+#+end_src
+
+** Misc programming languages
+#+begin_src emacs-lisp
+  (use-package sgml-mode
+    :ensure t)
+
+  (use-package web-mode
+    :ensure t)
+
+  (use-package php-mode
+    :ensure t)
+
+  (use-package lua-mode
+    :ensure t)
+
+  (use-package swift-mode
+    :ensure t)
+
+  (use-package markdown-mode
+    :ensure t)
+
+  (use-package cc-mode
+    :ensure t)
+
+  (use-package glsl-mode
+    :ensure t)
+
+  (use-package cmake-mode
+    :ensure t)
+
+  (use-package yaml-mode
+    :ensure t)
+
+  (use-package elm-mode
+    :ensure t)
+
+  (use-package idris-mode
+    :ensure t)
+
+  (use-package purescript-mode
+    :ensure t)
+
+  (use-package tuareg
+    :ensure t)
+
+  (use-package rust-mode
+    :ensure t)
+
+  (use-package racket-mode
+    :ensure t)
+
+  (use-package fsharp-mode
+    :ensure t)
+
+  (use-package zencoding-mode
+    :ensure t)
+
+  (use-package js2-mode
+    :ensure t)
+
+  (use-package restclient
+    :ensure t)
 #+end_src
