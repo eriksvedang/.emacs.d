@@ -40,11 +40,7 @@ This part should be removed and replaced with (use-package ... :ensure t)
 
          ;; TEXT EDITING
          multiple-cursors     ;; Best feature of Sublime Text
-         undo-tree            ;; Show a graph of edits that can be undone
-         company              ;; Auto completion
-         company-fuzzy        ;; Fuzzy matching for completion
          avy                  ;; Jump to position in buffer
-         iedit                ;; Edit all in scope
          rainbow-mode         ;; Show color of hex values inlined in the buffer
          swiper               ;; Better search in buffer
          imenu                ;; Goto definition within the file
@@ -736,11 +732,15 @@ Ido completition for M-x menu.
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
-(global-undo-tree-mode 1)
+  (use-package undo-tree
+    :ensure t)
+
+  (global-undo-tree-mode 1)
 #+end_src
 ** Auto completion (Company)
 #+begin_src emacs-lisp
   (use-package company
+    :ensure t
     :bind
     (("M-ESC" . company-complete))
     :config
@@ -750,12 +750,18 @@ Ido completition for M-x menu.
     (setq company-dabbrev-downcase nil) ;; Don't lowercase things!
     )
 
+  (use-package company-fuzzy
+    :ensure t)
+
   (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 ** IEdit
 Edit all matching symbols in the buffer. Be careful with this one!
 #+begin_src emacs-lisp
-(global-set-key (kbd "C-;") 'iedit-mode)
+  (use-package iedit
+    :ensure t)
+
+  (global-set-key (kbd "C-;") 'iedit-mode)
 #+end_src
 ** Commenting
 #+begin_src emacs-lisp
