@@ -433,18 +433,7 @@ A function for finding out info about font at cursor.
   (set-keyboard-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 #+end_src
-** Fix various idiosyncrasies
-#+begin_src emacs-lisp
-  (global-auto-revert-mode 1)
-  (auto-save-mode 0)
-  (setq ring-bell-function 'ignore)
-  (setq undo-limit 9999999)
-  (setq make-backup-files nil)
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-  (put 'narrow-to-region 'disabled nil)
-#+end_src
-** Quicker 'yes or no' prompt
+** Single character 'yes or no' prompt
 #+begin_src emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+end_src
@@ -481,18 +470,18 @@ Make new windows get focus to make it easy to interact with them.
 (defadvice completion-list-mode (after move-point-to-new-window activate)
   (other-window 1))
 #+end_src
-** Keybindings for changing window size
+** Keyboard shortcuts for changing window size
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
 #+end_src
-** Kill the buffer without a prompt, please
+** Kill the buffer without a prompt
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-x k") 'kill-this-buffer)
 #+end_src
-** Navigate error buffers
+** Navigation of error buffers
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
@@ -918,6 +907,17 @@ Ido completition for M-x menu.
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
 #+end_src
+** Fix various small idiosyncrasies
+#+begin_src emacs-lisp
+  (global-auto-revert-mode 1)
+  (auto-save-mode 0)
+  (setq ring-bell-function 'ignore)
+  (setq undo-limit 9999999)
+  (setq make-backup-files nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+#+end_src
 * Major modes
 ** Dired
 #+begin_src emacs-lisp
@@ -933,6 +933,7 @@ Ido completition for M-x menu.
     :config
     (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
     (setq org-src-fontify-natively t)
+    (setq org-adapt-indentation nil) ;; Don't indent text after heading
     (setq org-capture-templates
           '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
             ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
