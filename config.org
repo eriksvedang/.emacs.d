@@ -571,11 +571,6 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 #+END_SRC
 ** Smartparens
 #+BEGIN_SRC emacs-lisp
-  (defun my-end-of-defun ()
-    (interactive)
-    (end-of-defun)
-    (left-char))
-
   (use-package smartparens
     :ensure t
 
@@ -622,7 +617,7 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
      ("C-M-a" . beginning-of-defun)
 
      ;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
-     ("C-M-e" . my-end-of-defun))
+     ("C-M-e" . end-of-defun))
     )
 #+END_SRC
 ** Ido
