@@ -1,3 +1,18 @@
+* Platform
+** Exec Path From Shell (MacOS)
+Give Emacs access to the system $PATH.
+#+begin_src emacs-lisp
+  (use-package exec-path-from-shell
+    :ensure t)
+  (when (eq system-type 'darwin)
+    (exec-path-from-shell-initialize))
+#+end_src
+** Ensure UTF-8 encoding
+#+begin_src emacs-lisp
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+#+end_src
 * Packages
 ** Archives
 [[https://elpa.gnu.org/][Official GNU archives]]
@@ -406,10 +421,6 @@ A function for finding out info about font at cursor.
 ** Fix idiosyncrasies
 #+begin_src emacs-lisp
   (delete-selection-mode 1)
-
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
 
   (global-auto-revert-mode 1)
   (auto-save-mode 0)
@@ -842,7 +853,7 @@ Ido completition for M-x menu.
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
 #+end_src
-* Modes
+* Major modes
 ** Org
 #+begin_src emacs-lisp
   (use-package org
@@ -1118,11 +1129,3 @@ Expand abbreviated tags to full html.
   (require 're-builder)
   (setq reb-re-syntax 'string) ;; less escaping
 #+end_src
-
-** Exec Path From Shell (MacOS)
- #+begin_src emacs-lisp
-   (use-package exec-path-from-shell
-     :ensure t)
-   (when (eq system-type 'darwin)
-     (exec-path-from-shell-initialize))
- #+end_src
