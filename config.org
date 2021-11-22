@@ -510,9 +510,11 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
   (global-set-key (kbd "s-f") 'rgrep)
 #+end_src
 
-⌘-G, "go to line"
+⌘-G / ⌘-L, "go to line"
+Need to decide which one I prefer!
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-g") 'goto-line)
+  (global-set-key (kbd "s-l") 'goto-line)
 #+end_src
 
 ⌘-O, "open"
@@ -523,6 +525,16 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 ⌘-N, "new file"
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-n") 'new-empty-buffer)
+#+end_src
+
+⌘-M, "minimize"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-m") 'suspend-frame)
+#+end_src
+
+⌘-B, "bold text"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-b") 'org-emphasize)
 #+end_src
 ** Kill whitespace
 (to the left and right of the cursor)
