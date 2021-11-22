@@ -442,53 +442,6 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
   (require 'avy)
   (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+end_src
-** MacOS-style 'super' (⌘) key shortcuts
-⌘-W, "close tab"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-w") 'kill-current-buffer)
-#+end_src
-
-⌘-F, "find"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-f") 'rgrep)
-#+end_src
-
-⌘-L, "go to line"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-l") 'goto-line)
-#+end_src
-
-⌘-G, "go to symbol"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-g") 'imenu)
-#+end_src
-
-⌘-O, "open"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-o") 'ivy-switch-buffer)
-#+end_src
-
-⌘-N, "new file"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-n") 'new-empty-buffer)
-#+end_src
-
-⌘-M, "minimize"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-m") 'suspend-frame)
-#+end_src
-
-⌘-B, "bold text"
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-b") 'org-emphasize)
-#+end_src
-
-⌘-K, "erase the whole line"
-This one is usually not present on MacOS, but maybe it should be?
-The original Emacs keybinding for this is C-S-backspace, which seems fine too?
-#+begin_src emacs-lisp
-  (global-set-key (kbd "s-k") 'kill-whole-line)
-#+end_src
 ** Kill whitespace                                                          :defun:
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
@@ -925,7 +878,58 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
       (save-buffers-kill-terminal)))
 
   (global-set-key (kbd "C-x C-c") 'delete-frame-or-kill-emacs)
+#+end_src
+** MacOS-style 'super' (⌘) key shortcuts
+⌘-Q, "quit"
+#+begin_src emacs-lisp
   (global-set-key (kbd "s-q") 'delete-frame-or-kill-emacs)
+#+end_src
+
+⌘-W, "close tab"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-w") 'kill-current-buffer)
+#+end_src
+
+⌘-F, "find"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-f") 'rgrep)
+#+end_src
+
+⌘-L, "go to line"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-l") 'goto-line)
+#+end_src
+
+⌘-G, "go to symbol"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-g") 'imenu)
+#+end_src
+
+⌘-O, "open"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-o") 'ivy-switch-buffer)
+#+end_src
+
+⌘-N, "new file"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-n") 'new-empty-buffer)
+#+end_src
+
+⌘-M, "minimize"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-m") 'suspend-frame)
+#+end_src
+
+⌘-B, "bold text"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-b") 'org-emphasize)
+#+end_src
+
+⌘-K, "erase the whole line"
+This one is usually not present on MacOS, but maybe it should be?
+The original Emacs keybinding for this is C-S-backspace, which seems fine too?
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-k") 'kill-whole-line)
 #+end_src
 ** Fix various small idiosyncrasies
 #+begin_src emacs-lisp
