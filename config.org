@@ -937,12 +937,13 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 #+end_src
 ** Org
 #+begin_src emacs-lisp
-    (use-package org
-      :config
-      (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
-      (setq org-src-fontify-natively t)
-      (setq org-adapt-indentation nil) ;; Don't indent text after heading
-      (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
+  (use-package org
+    :config
+    (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
+    (setq org-src-fontify-natively t)
+    (setq org-adapt-indentation nil) ;; Don't indent text after heading
+    (setq org-src-window-setup 'current-window) ;; Make the source editor go fullscreen
+    (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
           '(("a" . "export ascii")
             ("c" . "center")
             ("C" . "comment")
@@ -954,31 +955,31 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
             ("s" . "src")
             ("x" . "src emacs-lisp")
             ("v" . "verse")))
-      (setq org-capture-templates
-            '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
-              ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
-              ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n"))))
+    (setq org-capture-templates
+          '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
+            ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+            ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n"))))
 
-    (use-package org-bullets
-      :ensure t
-      :config (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
+  (use-package org-bullets
+    :ensure t
+    :config (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
 
-    (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
-                                           ("#+END_SRC" . "❞")
-                                           ("#+begin_src" . "❝")
-                                           ("#+end_src" . "❞")
-                                           ("emacs-lisp" . "ξ")
-                                           (":defun:" . "𝑓")))
-    (setq prettify-symbols-unprettify-at-point 'right-edge)
+  (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
+                                         ("#+END_SRC" . "❞")
+                                         ("#+begin_src" . "❝")
+                                         ("#+end_src" . "❞")
+                                         ("emacs-lisp" . "ξ")
+                                         (":defun:" . "𝑓")))
+  (setq prettify-symbols-unprettify-at-point 'right-edge)
 
-    (add-hook 'org-mode-hook
-              (lambda ()
-                (org-bullets-mode 1)
-                (prettify-symbols-mode 1)
-                (local-unset-key (kbd "<S-up>"))
-                (local-unset-key (kbd "<S-down>"))
-                (local-unset-key (kbd "<S-left>"))
-                (local-unset-key (kbd "<S-right>"))))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (org-bullets-mode 1)
+              (prettify-symbols-mode 1)
+              (local-unset-key (kbd "<S-up>"))
+              (local-unset-key (kbd "<S-down>"))
+              (local-unset-key (kbd "<S-left>"))
+              (local-unset-key (kbd "<S-right>"))))
 #+end_src
 ** Magit
 #+begin_src emacs-lisp
