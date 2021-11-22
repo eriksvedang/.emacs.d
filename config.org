@@ -448,7 +448,7 @@ A function for finding out info about font at cursor.
 #+begin_src emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+end_src
-** Advice when splitting windows
+** Move focus when splitting windows
 Make new windows get focus to make it easy to interact with them.
 
 #+begin_src emacs-lisp
@@ -481,18 +481,15 @@ Make new windows get focus to make it easy to interact with them.
 (defadvice completion-list-mode (after move-point-to-new-window activate)
   (other-window 1))
 #+end_src
-** Keybindings to change window size
+** Keybindings for changing window size
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
 #+end_src
-** More efficient navigation functions
-This replaces built-in Emacs keybindings with nicer (but similar) functions.
+** Kill the buffer without a prompt, please
 #+begin_src emacs-lisp
-  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
-  (global-set-key (kbd "C-x C-f") 'ido-find-file)
   (global-set-key (kbd "C-x k") 'kill-this-buffer)
 #+end_src
 ** Navigate error buffers
@@ -500,7 +497,7 @@ This replaces built-in Emacs keybindings with nicer (but similar) functions.
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 #+end_src
-** 'new-file' function
+** A 'new-file' function
 Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 #+begin_src emacs-lisp
   (defun new-empty-buffer ()
@@ -597,12 +594,12 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 (global-set-key (kbd "<C-return>") 'smart-open-line-above)
 #+end_src
 ** Expand region
+Grow a text selection in a smart way based on common programming language delimiters.
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-e") 'er/expand-region)
 #+end_src
-** Characters
+** Insert single characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
-
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-2") "@")
 (global-set-key (kbd "M-4") "$")
@@ -612,8 +609,10 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (global-set-key (kbd "M-)") "}")
 (global-set-key (kbd "M-7") "|")
 (global-set-key (kbd "M-/") "\\")
+#+end_src
 
-;; More special characters
+More special characters.
+#+begin_src emacs-lisp
 (global-set-key (kbd "C-x M-a") "∧") ; and
 (global-set-key (kbd "C-x M-b") "⊥") ; bottom
 (global-set-key (kbd "C-x M-c") "∘") ; composition
@@ -694,17 +693,24 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
      ("C-M-e" . end-of-defun))
     )
 #+end_src
-** Ido
+** Ido, Ivy and Smex
 #+begin_src emacs-lisp
-(ido-mode 1)
-(ido-ubiquitous-mode)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(setq ido-case-fold t)
-#+end_src
-** Smex
-Ido completition for M-x menu.
+  (ido-mode 1)
+  (ido-ubiquitous-mode)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (setq ido-case-fold t)
 
+  (global-set-key (kbd "C-x C-f") 'ido-find-file)
+#+end_src
+
+Ivy improves Ido in various ways.
+#+begin_src emacs-lisp
+  (ivy-mode 1)
+  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+#+end_src
+
+Ido completition for M-x menu.
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-x") (lambda ()
                               (interactive)
@@ -760,9 +766,6 @@ Ido completition for M-x menu.
       (cons "*/Library/*"
       (cons "*/PackageCache/*"
       (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
-
-;; Without ivy-mode the find-file-in-project prompt is very bad
-(ivy-mode 1)
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
