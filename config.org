@@ -796,16 +796,19 @@ Ido completition for M-x menu.
 ** Scrolling
 *** Nudging the buffer up or down
 #+begin_src emacs-lisp
-(defun my-scroll-down ()
-  (interactive)
-  (scroll-up 1))
+  (defun my-scroll-down ()
+    (interactive)
+    (scroll-up 1))
 
-(defun my-scroll-up ()
-  (interactive)
-  (scroll-down 1))
+  (defun my-scroll-up ()
+    (interactive)
+    (scroll-down 1))
 
-(global-set-key [M-s-up] 'my-scroll-down)
-(global-set-key [M-s-down]   'my-scroll-up)
+  (global-set-key (kbd "M-s-p") 'my-scroll-down)
+  (global-set-key (kbd "M-s-n") 'my-scroll-up)
+
+  (global-set-key [M-s-up] 'my-scroll-down)
+  (global-set-key [M-s-down] 'my-scroll-up)
 #+end_src
 ** Navigation
 *** Buffers
