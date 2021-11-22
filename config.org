@@ -112,7 +112,7 @@ This part should be removed and replaced with (use-package ... :ensure t)
 ** Fonts
 *** Define 'set-face' function
 This function and the following font configuration is shamelessly stolen
-from the excellent Nano configuration, see [[nano-theme.el][https://github.com/rougier/nano-emacs]].
+from the excellent Nano configuration, see [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
 #+BEGIN_SRC emacs-lisp
   (defun set-face (face style)
     "Reset a face and make it inherit style."
@@ -272,7 +272,7 @@ It should be possible to remove this, since Emacs is supporting ligatures native
   (set-foreground-color "#000000")
 #+END_SRC
 ** Mode Line
-See [[nano-modeline.el][https://github.com/rougier/nano-emacs]].
+See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
 #+BEGIN_SRC emacs-lisp
 (defun mode-line-render (left right)
   "Return a string of `window-width' length containing left, and
@@ -395,6 +395,8 @@ A function for finding out info about font at cursor.
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 #+END_SRC
+* Navigation
+* Editing
 * Feel
 ** Fix idiosyncrasies
 #+BEGIN_SRC emacs-lisp
