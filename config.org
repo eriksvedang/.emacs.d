@@ -602,11 +602,13 @@ More special characters.
     :ensure t)
 #+end_src
 
-Ivy improves Ido in various ways.
+Ivy is a generic completion framework which can filter a list of "things", e.g. filenames.
+
 #+begin_src emacs-lisp
   (use-package ivy
     :ensure t)
 
+  ;; Activate use C-o
   (use-package ivy-hydra
     :ensure t)
 
@@ -614,7 +616,18 @@ Ivy improves Ido in various ways.
   (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 #+end_src
 
-Not sure what this one is for but I don't dare remove it.
+Counsel can do a great many things:
+
+- Complete Elisp at point with counsel-el.
+- Complete Clojure at point with counsel-clj.
+- Open a git-managed file with counsel-git.
+- Describe an Elisp variable with counsel-describe-variable.
+- Describe an Elisp function with counsel-describe-function.
+- Look up an Elisp symbol in the info with counsel-info-lookup-symbol.
+- Insert a Unicode character at point with counsel-unicode-char.
+
+It also brings in Ivy and Swiper as dependencies.
+
 #+begin_src emacs-lisp
   (use-package counsel
     :ensure t)
