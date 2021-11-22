@@ -415,8 +415,6 @@ A function for finding out info about font at cursor.
    (setq initial-scratch-message nil)
  #+end_src
 
-* Navigation
-* Editing
 * Feel
 ** Fix idiosyncrasies
 #+begin_src emacs-lisp
@@ -489,14 +487,6 @@ A function for finding out info about font at cursor.
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "s-g") 'goto-line)
-#+end_src
-** Dired
-#+begin_src emacs-lisp
-(add-hook 'dired-mode-hook
-  (lambda ()
-    (local-set-key (kbd "b") 'dired-up-directory)
-    (auto-revert-mode t)
-    (set-face 'dired-directory 'face-popout)))
 #+end_src
 ** Kill whitespace
 (to the left and right of the cursor)
@@ -854,6 +844,14 @@ Ido completition for M-x menu.
           (set-visited-file-name new-name t t)))))))
 #+end_src
 * Major modes
+** Dired
+#+begin_src emacs-lisp
+  (add-hook 'dired-mode-hook
+    (lambda ()
+      (local-set-key (kbd "b") 'dired-up-directory)
+      (auto-revert-mode t)
+      (set-face 'dired-directory 'face-popout)))
+#+end_src
 ** Org
 #+begin_src emacs-lisp
   (use-package org
