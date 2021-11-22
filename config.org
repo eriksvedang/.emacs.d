@@ -889,7 +889,8 @@ Ido completition for M-x menu.
   (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
                                          ("#+END_SRC" . "❞")
                                          ("#+begin_src" . "❝")
-                                         ("#+end_src" . "❞")))
+                                         ("#+end_src" . "❞")
+                                         ("emacs-lisp" . "ξ")))
   (setq prettify-symbols-unprettify-at-point 'right-edge)
 
   (add-hook 'org-mode-hook
