@@ -1,4 +1,4 @@
-* Platform
+* System
 ** Exec Path From Shell (MacOS)
 Give Emacs access to the system $PATH.
 #+begin_src emacs-lisp
@@ -416,28 +416,34 @@ A function for finding out info about font at cursor.
  #+end_src
 
 * Feel
-** Fix idiosyncrasies
+** Saner text editing
 #+begin_src emacs-lisp
+  (global-set-key (kbd "RET") 'newline-and-indent)
+
   (delete-selection-mode 1)
 
+  (if (eq system-type 'windows-nt)
+      (cua-mode 1))
+#+end_src
+** Fix idiosyncrasies
+#+begin_src emacs-lisp
   (global-auto-revert-mode 1)
   (auto-save-mode 0)
-
   (setq ring-bell-function 'ignore)
   (setq undo-limit 9999999)
   (setq make-backup-files nil)
   (setq-default indent-tabs-mode nil)
-
-  (defalias 'yes-or-no-p 'y-or-n-p)
-
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
-
-  (if (eq system-type 'windows-nt)
-    (cua-mode 1))
+#+end_src
+** Quicker 'yes or no' prompt
+#+begin_src emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
 #+end_src
 ** Advice when splitting windows
+Make new windows get focus to make it easy to interact with them.
+
 #+begin_src emacs-lisp
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
@@ -468,21 +474,24 @@ A function for finding out info about font at cursor.
 (defadvice completion-list-mode (after move-point-to-new-window activate)
   (other-window 1))
 #+end_src
-** The missing keyboard shortcuts
+** Keybindings to change window size
 #+begin_src emacs-lisp
-(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
-(global-set-key (kbd "C-x C-f") 'ido-find-file)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "s-i") 'imenu)
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
 (global-set-key (kbd "M--") 'shrink-window-horizontally)
-(global-set-key (kbd "C-<") 'shell)
+#+end_src
+** More efficient navigation functions
+This replaces built-in Emacs keybindings with nicer (but similar) functions.
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+  (global-set-key (kbd "C-x C-f") 'ido-find-file)
+  (global-set-key (kbd "C-x k") 'kill-this-buffer)
+#+end_src
+** Navigate error buffers
+#+begin_src emacs-lisp
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
-
 #+end_src
 ** 'new-file' function
 Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
@@ -510,11 +519,14 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
   (global-set-key (kbd "s-f") 'rgrep)
 #+end_src
 
-⌘-G / ⌘-L, "go to line"
-Need to decide which one I prefer!
+⌘-L, "go to line"
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-g") 'goto-line)
   (global-set-key (kbd "s-l") 'goto-line)
+#+end_src
+
+⌘-G, "go to symbol"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-g") 'imenu)
 #+end_src
 
 ⌘-O, "open"
