@@ -1,15 +1,10 @@
 * Startup
 #+BEGIN_SRC emacs-lisp
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-screen t)
-(setq inhibit-startup-echo-area-message t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
-
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(tooltip-mode  0)
-(scroll-bar-mode 0)
+  (setq inhibit-splash-screen t)
+  (setq inhibit-startup-screen t)
+  (setq inhibit-startup-echo-area-message t)
+  (setq inhibit-startup-message t)
+  (setq initial-scratch-message nil)
 #+END_SRC
 * Packages
 ** Archives
@@ -395,6 +390,13 @@ A function for finding out info about font at cursor.
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 #+END_SRC
+** Remove cruft
+ #+begin_src emacs-lisp
+   (menu-bar-mode 0)
+   (tool-bar-mode 0)
+   (tooltip-mode  0)
+   (scroll-bar-mode 0)
+ #+end_src
 * Navigation
 * Editing
 * Feel
@@ -410,7 +412,6 @@ A function for finding out info about font at cursor.
   (auto-save-mode 0)
 
   (setq ring-bell-function 'ignore)
-  (setq initial-scratch-message "")
   (setq undo-limit 9999999)
   (setq make-backup-files nil)
   (setq-default indent-tabs-mode nil)
