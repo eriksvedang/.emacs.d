@@ -470,15 +470,11 @@ A function for finding out info about font at cursor.
 #+end_src
 ** The missing keyboard shortcuts
 #+begin_src emacs-lisp
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "s-b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
-(global-set-key (kbd "s-w") 'kill-this-buffer)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-i") 'imenu)
-(global-set-key (kbd "s-f") 'rgrep)
 (global-set-key (kbd "s-+") 'enlarge-window)
 (global-set-key (kbd "s--") 'shrink-window)
 (global-set-key (kbd "M-+") 'enlarge-window-horizontally)
@@ -486,8 +482,29 @@ A function for finding out info about font at cursor.
 (global-set-key (kbd "C-<") 'shell)
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
-(global-set-key (kbd "s-g") 'goto-line)
+
 #+end_src
+** MacOS-style 'super' (⌘) key shortcuts
+⌘-W, "close tab"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-w") 'kill-this-buffer)
+#+end_src
+
+⌘-F, "find"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-f") 'rgrep)
+#+end_src
+
+⌘-G, "go to line"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-g") 'goto-line)
+#+end_src
+
+⌘-O, "open"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-o") 'ivy-switch-buffer)
+#+end_src
+
 ** Kill whitespace
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
@@ -648,33 +665,35 @@ Ido completition for M-x menu.
 #+end_src
 ** Ibuffer
 #+begin_src emacs-lisp
-(setq ibuffer-formats
-      '((mark modified read-only " "
-              (name 30 30 :left :elide) ; change: 30s were originally 18s
-              " "
-              (size 9 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " " filename-and-process)
-        (mark " "
-              (name 16 -1)
-              " " filename)))
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(setq ibuffer-saved-filter-groups
-      '(("home"
-     ("Magit" (or (name . "magit:") (name . "magit-diff:") (name . "magit-process:")))
-     ("Dired" (mode . dired-mode))
-     ("Emacs" (or (mode . help-mode)
-              (name . "\*"))))))
+  (setq ibuffer-formats
+        '((mark modified read-only " "
+                (name 30 30 :left :elide) ; change: 30s were originally 18s
+                " "
+                (size 9 -1 :right)
+                " "
+                (mode 16 16 :left :elide)
+                " " filename-and-process)
+          (mark " "
+                (name 16 -1)
+                " " filename)))
 
-(add-hook 'ibuffer-mode-hook
-      '(lambda ()
-         (ibuffer-switch-to-saved-filter-groups "home")))
+  (setq ibuffer-saved-filter-groups
+        '(("home"
+       ("Magit" (or (name . "magit:") (name . "magit-diff:") (name . "magit-process:")))
+       ("Dired" (mode . dired-mode))
+       ("Emacs" (or (mode . help-mode)
+                (name . "\*"))))))
 
-(setq ibuffer-show-empty-filter-groups nil)
+  (add-hook 'ibuffer-mode-hook
+        '(lambda ()
+           (ibuffer-switch-to-saved-filter-groups "home")))
 
-;; Refresh automatically
-(add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
+  (setq ibuffer-show-empty-filter-groups nil)
+
+  ;; Refresh automatically
+  (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+end_src
 ** Find file in project
 #+begin_src emacs-lisp
