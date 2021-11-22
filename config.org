@@ -15,22 +15,21 @@
   (require 'use-package)
 #+end_src
 * System
-** Exec Path From Shell (MacOS)
-Give Emacs access to the system $PATH.
+** Give Emacs access to the system $PATH on MacOS.
 #+begin_src emacs-lisp
   (use-package exec-path-from-shell
     :ensure t)
   (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize))
 #+end_src
-** Reveal in MacOS Finder
+** Reveal in MacOS Finder                                                   :defun:
 #+begin_src emacs-lisp
   (use-package reveal-in-osx-finder
     :ensure t)
 #+end_src
 * Look
 ** Fonts
-*** Define 'set-face' function
+*** A 'set-face' function                                                   :defun:
 This function and the following font configuration is shamelessly stolen
 from the excellent Nano configuration, see [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
 #+begin_src emacs-lisp
@@ -117,7 +116,7 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
 #+end_src
-** Ligatures
+** Ligatures :defun:
 It should be possible to remove this, since Emacs is supporting ligatures natively now.
 #+begin_src emacs-lisp
 (defun enable-ligatures ()
@@ -314,7 +313,7 @@ This is used by org-mode when editing inline code blocks (C-c ').
   (set-face-foreground 'secondary-selection "#999")
   (set-face-background 'secondary-selection "#f0f0f0")
 #+end_src
-** What face?
+** What face? :defun:
 A function for finding out info about font at cursor.
 #+begin_src emacs-lisp
 (defun what-face (pos)
@@ -415,7 +414,7 @@ Make new windows get focus to make it easy to interact with them.
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 #+end_src
-** A 'new-file' function
+** Create new files more easily                                             :defun:
 Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 #+begin_src emacs-lisp
   (defun new-empty-buffer ()
@@ -430,10 +429,18 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
       (setq buffer-offer-save t)
       $buf))
 #+end_src
-** Go to symbol (iMenu)
+** Go to symbol
 #+begin_src emacs-lisp
   (use-package imenu
     :ensure t)
+#+end_src
+** Jump to character
+#+begin_src emacs-lisp
+  (use-package avy
+    :ensure t)
+
+  (require 'avy)
+  (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+end_src
 ** MacOS-style 'super' (⌘) key shortcuts
 ⌘-W, "close tab"
@@ -482,7 +489,7 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-k") 'kill-whole-line)
 #+end_src
-** Kill whitespace
+** Kill whitespace :defun:
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
 (defun kill-whitespace ()
@@ -501,17 +508,19 @@ The original Emacs keybinding for this is C-S-backspace, which seems fine too?
 ** Remove whitespace on save
 #+begin_src emacs-lisp
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
-(defun save-buffer-no-whitespace-cleanup ()
-  (interactive)
-  (let ((normally-should-whitespace-cleanup (memq 'whitespace-cleanup before-save-hook)))
-    (when normally-should-whitespace-cleanup
-      (remove-hook 'before-save-hook 'whitespace-cleanup))
-    (save-buffer)
-    (when normally-should-whitespace-cleanup
-      (add-hook 'before-save-hook 'whitespace-cleanup))))
 #+end_src
-** Insert line above
+** Save without removing whitespace :defun:
+#+begin_src emacs-lisp
+  (defun save-buffer-no-whitespace-cleanup ()
+    (interactive)
+    (let ((normally-should-whitespace-cleanup (memq 'whitespace-cleanup before-save-hook)))
+      (when normally-should-whitespace-cleanup
+        (remove-hook 'before-save-hook 'whitespace-cleanup))
+      (save-buffer)
+      (when normally-should-whitespace-cleanup
+        (add-hook 'before-save-hook 'whitespace-cleanup))))
+#+end_src
+** Insert line above :defun:
 #+begin_src emacs-lisp
 (defun smart-open-line-above ()
   "Insert an empty line above the current line."
@@ -668,7 +677,7 @@ Ido completition for M-x menu.
                                 (global-set-key [(meta x)] 'smex)
                                 (smex)))
 #+end_src
-** Ibuffer
+** The ibuffer
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -806,15 +815,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
-** Jump to word
-#+begin_src emacs-lisp
-  (use-package avy
-    :ensure t)
-
-  (require 'avy)
-  (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
-#+end_src
-** Move lines
+** Move lines :defun:
 #+begin_src emacs-lisp
   (defun move-lines (n)
     (let ((beg) (end) (keep))
@@ -877,7 +878,7 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 (global-set-key (kbd "C-c u") 'smerge-keep-upper)
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
 #+end_src
-** Rename file _and_ buffer
+** Rename file _and_ buffer :defun:
 #+begin_src emacs-lisp
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
@@ -936,47 +937,48 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 #+end_src
 ** Org
 #+begin_src emacs-lisp
-  (use-package org
-    :config
-    (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
-    (setq org-src-fontify-natively t)
-    (setq org-adapt-indentation nil) ;; Don't indent text after heading
-    (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
-        '(("a" . "export ascii")
-          ("c" . "center")
-          ("C" . "comment")
-          ("e" . "example")
-          ("E" . "export")
-          ("h" . "export html")
-          ("l" . "export latex")
-          ("q" . "quote")
-          ("s" . "src")
-          ("x" . "src emacs-lisp")
-          ("v" . "verse")))
-    (setq org-capture-templates
-          '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
-            ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
-            ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n"))))
+    (use-package org
+      :config
+      (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
+      (setq org-src-fontify-natively t)
+      (setq org-adapt-indentation nil) ;; Don't indent text after heading
+      (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
+          '(("a" . "export ascii")
+            ("c" . "center")
+            ("C" . "comment")
+            ("e" . "example")
+            ("E" . "export")
+            ("h" . "export html")
+            ("l" . "export latex")
+            ("q" . "quote")
+            ("s" . "src")
+            ("x" . "src emacs-lisp")
+            ("v" . "verse")))
+      (setq org-capture-templates
+            '(("l" "Link" entry (file+headline "~/Documents/Organized/links.org" "Unsorted") "* %?\n")
+              ("i" "Idea" entry (file "~/Documents/Organized/ideas.org") "* %?\n")
+              ("t" "Todo" entry (file "~/Documents/Organized/todo.org") "* TODO %?\n"))))
 
-  (use-package org-bullets
-    :ensure t
-    :config (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
+    (use-package org-bullets
+      :ensure t
+      :config (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
 
-  (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
-                                         ("#+END_SRC" . "❞")
-                                         ("#+begin_src" . "❝")
-                                         ("#+end_src" . "❞")
-                                         ("emacs-lisp" . "ξ")))
-  (setq prettify-symbols-unprettify-at-point 'right-edge)
+    (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
+                                           ("#+END_SRC" . "❞")
+                                           ("#+begin_src" . "❝")
+                                           ("#+end_src" . "❞")
+                                           ("emacs-lisp" . "ξ")
+                                           (":defun:" . "𝑓")))
+    (setq prettify-symbols-unprettify-at-point 'right-edge)
 
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (org-bullets-mode 1)
-              (prettify-symbols-mode 1)
-              (local-unset-key (kbd "<S-up>"))
-              (local-unset-key (kbd "<S-down>"))
-              (local-unset-key (kbd "<S-left>"))
-              (local-unset-key (kbd "<S-right>"))))
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (org-bullets-mode 1)
+                (prettify-symbols-mode 1)
+                (local-unset-key (kbd "<S-up>"))
+                (local-unset-key (kbd "<S-down>"))
+                (local-unset-key (kbd "<S-left>"))
+                (local-unset-key (kbd "<S-right>"))))
 #+end_src
 ** Magit
 #+begin_src emacs-lisp
