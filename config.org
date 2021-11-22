@@ -484,6 +484,21 @@ A function for finding out info about font at cursor.
 (global-set-key (kbd "M-p") 'previous-error)
 
 #+end_src
+** 'new-file' function
+Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
+#+begin_src emacs-lisp
+  (defun new-empty-buffer ()
+    "Create a new empty buffer.
+  New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
+
+  It returns the buffer (for elisp programing)."
+    (interactive)
+    (let (($buf (generate-new-buffer "untitled")))
+      (switch-to-buffer $buf)
+      (funcall initial-major-mode)
+      (setq buffer-offer-save t)
+      $buf))
+#+end_src
 ** MacOS-style 'super' (⌘) key shortcuts
 ⌘-W, "close tab"
 #+begin_src emacs-lisp
@@ -505,6 +520,10 @@ A function for finding out info about font at cursor.
   (global-set-key (kbd "s-o") 'ivy-switch-buffer)
 #+end_src
 
+⌘-N, "new file"
+#+begin_src emacs-lisp
+  (global-set-key (kbd "s-n") 'new-empty-buffer)
+#+end_src
 ** Kill whitespace
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
