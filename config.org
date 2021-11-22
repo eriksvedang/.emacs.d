@@ -907,7 +907,7 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 
 ⌘-O, "open"
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-o") 'ivy-switch-buffer)
+  (global-set-key (kbd "s-o") 'ido-find-file)
 #+end_src
 
 ⌘-N, "new file"
@@ -920,9 +920,12 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
   (global-set-key (kbd "s-m") 'suspend-frame)
 #+end_src
 
-⌘-B, "bold text"
+⌘-B, "switch buffer"
+
+This one is obviously not standard on macOS, but buffer switching needs to be as smooth as possible.
+
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-b") 'org-emphasize)
+  (global-set-key (kbd "s-b") 'ivy-switch-buffer)
 #+end_src
 
 ⌘-K, "erase the whole line"
