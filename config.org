@@ -434,13 +434,12 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
   (use-package imenu
     :ensure t)
 #+end_src
-** Jump to character
+** Go to visible word
 #+begin_src emacs-lisp
   (use-package avy
     :ensure t)
 
   (require 'avy)
-  (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
 #+end_src
 ** Kill whitespace                                                          :defun:
 (to the left and right of the cursor)
@@ -932,11 +931,19 @@ This one is obviously not standard on macOS, but buffer switching needs to be as
 #+end_src
 
 ⌘-K, "erase the whole line"
-This one is usually not present on MacOS, but maybe it should be?
-The original Emacs keybinding for this is C-S-backspace, which seems fine too?
+
+This one is usually not present on MacOS, but maybe it should be!
+The original Emacs keybinding for this is C-S-backspace, which actually seems fine too?
+
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-k") 'kill-whole-line)
 #+end_src
+
+⌘-J, "jump to word"
+#+begin_src emacs-lisp
+  (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
+#+end_src
+
 ** Fix various small idiosyncrasies
 #+begin_src emacs-lisp
   (global-auto-revert-mode 1)
