@@ -690,7 +690,7 @@ More special characters.
      ("C-M-e" . end-of-defun))
     )
 #+end_src
-** Minibuffer completion (Ido, etc)
+** Minibuffer completion (Ido, et al)
 #+begin_src emacs-lisp
   (ido-mode 1)
   (ido-ubiquitous-mode)
@@ -812,7 +812,7 @@ Edit all matching symbols in the buffer. Be careful with this one!
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-o") 'other-window)
 #+end_src
-** Navigation on a single line
+** Navigation to beginning and end of line
 #+begin_src emacs-lisp
   (defun smart-beginning-of-line ()
     "Move point to first non-whitespace character or beginning-of-line.
@@ -831,7 +831,9 @@ Edit all matching symbols in the buffer. Be careful with this one!
   (global-set-key [s-right] 'end-of-line)
   (define-key global-map [end] 'end-of-line)
   (global-set-key (kbd "C-e") 'end-of-line)
-
+#+end_src
+** Navigation to beginning and end of buffer
+#+begin_src emacs-lisp
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
@@ -887,11 +889,11 @@ Edit all matching symbols in the buffer. Be careful with this one!
   (global-set-key (kbd "C-s-p") 'move-lines-up)
 #+end_src
 ** Multiple cursors
+If you want to insert a newline in multiple-cursors-mode, use C-j.
 #+begin_src emacs-lisp
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "s-l") 'mc/edit-lines)
-;; NOTE: If you want to insert a newline in multiple-cursors-mode, use C-j
 #+end_src
 ** Merge conflict resolution (Smerge)
 #+begin_src emacs-lisp
