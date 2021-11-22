@@ -1,29 +1,21 @@
-* Startup
-#+BEGIN_SRC emacs-lisp
-  (setq inhibit-splash-screen t)
-  (setq inhibit-startup-screen t)
-  (setq inhibit-startup-echo-area-message t)
-  (setq inhibit-startup-message t)
-  (setq initial-scratch-message nil)
-#+END_SRC
 * Packages
 ** Archives
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
-#+END_SRC
+#+end_src
 ** Ensure 'use-package'
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (when (not (package-installed-p 'use-package))
     (package-refresh-contents)
     (package-install 'use-package))
 
   (require 'use-package)
-#+END_SRC
+#+end_src
 ** Install
 This part should be removed and replaced with (use-package ... :ensure t)
 
-   #+BEGIN_SRC emacs-lisp
+   #+begin_src emacs-lisp
      (setq the-packages
        '(
          ;; META-X / WINDOWS / BUFFERS
@@ -102,13 +94,13 @@ This part should be removed and replaced with (use-package ... :ensure t)
            nil
          (package-install package)))
          the-packages)
-#+END_SRC
+#+end_src
 * Look
 ** Fonts
 *** Define 'set-face' function
 This function and the following font configuration is shamelessly stolen
 from the excellent Nano configuration, see [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (defun set-face (face style)
     "Reset a face and make it inherit style."
     (set-face-attribute face nil
@@ -117,9 +109,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
      :weight     'unspecified :height     'unspecified
      :underline  'unspecified :overline   'unspecified
      :box        'unspecified :inherit    style))
-#+END_SRC
+#+end_src
 *** Font presets
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defface face-critical '((t :foreground "#ffffff"
                            :background "#ff6347")) "Critical")
 (defface face-popout  '((t :foreground "#00bba7"))  "Popout")
@@ -127,9 +119,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 (defface face-salient '((t :foreground "#221199")) "Salient") ;; Used to be 000055
 (defface face-faded   '((t :foreground "#999999"))   "Faded")
 (defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
-#+END_SRC
+#+end_src
 *** Main font
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (set-face-font 'default "Fira Code 16")
   (setq-default line-spacing 5)
 
@@ -138,9 +130,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 
   (if (eq system-type 'gnu/linux)
       (set-face-font 'default "Fira Code 12"))
-#+END_SRC
+#+end_src
 *** Programming
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (set-face 'font-lock-comment-face                         'face-faded)
 (set-face 'font-lock-doc-face                             'face-faded)
 (set-face 'font-lock-string-face                         'face-popout)
@@ -151,9 +143,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 (set-face 'font-lock-builtin-face                       'face-salient)
 (set-face 'font-lock-type-face                          'face-salient)
 (set-face 'font-lock-keyword-face                       'face-salient)
-#+END_SRC
+#+end_src
 *** Non-programming
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (set-face 'header-line-highlight                          'face-faded)
   (set-face 'region                                        'face-subtle)
   (set-face 'highlight                                     'face-subtle)
@@ -181,9 +173,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
   (set-face 'outline-4                                     'face-strong)
   (set-face 'outline-5                                     'face-strong)
   (set-face 'outline-6                                     'face-strong)
-#+END_SRC
+#+end_src
 *** Documentation
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (set-face 'info-menu-header                              'face-strong)
 (set-face 'info-header-node                              'face-normal)
 (set-face 'Info-quoted                                    'face-faded)
@@ -191,10 +183,10 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
 (set-face 'info-title-2                                  'face-strong)
 (set-face 'info-title-3                                  'face-strong)
 (set-face 'info-title-4                                  'face-strong)
-#+END_SRC
+#+end_src
 ** Ligatures
 It should be possible to remove this, since Emacs is supporting ligatures natively now.
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun enable-ligatures ()
   (interactive)
   (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
@@ -255,9 +247,9 @@ It should be possible to remove this, since Emacs is supporting ligatures native
                             `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
 (enable-ligatures)
-#+END_SRC
+#+end_src
 ** Frame
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (setq frame-resize-pixelwise t)
   (set-frame-parameter (selected-frame) 'internal-border-width 24)
   (fringe-mode '(0 . 0))
@@ -265,10 +257,10 @@ It should be possible to remove this, since Emacs is supporting ligatures native
   (setq frame-background-mode 'light)
   (set-background-color "#ffffff")
   (set-foreground-color "#000000")
-#+END_SRC
+#+end_src
 ** Mode Line
 See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun mode-line-render (left right)
   "Return a string of `window-width' length containing left, and
    right aligned respectively."
@@ -361,47 +353,56 @@ See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-ema
    (format-mode-line
     (propertize "%3l:%2c              "
     'face `(:foreground ,(face-foreground 'face-faded)))))))
-#+END_SRC
+#+end_src
 ** Cursor
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (setq cursor-type 'bar)
 (set-default 'cursor-type 'bar)
-#+END_SRC
+#+end_src
 ** Line numbers
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (require 'linum)
 (setq linum-format (quote "%4d  "))
 (global-linum-mode 1)
-#+END_SRC
+#+end_src
 ** Parenthesis
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (show-paren-mode 1)
-#+END_SRC
+#+end_src
 ** Tabs
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (setq-default tab-width 4)
-#+END_SRC
+#+end_src
 ** What face?
 A function for finding out info about font at cursor.
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun what-face (pos)
   (interactive "d")
   (let ((face (or (get-char-property (point) 'read-face-name)
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
-#+END_SRC
-** Remove cruft
+#+end_src
+** Remove GUI cruft
  #+begin_src emacs-lisp
    (menu-bar-mode 0)
    (tool-bar-mode 0)
    (tooltip-mode  0)
    (scroll-bar-mode 0)
  #+end_src
+** Inhibit startup cruft
+ #+begin_src emacs-lisp
+   (setq inhibit-splash-screen t)
+   (setq inhibit-startup-screen t)
+   (setq inhibit-startup-echo-area-message t)
+   (setq inhibit-startup-message t)
+   (setq initial-scratch-message nil)
+ #+end_src
+
 * Navigation
 * Editing
 * Feel
 ** Fix idiosyncrasies
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (delete-selection-mode 1)
 
   (set-terminal-coding-system 'utf-8)
@@ -424,9 +425,9 @@ A function for finding out info about font at cursor.
 
   (if (eq system-type 'windows-nt)
     (cua-mode 1))
-#+END_SRC
+#+end_src
 ** Advice when splitting windows
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
@@ -455,9 +456,9 @@ A function for finding out info about font at cursor.
 
 (defadvice completion-list-mode (after move-point-to-new-window activate)
   (other-window 1))
-#+END_SRC
+#+end_src
 ** The missing keyboard shortcuts
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "s-b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
@@ -475,18 +476,18 @@ A function for finding out info about font at cursor.
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "s-g") 'goto-line)
-#+END_SRC
+#+end_src
 ** Dired
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-hook 'dired-mode-hook
   (lambda ()
     (local-set-key (kbd "b") 'dired-up-directory)
     (auto-revert-mode t)
     (set-face 'dired-directory 'face-popout)))
-#+END_SRC
+#+end_src
 ** Kill whitespace
 (to the left and right of the cursor)
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun kill-whitespace ()
   "Kill the whitespace between two non-whitespace characters"
   (interactive "*")
@@ -499,9 +500,9 @@ A function for finding out info about font at cursor.
           (replace-match "" nil nil))))))
 
 (global-set-key [s-backspace] 'kill-whitespace)
-#+END_SRC
+#+end_src
 ** Remove whitespace on save
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (defun save-buffer-no-whitespace-cleanup ()
@@ -512,9 +513,9 @@ A function for finding out info about font at cursor.
     (save-buffer)
     (when normally-should-whitespace-cleanup
       (add-hook 'before-save-hook 'whitespace-cleanup))))
-#+END_SRC
+#+end_src
 ** Insert line above
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun smart-open-line-above ()
   "Insert an empty line above the current line."
   (interactive)
@@ -524,15 +525,15 @@ A function for finding out info about font at cursor.
   (indent-according-to-mode))
 
 (global-set-key (kbd "<C-return>") 'smart-open-line-above)
-#+END_SRC
+#+end_src
 ** Expand region
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "s-e") 'er/expand-region)
-#+END_SRC
+#+end_src
 ** Characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "M-2") "@")
 (global-set-key (kbd "M-4") "$")
 (global-set-key (kbd "M-8") "[")
@@ -571,9 +572,9 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
 (global-set-key (kbd "C-x M-x") "∃") ; there exists
 ;; y
 (global-set-key (kbd "C-x M-z") "⊃") ; implies
-#+END_SRC
+#+end_src
 ** Smartparens
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package smartparens
     :ensure t
 
@@ -622,28 +623,28 @@ These characters can't be written using the normal MacOS shortcuts (on my keyboa
      ;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
      ("C-M-e" . end-of-defun))
     )
-#+END_SRC
+#+end_src
 ** Ido
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (ido-mode 1)
 (ido-ubiquitous-mode)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (setq ido-case-fold t)
-#+END_SRC
+#+end_src
 ** Smex
 Ido completition for M-x menu.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "M-x") (lambda ()
                               (interactive)
                               (or (boundp 'smex-cache)
                                   (smex-initialize))
                               (global-set-key [(meta x)] 'smex)
                               (smex)))
-#+END_SRC
+#+end_src
 ** Ibuffer
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (setq ibuffer-formats
       '((mark modified read-only " "
               (name 30 30 :left :elide) ; change: 30s were originally 18s
@@ -671,9 +672,9 @@ Ido completition for M-x menu.
 
 ;; Refresh automatically
 (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
-#+END_SRC
+#+end_src
 ** Find file in project
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
     (require 'find-file-in-project)
     (global-set-key (kbd "s-p") 'find-file-in-project)
     (setq ffip-patterns
@@ -690,13 +691,13 @@ Ido completition for M-x menu.
 
 ;; Without ivy-mode the find-file-in-project prompt is very bad
 (ivy-mode 1)
-#+END_SRC
+#+end_src
 ** Undo
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-undo-tree-mode 1)
-#+END_SRC
+#+end_src
 ** Company mode (auto completion)
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package company
     :bind
     (("M-ESC" . company-complete))
@@ -708,18 +709,18 @@ Ido completition for M-x menu.
     )
 
   (add-hook 'after-init-hook 'global-company-mode)
-#+END_SRC
+#+end_src
 ** IEdit
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "C-;") 'iedit-mode)
-#+END_SRC
+#+end_src
 ** Commenting
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
-#+END_SRC
+#+end_src
 ** Scrolling
 *** Nudging the buffer up or down
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun my-scroll-down ()
   (interactive)
   (scroll-up 1))
@@ -730,14 +731,14 @@ Ido completition for M-x menu.
 
 (global-set-key [M-s-up] 'my-scroll-down)
 (global-set-key [M-s-down]   'my-scroll-up)
-#+END_SRC
+#+end_src
 ** Navigation
 *** Buffers
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "M-o") 'other-window)
-#+END_SRC
+#+end_src
 *** Lines
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (defun smart-beginning-of-line ()
     "Move point to first non-whitespace character or beginning-of-line.
      Move point to the first non-whitespace character on this line.
@@ -758,14 +759,14 @@ Ido completition for M-x menu.
 
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
-#+END_SRC
+#+end_src
 *** Avy
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (require 'avy)
 (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
-#+END_SRC
+#+end_src
 ** Move Lines
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
     (defun move-lines (n)
       (let ((beg) (end) (keep))
         (if mark-active
@@ -809,23 +810,23 @@ Ido completition for M-x menu.
     ;; Alternative, since the shortcuts above clash with Rectangle.app
     (global-set-key (kbd "C-s-n") 'move-lines-down)
     (global-set-key (kbd "C-s-p") 'move-lines-up)
-#+END_SRC
+#+end_src
 ** Multiple cursors
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
 (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "s-l") 'mc/edit-lines)
 ;; NOTE: If you want to insert a newline in multiple-cursors-mode, use C-j
-#+END_SRC
+#+end_src
 ** Smerge (conflic resolution)
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (global-set-key (kbd "C-c n") 'smerge-next)
 (global-set-key (kbd "C-c p") 'smerge-prev)
 (global-set-key (kbd "C-c u") 'smerge-keep-upper)
 (global-set-key (kbd "C-c l") 'smerge-keep-lower)
-#+END_SRC
+#+end_src
 ** Rename file AND buffer
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)
@@ -838,10 +839,10 @@ Ido completition for M-x menu.
          (t
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
-#+END_SRC
+#+end_src
 * Modes
 ** Org
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package org
     :config
     (setq org-hide-emphasis-markers t) ;; Makes bold/underlined text work properly.
@@ -862,9 +863,9 @@ Ido completition for M-x menu.
               (local-unset-key (kbd "<S-down>"))
               (local-unset-key (kbd "<S-left>"))
               (local-unset-key (kbd "<S-right>"))))
-#+END_SRC
+#+end_src
 ** Magit
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package magit
     :ensure t
     :init (bind-key "C-x g" 'magit-status))
@@ -875,15 +876,15 @@ Ido completition for M-x menu.
     (window-configuration-to-register :magit-fullscreen)
     ad-do-it
     (delete-other-windows))
-#+END_SRC
+#+end_src
 ** Emacs Lisp
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (define-key emacs-lisp-mode-map (kbd "<s-return>") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-l") 'eval-buffer)
-#+END_SRC
+#+end_src
 ** LSP
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package lsp-mode
     :ensure t
     :config
@@ -893,9 +894,9 @@ Ido completition for M-x menu.
     ;;(setq lsp-ui-doc-enable nil)
     )
   (setq lsp-enable-snippet nil)
-#+END_SRC
+#+end_src
 ** Haskell
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package haskell-mode
     :ensure t)
 
@@ -928,22 +929,22 @@ Ido completition for M-x menu.
     :bind
     (:map haskell-mode-map
           ("C-c r" . ormolu-format-buffer)))
-#+END_SRC
+#+end_src
 ** Racket
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (setq racket-program "/Applications/Racket/bin/racket")
 (add-hook 'racket-mode-hook 'smartparens-mode)
-#+END_SRC
+#+end_src
 ** Pie
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.pie\\'" . racket-mode))
 ;; (font-lock-add-keywords 'racket-mode '(("Π" . font-lock-keyword-face)))
 ;; (font-lock-add-keywords 'racket-mode '(("->" . font-lock-keyword-face)))
 (font-lock-add-keywords 'racket-mode '(("claim" . font-lock-keyword-face)))
 (put 'claim 'racket-indent-function 1)
-#+END_SRC
+#+end_src
 ** Clojure
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package clojure-mode
   :ensure t
   :init (smartparens-mode))
@@ -970,9 +971,9 @@ Ido completition for M-x menu.
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load 'always-save)
 (setq cider-repl-display-help-banner nil)
-#+END_SRC
+#+end_src
 ** Carp
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
 (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
 (add-to-list 'load-path "C:/Users/erik/Documents/carp-emacs")
@@ -986,9 +987,9 @@ Ido completition for M-x menu.
             (smartparens-mode 1)
             ;;(flycheck-mode 1)
             ))
-#+END_SRC
+#+end_src
 ** C
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (defun compile-c ()
   (interactive)
   (save-buffer)
@@ -1023,9 +1024,9 @@ Ido completition for M-x menu.
         (define-key c-mode-map (kbd "C-c C-r") 'run-c)
         (define-key c-mode-map (kbd "s-r") 'run-c)
         (define-key c-mode-map (kbd "C-c C-f") 'ff-find-other-file)))
-#+END_SRC
+#+end_src
 ** C#
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (use-package csharp-mode
     :ensure t
     :bind (:map csharp-mode-map)
@@ -1044,10 +1045,10 @@ Ido completition for M-x menu.
       (apply orig-fun args)))
 
   (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
-#+END_SRC
+#+end_src
 ** SGML
 HTML mode.
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-hook 'sgml-mode-hook
       (lambda ()
         (local-set-key (kbd "M-s-.") 'sgml-close-tag)
@@ -1055,20 +1056,20 @@ HTML mode.
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'zencoding-mode)
-#+END_SRC
+#+end_src
 ** Zencoding
 Expand abbreviated tags to full html.
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-hook 'zencoding-mode-hook
       (lambda ()
         (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
-#+END_SRC
+#+end_src
 ** Pico8
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
-#+END_SRC
+#+end_src
 ** Go
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (defun run-go ()
     (interactive)
     (save-buffer)
@@ -1101,18 +1102,18 @@ Expand abbreviated tags to full html.
     (add-hook 'go-mode-hook (electric-pair-mode 1))
     ;; TODO: LSP!
     )
-#+END_SRC
+#+end_src
 
 ** Regexp Builder
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (require 're-builder)
   (setq reb-re-syntax 'string) ;; less escaping
-#+END_SRC
+#+end_src
 
 ** Exec Path From Shell (MacOS)
- #+BEGIN_SRC emacs-lisp
+ #+begin_src emacs-lisp
    (use-package exec-path-from-shell
      :ensure t)
    (when (eq system-type 'darwin)
      (exec-path-from-shell-initialize))
- #+END_SRC
+ #+end_src
