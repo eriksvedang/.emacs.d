@@ -7,19 +7,13 @@ Give Emacs access to the system $PATH.
   (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize))
 #+end_src
-** Ensure UTF-8 encoding
-#+begin_src emacs-lisp
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
-#+end_src
 * Packages
 ** Archives
 [[https://elpa.gnu.org/][Official GNU archives]]
 [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
 #+begin_src emacs-lisp
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("gnu" . "http://elpa.gnu.org/packages/")))
 #+end_src
 ** Ensure 'use-package'
 #+begin_src emacs-lisp
@@ -392,6 +386,12 @@ Always use four spaces.
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4)
 #+end_src
+** Secondary selection
+This is used by org-mode when editing inline code blocks (C-c ').
+#+begin_src emacs-lisp
+  (set-face-foreground 'secondary-selection "#999")
+  (set-face-background 'secondary-selection "#f0f0f0")
+#+end_src
 ** What face?
 A function for finding out info about font at cursor.
 #+begin_src emacs-lisp
@@ -426,6 +426,12 @@ A function for finding out info about font at cursor.
 
   (if (eq system-type 'windows-nt)
       (cua-mode 1))
+#+end_src
+** Use UTF-8 everywhere
+#+begin_src emacs-lisp
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
 #+end_src
 ** Fix various idiosyncrasies
 #+begin_src emacs-lisp
