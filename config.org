@@ -1,5 +1,7 @@
 * Packages
 ** Archives
+[[https://elpa.gnu.org/][Official GNU archives]]
+[[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
 #+begin_src emacs-lisp
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
