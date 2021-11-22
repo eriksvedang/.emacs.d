@@ -9,8 +9,8 @@ Give Emacs access to the system $PATH.
 #+end_src
 * Packages
 ** Archives
-[[https://elpa.gnu.org/][Official GNU archives]]
-[[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
+1. [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
+2. [[https://elpa.gnu.org/][Official GNU archives]]
 #+begin_src emacs-lisp
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                            ("gnu" . "http://elpa.gnu.org/packages/")))
