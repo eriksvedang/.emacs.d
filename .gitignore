@@ -42,3 +42,4 @@ config.el
 /.lsp-session-v1
 /racket-mode/
 /history
+/projectile-bookmarks.eld

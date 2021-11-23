@@ -647,22 +647,10 @@ More special characters.
 ** Find file in project
 Might be time to replace this with Projectile.
 #+begin_src emacs-lisp
-  (use-package find-file-in-project
-    :ensure t)
-
-  (require 'find-file-in-project)
-  (global-set-key (kbd "s-p") 'find-file-in-project)
-  (setq ffip-patterns
-        '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-      "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
-      "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
-      "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-  (setq ffip-prune-patterns
-    (cons "*/Packages/*"
-    (cons "*/Temp/*"
-    (cons "*/Library/*"
-    (cons "*/PackageCache/*"
-    (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
+  (use-package projectile
+    :ensure t
+    :init (projectile-mode 1)
+    :bind ("s-p" . projectile-command-map))
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
