@@ -633,7 +633,6 @@ with more complementary modes.
       :ensure t
       :after ivy
       :config
-      (setq ivy-initial-inputs-alist nil) ;; Removes the leading '^' when doing M-x
       (counsel-mode))
 
     (global-set-key (kbd "M-x") 'counsel-M-x))
