@@ -603,6 +603,15 @@ More special characters.
   ;; Persist history over Emacs restarts. Vertico sorts by history position.
   (use-package savehist
     :init (savehist-mode))
+
+  ;; Enable richer annotations
+  (use-package marginalia
+    :ensure t
+    :bind (("M-A" . marginalia-cycle)
+           :map minibuffer-local-map
+           ("M-A" . marginalia-cycle))
+    :init
+    (marginalia-mode))
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
@@ -639,22 +648,10 @@ More special characters.
 ** Find file in project
 Might be time to replace this with Projectile.
 #+begin_src emacs-lisp
-  (use-package find-file-in-project
-    :ensure t)
-
-  (require 'find-file-in-project)
-  (global-set-key (kbd "s-p") 'find-file-in-project)
-  (setq ffip-patterns
-        '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
-      "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
-      "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
-      "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
-  (setq ffip-prune-patterns
-    (cons "*/Packages/*"
-    (cons "*/Temp/*"
-    (cons "*/Library/*"
-    (cons "*/PackageCache/*"
-    (cons "*/CMakeFiles/*" ffip-prune-patterns))))))
+  (use-package projectile
+    :ensure t
+    :init (projectile-mode 1)
+    :bind ("s-p" . projectile-command-map))
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
@@ -687,7 +684,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (use-package iedit
     :ensure t)
 
-  (global-set-key (kbd "C-;") 'iedit-mode)
+  ;;(global-set-key (kbd "C-;") 'iedit-mode)
 #+end_src
 ** Commenting
 #+begin_src emacs-lisp
@@ -1020,7 +1017,9 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 ** Haskell
 #+begin_src emacs-lisp
   (use-package haskell-mode
-    :ensure t)
+    :ensure t
+    :config (setq-default prettify-symbols-alist '(("\\" . "λ")
+                                                   ("." . "ᐤ"))))
 
   (use-package dante
     :ensure t
@@ -1039,6 +1038,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
               (electric-pair-local-mode 0)
               (flycheck-mode 1)
               (company-mode 1)
+              (prettify-symbols-mode 1)
               (define-key haskell-mode-map (kbd "s-r") (lambda ()
                                                          (interactive)
                                                          (shell-command "stack run")))))
@@ -1177,14 +1177,6 @@ HTML mode.
         (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
-(add-hook 'html-mode-hook 'zencoding-mode)
-#+end_src
-** Zencoding
-Expand abbreviated tags to full html.
-#+begin_src emacs-lisp
-(add-hook 'zencoding-mode-hook
-      (lambda ()
-        (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
 #+end_src
 ** Pico8
 #+begin_src emacs-lisp
@@ -1294,9 +1286,6 @@ I probably should start using LSP for Go.
     :ensure t)
 
   (use-package fsharp-mode
-    :ensure t)
-
-  (use-package zencoding-mode
     :ensure t)
 
   (use-package js2-mode
