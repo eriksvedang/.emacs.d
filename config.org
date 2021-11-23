@@ -43,7 +43,9 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
      :box        'unspecified :inherit    style))
 #+end_src
 *** Font presets
-Note: salient used to be #000055.
+Some notes:
+1. When changing these fonts it seems like you need to restart Emacs for them to take effect.
+2. Salient used to be #000055.
 #+begin_src emacs-lisp
   (defface face-critical      '((t :foreground "#ffffff"
                                    :background "#ff6347"))   "Critical")
