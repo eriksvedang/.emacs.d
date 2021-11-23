@@ -602,6 +602,15 @@ More special characters.
   ;; Persist history over Emacs restarts. Vertico sorts by history position.
   (use-package savehist
     :init (savehist-mode))
+
+  ;; Enable richer annotations
+  (use-package marginalia
+    :ensure t
+    :bind (("M-A" . marginalia-cycle)
+           :map minibuffer-local-map
+           ("M-A" . marginalia-cycle))
+    :init
+    (marginalia-mode))
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
@@ -686,7 +695,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (use-package iedit
     :ensure t)
 
-  (global-set-key (kbd "C-;") 'iedit-mode)
+  ;;(global-set-key (kbd "C-;") 'iedit-mode)
 #+end_src
 ** Commenting
 #+begin_src emacs-lisp
