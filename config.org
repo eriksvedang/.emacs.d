@@ -1028,7 +1028,9 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 ** Haskell
 #+begin_src emacs-lisp
   (use-package haskell-mode
-    :ensure t)
+    :ensure t
+    :config (setq-default prettify-symbols-alist '(("\\" . "λ")
+                                                   ("." . "ᐤ"))))
 
   (use-package dante
     :ensure t
@@ -1047,6 +1049,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
               (electric-pair-local-mode 0)
               (flycheck-mode 1)
               (company-mode 1)
+              (prettify-symbols-mode 1)
               (define-key haskell-mode-map (kbd "s-r") (lambda ()
                                                          (interactive)
                                                          (shell-command "stack run")))))
