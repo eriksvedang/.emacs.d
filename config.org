@@ -1176,14 +1176,6 @@ HTML mode.
         (local-set-key (kbd "M-s-…") 'sgml-close-tag)))
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
-(add-hook 'html-mode-hook 'zencoding-mode)
-#+end_src
-** Zencoding
-Expand abbreviated tags to full html.
-#+begin_src emacs-lisp
-(add-hook 'zencoding-mode-hook
-      (lambda ()
-        (local-set-key (kbd "C-c C-e") 'zencoding-expand-line)))
 #+end_src
 ** Pico8
 #+begin_src emacs-lisp
@@ -1293,9 +1285,6 @@ I probably should start using LSP for Go.
     :ensure t)
 
   (use-package fsharp-mode
-    :ensure t)
-
-  (use-package zencoding-mode
     :ensure t)
 
   (use-package js2-mode
