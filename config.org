@@ -907,14 +907,14 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
   (global-set-key (kbd "s-f") 'rgrep)
 #+end_src
 
-⌘-L, "go to line"
+⌘-G, "go to line"
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-l") 'goto-line)
+  (global-set-key (kbd "s-g") 'goto-line)
 #+end_src
 
-⌘-G, "go to symbol"
+⌘-I, "imenu"
 #+begin_src emacs-lisp
-  (global-set-key (kbd "s-g") 'imenu)
+  (global-set-key (kbd "s-i") 'imenu)
 #+end_src
 
 ⌘-O, "open"
