@@ -592,30 +592,21 @@ More special characters.
     )
 #+end_src
 ** Minibuffer completion
+The thing I don't like about Selectrum compared to Ido is that DEL (backspace)
+doesn't go to the parent dir. To do the same thing in Selectrum, use C-M-DEL.
 #+begin_src emacs-lisp
-  (use-package vertico
+  (use-package selectrum
     :ensure t
-    :init (vertico-mode)
-    :config
-    (setq vertico-scroll-margin 7)
-    (setq vertico-cycle nil)
-    (setq completion-styles '(basic substring partial-completion flex))
-    (setq read-file-name-completion-ignore-case t
-          read-buffer-completion-ignore-case t
-          completion-ignore-case t))
+    :init (selectrum-mode))
 
-  ;; Persist history over Emacs restarts. Vertico sorts by history position.
-  (use-package savehist
-    :init (savehist-mode))
+  ;; Make sorting and filtering more intelligent
+  (use-package selectrum-prescient
+    :ensure t)
 
-  ;; Enable richer annotations
-  (use-package marginalia
-    :ensure t
-    :bind (("M-A" . marginalia-cycle)
-           :map minibuffer-local-map
-           ("M-A" . marginalia-cycle))
-    :init
-    (marginalia-mode))
+  (selectrum-prescient-mode t)
+
+  ;; Save your command history on disk
+  (prescient-persist-mode +1)
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
