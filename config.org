@@ -595,6 +595,7 @@ More special characters.
     :config
     (setq vertico-scroll-margin 7)
     (setq vertico-cycle nil)
+    (setq completion-styles '(basic substring partial-completion flex))
     (setq read-file-name-completion-ignore-case t
           read-buffer-completion-ignore-case t
           completion-ignore-case t))
