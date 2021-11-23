@@ -43,14 +43,16 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
      :box        'unspecified :inherit    style))
 #+end_src
 *** Font presets
+Note: salient used to be #000055.
 #+begin_src emacs-lisp
-(defface face-critical '((t :foreground "#ffffff"
-                           :background "#ff6347")) "Critical")
-(defface face-popout  '((t :foreground "#00bba7"))  "Popout")
-(defface face-strong  '((t :weight regular))        "Strong")
-(defface face-salient '((t :foreground "#221199")) "Salient") ;; Used to be 000055
-(defface face-faded   '((t :foreground "#999999"))   "Faded")
-(defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
+  (defface face-critical      '((t :foreground "#ffffff"
+                                   :background "#ff6347"))   "Critical")
+  (defface face-popout        '((t :foreground "#00bba7"))     "Popout")
+  (defface face-strong        '((t :weight regular))           "Strong")
+  (defface face-actually-bold '((t :weight bold))     "Actually strong")
+  (defface face-salient       '((t :foreground "#221199"))    "Salient")
+  (defface face-faded         '((t :foreground "#999999"))      "Faded")
+  (defface face-subtle        '((t :background "#f0f0f0"))     "Subtle")
 #+end_src
 *** Main font
 #+begin_src emacs-lisp
@@ -84,7 +86,7 @@ from the excellent Nano configuration, see [[https://github.com/rougier/nano-ema
   (set-face 'org-link                                      'face-popout)
   (set-face 'org-verbatim                                 'face-salient)
   (set-face 'org-headline-done                              'face-faded)
-  (set-face 'bold                                          'face-strong)
+  (set-face 'bold                                   'face-actually-bold)
   (set-face 'italic                                         'face-faded)
   (set-face 'cursor                                        'face-strong)
   (set-face-attribute 'cursor nil
