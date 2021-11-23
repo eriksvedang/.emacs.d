@@ -964,7 +964,9 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 
   (use-package org-bullets
     :ensure t
-    :config (setq org-bullets-bullet-list '("✸" "◇" "•" "○" "✤" "✩")))
+    :config (setq org-bullets-bullet-list '("○" "●" "◇" "•")))
+
+;; The old bullets in case I change my mind ("✸" "◇" "•" "○" "✤" "✩")
 
   (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "❝")
                                          ("#+END_SRC" . "❞")
