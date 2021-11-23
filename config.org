@@ -601,6 +601,8 @@ Ivy feels better, but it looks kind of too bare. I might just be able to fix tha
 with more complementary modes.
 
 #+begin_src emacs-lisp
+  (setq enable-recursive-minibuffers t)
+
   (defun setup-selectrum ()
     (interactive)
 
@@ -623,16 +625,17 @@ with more complementary modes.
     (use-package ivy
       :ensure t
       :init (ivy-mode)
-      :configure
+      :config
       (setq ivy-count-format "(%d/%d) ")
       (setq ivy-use-virtual-buffers t))
 
     (use-package counsel
       :ensure t
       :after ivy
-      :config (counsel-mode))
+      :config
+      (setq ivy-initial-inputs-alist nil) ;; Removes the leading '^' when doing M-x
+      (counsel-mode))
 
-    (setq enable-recursive-minibuffers t)
     (global-set-key (kbd "M-x") 'counsel-M-x))
 
   (setup-ivy)
