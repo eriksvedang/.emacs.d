@@ -588,59 +588,20 @@ More special characters.
     )
 #+end_src
 ** Minibuffer completion
-Good old Ido, I primarily use it for finding (opening) files.
-
 #+begin_src emacs-lisp
-  (ido-mode t)
-  (ido-ubiquitous-mode t)
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  (setq ido-case-fold t)
+  (use-package vertico
+    :ensure t
+    :init (vertico-mode)
+    :config
+    (setq vertico-scroll-margin 7)
+    (setq vertico-cycle nil)
+    (setq read-file-name-completion-ignore-case t
+          read-buffer-completion-ignore-case t
+          completion-ignore-case t))
 
-  (global-set-key (kbd "C-x C-f") 'ido-find-file)
-
-  ;; Replacement for ido-ubiquitous, might not be needed anymore?
-  (use-package ido-completing-read+
-    :ensure t)
-#+end_src
-
-Smex is a better M-x that still feels like home.
-
-#+begin_src emacs-lisp
-  (global-set-key (kbd "M-x")
-                  (lambda ()
-                    (interactive)
-                    (or (boundp 'smex-cache)
-                        (smex-initialize))
-                    (global-set-key [(meta x)] 'smex)
-                    (smex)))
-#+end_src
-
-Counsel has a bunch of functions for finding things, e.g. 'counsel-git'. It also brings in Ivy and Swiper as dependencies.
-
-#+begin_src emacs-lisp
-  (use-package counsel
-    :ensure t)
-#+end_src
-
-Ivy is a generic completion framework which can filter a list of "things", e.g. filenames or buffers.
-
-#+begin_src emacs-lisp
-  (use-package ivy
-    :ensure t)
-
-  (ivy-mode 1)
-  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
-#+end_src
-
-Fuzzy matching for Ivy.
-
-#+begin_src emacs-lisp
-  (use-package flx
-    :ensure t)
-
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy)))
+  ;; Persist history over Emacs restarts. Vertico sorts by history position.
+  (use-package savehist
+    :init (savehist-mode))
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
