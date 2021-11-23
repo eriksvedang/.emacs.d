@@ -592,21 +592,48 @@ More special characters.
     )
 #+end_src
 ** Minibuffer completion
+I'm having a bit of trouble making up my mind whether to use Selectrum or Ivy here.
+
 The thing I don't like about Selectrum compared to Ido is that DEL (backspace)
 doesn't go to the parent dir. To do the same thing in Selectrum, use C-M-DEL.
+
+Ivy feels better, but it looks kind of too bare. I might just be able to fix that
+with more complementary modes.
+
 #+begin_src emacs-lisp
-  (use-package selectrum
-    :ensure t
-    :init (selectrum-mode))
+  (defun setup-selectrum ()
+    (interactive)
 
-  ;; Make sorting and filtering more intelligent
-  (use-package selectrum-prescient
-    :ensure t)
+    (use-package selectrum
+      :ensure t
+      :init (selectrum-mode))
 
-  (selectrum-prescient-mode t)
+    ;; Make sorting and filtering more intelligent
+    (use-package selectrum-prescient
+      :ensure t)
 
-  ;; Save your command history on disk
-  (prescient-persist-mode +1)
+    (selectrum-prescient-mode t)
+
+    ;; Save your command history on disk
+    (prescient-persist-mode +1))
+
+  (defun setup-ivy ()
+    (interactive)
+
+    (use-package ivy
+      :ensure t
+      :init (ivy-mode)
+      :configure
+      (setq ivy-use-virtual-buffers t))
+
+    (use-package counsel
+      :ensure t
+      :init (counsel-mode))
+
+    (setq enable-recursive-minibuffers t)
+    (global-set-key (kbd "M-x") 'counsel-M-x))
+
+  (setup-ivy)
 #+end_src
 ** The ibuffer
 #+begin_src emacs-lisp
