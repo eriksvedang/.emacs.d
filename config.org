@@ -650,12 +650,12 @@ More special characters.
   (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+end_src
 ** Find file in project
-Might be time to replace this with Projectile.
 #+begin_src emacs-lisp
   (use-package projectile
     :ensure t
     :init (projectile-mode 1)
-    :bind ("s-p" . projectile-command-map))
+    :bind (("s-p" . projectile-find-file)
+           ("s-å" . projectile-command-map)))
 #+end_src
 ** Undo
 #+begin_src emacs-lisp
