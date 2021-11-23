@@ -624,11 +624,13 @@ with more complementary modes.
       :ensure t
       :init (ivy-mode)
       :configure
+      (setq ivy-count-format "(%d/%d) ")
       (setq ivy-use-virtual-buffers t))
 
     (use-package counsel
       :ensure t
-      :init (counsel-mode))
+      :after ivy
+      :config (counsel-mode))
 
     (setq enable-recursive-minibuffers t)
     (global-set-key (kbd "M-x") 'counsel-M-x))
