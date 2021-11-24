@@ -476,7 +476,7 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
       (when normally-should-whitespace-cleanup
         (add-hook 'before-save-hook 'whitespace-cleanup))))
 #+end_src
-** Insert  line above                                                       :defun:
+** Insert line above                                                        :defun:
 #+begin_src emacs-lisp
 (defun smart-open-line-above ()
   "Insert an empty line above the current line."
