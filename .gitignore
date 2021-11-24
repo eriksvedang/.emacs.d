@@ -44,3 +44,4 @@ config.el
 /history
 /projectile-bookmarks.eld
 /recentf
+/server/server
