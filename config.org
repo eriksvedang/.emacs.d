@@ -1147,19 +1147,20 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+end_src
 ** Carp
 #+begin_src emacs-lisp
-(add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
-(add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
-(add-to-list 'load-path "C:/Users/erik/Documents/carp-emacs")
+  (add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
+  (add-to-list 'load-path "/home/erik/Projects/carp-emacs")
+  (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
+  (add-to-list 'load-path "C:/Users/erik/Documents/carp-emacs")
 
-(require 'carp-mode)
-(require 'carp-flycheck)
+  (require 'carp-mode)
+  (require 'carp-flycheck)
 
-(add-hook 'carp-mode-hook
-          (lambda ()
-            (electric-pair-local-mode 0)
-            (smartparens-mode 1)
-            ;;(flycheck-mode 1)
-            ))
+  (add-hook 'carp-mode-hook
+            (lambda ()
+              (electric-pair-local-mode 0)
+              (smartparens-mode 1)
+              ;;(flycheck-mode 1)
+              ))
 #+end_src
 ** C
 #+begin_src emacs-lisp
