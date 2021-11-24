@@ -45,3 +45,4 @@ config.el
 /projectile-bookmarks.eld
 /recentf
 /server/server
+/projectile.cache

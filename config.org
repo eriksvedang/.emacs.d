@@ -672,12 +672,34 @@ with more complementary modes.
   ;; Refresh automatically
   (add-hook 'ibuffer-mode-hook (lambda () (ibuffer-auto-mode 1)))
 #+end_src
-** Find file in project
+** Projects
+#+begin_src emacs-lisp
+  (use-package find-file-in-project
+    :ensure t
+    :config
+    (setq ffip-patterns
+          '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
+            "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
+            "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
+            "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
+    (setq ffip-prune-patterns
+          '("*/Packages/*"
+            "*/Temp/*"
+            "*/Library/*"
+            "*/PackageCache/*")))
+
+  (require 'find-file-in-project)
+  (global-set-key (kbd "s-p") 'find-file-in-project)
+#+end_src
+
+Not very impressed with Projectile so far, but let's keep it around for now.
+
 #+begin_src emacs-lisp
   (use-package projectile
     :ensure t
-    :init (projectile-mode 1)
-    :bind (("s-p" . projectile-find-file)
+    ;;:init (projectile-mode 1)
+    :config
+    :bind (;; ("s-p" . projectile-find-file)
            ("s-å" . projectile-command-map)))
 #+end_src
 ** Undo
