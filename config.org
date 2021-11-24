@@ -62,7 +62,7 @@ Some notes:
   (setq-default line-spacing 5)
 
   (if (eq system-type 'windows-nt)
-    (set-face-font 'default "Fira Code 13"))
+    (set-face-font 'default "Fira Code 12"))
 
   (if (eq system-type 'gnu/linux)
       (set-face-font 'default "Fira Code 12"))
