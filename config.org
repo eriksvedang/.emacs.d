@@ -626,6 +626,7 @@ with more complementary modes.
       :ensure t
       :init (ivy-mode)
       :config
+      (setq ivy-display-style 'fancy)
       (setq ivy-count-format "(%d/%d) ")
       (setq ivy-use-virtual-buffers t))
 
