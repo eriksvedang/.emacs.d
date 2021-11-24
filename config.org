@@ -600,6 +600,8 @@ doesn't go to the parent dir. To do the same thing in Selectrum, use C-M-DEL.
 Ivy feels better, but it looks kind of too bare. I might just be able to fix that
 with more complementary modes.
 
+[[https://oremacs.com/swiper/][Ivy User Manual]]
+
 #+begin_src emacs-lisp
   (setq enable-recursive-minibuffers t)
 
@@ -628,6 +630,7 @@ with more complementary modes.
       :config
       (setq ivy-display-style 'fancy)
       (setq ivy-count-format "(%d/%d) ")
+      ;; Virtual buffers make recent buffers appear on top of the list
       (setq ivy-use-virtual-buffers t))
 
     (use-package counsel
