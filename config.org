@@ -1119,6 +1119,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 (font-lock-add-keywords 'racket-mode '(("claim" . font-lock-keyword-face)))
 (put 'claim 'racket-indent-function 1)
 #+end_src
+
 ** Clojure
 #+begin_src emacs-lisp
   (use-package clojure-mode
@@ -1232,6 +1233,7 @@ HTML mode.
 (add-hook 'sgml-mode-hook 'smartparens-mode)
 (add-hook 'html-mode-hook 'smartparens-mode)
 #+end_src
+
 ** Pico8
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.p8\\'" . lua-mode))
@@ -1290,67 +1292,41 @@ I probably should start using LSP for Go.
 #+end_src
 
 ** Misc programming languages
+Apparently 'use-package' is a bit too slow to use for just
+installing a bunch of packages (this is a bummer) so let's
+use a simpler method for making sure that these programming
+modes are available.
 #+begin_src emacs-lisp
-  (use-package sgml-mode
-    :ensure t)
+  (defun install-misc-programming-modes ()
+    (interactive)
+    (package-refresh-contents)
+    (setq misc-programming-modes
+          '(sgml-mode
+            web-mode
+            php-mode
+            lua-mode
+            swift-mode
+            markdown-mode
+            cc-mode
+            glsl-mode
+            cmake-mode
+            yaml-mode
+            elm-mode
+            idris-mode
+            purescript-mode
+            tuareg
+            rust-mode
+            racket-mode
+            fsharp-mode
+            js2-mode
+            restclient
+            dyalog-mode
+            nix-mode
+            nix-buffer))
+    (dolist (m misc-programming-modes)
+      (when (not (package-installed-p m))
+        (package-install m))))
 
-  (use-package web-mode
-    :ensure t)
-
-  (use-package php-mode
-    :ensure t)
-
-  (use-package lua-mode
-    :ensure t)
-
-  (use-package swift-mode
-    :ensure t)
-
-  (use-package markdown-mode
-    :ensure t)
-
-  (use-package cc-mode
-    :ensure t)
-
-  (use-package glsl-mode
-    :ensure t)
-
-  (use-package cmake-mode
-    :ensure t)
-
-  (use-package yaml-mode
-    :ensure t)
-
-  (use-package elm-mode
-    :ensure t)
-
-  (use-package idris-mode
-    :ensure t)
-
-  (use-package purescript-mode
-    :ensure t)
-
-  (use-package tuareg
-    :ensure t)
-
-  (use-package rust-mode
-    :ensure t)
-
-  (use-package racket-mode
-    :ensure t)
-
-  (use-package fsharp-mode
-    :ensure t)
-
-  (use-package js2-mode
-    :ensure t)
-
-  (use-package restclient
-    :ensure t)
-
-  (use-package nix-mode
-    :ensure t)
-
-  (use-package nix-buffer
-    :ensure t)
+  ;; Commented out to not have to run on each Emacs startup
+  ;; (install-misc-programming-modes)
 #+end_src
