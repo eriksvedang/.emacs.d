@@ -16,5 +16,3 @@
 (setq line-spacing 4)
 (load-theme 'tango)
 (global-set-key (kbd "M-o") 'other-window)
-
-;; A change
