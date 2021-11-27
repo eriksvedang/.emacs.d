@@ -19,3 +19,12 @@
 (setq delete-active-region t)
 (transient-mark-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(defun copy-sexp ()
+  (interactive)
+  (save-excursion
+    (mark-sexp)
+    (kill-ring-save (mark) (point))))
+
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda () (local-set-key (kbd "C-M-w") 'copy-sexp)))
