@@ -18,5 +18,4 @@
 (global-set-key (kbd "M-o") 'other-window)
 (setq delete-active-region t)
 (transient-mark-mode t)
-(fringe-mode)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
