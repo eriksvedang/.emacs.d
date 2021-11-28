@@ -19,6 +19,7 @@
 (setq delete-active-region t)
 (transient-mark-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(setq lisp-indent-function 'common-lisp-indent-function)
 
 (defun copy-sexp ()
   (interactive)
@@ -28,3 +29,28 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda () (local-set-key (kbd "C-M-w") 'copy-sexp)))
+
+(defun move-line (amount)
+  (interactive "nAmount: ")
+  ;;(beginning-of-line)
+  (kill-whole-line)
+  (if (< 0 amount)
+      (dotimes (i amount)
+	(next-line))
+    (dotimes (i (- amount))
+      (previous-line)))
+  (beginning-of-line)
+  (yank))
+
+(defun move-line-up ()
+  (interactive)
+  (move-line -1)
+  (previous-line))
+
+(defun move-line-down ()
+  (interactive)
+  (move-line 1)
+  (previous-line))
+
+(global-set-key (kbd "C-s-n") 'move-line-down)
+(global-set-key (kbd "C-s-p") 'move-line-up)
