@@ -4,23 +4,35 @@
 ;; 2. I can't install packages.
 ;; Let's see how far I get!
 
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(fringe-mode 0)
-(ido-mode 1)
-(savehist-mode 1)
-(setq initial-scratch-message "")
+;; GUI
+(custom-set-variables
+ '(tool-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(fringe-mode 0)
+ '(initial-scratch-message ""))
+
 (modify-all-frames-parameters '((internal-border-width . 16)))
-(add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 ;;(set-face-attribute 'mode-line nil :box nil :background "#CCC")
+
+;; Typography
+(add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 (setq line-spacing 5)
 (load-theme 'tango)
-(global-set-key (kbd "M-o") 'other-window)
-(setq delete-active-region t)
+
+;; Completion
+(ido-mode 1)
+(savehist-mode 1)
+
+;; Editing
+(delete-selection-mode t)
 (transient-mark-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;;(setq lisp-indent-function 'common-lisp-indent-function)
 
+;; Keys
+(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "<C-return>") 'eval-buffer)
+
+;; Lisp editing
 (defun copy-sexp ()
   (interactive)
   (save-excursion
