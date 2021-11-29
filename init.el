@@ -18,13 +18,24 @@
 (add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 (setq line-spacing 5)
 (load-theme 'tango)
-;;(set-face-attribute 'font-lock-comment-face nil :foreground "#936")
+;;(set-face-attribute 'font-lock-comment-face nil :foreground "#E36" :family "Futura")
 ;;(set-face-attribute 'font-lock-
+;;(set-face-attribute 'mode-line nil :family "Futura" :height 160 :box '(:line-width 10 :color "#ddd"))
 
 ;; Completion
-(ido-mode t)
-(ido-everywhere t)
-(savehist-mode t)
+(ido-mode 1)
+;;(ido-everywhere t)
+(savehist-mode 1)
+
+(defun ido-meta-x ()
+  (interactive)
+  (call-interactively
+   (intern
+    (ido-completing-read
+     "M-x "
+     (all-completions "" obarray 'commandp)))))
+
+(global-set-key (kbd "M-x") 'ido-meta-x)
 
 ;; Editing
 (delete-selection-mode t)
@@ -80,3 +91,8 @@
 (defun foo (buf)
   (interactive "bSelect a buffer:")
   (message "You selected %s" buf))
+
+(defun bar ()
+  (interactive)
+  (call-interactively
+   (intern (ido-completing-read "Hello?! " '("dired" "calc" "hanoi")))))
