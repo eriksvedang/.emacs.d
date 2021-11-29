@@ -3,3 +3,8 @@ history
 ido.last*
 auto-save-list/
 /elpa/
+/nix-buffer/
+/transient/
+smex-items
+recentf
+network-security.data
