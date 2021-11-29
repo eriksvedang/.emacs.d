@@ -18,21 +18,25 @@
 (add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 (setq line-spacing 5)
 (load-theme 'tango)
+;;(set-face-attribute 'font-lock-comment-face nil :foreground "#936")
+;;(set-face-attribute 'font-lock-
 
 ;; Completion
-(ido-mode 1)
-(savehist-mode 1)
+(ido-mode t)
+(ido-everywhere t)
+(savehist-mode t)
 
 ;; Editing
 (delete-selection-mode t)
 (transient-mark-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(electric-pair-mode t)
 
-;; Keys
+;; Sdditional keys
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "<C-return>") 'eval-buffer)
 
-;; Lisp editing
+;; My functions
 (defun copy-sexp ()
   (interactive)
   (save-excursion
@@ -66,3 +70,13 @@
 
 (global-set-key (kbd "C-s-n") 'move-line-down)
 (global-set-key (kbd "C-s-p") 'move-line-up)
+
+(defun open-init-file ()
+  (interactive)
+  (find-file user-init-file))
+
+(global-set-key (kbd "s-,") 'open-init-file)
+
+(defun foo (buf)
+  (interactive "bSelect a buffer:")
+  (message "You selected %s" buf))
