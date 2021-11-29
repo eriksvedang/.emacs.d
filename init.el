@@ -8,8 +8,10 @@
 (custom-set-variables
  '(tool-bar-mode nil)
  '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
+ '(scroll-bar-mode t)
  '(fringe-mode 0)
+ '(narrow-to-region 'disabled nil)
+ '(inhibit-startup-screen t)
  '(initial-scratch-message ""))
 
 (modify-all-frames-parameters '((internal-border-width . 16)))
@@ -38,7 +40,7 @@
      "M-x "
      (all-completions "" obarray 'commandp)))))
 
-(global-set-key (kbd "M-x") 'ido-meta-x)
+;;(global-set-key (kbd "M-x") 'ido-meta-x)
 
 ;; Editing
 (delete-selection-mode t)
@@ -89,6 +91,7 @@
   (interactive)
   (find-file user-init-file))
 
+(global-set-key (kbd "C-c ,") 'open-init-file)
 (global-set-key (kbd "s-,") 'open-init-file)
 
 (defun foo (buf)
@@ -99,3 +102,25 @@
   (interactive)
   (call-interactively
    (intern (ido-completing-read "Hello?! " '("dired" "calc" "hanoi")))))
+
+(defun slurp ()
+  (interactive)
+  (save-excursion
+    (backward-up-list)
+    (forward-sexp)
+    (kill-sexp))
+  (yank))
+
+(defun slurp-backwards ()
+  (interactive)
+  (backward-up-list)
+  (down-list)
+  (save-excursion
+    (backward-up-list)
+    (backward-sexp)
+    (kill-sexp))
+  (yank)
+  (insert-char ? ))
+
+(global-set-key (kbd "C-)") 'slurp)
+(global-set-key (kbd "C-(") 'slurp-backwards)
