@@ -7,6 +7,7 @@
 ;; GUI
 (custom-set-variables
  '(tool-bar-mode nil)
+ '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
  '(fringe-mode 0)
  '(initial-scratch-message ""))
@@ -17,7 +18,7 @@
 (add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 (setq line-spacing 5)
 (load-theme 'tango)
-(set-face-attribute 'font-lock-comment-face nil :foreground "#FFF" :background "#FFAADD" :box nil)
+(set-face-attribute 'font-lock-comment-face nil :foreground "#FF99AA" :weight 'bold :box nil)
 (set-face-attribute 'font-lock-function-name-face nil :foreground "#271C4B")
 (set-face-attribute 'font-lock-builtin-face nil :foreground "#0AF")
 (set-face-attribute 'font-lock-keyword-face nil :foreground "#0AF" :weight 'bold)
