@@ -12,19 +12,21 @@
  '(initial-scratch-message ""))
 
 (modify-all-frames-parameters '((internal-border-width . 16)))
-;;(set-face-attribute 'mode-line nil :box nil :background "#CCC")
 
 ;; Typography
 (add-to-list 'default-frame-alist '(font . "Fira Code-16"))
 (setq line-spacing 5)
 (load-theme 'tango)
-;;(set-face-attribute 'font-lock-comment-face nil :foreground "#E36" :family "Futura")
-;;(set-face-attribute 'font-lock-
+(set-face-attribute 'font-lock-comment-face nil :foreground "#FFF" :background "#FFAADD" :box nil)
+(set-face-attribute 'font-lock-function-name-face nil :foreground "#271C4B")
+(set-face-attribute 'font-lock-builtin-face nil :foreground "#0AF")
+(set-face-attribute 'font-lock-keyword-face nil :foreground "#0AF" :weight 'bold)
+(set-face-attribute 'font-lock-string-face nil :foreground "#369" :slant 'italic)
 ;;(set-face-attribute 'mode-line nil :family "Futura" :height 160 :box '(:line-width 10 :color "#ddd"))
 
 ;; Completion
 (ido-mode 1)
-;;(ido-everywhere t)
+(ido-everywhere t)
 (savehist-mode 1)
 
 (defun ido-meta-x ()
@@ -43,7 +45,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (electric-pair-mode t)
 
-;; Sdditional keys
+;; Additional keys
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "<C-return>") 'eval-buffer)
 
