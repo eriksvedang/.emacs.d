@@ -25,9 +25,9 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
+	    (local-set-key (kbd "C-M-m") 'mark-sexp)
 	    (local-set-key (kbd "C-M-w") 'copy-sexp)
 	    (local-set-key (kbd "C-)") 'slurp)
-	    (local-set-key (kbd "C-(") 'slurp-backwards)
-	    (local-set-key (kbd "C-M-m") 'mark-sexp)))
+	    (local-set-key (kbd "C-(") 'slurp-backwards)))
 
 (provide 'parens)
