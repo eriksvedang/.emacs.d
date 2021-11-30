@@ -1024,6 +1024,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
                                            ("#+END_SRC" . "❞")
                                            ("#+begin_src" . "❝")
                                            ("#+end_src" . "❞")
+                                           ("#+RESULTS:" . "➥")
                                            ("emacs-lisp" . "ξ")
                                            (":defun:" . "𝑓")))
     (setq prettify-symbols-unprettify-at-point 'right-edge)
