@@ -50,8 +50,7 @@
 (global-set-key (kbd "C-c ,") 'open-init-file)
 (global-set-key (kbd "s-,") 'open-init-file)
 
-;; Load other code
+;; Load my other code
 (add-to-list 'load-path (format "%ssrc/" user-emacs-directory))
-
-;; Parenthesis wrangling
 (require 'parens)
+(require 'lines)
