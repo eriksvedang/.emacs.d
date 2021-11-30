@@ -51,6 +51,9 @@
 (global-set-key (kbd "s-,") 'open-init-file)
 
 ;; Load my other code
-(add-to-list 'load-path (format "%ssrc/" user-emacs-directory))
+(add-to-list 'load-path
+	     (file-name-as-directory
+	      (expand-file-name
+	       (concat user-emacs-directory "src"))))
 (require 'parens)
 (require 'lines)
