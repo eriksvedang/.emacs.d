@@ -18,13 +18,16 @@
 
 ;; Typography
 (add-to-list 'default-frame-alist '(font . "Fira Code-16"))
-(setq line-spacing 5)
-(load-theme 'tango)
+(set-background-color "#FFF")
+(set-foreground-color "#000")
 (set-face-attribute 'font-lock-comment-face nil :foreground "#F47" :weight 'bold :box nil)
 (set-face-attribute 'font-lock-function-name-face nil :foreground "#271C4B")
 (set-face-attribute 'font-lock-builtin-face nil :foreground "#0AF")
+(set-face-attribute 'font-lock-type-face nil :foreground "#0AF")
+(set-face-attribute 'font-lock-variable-name-face nil :foreground "#000")
 (set-face-attribute 'font-lock-keyword-face nil :foreground "#0AF" :weight 'bold)
 (set-face-attribute 'font-lock-string-face nil :foreground "#4BA" :slant 'italic)
+(setq line-spacing 5)
 
 ;; Completion
 (ido-mode 1)
@@ -41,6 +44,15 @@
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "<C-return>") 'eval-buffer)
 (global-set-key (kbd "s-w") 'kill-this-buffer)
+
+(global-set-key (kbd "M-2") "@")
+(global-set-key (kbd "M-4") "$")
+(global-set-key (kbd "M-8") "[")
+(global-set-key (kbd "M-9") "]")
+(global-set-key (kbd "M-(") "{")
+(global-set-key (kbd "M-)") "}")
+(global-set-key (kbd "M-7") "|")
+(global-set-key (kbd "M-/") "\\")
 
 ;; Quick config
 (defun open-init-file ()
