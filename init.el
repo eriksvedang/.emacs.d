@@ -27,7 +27,8 @@
 (set-face-attribute 'font-lock-variable-name-face nil :foreground "#000")
 (set-face-attribute 'font-lock-keyword-face nil :foreground "#0AF" :weight 'bold)
 (set-face-attribute 'font-lock-string-face nil :foreground "#4BA" :slant 'italic)
-(setq line-spacing 5)
+(custom-set-variables
+ '(line-spacing 5))
 
 ;; Completion
 (ido-mode 1)
@@ -42,7 +43,7 @@
 
 ;; Additional keys
 (global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "<C-return>") 'eval-buffer)
+(global-set-key (kbd "C-c C-l") 'eval-buffer)
 (global-set-key (kbd "s-w") 'kill-this-buffer)
 
 (global-set-key (kbd "M-2") "@")
@@ -67,5 +68,6 @@
 	     (file-name-as-directory
 	      (expand-file-name
 	       (concat user-emacs-directory "src"))))
+
 (require 'parens)
 (require 'lines)
