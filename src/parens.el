@@ -23,11 +23,13 @@
   (yank)
   (insert-char ? ))
 
-(add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "C-M-m") 'mark-sexp)
-	    (local-set-key (kbd "C-M-w") 'copy-sexp)
-	    (local-set-key (kbd "C-)") 'slurp)
-	    (local-set-key (kbd "C-(") 'slurp-backwards)))
+(defun setup-paren-keys ()
+  (local-set-key (kbd "C-M-m") 'mark-sexp)
+  (local-set-key (kbd "C-M-w") 'copy-sexp)
+  (local-set-key (kbd "C-)") 'slurp)
+  (local-set-key (kbd "C-(") 'slurp-backwards))
+
+(add-hook 'emacs-lisp-mode-hook 'setup-paren-keys)
+(add-hook 'scheme-mode-hook 'setup-paren-keys)
 
 (provide 'parens)
