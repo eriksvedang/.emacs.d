@@ -46,3 +46,4 @@ config.el
 /recentf
 /server/server
 /projectile.cache
+/eln-cache/

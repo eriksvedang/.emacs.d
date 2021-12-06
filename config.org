@@ -661,10 +661,14 @@ with more complementary modes.
 
   (setq ibuffer-saved-filter-groups
         '(("home"
-       ("Magit" (or (name . "magit:") (name . "magit-diff:") (name . "magit-process:")))
-       ("Dired" (mode . dired-mode))
-       ("Emacs" (or (mode . help-mode)
-                (name . "\*"))))))
+           ("Magit" (or (name . "magit:")
+                        (name . "magit-diff:")
+                        (name . "magit-process:")
+                        (name . "magit-revision:")
+                        (name . "magit-log:")))
+           ("Dired" (mode . dired-mode))
+           ("Emacs" (or (mode . help-mode)
+                        (name . "\*"))))))
 
   (add-hook 'ibuffer-mode-hook
         '(lambda ()
