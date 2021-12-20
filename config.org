@@ -1067,6 +1067,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
     :ensure t
     :config
     (setq lsp-headerline-breadcrumb-enable nil)
+    (setq lsp-file-watch-threshold 5000)
     ;;(setq lsp-ui-sideline-enable nil)
     ;;(setq lsp-ui-sideline-show-code-actions nil)
     ;;(setq lsp-ui-doc-enable nil)
