@@ -841,6 +841,18 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (global-set-key (kbd "C-s-n") 'move-lines-down)
   (global-set-key (kbd "C-s-p") 'move-lines-up)
 #+end_src
+** Duplicate line
+#+begin_src emacs-lisp
+  (defun duplicate-line ()
+    (interactive)
+    (beginning-of-line)
+    (kill-line)
+    (yank)
+    (newline)
+    (yank))
+
+  (global-set-key (kbd "C-c d") 'duplicate-line)
+#+end_src
 ** Multiple cursors
 If you want to insert a newline in multiple-cursors-mode, use C-j.
 #+begin_src emacs-lisp
