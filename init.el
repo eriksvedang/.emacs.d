@@ -17,7 +17,7 @@
 (modify-all-frames-parameters '((internal-border-width . 16)))
 
 ;; Typography
-(add-to-list 'default-frame-alist '(font . "Fira Code-16"))
+(add-to-list 'default-frame-alist '(font . "Fira Code-14"))
 (set-background-color "#FFF")
 (set-foreground-color "#000")
 (set-face-attribute 'font-lock-comment-face nil :foreground "#F47" :weight 'bold :box nil)
