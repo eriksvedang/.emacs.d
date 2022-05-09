@@ -1005,6 +1005,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
       (setq org-src-fontify-natively t)
       (setq org-adapt-indentation nil) ;; Don't indent text after heading
       (setq org-src-window-setup 'current-window) ;; Make the source editor go fullscreen
+      (setq org-startup-folded t)
       (setq org-structure-template-alist ;; The list shown by (C-c C-,) which inserts a block structure
             '(("a" . "export ascii")
               ("c" . "center")
