@@ -704,6 +704,8 @@ Not very impressed with Projectile so far, but let's keep it around for now.
 ** Undo
 #+begin_src emacs-lisp
   (use-package undo-tree
+    :config
+    (setq undo-tree-auto-save-history nil) ;; Don't litter my folders
     :ensure t)
 
   (global-undo-tree-mode 1)
