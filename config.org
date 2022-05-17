@@ -691,16 +691,6 @@ I'm putting things into functions so that it's easy to try different ones.
   (global-set-key (kbd "s-p") 'find-file-in-project)
 #+end_src
 
-Not very impressed with Projectile so far, but let's keep it around for now.
-
-#+begin_src emacs-lisp
-  (use-package projectile
-    :ensure t
-    ;;:init (projectile-mode 1)
-    :config
-    :bind (;; ("s-p" . projectile-find-file)
-           ("s-å" . projectile-command-map)))
-#+end_src
 ** Undo
 #+begin_src emacs-lisp
   (use-package undo-tree
@@ -1053,7 +1043,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+begin_src emacs-lisp
   (use-package magit
     :ensure t
-    :init (bind-key "C-x g" 'magit-status))
+    :config (bind-key "C-x g" 'magit-status))
 
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 
@@ -1091,8 +1081,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (use-package dante
     :ensure t
     :after haskell-mode
-    :commands 'dante-mode
-    :init)
+    :commands 'dante-mode)
 
   (setq dante-methods '(stack new-build bare-cabal bare-ghci))
 
