@@ -62,10 +62,10 @@ Some notes:
   (setq-default line-spacing 5)
 
   (if (eq system-type 'windows-nt)
-    (set-face-font 'default "Fira Code 12"))
+    (set-face-font 'default "Fira Code 11"))
 
   (if (eq system-type 'gnu/linux)
-      (set-face-font 'default "Fira Code 12"))
+      (set-face-font 'default "Fira Code 11"))
 #+end_src
 *** Programming
 #+begin_src emacs-lisp
@@ -197,98 +197,101 @@ It should be possible to remove this, since Emacs is supporting ligatures native
 ** Mode Line
 See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
 #+begin_src emacs-lisp
-(defun mode-line-render (left right)
-  "Return a string of `window-width' length containing left, and
-   right aligned respectively."
-  (let* ((available-width (- (window-total-width) (length left) )))
-    (format (format "%%s %%%ds" available-width) left right)))
+  (defun mode-line-render (left right)
+    "Return a string of `window-width' length containing left, and
+     right aligned respectively."
+    (let* ((available-width (- (window-total-width) (length left) )))
+      (format (format "%%s %%%ds" available-width) left right)))
 
-(setq-default header-line-format
-  '(:eval (mode-line-render
+  (setq-default header-line-format
+    '(:eval (mode-line-render
 
-   (format-mode-line
-    (list
-     (propertize "" 'face `(:weight regular))
-     (propertize "%b " 'face `(:weight regular))
-     '(:eval (if (and buffer-file-name (buffer-modified-p))
-         (propertize "(modified)"
-             'face `(:weight light
-                 :foreground "#aaaaaa"))))))
+     (format-mode-line
+      (list
+       (propertize "" 'face `(:weight regular))
+       (propertize "%b " 'face `(:weight regular))
+       '(:eval (if (and buffer-file-name (buffer-modified-p))
+           (propertize "(modified)"
+               'face `(:weight light
+                   :foreground "#aaaaaa"))))))
 
-   (format-mode-line
-    (propertize "%3l:%2c "
-    'face `(:weight light :foreground "#aaaaaa"))))))
+     (format-mode-line
+      (propertize "%3l:%2c "
+      'face `(:weight light :foreground "#aaaaaa"))))))
 
-(setq-default mode-line-format "") ;; The "normal" mode line (at the bottom)
+  (setq-default mode-line-format "") ;; The "normal" mode line (at the bottom)
 
-(set-face-attribute 'mode-line nil
-                    :height 10
-                    :underline "black"
-                    :background "white"
-                    :foreground "white"
-                    :box nil)
+  (set-face-attribute 'mode-line nil
+                      :height 10
+                      :underline "black"
+                      :background "white"
+                      :foreground "white"
+                      :box nil)
 
-(set-face-attribute 'mode-line-inactive nil
-                    :box nil
-                    :inherit 'mode-line)
+  (set-face-attribute 'mode-line-inactive nil
+                      :box nil
+                      :inherit 'mode-line)
 
-(set-face-attribute 'mode-line-buffer-id nil
-                    :weight 'light)
+  (set-face-attribute 'mode-line-buffer-id nil
+                      :weight 'light)
 
-(set-face-attribute 'header-line nil
-                    :height 180
-                    :underline t
-                    :underline "black"
-                    :foreground "black"
-                    :background "white"
-                    :box `(:line-width 12 :color "white" :style nil))
+  (set-face-attribute 'header-line nil
+                      :height (if (or (eq system-type 'windows-nt)
+                                      (eq system-type 'gnu/linux))
+                                  160
+                                180)
+                      :underline t
+                      :underline "black"
+                      :foreground "black"
+                      :background "white"
+                      :box `(:line-width 12 :color "white" :style nil))
 
-(set-face-attribute 'mode-line nil
-                    :height 10
-                    :underline "black"
-                    :background "white"
-                    :foreground "white"
-                    :box nil)
+  (set-face-attribute 'mode-line nil
+                      :height 10
+                      :underline "black"
+                      :background "white"
+                      :foreground "white"
+                      :box nil)
 
-(set-face 'mode-line-inactive  'mode-line)
-(set-face 'mode-line-buffer-id  'default)
+  (set-face 'mode-line-inactive  'mode-line)
+  (set-face 'mode-line-buffer-id  'default)
 
-(defun mode-line-render (left right)
-  "Return a string of `window-width' length containing left, and
-   right aligned respectively."
-  (let* ((available-width (- (window-total-width) (length left) )))
-    (format (format "%%s %%%ds" available-width) left right)))
-(define-key mode-line-major-mode-keymap [header-line]
-  (lookup-key mode-line-major-mode-keymap [mode-line]))
+  (defun mode-line-render (left right)
+    "Return a string of `window-width' length containing left, and
+     right aligned respectively."
+    (let* ((available-width (- (window-total-width) (length left) )))
+      (format (format "%%s %%%ds" available-width) left right)))
+  (define-key mode-line-major-mode-keymap [header-line]
+    (lookup-key mode-line-major-mode-keymap [mode-line]))
 
-(setq-default mode-line-format '(""))
+  (setq-default mode-line-format '(""))
 
-(defun vc-branch ()
-  (if vc-mode
-      (let ((backend (vc-backend buffer-file-name)))
-        (concat "#" (substring-no-properties vc-mode
-                                 (+ (if (eq backend 'Hg) 2 3) 2))))
-      ""))
+  (defun vc-branch ()
+    (if vc-mode
+        (let ((backend (vc-backend buffer-file-name)))
+          (concat "#" (substring-no-properties vc-mode
+                                   (+ (if (eq backend 'Hg) 2 3) 2))))
+        ""))
 
-(setq-default header-line-format
-  '(:eval (mode-line-render
-   (format-mode-line
-    (list
-     (propertize "☰"
-                 'face `(:weight regular)
-                 'mouse-face 'header-line-highlight
-                 'help-echo  "Major mode menu"
-                 'local-map   mode-line-major-mode-keymap)
-     " %b "
-     '(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
-     " "
-     '(:eval (if (and buffer-file-name (buffer-modified-p))
-                 (propertize "(modified)"
-              'face `(:foreground ,(face-foreground 'face-faded)))))
-     ))
-   (format-mode-line
-    (propertize "%3l:%2c              "
-    'face `(:foreground ,(face-foreground 'face-faded)))))))
+  (setq-default header-line-format
+    '(:eval (mode-line-render
+     (format-mode-line
+      (list
+       (propertize "☰"
+                   'face `(:weight regular)
+                   'mouse-face 'header-line-highlight
+                   'help-echo  "Major mode menu"
+                   'local-map   mode-line-major-mode-keymap)
+       " %b "
+       '(:eval (propertize (vc-branch) 'face `(:foreground ,(face-foreground 'face-popout))))
+       " "
+       '(:eval (if (and buffer-file-name (buffer-modified-p))
+                   (propertize "(modified)"
+                'face `(:foreground ,(face-foreground 'face-faded)))))
+       ))
+     (format-mode-line
+      (propertize "%3l:%2c              "
+      'face `(:foreground ,(face-foreground 'face-faded)))))))
 #+end_src
 ** Cursor
 #+begin_src emacs-lisp
