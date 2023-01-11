@@ -1158,7 +1158,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (add-to-list 'load-path "/Users/erik/Projects/carp-emacs")
   (add-to-list 'load-path "/home/erik/Projects/carp-emacs")
   (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
-  (add-to-list 'load-path "C:/Users/erik/Documents/carp-emacs")
+  (add-to-list 'load-path "C:/Users/erik/Documents/Projects/carp-emacs")
 
   (require 'carp-mode)
   (require 'carp-flycheck)
