@@ -65,7 +65,7 @@ Some notes:
     (set-face-font 'default "Fira Code 11"))
 
   (if (eq system-type 'gnu/linux)
-      (set-face-font 'default "Fira Code 11"))
+      (set-face-font 'default "Fira Code 12"))
 #+end_src
 *** Programming
 #+begin_src emacs-lisp
