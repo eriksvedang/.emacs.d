@@ -694,7 +694,7 @@ I'm putting things into functions so that it's easy to try different ones.
 
   (require 'find-file-in-project)
   (global-set-key (kbd "s-p") 'find-file-in-project)
-  (global-set-key (kbd "C-x p f") 'find-file-in-project)
+  (global-set-key (kbd "C-x f") 'find-file-in-project) ;; overrides set-fill-column
 #+end_src
 
 ** Undo
