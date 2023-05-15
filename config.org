@@ -932,6 +932,7 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 ⌘-I, "imenu"
 #+begin_src emacs-lisp
   (global-set-key (kbd "s-i") 'imenu)
+  (global-set-key (kbd "C-x i") 'imenu)
 #+end_src
 
 ⌘-O, "open"
@@ -1298,7 +1299,15 @@ I probably should start using LSP for Go.
   (require 're-builder)
   (setq reb-re-syntax 'string) ;; less escaping
 #+end_src
+** Markdown
+#+begin_src emacs-lisp
+  (use-package markdown-mode
+    :ensure t)
 
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (auto-fill-mode t)))
+#+end_src
 ** Misc programming languages
 Apparently 'use-package' is a bit too slow to use for just
 installing a bunch of packages (this is a bummer) so let's
@@ -1314,7 +1323,6 @@ modes are available.
             php-mode
             lua-mode
             swift-mode
-            markdown-mode
             cc-mode
             glsl-mode
             cmake-mode
