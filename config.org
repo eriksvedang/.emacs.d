@@ -694,7 +694,7 @@ I'm putting things into functions so that it's easy to try different ones.
 
   (require 'find-file-in-project)
   (global-set-key (kbd "s-p") 'find-file-in-project)
-  (global-set-key (kbd "C-x f") 'find-file-in-project) ;; overrides set-fill-column
+  (global-set-key (kbd "C-x p") 'find-file-in-project) ;; overrides set-fill-column
 #+end_src
 
 ** Undo
@@ -970,6 +970,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 ⌘-J, "jump to word"
 #+begin_src emacs-lisp
   (define-key global-map (kbd "s-j") 'avy-goto-word-or-subword-1)
+  (define-key global-map (kbd "M-j") 'avy-goto-word-or-subword-1)
   (define-key global-map (kbd "C-x j") 'avy-goto-word-or-subword-1)
 #+end_src
 
