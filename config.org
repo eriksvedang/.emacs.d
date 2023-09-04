@@ -1234,6 +1234,17 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 
   (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 #+end_src
+** Rust
+#+begin_src emacs-lisp
+  (use-package rust-mode
+    :ensure t
+    :config
+    (add-hook 'rust-mode-hook #'lsp)
+    (add-hook 'rust-mode-hook #'electric-pair-mode)
+    (add-hook 'rust-mode-hook #'company-mode)
+    (add-hook 'rust-mode-hook #'flycheck-mode)
+  )
+#+end_src
 ** SGML
 HTML mode.
 #+begin_src emacs-lisp
@@ -1333,7 +1344,6 @@ modes are available.
             idris-mode
             purescript-mode
             tuareg
-            rust-mode
             racket-mode
             fsharp-mode
             js2-mode
