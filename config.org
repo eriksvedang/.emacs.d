@@ -1241,10 +1241,12 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (use-package rust-mode
     :ensure t
     :config
-    (add-hook 'rust-mode-hook #'lsp-deferred)
+    (add-hook 'rust-mode-hook #'lsp)
     (add-hook 'rust-mode-hook #'electric-pair-mode)
     (add-hook 'rust-mode-hook #'company-mode)
-    (add-hook 'rust-mode-hook #'flycheck-mode))
+    (add-hook 'rust-mode-hook #'flycheck-mode)
+    (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
+    )
 #+end_src
 ** SGML
 HTML mode.
