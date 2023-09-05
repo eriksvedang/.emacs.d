@@ -3,8 +3,8 @@
 1. [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]
 2. [[https://elpa.gnu.org/][Official GNU archives]]
 #+begin_src emacs-lisp
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")))
 #+end_src
 ** Ensure 'use-package' is available
 #+begin_src emacs-lisp
@@ -302,9 +302,8 @@ See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-ema
 #+end_src
 ** Line numbers
 #+begin_src emacs-lisp
-(require 'linum)
-(setq linum-format (quote "%4d  "))
-;;(global-linum-mode 1)
+  ;;(global-display-line-numbers-mode)
+  (setq linum-format (quote "%4d  "))
 #+end_src
 ** Parenthesis
 #+begin_src emacs-lisp
@@ -714,8 +713,8 @@ I'm putting things into functions so that it's easy to try different ones.
     (("M-ESC" . company-complete))
     :config
     (setq company-tooltip-align-annotations t)
-    (setq company-minimum-prefix-length 3)
-    (setq company-idle-delay 0.25)
+    (setq company-minimum-prefix-length 1)
+    (setq company-idle-delay 0.2)
     (setq company-dabbrev-downcase nil) ;; Don't lowercase things!
     )
 
@@ -735,6 +734,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
 ** Commenting
 #+begin_src emacs-lisp
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-'") 'comment-or-uncomment-region)
 #+end_src
 ** Scrolling
 *** Nudging the buffer up or down
@@ -851,7 +851,9 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 
   (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
   (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
+  ;;(global-set-key (kbd "???") 'mc/mark-next-like-this)
   (global-set-key (kbd "s-l") 'mc/edit-lines)
+  ;;(global-set-key (kbd "???") 'mc/edit-lines)
 #+end_src
 ** Merge conflict resolution
 #+begin_src emacs-lisp
@@ -1234,6 +1236,16 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 
   (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 #+end_src
+** Rust
+#+begin_src emacs-lisp
+  (use-package rust-mode
+    :ensure t
+    :config
+    (add-hook 'rust-mode-hook #'lsp-deferred)
+    (add-hook 'rust-mode-hook #'electric-pair-mode)
+    (add-hook 'rust-mode-hook #'company-mode)
+    (add-hook 'rust-mode-hook #'flycheck-mode))
+#+end_src
 ** SGML
 HTML mode.
 #+begin_src emacs-lisp
@@ -1333,7 +1345,6 @@ modes are available.
             idris-mode
             purescript-mode
             tuareg
-            rust-mode
             racket-mode
             fsharp-mode
             js2-mode
