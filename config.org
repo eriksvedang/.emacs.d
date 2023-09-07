@@ -1247,7 +1247,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
     (add-hook 'rust-mode-hook #'flycheck-mode)
     (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
     (define-key rust-mode-map (kbd "C-c r r") 'lsp-rename)
-    )
+    (setq rust-format-on-save t))
 #+end_src
 ** SGML
 HTML mode.
