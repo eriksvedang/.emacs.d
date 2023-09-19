@@ -830,6 +830,10 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   ;; Alternative, since the shortcuts above clash with Rectangle.app
   (global-set-key (kbd "C-s-n") 'move-lines-down)
   (global-set-key (kbd "C-s-p") 'move-lines-up)
+
+  ;; Gnome-compatible alternative
+  (global-set-key (kbd "C-M-s-n") 'move-lines-down)
+  (global-set-key (kbd "C-M-s-p") 'move-lines-up)
 #+end_src
 ** Duplicate line
 #+begin_src emacs-lisp
