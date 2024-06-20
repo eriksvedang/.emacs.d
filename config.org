@@ -1329,6 +1329,11 @@ I probably should start using LSP for Go.
             (lambda ()
               (auto-fill-mode t)))
 #+end_src
+** TOML
+#+begin_src emacs-lisp
+  (use-package toml-mode
+    :ensure t)
+#+end_src
 ** Misc programming languages
 Apparently 'use-package' is a bit too slow to use for just
 installing a bunch of packages (this is a bummer) so let's
