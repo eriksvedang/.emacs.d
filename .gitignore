@@ -47,3 +47,4 @@ config.el
 /server/server
 /projectile.cache
 /eln-cache/
+/session.*
