@@ -1242,16 +1242,19 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+end_src
 ** Rust
 #+begin_src emacs-lisp
-  (use-package rust-mode
-    :ensure t
-    :config
-    (add-hook 'rust-mode-hook #'lsp)
-    (add-hook 'rust-mode-hook #'electric-pair-mode)
-    (add-hook 'rust-mode-hook #'company-mode)
-    (add-hook 'rust-mode-hook #'flycheck-mode)
-    (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
-    (define-key rust-mode-map (kbd "C-c r r") 'lsp-rename)
-    (setq rust-format-on-save t))
+    (use-package rust-mode
+      :ensure t
+      :config
+      (add-hook 'rust-mode-hook #'lsp)
+      (add-hook 'rust-mode-hook #'electric-pair-mode)
+      (add-hook 'rust-mode-hook #'company-mode)
+      (add-hook 'rust-mode-hook #'flycheck-mode)
+      (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
+      (define-key rust-mode-map (kbd "C-c r r") 'lsp-rename)
+      (setq rust-format-on-save t))
+
+    (use-package ron-mode
+      :ensure t)
 #+end_src
 ** SGML
 HTML mode.
@@ -1334,40 +1337,47 @@ I probably should start using LSP for Go.
   (use-package toml-mode
     :ensure t)
 #+end_src
+** Godot Script
+#+begin_src emacs-lisp
+(use-package gdscript-mode
+  :hook (gdscript-mode . eglot-ensure)
+  :custom (gdscript-eglot-version 3))
+#+end_src
+
 ** Misc programming languages
 Apparently 'use-package' is a bit too slow to use for just
 installing a bunch of packages (this is a bummer) so let's
 use a simpler method for making sure that these programming
 modes are available.
 #+begin_src emacs-lisp
-  (defun install-misc-programming-modes ()
-    (interactive)
-    (package-refresh-contents)
-    (setq misc-programming-modes
-          '(sgml-mode
-            web-mode
-            php-mode
-            lua-mode
-            swift-mode
-            cc-mode
-            glsl-mode
-            cmake-mode
-            yaml-mode
-            elm-mode
-            idris-mode
-            purescript-mode
-            tuareg
-            racket-mode
-            fsharp-mode
-            js2-mode
-            restclient
-            dyalog-mode
-            nix-mode
-            nix-buffer))
-    (dolist (m misc-programming-modes)
-      (when (not (package-installed-p m))
-        (package-install m))))
+    (defun install-misc-programming-modes ()
+      (interactive)
+      (package-refresh-contents)
+      (setq misc-programming-modes
+            '(sgml-mode
+              web-mode
+              php-mode
+              lua-mode
+              swift-mode
+              cc-mode
+              glsl-mode
+              cmake-mode
+              yaml-mode
+              elm-mode
+              idris-mode
+              purescript-mode
+              tuareg
+              fsharp-mode
+              js2-mode
+              restclient
+              dyalog-mode
+              nix-mode
+              nix-buffer
+              gdscript-mode))
+      (dolist (m misc-programming-modes)
+        (when (not (package-installed-p m))
+          (package-install m))))
 
-  ;; Commented out to not have to run on each Emacs startup
-  ;; (install-misc-programming-modes)
+    ;; Commented out to not have to run on each Emacs startup
+    ;; (install-misc-programming-modes)
 #+end_src
