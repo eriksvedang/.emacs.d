@@ -1339,9 +1339,10 @@ I probably should start using LSP for Go.
 #+end_src
 ** Godot Script
 #+begin_src emacs-lisp
-(use-package gdscript-mode
-  ;;:hook (gdscript-mode . eglot-ensure)
-  :custom (gdscript-eglot-version 3))
+  (use-package gdscript-mode
+    ;;:hook (gdscript-mode . eglot-ensure)
+    :ensure t
+    :custom (gdscript-eglot-version 3))
 #+end_src
 
 ** Misc programming languages
