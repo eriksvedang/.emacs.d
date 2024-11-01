@@ -1240,6 +1240,20 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 
   (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 #+end_src
+** F#
+#+begin_src emacs-lisp
+        (use-package fsharp-mode
+          :defer t
+          :ensure t
+          :config
+          (add-hook 'rust-mode-hook #'eglot))
+
+        (use-package eglot-fsharp
+          :defer t
+          :ensure t)
+
+        (require 'eglot-fsharp)
+#+end_src
 ** Rust
 #+begin_src emacs-lisp
     (use-package rust-mode
@@ -1351,34 +1365,33 @@ installing a bunch of packages (this is a bummer) so let's
 use a simpler method for making sure that these programming
 modes are available.
 #+begin_src emacs-lisp
-    (defun install-misc-programming-modes ()
-      (interactive)
-      (package-refresh-contents)
-      (setq misc-programming-modes
-            '(sgml-mode
-              web-mode
-              php-mode
-              lua-mode
-              swift-mode
-              cc-mode
-              glsl-mode
-              cmake-mode
-              yaml-mode
-              elm-mode
-              idris-mode
-              purescript-mode
-              tuareg
-              fsharp-mode
-              js2-mode
-              restclient
-              dyalog-mode
-              nix-mode
-              nix-buffer
-              gdscript-mode))
-      (dolist (m misc-programming-modes)
-        (when (not (package-installed-p m))
-          (package-install m))))
+  (defun install-misc-programming-modes ()
+    (interactive)
+    (package-refresh-contents)
+    (setq misc-programming-modes
+          '(sgml-mode
+            web-mode
+            php-mode
+            lua-mode
+            swift-mode
+            cc-mode
+            glsl-mode
+            cmake-mode
+            yaml-mode
+            elm-mode
+            idris-mode
+            purescript-mode
+            tuareg
+            js2-mode
+            restclient
+            dyalog-mode
+            nix-mode
+            nix-buffer
+            gdscript-mode))
+    (dolist (m misc-programming-modes)
+      (when (not (package-installed-p m))
+        (package-install m))))
 
-    ;; Commented out to not have to run on each Emacs startup
-    ;; (install-misc-programming-modes)
+  ;; Commented out to not have to run on each Emacs startup
+  ;; (install-misc-programming-modes)
 #+end_src
