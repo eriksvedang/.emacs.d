@@ -1242,20 +1242,21 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+end_src
 ** F#
 #+begin_src emacs-lisp
-    (use-package fsharp-mode
-      :defer t
-      :ensure t
-      :config
-      (add-hook 'rust-mode-hook #'eglot))
+  (use-package fsharp-mode
+    :defer t
+    :ensure t
+    :config
+    ;;(add-hook 'fsharp-mode-hook (eglot-fsharp t))
+    )
 
-    (use-package eglot-fsharp
-      :defer t
-      :ensure t
-      :config
-      (lambda () (eglot-inlay-hints-mode -1)) ;; annoying "IDE"-like stuff
-      )
+  (use-package eglot-fsharp
+    :defer t
+    :ensure t
+    :config
+    (lambda () (eglot-inlay-hints-mode -1)) ;; annoying "IDE"-like stuff
+    )
 
-    (require 'eglot-fsharp)
+  (require 'eglot-fsharp)
 #+end_src
 ** Rust
 #+begin_src emacs-lisp
