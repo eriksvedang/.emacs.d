@@ -681,7 +681,7 @@ I'm putting things into functions so that it's easy to try different ones.
     :ensure t
     :config
     (setq ffip-patterns
-          '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr"
+          '("*.html" "*.org" "*.txt" "*.md" "*.el" "*.idr" "*.fs"
             "*.clj" "*.cljs" "*.py" "*.rb" "*.js" "*.pl" "*.go"
             "*.sh" "*.erl" "*.hs" "*.ml" "*.css" "*.elm" "*.carp"
             "*.h" "*.c" "*.cpp" "*.cs" "*.m" "*.rs" "*.glsl"))
@@ -1140,6 +1140,9 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 ** Clojure
 #+begin_src emacs-lisp
   (use-package clojure-mode
+    :ensure t)
+
+  (use-package cider
     :ensure t)
 
   (add-hook 'cider-mode-hook 'eldoc-mode)
