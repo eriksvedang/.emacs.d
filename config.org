@@ -91,8 +91,9 @@ Some notes:
   (set-face 'bold                                   'face-actually-bold)
   (set-face 'italic                                         'face-faded)
   (set-face 'cursor                                        'face-strong)
-  (set-face-attribute 'cursor nil
-                             :background (face-foreground 'face-strong))
+  ;; This gives a warning, so I'm commenting it out for now.
+  ;; (set-face-attribute 'cursor nil
+  ;;                            :background (face-foreground 'face-strong))
   (set-face 'minibuffer-prompt                             'face-strong)
   (set-face 'link                                         'face-salient)
   (set-face 'fringe                                         'face-faded)
@@ -667,8 +668,8 @@ I'm putting things into functions so that it's easy to try different ones.
                         (name . "\*"))))))
 
   (add-hook 'ibuffer-mode-hook
-        '(lambda ()
-           (ibuffer-switch-to-saved-filter-groups "home")))
+        #'(lambda ()
+            (ibuffer-switch-to-saved-filter-groups "home")))
 
   (setq ibuffer-show-empty-filter-groups nil)
 
@@ -1150,19 +1151,19 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (add-hook 'clojure-mode-hook 'smartparens-mode)
 
   (add-hook 'clojure-mode-hook
-        '(lambda ()
-           (put-clojure-indent 'match 1)))
+            #'(lambda ()
+                (put-clojure-indent 'match 1)))
 
   (add-hook 'cider-mode-hook
-        '(lambda ()
-           (electric-pair-local-mode 0)
-           (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
+            #'(lambda ()
+                (electric-pair-local-mode 0)
+                (define-key cider-mode-map (kbd "<s-return>") 'cider-eval-defun-at-point)))
 
   (add-hook 'cider-repl-mode-hook
-        '(lambda ()
-           (electric-pair-local-mode 0)
-           (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
-           (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
+            #'(lambda ()
+                (electric-pair-local-mode 0)
+                (local-set-key (kbd "<M-up>") 'cider-repl-previous-input)
+                (local-set-key (kbd "<M-down>") 'cider-repl-next-input)))
 
   (setq cider-repl-use-clojure-font-lock t)
   (setq cider-prompt-save-file-on-load 'always-save)
