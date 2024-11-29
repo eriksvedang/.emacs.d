@@ -1374,6 +1374,7 @@ modes are available.
   (defun install-misc-programming-modes ()
     (interactive)
     (package-refresh-contents)
+
     (setq misc-programming-modes
           '(sgml-mode
             web-mode
@@ -1393,7 +1394,10 @@ modes are available.
             dyalog-mode
             nix-mode
             nix-buffer
-            gdscript-mode))
+            gdscript-mode
+            wgsl-mode
+            ))
+
     (dolist (m misc-programming-modes)
       (when (not (package-installed-p m))
         (package-install m))))
