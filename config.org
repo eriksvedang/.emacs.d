@@ -113,13 +113,13 @@ Some notes:
 #+end_src
 *** Documentation
 #+begin_src emacs-lisp
-(set-face 'info-menu-header                              'face-strong)
-(set-face 'info-header-node                              'face-normal)
-(set-face 'Info-quoted                                    'face-faded)
-(set-face 'info-title-1                                  'face-strong)
-(set-face 'info-title-2                                  'face-strong)
-(set-face 'info-title-3                                  'face-strong)
-(set-face 'info-title-4                                  'face-strong)
+;(set-face 'info-menu-header                              'face-strong)
+;(set-face 'info-header-node                              'face-normal)
+;(set-face 'Info-quoted                                    'face-faded)
+;(set-face 'info-title-1                                  'face-strong)
+;(set-face 'info-title-2                                  'face-strong)
+;(set-face 'info-title-3                                  'face-strong)
+;(set-face 'info-title-4                                  'face-strong)
 #+end_src
 ** Ligatures                                                                :defun:
 It should be possible to remove this, since Emacs is supporting ligatures natively now.
@@ -196,6 +196,8 @@ It should be possible to remove this, since Emacs is supporting ligatures native
   (setq frame-background-mode 'light)
   (set-background-color "#ffffff")
   (set-foreground-color "#000000")
+  (add-to-list 'default-frame-alist '(width . 128))
+  (add-to-list 'default-frame-alist '(height . 64))
 #+end_src
 ** Mode Line
 See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
@@ -1176,8 +1178,8 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
   (add-to-list 'load-path "C:/Users/erik/Documents/Projects/carp-emacs")
 
-  (require 'carp-mode)
-  (require 'carp-flycheck)
+  ;;(require 'carp-mode)
+  ;;(require 'carp-flycheck)
 
   (add-hook 'carp-mode-hook
             (lambda ()
