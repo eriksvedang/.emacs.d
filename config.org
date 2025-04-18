@@ -17,9 +17,9 @@
 * System
 ** Give Emacs access to the system $PATH on MacOS.
 #+begin_src emacs-lisp
-  (use-package exec-path-from-shell
-    :ensure t)
   (when (eq system-type 'darwin)
+    (use-package exec-path-from-shell
+      :ensure t)
     (exec-path-from-shell-initialize))
 #+end_src
 ** Reveal in MacOS Finder                                                   :defun:
@@ -190,14 +190,23 @@ It should be possible to remove this, since Emacs is supporting ligatures native
   (setq frame-resize-pixelwise t)
   (set-frame-parameter (selected-frame) 'internal-border-width 24)
   (fringe-mode '(0 . 0))
-  ;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
   (if (eq system-type 'darwin)
       (add-to-list 'default-frame-alist '(undecorated . t)))
+
+  ;; Colors
   (setq frame-background-mode 'light)
   (set-background-color "#ffffff")
   (set-foreground-color "#000000")
-  (add-to-list 'default-frame-alist '(width . 128))
-  (add-to-list 'default-frame-alist '(height . 64))
+
+                      ; Size
+  (if (eq system-type 'darwin)
+      (progn
+    (add-to-list 'default-frame-alist '(width . 72))
+    (add-to-list 'default-frame-alist '(height . 32)))
+    (progn
+      (add-to-list 'default-frame-alist '(width . 128))
+      (add-to-list 'default-frame-alist '(height . 64))))
+  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 #+end_src
 ** Mode Line
 See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-emacs]].
@@ -305,12 +314,12 @@ See [[https://github.com/rougier/nano-emacs][https://github.com/rougier/nano-ema
 #+end_src
 ** Line numbers
 #+begin_src emacs-lisp
-  ;;(global-display-line-numbers-mode)
   (setq linum-format (quote "%4d  "))
+  (global-display-line-numbers-mode)
 #+end_src
 ** Parenthesis
 #+begin_src emacs-lisp
-(show-paren-mode 1)
+  (show-paren-mode 1)
 #+end_src
 ** Tabs
 Always use four spaces.
@@ -430,9 +439,8 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 #+begin_src emacs-lisp
   (defun new-empty-buffer ()
     "Create a new empty buffer.
-  New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
-
-  It returns the buffer (for elisp programing)."
+     New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
+     It returns the buffer (for elisp programing)."
     (interactive)
     (let (($buf (generate-new-buffer "untitled")))
       (switch-to-buffer $buf)
@@ -455,22 +463,22 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 ** Kill whitespace                                                          :defun:
 (to the left and right of the cursor)
 #+begin_src emacs-lisp
-(defun kill-whitespace ()
-  "Kill the whitespace between two non-whitespace characters"
-  (interactive "*")
-  (save-excursion
-    (save-restriction
-      (save-match-data
-        (progn
-          (re-search-backward "[^ \t\r\n]" nil t)
-          (re-search-forward "[ \t\r\n]+" nil t)
-          (replace-match "" nil nil))))))
+  (defun kill-whitespace ()
+    "Kill the whitespace between two non-whitespace characters"
+    (interactive "*")
+    (save-excursion
+      (save-restriction
+        (save-match-data
+          (progn
+            (re-search-backward "[^ \t\r\n]" nil t)
+            (re-search-forward "[ \t\r\n]+" nil t)
+            (replace-match "" nil nil))))))
 
-(global-set-key [s-backspace] 'kill-whitespace)
+  (global-set-key [s-backspace] 'kill-whitespace)
 #+end_src
 ** Remove whitespace on save
 #+begin_src emacs-lisp
-(add-hook 'before-save-hook 'whitespace-cleanup)
+  (add-hook 'before-save-hook 'whitespace-cleanup)
 #+end_src
 ** Save without removing whitespace                                         :defun:
 #+begin_src emacs-lisp
@@ -485,15 +493,15 @@ Taken from http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html
 #+end_src
 ** Insert line above                                                        :defun:
 #+begin_src emacs-lisp
-(defun smart-open-line-above ()
-  "Insert an empty line above the current line."
-  (interactive)
-  (move-beginning-of-line nil)
-  (newline-and-indent)
-  (forward-line -1)
-  (indent-according-to-mode))
+  (defun smart-open-line-above ()
+    "Insert an empty line above the current line."
+    (interactive)
+    (move-beginning-of-line nil)
+    (newline-and-indent)
+    (forward-line -1)
+    (indent-according-to-mode))
 
-(global-set-key (kbd "<C-return>") 'smart-open-line-above)
+  (global-set-key (kbd "<C-return>") 'smart-open-line-above)
 #+end_src
 ** Expand region
 Grow a text selection in a smart way based on common programming language delimiters.
@@ -506,14 +514,14 @@ Grow a text selection in a smart way based on common programming language delimi
 ** Insert single characters
 These characters can't be written using the normal MacOS shortcuts (on my keyboard) without this fix.
 #+begin_src emacs-lisp
-(global-set-key (kbd "M-2") "@")
-(global-set-key (kbd "M-4") "$")
-(global-set-key (kbd "M-8") "[")
-(global-set-key (kbd "M-9") "]")
-(global-set-key (kbd "M-(") "{")
-(global-set-key (kbd "M-)") "}")
-(global-set-key (kbd "M-7") "|")
-(global-set-key (kbd "M-/") "\\")
+  (global-set-key (kbd "M-2") "@")
+  (global-set-key (kbd "M-4") "$")
+  (global-set-key (kbd "M-8") "[")
+  (global-set-key (kbd "M-9") "]")
+  (global-set-key (kbd "M-(") "{")
+  (global-set-key (kbd "M-)") "}")
+  (global-set-key (kbd "M-7") "|")
+  (global-set-key (kbd "M-/") "\\")
 #+end_src
 
 More special characters.
@@ -595,8 +603,7 @@ More special characters.
      ("C-M-a" . beginning-of-defun)
 
      ;; Move right to outmost paren ( ( | ) ) => ( ( ) ) |
-     ("C-M-e" . end-of-defun))
-    )
+     ("C-M-e" . end-of-defun)))
 #+end_src
 ** Minibuffer completion
 Of course we want to be able to start minibuffers from within minibuffers, right?
@@ -606,9 +613,8 @@ Of course we want to be able to start minibuffers from within minibuffers, right
 #+end_src
 
 Oh the pains of choosing a minibuffer completion framework.
-I'm putting things into functions so that it's easy to try different ones.
-
-[[Ivy User Manual]]
+I'm putting setup into functions so that it's easier
+to try different ones.
 
 #+begin_src emacs-lisp
   (defun setup-ivy ()
@@ -728,11 +734,10 @@ I'm putting things into functions so that it's easy to try different ones.
 #+end_src
 ** iEdit
 Simultaneously edit _all_ matching symbols in the buffer. Be careful with this one!
+Activated with "C-;".
 #+begin_src emacs-lisp
   (use-package iedit
     :ensure t)
-
-  ;;(global-set-key (kbd "C-;") 'iedit-mode)
 #+end_src
 ** Commenting
 #+begin_src emacs-lisp
@@ -756,7 +761,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (global-set-key [M-s-up] 'my-scroll-down)
   (global-set-key [M-s-down] 'my-scroll-up)
 #+end_src
-** Buffer switching
+** Window switching
 #+begin_src emacs-lisp
   (use-package ace-window
     :ensure t)
@@ -788,7 +793,7 @@ Simultaneously edit _all_ matching symbols in the buffer. Be careful with this o
   (global-set-key [s-up] 'beginning-of-buffer)
   (global-set-key [s-down] 'end-of-buffer)
 #+end_src
-** Move  lines                                                              :defun:
+** Move lines                                                               :defun:
 #+begin_src emacs-lisp
   (defun move-lines (n)
     (let ((beg) (end) (keep))
@@ -858,9 +863,9 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
 
   (global-set-key (kbd "<s-mouse-1>") 'mc/add-cursor-on-click)
   (global-set-key (kbd "s-d") 'mc/mark-next-like-this)
-  ;;(global-set-key (kbd "???") 'mc/mark-next-like-this)
+  ;;(global-set-key (kbd "???") 'mc/mark-next-like-this) ;; TODO: Should find something for Linux
   (global-set-key (kbd "s-l") 'mc/edit-lines)
-  ;;(global-set-key (kbd "???") 'mc/edit-lines)
+  ;;(global-set-key (kbd "???") 'mc/edit-lines) ;; TODO: Dito
 #+end_src
 ** Merge conflict resolution
 #+begin_src emacs-lisp
@@ -902,6 +907,8 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
     :ensure t)
 #+end_src
 ** Free Keys
+This handy package with the function `free-keys` shows which key
+bindings are not currently in use.
 #+begin_src emacs-lisp
   (use-package free-keys
     :ensure t)
@@ -983,7 +990,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (define-key global-map (kbd "C-x j") 'avy-goto-word-or-subword-1)
 #+end_src
 
-** Fix various small idiosyncrasies
+** Fix various tiny idiosyncrasies
 #+begin_src emacs-lisp
   (global-auto-revert-mode 1)
   (auto-save-mode 0)
