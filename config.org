@@ -1062,6 +1062,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
                 ;; (org-babel-do-load-languages
                 ;;  'org-babel-load-languages '((haskell . t)))
                 ;; (setq org-babel-haskell-compiler "runhaskell")
+                ;; (setq org-ellipsis "⤵")
                 (local-unset-key (kbd "<S-up>"))
                 (local-unset-key (kbd "<S-down>"))
                 (local-unset-key (kbd "<S-left>"))
@@ -1105,7 +1106,7 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
       :ensure t
       :config (setq-default prettify-symbols-alist '(
                                                      ("\\" . "λ")
-                                                     ;; (" . " . " ᐤ ") ;; Doesn't really work due to whitespace being stripped...
+                                                     ;;("." . "ᐤ") ;; Replaces *all* periods :/
                                                      ))
       )
 
