@@ -1117,22 +1117,24 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
     (add-hook 'haskell-mode-hook 'company-mode)
     (add-hook 'haskell-mode-hook 'prettify-symbols-mode)
     (add-hook 'haskell-mode-hook 'flycheck-mode)
+    (add-hook 'haskell-mode-hook (lambda () (flymake-hlint-load)))
     (define-key haskell-mode-map (kbd "s-r") 'run-stack-project)
     (define-key haskell-mode-map (kbd "s-b") 'build-stack-project)
     (setq-default prettify-symbols-alist '(("\\" . "λ")))
-    (setq haskell-process-type 'stack-ghci)
-    )
+    (setq haskell-process-type 'stack-ghci))
 
   (use-package dante
     :ensure t
     :after haskell-mode
     :commands 'dante-mode
-    :init (add-hook 'haskell-mode-hook 'dante-mode))
+    :init (add-hook 'haskell-mode-hook 'dante-mode)
+    :bind (:map haskell-mode-map ("C-M-x" . dante-eval-block))
+    )
 
   (use-package ormolu
-    ;;:hook (haskell-mode . ormolu-format-on-save-mode) ;; Handle by dir-locals instead!
     :ensure t
     :after haskell-mode
+    :hook (haskell-mode . ormolu-format-on-save-mode)
     :bind (:map haskell-mode-map ("C-c r" . ormolu-format-buffer))
     )
 #+end_src
