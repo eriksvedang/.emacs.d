@@ -903,8 +903,6 @@ If you want to insert a newline in multiple-cursors-mode, use C-j.
   (use-package flymake-hlint
     :ensure t)
 
-  (use-package flycheck-rust
-    :ensure t)
 #+end_src
 ** Free Keys
 This handy package with the function `free-keys` shows which key
@@ -1276,19 +1274,22 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+end_src
 ** Rust
 #+begin_src emacs-lisp
-    (use-package rust-mode
-      :ensure t
-      :config
-      (add-hook 'rust-mode-hook #'lsp)
-      (add-hook 'rust-mode-hook #'electric-pair-mode)
-      (add-hook 'rust-mode-hook #'company-mode)
-      (add-hook 'rust-mode-hook #'flycheck-mode)
-      (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
-      (define-key rust-mode-map (kbd "C-c r r") 'lsp-rename)
-      (setq rust-format-on-save t))
+  (use-package rust-mode
+    :ensure t
+    :config
+    (add-hook 'rust-mode-hook #'lsp)
+    (add-hook 'rust-mode-hook #'electric-pair-mode)
+    (add-hook 'rust-mode-hook #'company-mode)
+    (add-hook 'rust-mode-hook #'flycheck-mode)
+    (define-key rust-mode-map (kbd "C-c C-c C-a") 'lsp-execute-code-action)
+    (define-key rust-mode-map (kbd "C-c r r") 'lsp-rename)
+    (setq rust-format-on-save t))
 
-    (use-package ron-mode
-      :ensure t)
+  (use-package ron-mode
+    :ensure t)
+
+  (use-package flycheck-rust
+    :ensure t)
 #+end_src
 ** SGML
 HTML mode.
