@@ -1100,26 +1100,26 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
 #+end_src
 ** Haskell
 #+begin_src emacs-lisp
-   (defun run-stack-project ()
+   (defun run-haskell-project ()
      (interactive)
-     (shell-command "stack run"))
+     (shell-command "cabal run"))
 
-  (defun build-stack-project ()
+  (defun build-haskell-project ()
      (interactive)
-     (shell-command "stack build"))
+     (shell-command "cabal build"))
 
   (use-package haskell-mode
     :ensure t
     :config
     (add-hook 'haskell-mode-hook 'smartparens-mode)
-    (add-hook 'haskell-mode-hook 'company-mode)
+    ;;(add-hook 'haskell-mode-hook 'company-mode)
+    ;;(add-hook 'haskell-mode-hook 'flycheck-mode)
+    ;; (add-hook 'haskell-mode-hook (lambda () (flymake-hlint-load))) ;; Nice, but also a tad obnoxious
+    (define-key haskell-mode-map (kbd "s-r") 'run-haskell-project)
+    (define-key haskell-mode-map (kbd "s-b") 'build-haskell-project)
     (add-hook 'haskell-mode-hook 'prettify-symbols-mode)
-    (add-hook 'haskell-mode-hook 'flycheck-mode)
-    (add-hook 'haskell-mode-hook (lambda () (flymake-hlint-load)))
-    (define-key haskell-mode-map (kbd "s-r") 'run-stack-project)
-    (define-key haskell-mode-map (kbd "s-b") 'build-stack-project)
     (setq-default prettify-symbols-alist '(("\\" . "λ")))
-    (setq haskell-process-type 'stack-ghci))
+    )
 
   (use-package dante
     :ensure t
