@@ -51,3 +51,4 @@ config.el
 /FsAutoComplete/
 /server/
 /projects
+/org-persist/

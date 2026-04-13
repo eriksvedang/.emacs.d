@@ -201,7 +201,7 @@ It should be possible to remove this, since Emacs is supporting ligatures native
                       ; Size
   (if (eq system-type 'darwin)
       (progn
-    (add-to-list 'default-frame-alist '(width . 72))
+    (add-to-list 'default-frame-alist '(width . 96))
     (add-to-list 'default-frame-alist '(height . 32)))
     (progn
       (add-to-list 'default-frame-alist '(width . 128))
@@ -1188,8 +1188,10 @@ The original Emacs keybinding for this is C-S-backspace, which actually seems fi
   (add-to-list 'load-path "/Users/eriksvedang/Code/carp-emacs")
   (add-to-list 'load-path "C:/Users/erik/Documents/Projects/carp-emacs")
 
-  ;;(require 'carp-mode)
+  (require 'carp-mode)
   ;;(require 'carp-flycheck)
+
+  ;;(setenv "CARP_DIR" "/Users/erik/Projects/carp")
 
   (add-hook 'carp-mode-hook
             (lambda ()
