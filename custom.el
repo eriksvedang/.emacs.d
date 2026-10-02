@@ -14,8 +14,8 @@
                 gnugo go-dlv go-imenu go-impl go-mode haskell
                 haskell-mode helm ido-completing-read+ ido-ubiquitous
                 idris-mode iedit irony ivy ivy-prescient ivy-rich
-                js2-mode lsp lsp-mode lsp-ui-mode lua-mode magit
-                marginalia multiple-cursors nix-buffer nix-mode
+                js2-mode lsp lsp-haskell lsp-mode lsp-ui-mode lua-mode
+                magit marginalia multiple-cursors nix-buffer nix-mode
                 omnisharp-emacs org-bullets org-bullets-mode ormolu
                 php-mode projectile purescript-mode racer racket-mode
                 rainbow-mode restclient reveal-in-osx-finder rjsx-mode

@@ -1382,6 +1382,12 @@ I probably should start using LSP for Go.
     :custom (gdscript-eglot-version 3))
 #+end_src
 
+** Swamp
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "/Users/erik/Projects/swamp-mode")
+  (require 'swamp-mode)
+#+end_src
+
 ** Misc programming languages
 Apparently 'use-package' is a bit too slow to use for just
 installing a bunch of packages (this is a bummer) so let's
