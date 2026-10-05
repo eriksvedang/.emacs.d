@@ -1,3 +1,8 @@
+* Enable lexical binding
+#+begin_src emacs-lisp
+  ;;; -*- lexical-binding: t; -*-
+#+end_src
+
 * Packages
 ** Configure archives
 1. [[https://melpa.org/][Milkypostman’s Emacs Lisp Package Archive]]

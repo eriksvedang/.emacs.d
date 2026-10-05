@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; Use kind of large GC threshold to increase loading speed
 (setq gc-cons-threshold (* 1024 1024 128))
 

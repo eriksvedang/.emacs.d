@@ -52,3 +52,4 @@ config.el
 /server/
 /projects
 /org-persist/
+/recentf.eld
