@@ -53,3 +53,4 @@ config.el
 /projects
 /org-persist/
 /recentf.eld
+/tree-sitter/
