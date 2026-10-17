@@ -1390,6 +1390,7 @@ I probably should start using LSP for Go.
 ** Swamp
 #+begin_src emacs-lisp
   (add-to-list 'load-path "/Users/erik/Projects/swamp-mode")
+  (add-to-list 'load-path "/home/erik/Projects/swamp-mode")
   (require 'swamp-mode)
 #+end_src
 
